@@ -6,7 +6,7 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const fs = require("fs");
 
 const getSvgContent = function (file) {
-	let relativeFilePath = `./page/images/${file}`;
+	let relativeFilePath = `./page/assets/${file}`;
 	let data = fs.readFileSync(relativeFilePath, function (err, contents) {
 		if (err) return err;
 		return contents;
@@ -34,10 +34,6 @@ module.exports = (eleventyConfig) => {
 	});
 	eleventyConfig.addPlugin(syntaxHighlight);
 	eleventyConfig.addShortcode("svg", getSvgContent);
-	eleventyConfig.addPassthroughCopy({ "./dist/style.css": "style.css" });
-	eleventyConfig.addPassthroughCopy({ "./dist/style.css.map": "style.css.map" });
-	eleventyConfig.addPassthroughCopy({ "./dist/base.css": "base.css" });
-	eleventyConfig.addPassthroughCopy({ "./dist/base.css.map": "base.css.map" });
 
 	return {
 		dir: {

@@ -30,12 +30,13 @@
 	"devDependencies": {
 		"@11ty/eleventy": "^2.0.1",
 		"@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
-		"esbuild": "^0.19.8",
-		"npm-run-all": "^4.1.5",
 		"eleventy-plugin-toc": "^1.1.5",
+		"esbuild": "^0.19.8",
 		"markdown-it": "^14.0.0",
 		"markdown-it-abbr": "^2.0.0",
-		"markdown-it-anchor": "^8.6.7"
+		"markdown-it-anchor": "^8.6.7",
+		"npm-run-all": "^4.1.5",
+		"prism-themes": "^1.9.0"
 	},
 	"repository": {
 		"type": "git",

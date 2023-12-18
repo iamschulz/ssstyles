@@ -1,0 +1,12 @@
+---
+permalink: style.css
+---
+{% include "../../dist/style.css" %}
+
+@media (prefers-color-scheme: light, prefers-color-scheme: no-preference) {
+    {% include "../../node_modules/prism-themes/themes/prism-ghcolors.min.css" %}
+}
+
+@media (prefers-color-scheme: dark) {
+    {% include "../../node_modules/prism-themes/themes/prism-vsc-dark-plus.min.css" %}
+}
