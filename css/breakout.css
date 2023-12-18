@@ -1,0 +1,4 @@
+[data-breakout] {
+	margin: 0 calc((50vw - 50%) * -1);
+	padding: 1rem max(calc(50vw - var(--body-width) / 2), 1rem);
+}

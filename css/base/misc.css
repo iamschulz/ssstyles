@@ -1,0 +1,19 @@
+hr {
+	border: 0.125rem solid var(--col-bg3);
+	border-radius: var(--border-radius);
+	margin: 5rem 0;
+}
+
+[disabled],
+[aria-disabled] {
+	cursor: not-allowed;
+}
+
+abbr {
+	cursor: help;
+}
+
+mark {
+	background-color: var(--col-accent2);
+	color: var(--col-accent-contrast);
+}

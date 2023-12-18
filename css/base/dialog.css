@@ -1,0 +1,36 @@
+@keyframes dialog-fade-in {
+	from {
+		opacity: 0;
+		translate: 0 1rem;
+	}
+	to {
+		opacity: 1;
+		translate: 0 0;
+	}
+}
+
+body:has(dialog[open]) {
+	overflow: hidden;
+}
+
+dialog {
+	padding: 1rem 2ch;
+	border: 0.125rem solid var(--col-bg3);
+	background: var(--col-bg);
+	@media (prefers-reduced-motion: no-preference) {
+		animation: dialog-fade-in 0.1s ease-out;
+	}
+
+	> header {
+		background: var(--col-bg3);
+		margin: -1rem -2ch 1rem;
+		padding: 1rem 2ch;
+		font-weight: 700;
+	}
+
+	&::backdrop {
+		background: rgba(0, 0, 0, 0.4);
+		backdrop-filter: blur(4px);
+		animation: fade-in 0.1s ease-out;
+	}
+}

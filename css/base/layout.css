@@ -1,0 +1,33 @@
+:root {
+	box-sizing: border-box;
+}
+
+body {
+	max-width: var(--body-width);
+	margin: auto;
+	padding: 0 1rem;
+	word-wrap: break-word;
+
+	> :is(header, footer) {
+		padding: 2rem 0;
+		margin: 0 calc((50vw - 50%) * -1);
+		padding-left: calc(50vw - 50%);
+		padding-right: calc(50vw - 50%);
+		background: var(--col-bg3);
+	}
+
+	> footer {
+		margin-top: 5rem;
+	}
+}
+
+img,
+figure,
+video,
+canvas,
+iframe {
+	display: block;
+	max-width: 100%;
+	margin-inline-start: 0;
+	margin-inline-end: 0;
+}

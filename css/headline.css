@@ -1,0 +1,15 @@
+:is(h1, h2, h3, h4, h5, h6) {
+	> :first-child:is([href^="#"]) {
+		text-decoration: none;
+		color: currentColor;
+		color: var(--col-fg2);
+	}
+
+	:is(&:hover, &:focus-within) > :first-child:is([href^="#"]) {
+		color: var(--col-accent);
+
+		&:hover {
+			color: var(--col-accent2);
+		}
+	}
+}

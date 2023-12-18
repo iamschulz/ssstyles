@@ -1,0 +1,35 @@
+* {
+	word-break: break-word;
+	hyphens: auto;
+}
+
+:root {
+	font-family: var(--font);
+	font-size: min(max(var(--font-size-min), 1.5vw), var(--font-size-max));
+	line-height: var(--line-height);
+	letter-spacing: var(--letter-spacing);
+	text-wrap: balance;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+h1 {
+	font-size: 3rem;
+	font-family: var(--font-accent, var(--font));
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-top: 3.5rem;
+	font-family: var(--font-accent, var(--font));
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}

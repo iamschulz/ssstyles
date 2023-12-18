@@ -1,0 +1,34 @@
+[data-shadow] {
+	box-shadow: 0px calc(var(--shadow-mod, var(--shadow-level)) * var(--shadow-mod, var(--shadow-level)) * 1px)
+			calc(var(--shadow-level) * var(--shadow-level) * 2px)
+			calc(var(--shadow-mod, var(--shadow-level)) * 1px - 1px) rgba(0, 0, 0, 0.14),
+		0px 3px calc((var(--shadow-mod, var(--shadow-level)) - 1) * 5px)
+			calc((var(--shadow-mod, var(--shadow-level)) - 2) * 2px) rgba(0, 0, 0, 0.12),
+		0px calc((var(--shadow-mod, var(--shadow-level)) - 1) * 1.5px)
+			calc(var(--shadow-mod, var(--shadow-level)) * 2px)
+			calc((var(--shadow-mod, var(--shadow-level)) - 1) * 1.5px) rgba(0, 0, 0, 0.2);
+}
+
+[data-shadow$="-hover"] {
+	--t-box-shadow: 0.2s;
+
+	&:hover {
+		--shadow-mod: calc(var(--shadow-level) + 1);
+	}
+}
+
+[data-shadow^="1"] {
+	--shadow-level: 1;
+}
+[data-shadow^="2"] {
+	--shadow-level: 2;
+}
+[data-shadow^="3"] {
+	--shadow-level: 3;
+}
+[data-shadow^="4"] {
+	--shadow-level: 4;
+}
+[data-shadow^="5"] {
+	--shadow-level: 5;
+}

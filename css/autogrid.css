@@ -1,0 +1,20 @@
+[data-autogrid] {
+	--gap: 1rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(var(--grid-item-width), 1fr));
+	justify-items: stretch;
+	align-items: flex-start;
+	gap: var(--gap);
+}
+
+[data-autogrid="1/4"] {
+	--grid-item-width: max(calc(25% - var(--gap) * 3), 200px);
+}
+
+[data-autogrid="1/3"] {
+	--grid-item-width: max(calc(33% - var(--gap) * 2), 240px);
+}
+
+[data-autogrid="1/2"] {
+	--grid-item-width: max(calc(50% - var(--gap)), 240px);
+}

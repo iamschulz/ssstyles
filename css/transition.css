@@ -1,0 +1,7 @@
+* {
+	transition: transform var(--t-transform, 0s) ease-out, translate var(--t-translate, 0s) ease-out,
+		rotate var(--t-rotate, 0s) ease-out, scale var(--t-scale, 0s) ease-out,
+		box-shadow var(--t-box-shadow, 0s) ease-out, color var(--t-color, 0s) ease-out,
+		background var(--t-background, 0s) ease-out, border-color var(--t-border-color, 0s) ease-out,
+		filter var(--t-filter, 0s) ease-out, opacity var(--t-opacity, 0s) ease-out;
+}

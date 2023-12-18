@@ -1,0 +1,45 @@
+details {
+	background-color: var(--col-bg2);
+	border-color: var(--col-bg3);
+	border-style: solid;
+	border-radius: var(--border-radius);
+	padding: 0.5rem 1ch;
+
+	> summary {
+		position: relative;
+		font-weight: 500;
+		cursor: pointer;
+		padding-left: 1rem;
+		list-style-type: none;
+
+		&::marker,
+		&::-webkit-details-marker {
+			display: none;
+		}
+
+		&::before {
+			content: "";
+			position: absolute;
+			left: -1ch;
+			width: 0;
+			height: 0;
+			border: 0.5rem solid transparent;
+			border-left: 0.5rem solid var(--col-accent);
+			transform: translate(0.625rem, 0.25lh) rotate(var(--dstr, 0deg));
+			transform-origin: 25% center;
+			transition: transform 0.1s ease-out;
+		}
+
+		&:hover::before {
+			border-left-color: var(--col-accent2);
+		}
+	}
+
+	&[open] > summary {
+		margin-bottom: 1rem;
+
+		&::before {
+			--dstr: 90deg;
+		}
+	}
+}

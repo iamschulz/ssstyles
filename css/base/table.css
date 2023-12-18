@@ -1,0 +1,50 @@
+table {
+	border-collapse: collapse;
+	table-layout: fixed;
+	min-width: 100%;
+}
+
+figure:has(table) {
+	overflow-x: auto;
+}
+
+thead {
+	border-bottom: 0.125rem solid var(--col-bg3);
+}
+
+tbody tr:nth-child(even) {
+	background-color: var(--col-bg2);
+}
+
+td,
+th {
+	padding: 0.5rem 1ch;
+	text-align: left;
+	vertical-align: top;
+	white-space: nowrap;
+}
+
+tfoot {
+	border-top: 0.125rem solid var(--col-bg3);
+}
+
+dl {
+	& dd {
+		margin-inline-start: 0.5ch;
+
+		&::before {
+			content: "├";
+			margin-inline-end: 0.5ch;
+			font-family: var(--font-mono);
+			font-size: 2em;
+			position: relative;
+			top: 0.4rem;
+			line-height: 0;
+			color: var(--col-fg2);
+		}
+		&:last-of-type::before,
+		&:has(+ dt)::before {
+			content: "└";
+		}
+	}
+}

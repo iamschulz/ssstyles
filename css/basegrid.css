@@ -1,0 +1,44 @@
+body {
+	display: grid;
+	min-height: 100vh;
+	grid-auto-columns: 1fr;
+	grid-template-columns: 100% 20ch;
+	grid-template-rows: max-content max-content auto max-content;
+	gap: 0 1rem;
+	grid-template-areas:
+		"header ."
+		"nav side"
+		"content side"
+		"footer .";
+}
+
+body > header {
+	grid-area: header;
+}
+
+body > nav {
+	grid-area: nav;
+}
+
+body > main {
+	grid-area: content;
+}
+
+body > footer {
+	grid-area: footer;
+}
+
+body > aside {
+	grid-area: side;
+}
+
+@media (min-width: 85rem) {
+	[data-nav] {
+		grid-area: side;
+
+		& > ul > li {
+			width: 100%;
+			margin-bottom: 1rem;
+		}
+	}
+}

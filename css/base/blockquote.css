@@ -1,0 +1,27 @@
+blockquote {
+	margin: 1rem 0;
+	padding: 1rem 2ch;
+	border-radius: var(--border-radius);
+	background: var(--col-bg2);
+	font-size: 1.2rem;
+	font-style: italic;
+	border: 2px solid var(--col-bg3);
+
+	> footer {
+		font-size: 1rem;
+		margin: 1rem 0 0 2ch;
+		font-style: normal;
+
+		&::before {
+			content: "— ";
+		}
+
+		cite {
+			font-style: italic;
+		}
+	}
+}
+
+figure > blockquote {
+	margin: 0;
+}

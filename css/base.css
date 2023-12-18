@@ -1,0 +1,11 @@
+@import "./base/config.css" layer(ssstyles_base);
+@import "./base/colors.css" layer(ssstyles_base);
+@import "./base/layout.css" layer(ssstyles_base);
+@import "./base/typo.css" layer(ssstyles_base);
+@import "./base/forms.css" layer(ssstyles_base);
+@import "./base/table.css" layer(ssstyles_base);
+@import "./base/summary.css" layer(ssstyles_base);
+@import "./base/blockquote.css" layer(ssstyles_base);
+@import "./base/code.css" layer(ssstyles_base);
+@import "./base/dialog.css" layer(ssstyles_base);
+@import "./base/misc.css" layer(ssstyles_base);

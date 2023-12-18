@@ -1,0 +1,17 @@
+:root {
+	color-scheme: light dark;
+	background-color: var(--col-bg);
+	color: var(--col-fg);
+}
+
+* {
+	accent-color: var(--col-accent);
+}
+
+a {
+	color: var(--col-accent);
+
+	&:hover {
+		color: var(--col-accent2);
+	}
+}

@@ -1,0 +1,19 @@
+[data-carousel] {
+	display: flex;
+	gap: 1rem;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+
+	> * {
+		flex: 0 0 auto;
+		scroll-snap-align: center;
+	}
+}
+
+[data-carousel="left"] > * {
+	scroll-snap-align: left;
+}
+
+[data-carousel="right"] > * {
+	scroll-snap-align: right;
+}

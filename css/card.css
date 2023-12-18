@@ -1,0 +1,54 @@
+[data-card] {
+	position: relative;
+	display: inline-block;
+	background-color: var(--col-bg2);
+	border-radius: var(--border-radius);
+	padding: 1rem 1ch;
+	overflow: hidden;
+	--t-translate: 0.25s;
+	translate: 0 0;
+
+	> [data-card-link] {
+		position: absolute;
+		inset: 0;
+		z-index: 2;
+		border-radius: var(--border-radius);
+
+		&:focus {
+			outline: 0.125rem solid dodgerblue;
+			outline-offset: -0.125rem;
+		}
+	}
+
+	&:has([data-card-link]):is(:hover, :focus-within) {
+		translate: 0 -0.3rem;
+	}
+
+	> header {
+		background-color: var(--col-bg3);
+		margin: -1rem -1ch 1rem;
+		padding: 1rem 1ch;
+		font-size: 1.2rem;
+		font-weight: 600;
+	}
+
+	> [data-card-background] {
+		position: relative;
+		margin: -1rem -1ch;
+		max-width: calc(100% + 2ch);
+
+		> figcaption {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			padding: 1rem 0;
+			text-align: center;
+			background: color-mix(in lch, var(--col-bg2), transparent 20%);
+			font-weight: 500;
+
+			@media (prefers-reduced-transparency) {
+				background: var(--col-bg2);
+			}
+		}
+	}
+}

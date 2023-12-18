@@ -1,0 +1,18 @@
+[data-actionlink] {
+	position: fixed;
+	bottom: 2rem;
+	right: 2rem;
+	aspect-ratio: 1;
+	border-radius: 50%;
+	background-color: var(--col-accent);
+	color: var(--col-accent-contrast);
+	font-weight: 600;
+	display: grid;
+	place-items: center;
+	padding: 1ch;
+	text-decoration: none;
+
+	&:hover {
+		background-color: var(--col-accent2);
+	}
+}

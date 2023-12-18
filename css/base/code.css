@@ -1,0 +1,40 @@
+code,
+kbd,
+pre {
+	background: var(--col-bg2);
+	border: 0.125rem solid var(--col-bg3);
+	border-radius: var(--border-radius);
+	padding: 0.05rem 0.5ch;
+	font-size: 0.8rem;
+	font-family: var(--font-mono);
+	font-weight: 600;
+	color: var(--col-accent2);
+	max-width: 100%;
+	overflow: auto;
+	text-wrap: nowrap;
+}
+
+pre {
+	padding: 0.5rem;
+	margin: 1rem 0;
+}
+
+kbd {
+	border-bottom: 0.25rem solid var(--col-bg3);
+	border-radius: var(--border-radius) var(--border-radius) 5px 5px;
+	font-weight: 700;
+}
+
+pre code,
+code pre {
+	background: inherit;
+	font-size: inherit;
+	color: inherit;
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+code pre {
+	display: inline;
+}
