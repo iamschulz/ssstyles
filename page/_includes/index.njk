@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>{{ title }}{% if title %} &bull; {%endif%}Ssstyles</title>
-		<link rel="stylesheet" href="/style.css">
+		<link rel="stylesheet" href="{{ '/style.css' | url }}">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-ghcolors.min.css"  media="(prefers-color-scheme=no-preference)">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-ghcolors.min.css"  media="(prefers-color-scheme=light)">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-vsc-dark-plus.min.css"  media="(prefers-color-scheme=dark)">
@@ -18,12 +18,12 @@
 	</head>
 	<body>
 		<header>
-			<h1><a href="/">Ssstyles</a>{% if title %} ›&nbsp;{%endif%}{{ title }}</h1>
+			<h1><a href="{{ '/' | url }}">Ssstyles</a>{% if title %} ›&nbsp;{%endif%}{{ title }}</h1>
 		</header>
 		<nav data-nav>
 			<ul>
 				{% for link in nav %}
-					<li><a href="{{link.url}}">{{link.text}}</a></li>
+					<li><a href="{{ link.url | url }}">{{link.text}}</a></li>
 				{% endfor %}
 			</ul>
 		</nav>

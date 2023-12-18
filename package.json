@@ -1,11 +1,12 @@
 {
 	"name": "Ssstyles",
 	"version": "0.0.1",
-	"description": "",
+	"description": "Ssstyles is a very simple CSS style system",
 	"main": "index.js",
 	"scripts": {
 		"build:css": "node ./esbuild.js --minify",
 		"build:page": "node ./esbuild.js --minify && eleventy",
+		"build:gh-page": "env NODE_ENV=production node ./esbuild.js --minify && eleventy --pathprefix 'ssstyles'",
 		"watch:css": "node ./esbuild.js --watch",
 		"watch:11ty": "eleventy --serve",
 		"watch:page": "npm-run-all --parallel watch:css watch:11ty",

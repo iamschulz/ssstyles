@@ -11,7 +11,7 @@ nav:
     ]
 ---
 
-\*[classless]: That means it works on bare html tags
+*[classless]: That means it works on bare html tags
 
 Ssstyles is a very simple CSS style system. It consists of a classless stylesheet as a base layer and some small, optional components on top.
 
