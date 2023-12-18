@@ -3,10 +3,16 @@ permalink: style.css
 ---
 {% include "../../dist/style.css" %}
 
-@media (prefers-color-scheme: light, prefers-color-scheme: no-preference) {
+@media (prefers-color-scheme: light), (prefers-color-scheme: no-preference) {
     {% include "../../node_modules/prism-themes/themes/prism-ghcolors.min.css" %}
 }
 
 @media (prefers-color-scheme: dark) {
     {% include "../../node_modules/prism-themes/themes/prism-vsc-dark-plus.min.css" %}
+}
+
+pre[class*=language-] {
+    background: var(--col-bg2);
+    margin: 1rem 0;
+    padding: 0.5rem;
 }
