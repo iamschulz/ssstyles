@@ -13,13 +13,13 @@ nav:
 
 The stylesheet is configurable by a few custom properties.
 
-### Layout and design
+## Layout and design
 
 `--body-width` Sets the max width of the content area. It's default is `45rem`.
 
 `--border-radius` Sets the border-radius of various elements, like buttons, forms, code snippets and more. It's set to `10px` by default.
 
-### Colors
+## Colors
 
 <style>
     .colors-demo {
@@ -71,7 +71,7 @@ and for dark mode:
 --col-accent-contrast: #111;
 ```
 
-### Typography
+## Typography
 
 This Stylesheet uses a system font stack, but you can insert your own fonts with `--font` and `--font-mono`.
 

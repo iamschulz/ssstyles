@@ -89,6 +89,8 @@ Update the following custom properties to personalize the stylesheet:
 --font-size-max: <length>;
 --line-height: <number>;
 --letter-spacing: <length>;
+--body-width: <length>;
+--border-radius: <length>;
 ```
 
 [Read further configuration details](/configuration)
@@ -142,49 +144,49 @@ Here are some optional components. They're invoked by adding `data-componentname
     <li data-card data-shadow="2-hover">
         <a data-card-link href="/card"></a>
         <figure data-card-background>
-            <img src="https://picsum.photos/id/16/800/600">
+            {% svg "card.svg" %}
             <figcaption>Card</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
         <a data-card-link href="/breakout"></a>
         <figure data-card-background>
-            <img src="https://picsum.photos/id/17/800/600">
+            {% svg "breakout.svg" %}
             <figcaption>Breakout</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
         <a data-card-link href="/Shadow"></a>
         <figure data-card-background>
-            <img src="https://picsum.photos/id/18/800/600">
+            {% svg "shadow.svg" %}
             <figcaption>Shadow</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
         <a data-card-link href="/toggle"></a>
         <figure data-card-background>
-            <img src="https://picsum.photos/id/10/800/600">
+            {% svg "toggle.svg" %}
             <figcaption>Toggle</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
         <a data-card-link href="/carousel"></a>
         <figure data-card-background>
-            <img src="https://picsum.photos/id/19/800/600">
+            {% svg "carousel.svg" %}
             <figcaption>Carousel</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
         <a data-card-link href="/action-link"></a>
         <figure data-card-background>
-            <img src="https://picsum.photos/id/12/800/600">
+            {% svg "actionlink.svg" %}
             <figcaption>Action Link</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
         <a data-card-link href="/animations"></a>
         <figure data-card-background>
-            <img src="https://picsum.photos/id/11/800/600">
+            {% svg "animations.svg" %}
             <figcaption>Animations</figcaption>
         </figure>
     </li>
