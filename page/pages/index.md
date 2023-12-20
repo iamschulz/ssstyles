@@ -3,7 +3,7 @@ layout: index.njk
 permalink: /index.html
 nav:
     [
-        { url: "#usage", text: "Usage" },
+        { url: "#install", text: "Install" },
         { url: "#configuration", text: "Configuration" },
         { url: "#base-styles", text: "Base Styles" },
         { url: "#components", text: "Components" },
@@ -26,7 +26,7 @@ You can use this as a quick start for simple websites and build your own stuff o
 
 ---
 
-## Usage
+## Install
 
 You have multiple options to install Ssstyles. I provide two packages:
 
@@ -137,12 +137,14 @@ Here are some optional components. They're invoked by adding `data-componentname
     <li data-card data-shadow="2-hover">
         <a data-card-link href="/drawer"></a>
         <figure data-card-background>
+            {% svg "drawer.svg" %}
             <figcaption>Drawer</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="/skiplink"></a>
+        <a data-card-link href="/skip-link"></a>
         <figure data-card-background>
+            {% svg "skiplink.svg" %}
             <figcaption>Skiplink</figcaption>
         </figure>
     </li>
@@ -205,6 +207,7 @@ Here are some optional components. They're invoked by adding `data-componentname
     <li data-card data-shadow="2-hover">
         <a data-card-link href="/styled-links"></a>
         <figure data-card-background>
+            {% svg "styledlinks.svg" %}
             <figcaption>Styled Links</figcaption>
         </figure>
     </li>

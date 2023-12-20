@@ -16,6 +16,7 @@ const getSvgContent = function (file) {
 };
 
 module.exports = (eleventyConfig) => {
+	eleventyConfig.addWatchTarget("./css/");
 	eleventyConfig.setLibrary(
 		"md",
 		markdownIt({

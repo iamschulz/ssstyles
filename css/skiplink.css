@@ -1,0 +1,14 @@
+[data-skiplink] {
+	position: absolute;
+
+	&:not(:focus, :focus-within) {
+		clip: rect(1px, 1px, 1px, 1px);
+		pointer-events: none;
+		overflow: hidden;
+		height: 1px;
+		width: 1px;
+		border: 0;
+		padding: 0;
+		position: absolute;
+	}
+}
