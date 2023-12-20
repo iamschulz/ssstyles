@@ -2,7 +2,7 @@ body {
 	display: grid;
 	min-height: 100vh;
 	grid-auto-columns: 1fr;
-	grid-template-columns: 100% 20ch;
+	grid-template-columns: calc(100% - 1rem) 20ch;
 	grid-template-rows: max-content max-content auto max-content;
 	gap: 0 1rem;
 	grid-template-areas:

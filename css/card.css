@@ -37,6 +37,10 @@
 		margin: -1rem -1ch;
 		max-width: calc(100% + 2ch);
 
+		&:has(figcaption) {
+			min-height: 3.5rem;
+		}
+
 		> figcaption {
 			position: absolute;
 			bottom: 0;

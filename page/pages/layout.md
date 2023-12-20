@@ -21,6 +21,11 @@ On large viewports, the navigation snaps to the right side of the content area. 
 
 <input type="checkbox" data-toggle id="base-grid-vis" /> <label for="base-grid-vis">Visualize the base grid</label>
 
+<aside data-callout>
+<header><h3>Breakpoints are dangerous</h3></header>
+<p>Please notice that the media query that breaks the navigation out to the side will not adhere to the <code>--body-width</code> variable. It is set to <code>85rem</code>. Increasing <code>--body-width</code> without overwriting the media query might break things.</p>
+</aside>
+
 <script>
     document.querySelector('#base-grid-vis').addEventListener('change', (e) => {
         document.body.classList.toggle('demo', e.target.checked);

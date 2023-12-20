@@ -1,0 +1,37 @@
+[data-callout] {
+	--col-callout: var(--col-fg2);
+	--col-callout-contrast: var(--col-bg);
+
+	border: 1px solid var(--col-callout);
+	background-color: color-mix(in oklab, var(--col-callout), var(--col-bg) 80%);
+	padding: 1rem;
+	border-radius: var(--border-radius);
+	overflow: hidden;
+	text-wrap: wrap;
+
+	> header {
+		margin: -1rem -1rem 0;
+		padding: 1rem;
+		background: var(--col-callout);
+		color: var(--col-callout-contrast);
+		font-family: var(--font-accent);
+
+		> * {
+			margin: 0;
+		}
+	}
+
+	> :last-child {
+		margin-bottom: 0;
+	}
+}
+
+[data-callout="accent"] {
+	--col-callout: var(--col-accent);
+	--col-callout-contrast: var(--col-accent-contrast);
+}
+
+[data-callout="accent2"] {
+	--col-callout: var(--col-accent2);
+	--col-callout-contrast: var(--col-accent-contrast);
+}

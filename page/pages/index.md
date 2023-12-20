@@ -135,6 +135,18 @@ Here are some optional components. They're invoked by adding `data-componentname
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
+        <a data-card-link href="/drawer"></a>
+        <figure data-card-background>
+            <figcaption>Drawer</figcaption>
+        </figure>
+    </li>
+    <li data-card data-shadow="2-hover">
+        <a data-card-link href="/skiplink"></a>
+        <figure data-card-background>
+            <figcaption>Skiplink</figcaption>
+        </figure>
+    </li>
+    <li data-card data-shadow="2-hover">
         <a data-card-link href="/headline"></a>
         <figure data-card-background>
             {% svg "headline.svg" %}
@@ -156,7 +168,14 @@ Here are some optional components. They're invoked by adding `data-componentname
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="/Shadow"></a>
+        <a data-card-link href="/callout"></a>
+        <figure data-card-background>
+            {% svg "callout.svg" %}
+            <figcaption>Callout</figcaption>
+        </figure>
+    </li>
+    <li data-card data-shadow="2-hover">
+        <a data-card-link href="/shadow"></a>
         <figure data-card-background>
             {% svg "shadow.svg" %}
             <figcaption>Shadow</figcaption>
@@ -181,6 +200,12 @@ Here are some optional components. They're invoked by adding `data-componentname
         <figure data-card-background>
             {% svg "actionlink.svg" %}
             <figcaption>Action Link</figcaption>
+        </figure>
+    </li>
+    <li data-card data-shadow="2-hover">
+        <a data-card-link href="/styled-links"></a>
+        <figure data-card-background>
+            <figcaption>Styled Links</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
