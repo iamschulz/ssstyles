@@ -22,9 +22,9 @@
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--col-bg: #181c1f;
-		--col-bg2: #192124;
-		--col-bg3: #1d2629;
+		--col-bg: #171b1e;
+		--col-bg2: #161e21;
+		--col-bg3: #1a2225;
 		--col-fg: #eee;
 		--col-fg2: #7c8386;
 		--col-accent: #ff297a;

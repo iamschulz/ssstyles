@@ -61,9 +61,9 @@ Their default values are:
 and for dark mode:
 
 ```css
---col-bg: #1c2227;
---col-bg2: #1e282d;
---col-bg3: #222d31;
+--col-bg: #171b1e;
+--col-bg2: #161e21;
+--col-bg3: #1a2225;
 --col-fg: #eee;
 --col-fg2: #7c8386;
 --col-accent: #ff297a;
