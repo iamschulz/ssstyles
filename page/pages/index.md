@@ -106,9 +106,9 @@ The base package also serves as the foundation to all other components.
 Here are some included elements:
 
 <article data-card data-shadow="2-hover">
-    <a data-card-link href="/base-styles"></a>
+    <a data-card-link href="/base-styles" aria-label="Base Styles"></a>
     <figure data-card-background>
-        <img src="https://picsum.photos/id/12/1920/600">
+        {% svg "base.svg" %}
         <figcaption>Base Styles</figcaption>
     </figure>
 </article>
@@ -121,98 +121,91 @@ Here are some optional components. They're invoked by adding `data-componentname
 
 <ul data-autogrid="1/3" data-hint="nolist">
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="/layout"></a>
+        <a data-card-link href="/layout" aria-label="Layout"></a>
         <figure data-card-background>
             {% svg "layout.svg" %}
             <figcaption>Layout</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="/nav"></a>
+        <a data-card-link href="/nav" aria-label="Nav"></a>
         <figure data-card-background>
             {% svg "nav.svg" %}
             <figcaption>Nav</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="/drawer"></a>
-        <figure data-card-background>
-            {% svg "drawer.svg" %}
-            <figcaption>Drawer</figcaption>
-        </figure>
-    </li>
-    <li data-card data-shadow="2-hover">
-        <a data-card-link href="/skip-link"></a>
+        <a data-card-link href="/skip-link" aria-label="Skiplink"></a>
         <figure data-card-background>
             {% svg "skiplink.svg" %}
             <figcaption>Skiplink</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="/headline"></a>
+        <a data-card-link href="/headline" aria-label="Headline"></a>
         <figure data-card-background>
             {% svg "headline.svg" %}
             <figcaption>Headline</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="/card"></a>
+        <a data-card-link href="/card" aria-label="Card"></a>
         <figure data-card-background>
             {% svg "card.svg" %}
             <figcaption>Card</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="/breakout"></a>
+        <a data-card-link href="/breakout" aria-label="Breakout"></a>
         <figure data-card-background>
             {% svg "breakout.svg" %}
             <figcaption>Breakout</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="/callout"></a>
+        <a data-card-link href="/callout" aria-label="Callout"></a>
         <figure data-card-background>
             {% svg "callout.svg" %}
             <figcaption>Callout</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="/shadow"></a>
+        <a data-card-link href="/shadow" aria-label="Shadow"></a>
         <figure data-card-background>
             {% svg "shadow.svg" %}
             <figcaption>Shadow</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="/toggle"></a>
+        <a data-card-link href="/toggle" aria-label="Toggle"></a>
         <figure data-card-background>
             {% svg "toggle.svg" %}
             <figcaption>Toggle</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="/carousel"></a>
+        <a data-card-link href="/carousel" aria-label="Carousel"></a>
         <figure data-card-background>
             {% svg "carousel.svg" %}
             <figcaption>Carousel</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="/action-link"></a>
+        <a data-card-link href="/action-link" aria-label="Link"></a>
         <figure data-card-background>
             {% svg "actionlink.svg" %}
             <figcaption>Action Link</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="/styled-links"></a>
+        <a data-card-link href="/styled-links" aria-label="Links"></a>
         <figure data-card-background>
             {% svg "styledlinks.svg" %}
             <figcaption>Styled Links</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="/animations"></a>
+        <a data-card-link href="/animations" aria-label="Animations"></a>
         <figure data-card-background>
             {% svg "animations.svg" %}
             <figcaption>Animations</figcaption>

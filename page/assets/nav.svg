@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" id="Ebene_1" data-name="Ebene 1" viewBox="-80 -60 780 580">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-80 -60 780 580">
+  <title>Navigation</title>
   <path d="m547 596 30-12 1 61-30 12-1-61z" fill="#396280" />
   <path d="m49 490 29-12 499 106-30 12L49 490z" fill="#447598" />
   <path d="m547 596 1 61L49 551v-61l498 106z" fill="#62a9dc" />

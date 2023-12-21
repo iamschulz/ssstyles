@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="a" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <title>Card</title>
   <g style="fill: none; isolation: isolate;">
     <polygon points="660.65 157.19 690.56 145.23 693.59 560.66 663.67 572.62 660.65 157.19" style="fill: #4e7790;" />
     <polygon points="106.41 39.38 136.33 27.42 690.56 145.23 660.65 157.19 106.41 39.38" style="fill: #5986a3;" />

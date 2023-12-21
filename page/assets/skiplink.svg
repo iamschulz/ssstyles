@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <title>Shadow</title>
   <g style="fill: none; isolation: isolate;">
     <polygon points="69.38 50.23 99.29 38.27 275.33 168.69 245.41 180.65 69.38 50.23" style="fill: #547f9a;" />
     <polygon points="69.38 50.23 245.41 180.65 445.65 329 246.96 392.56 72.28 448.43 69.38 50.23"
