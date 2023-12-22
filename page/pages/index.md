@@ -198,10 +198,10 @@ Here are some optional components. They're invoked by adding `data-componentname
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="/styled-links" aria-label="Links"></a>
+        <a data-card-link href="/contact-links" aria-label="Links"></a>
         <figure data-card-background>
-            {% svg "styledlinks.svg" %}
-            <figcaption>Styled Links</figcaption>
+            {% svg "contactlinks.svg" %}
+            <figcaption>Contact Links</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
