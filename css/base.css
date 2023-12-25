@@ -1,4 +1,5 @@
 @import "./base/config.css" layer(ssstyles_base);
+@import "./base/highcontrast.css" layer(ssstyles_base);
 @import "./base/colors.css" layer(ssstyles_base);
 @import "./base/layout.css" layer(ssstyles_base);
 @import "./base/typo.css" layer(ssstyles_base);
