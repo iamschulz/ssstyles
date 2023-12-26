@@ -11,6 +11,8 @@ nav: [
 permalink: "/{{ title | slugify }}/index.html"
 ---
 
+<a href="https://github.com/iamschulz/ssstyles/blob/main/css/nav.css" data-button>{% svg "github-mark.svg" %} Source</a>
+
 This is supposed to be a site navigation. The list styles are removed from the `<ul>` and links are printed in bold.
 
 ```html

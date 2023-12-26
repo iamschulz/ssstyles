@@ -4,12 +4,12 @@
 @import "./transition.css" layer(base);
 
 @import "./basegrid.css" layer(layout);
-@import "./flexcol.css" layer(layout);
+@import "./flexgrid.css" layer(layout);
 @import "./breakout.css" layer(layout);
 @import "./autogrid.css" layer(layout);
 @import "./nolist.css" layer(components);
 @import "./skiplink.css" layer(components);
-@import "./styledlinks.css" layer(components);
+@import "./contactlinks.css" layer(components);
 @import "./headline.css" layer(components);
 @import "./nav.css" layer(components);
 @import "./card.css" layer(components);

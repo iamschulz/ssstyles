@@ -5,6 +5,8 @@ nav: [{ url: "/#components", text: "Back" }]
 permalink: "/{{ title | slugify }}/index.html"
 ---
 
+<a href="https://github.com/iamschulz/ssstyles/blob/main/css/breakout.css" data-button>{% svg "github-mark.svg" %} Source</a>
+
 The breakout component will expand its background across the content area to the left and right edges of the viewport.
 
 ```html

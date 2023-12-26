@@ -15,6 +15,8 @@ The layout components don't style elements on itself, but provide a pattern for 
 
 ## Base grid
 
+<a href="https://github.com/iamschulz/ssstyles/blob/main/css/basegrid.css" data-button>{% svg "github-mark.svg" %} Source</a>
+
 The base grid is the basic layout of the site. It supports a header, a navigation below and a footer on the bottom. The rest of the viewport is taken up by the main content area, which can expand to accommodate its content.
 
 On large viewports, the navigation snaps to the right side of the content area. You don't need to add a data attribute to anything. As soon as you import the `basegrid.css`, it will automatically apply to the document.
@@ -79,6 +81,8 @@ On large viewports, the navigation snaps to the right side of the content area. 
 
 ## Auto grid
 
+<a href="https://github.com/iamschulz/ssstyles/blob/main/css/autogrid.css" data-button>{% svg "github-mark.svg" %} Source</a>
+
 The auto grid divides its children into groups of 2, 3 or 4, depending on what you write into the data attribute. The children will be fitted into the viewport based on available space.
 
 ```html
@@ -126,6 +130,8 @@ The auto grid divides its children into groups of 2, 3 or 4, depending on what y
 </div>
 
 ## Flex grid
+
+<a href="https://github.com/iamschulz/ssstyles/blob/main/css/flexgrid.css" data-button>{% svg "github-mark.svg" %} Source</a>
 
 The flex grid will spread its children evenly across the availbale space. It will line-break if necessary and automatically fill uo the next line.
 

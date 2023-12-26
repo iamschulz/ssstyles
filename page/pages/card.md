@@ -12,6 +12,8 @@ nav:
 permalink: "/{{ title | slugify }}/index.html"
 ---
 
+<a href="https://github.com/iamschulz/ssstyles/blob/main/css/card.css" data-button>{% svg "github-mark.svg" %} Source</a>
+
 This component will render a card. It can have a header, content, background image and full-size link. Here are some examples:
 
 ## With content

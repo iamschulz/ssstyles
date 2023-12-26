@@ -10,6 +10,8 @@ nav:
 permalink: "/{{ title | slugify }}/index.html"
 ---
 
+<a href="https://github.com/iamschulz/ssstyles/blob/main/css/shadow.css" data-button>{% svg "github-mark.svg" %} Source</a>
+
 The shadow component will allow you to use a pleasing box-shadow in five levels of size. The shadow size is calculated from the custom property `--shadow-level`, in case you need to add your own values.
 
 Prepending the level with `-hover` will increase it's level on hover by 1.

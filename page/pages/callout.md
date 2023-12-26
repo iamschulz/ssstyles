@@ -5,6 +5,8 @@ nav: [{ url: "/#components", text: "Back" }]
 permalink: "/{{ title | slugify }}/index.html"
 ---
 
+<a href="https://github.com/iamschulz/ssstyles/blob/main/css/callout.css" data-button>{% svg "github-mark.svg" %} Source</a>
+
 The callout is an info box for important information. It can have a header and some content.
 
 ```html

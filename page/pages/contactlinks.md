@@ -5,6 +5,8 @@ nav: [{ url: "/#components", text: "Back" }]
 permalink: "/{{ title | slugify }}/index.html"
 ---
 
+<a href="https://github.com/iamschulz/ssstyles/blob/main/css/contactlinks.css" data-button>{% svg "github-mark.svg" %} Source</a>
+
 Links that start with `mailto:` and `tel:` have an icon that shows what it'll do. This component doesn't need a data attribute, it's always active whenever the component is imported.
 
 ```html

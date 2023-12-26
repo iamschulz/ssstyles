@@ -31,8 +31,9 @@ iframe {
 	margin-inline-end: 0;
 }
 
-img {
+img,
+svg {
 	max-width: 100%;
 	height: auto;
-	vertical-align: middle;
+	vertical-align: text-bottom;
 }

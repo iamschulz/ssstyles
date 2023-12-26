@@ -11,6 +11,8 @@ nav: [
 permalink: "/{{ title | slugify }}/index.html"
 ---
 
+<a href="https://github.com/iamschulz/ssstyles/blob/main/css/animation.css" data-button>{% svg "github-mark.svg" %} Source</a>
+
 This is a collection of pre-defined animations.
 
 ## Spinner
