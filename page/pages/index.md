@@ -66,7 +66,7 @@ npm install ssstyles
 
 You can also simply download the CSS file and include it however you wish:
 
-<button>Base Styles (2.1kB)</button> <button>Base and Components (3.7kB)</button>
+<button>Base Styles (2.2kB)</button> <button>Base and Components (4.3kB)</button>
 
 All file sizes are gzipped.
 
