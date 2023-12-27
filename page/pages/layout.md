@@ -23,6 +23,16 @@ On large viewports, the navigation snaps to the right side of the content area. 
 
 <input type="checkbox" data-toggle id="base-grid-vis" /> <label for="base-grid-vis">Visualize the base grid</label>
 
+You can configure the basegrid yourself by editing the values of those variables:
+
+```css
+:root {
+	--basegrid: "header ." "nav side" "content side" "footer .";
+	--basegrid-rows: max-content max-content auto max-content;
+	--basegrid-cols: calc(100% - 1rem) 20ch;
+}
+```
+
 <aside data-callout>
 <header><h3>Breakpoints are dangerous</h3></header>
 <p>Please notice that the media query that breaks the navigation out to the side will not adhere to the <code>--body-width</code> variable. It is set to <code>85rem</code>. Increasing <code>--body-width</code> without overwriting the media query might break things.</p>
@@ -133,7 +143,7 @@ The auto grid divides its children into groups of 2, 3 or 4, depending on what y
 
 <a href="https://github.com/iamschulz/ssstyles/blob/main/css/flexgrid.css" data-button>{% svg "github-mark.svg" %} Source</a>
 
-The flex grid will spread its children evenly across the availbale space. It will line-break if necessary and automatically fill uo the next line.
+The flex grid will spread its children evenly across the availbale space. It will line-break if necessary and automatically fill up the next line.
 
 ```html
 <div data-flexgrid>
