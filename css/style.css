@@ -5,6 +5,7 @@
 
 @import "./basegrid.css" layer(layout);
 @import "./flexgrid.css" layer(layout);
+@import "./group.css" layer(layout);
 @import "./breakout.css" layer(layout);
 @import "./autogrid.css" layer(layout);
 @import "./nolist.css" layer(components);

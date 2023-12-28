@@ -165,6 +165,13 @@ Here are some optional components. They're invoked by adding `data-componentname
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
+        <a data-card-link href="/group" aria-label="Group"></a>
+        <figure data-card-background>
+            {% svg "breakout.svg" %}
+            <figcaption>Group</figcaption>
+        </figure>
+    </li>
+    <li data-card data-shadow="2-hover">
         <a data-card-link href="/callout" aria-label="Callout"></a>
         <figure data-card-background>
             {% svg "callout.svg" %}
@@ -187,7 +194,7 @@ Here are some optional components. They're invoked by adding `data-componentname
     </li>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="/loading" aria-label="Toggle"></a>
+        <a data-card-link href="/loading" aria-label="Loading"></a>
         <figure data-card-background>
             {% svg "toggle.svg" %}
             <figcaption>Loading</figcaption>
@@ -201,14 +208,14 @@ Here are some optional components. They're invoked by adding `data-componentname
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="/action-link" aria-label="Link"></a>
+        <a data-card-link href="/action-link" aria-label="Action Link"></a>
         <figure data-card-background>
             {% svg "actionlink.svg" %}
             <figcaption>Action Link</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="/contact-links" aria-label="Links"></a>
+        <a data-card-link href="/contact-links" aria-label="Contact Links"></a>
         <figure data-card-background>
             {% svg "contactlinks.svg" %}
             <figcaption>Contact Links</figcaption>

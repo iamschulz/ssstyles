@@ -1,0 +1,35 @@
+[data-group] {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1px;
+
+	> *:not(:first-child, :last-child) {
+		border-radius: 0 !important;
+	}
+
+	&:not([data-group="vertical"]) {
+		> *:first-child {
+			border-top-right-radius: 0 !important;
+			border-bottom-right-radius: 0 !important;
+		}
+
+		> *:last-child {
+			border-top-left-radius: 0 !important;
+			border-bottom-left-radius: 0 !important;
+		}
+	}
+
+	&[data-group="vertical"] {
+		flex-direction: column;
+
+		> *:first-child {
+			border-bottom-right-radius: 0 !important;
+			border-bottom-left-radius: 0 !important;
+		}
+
+		> *:last-child {
+			border-top-right-radius: 0 !important;
+			border-top-left-radius: 0 !important;
+		}
+	}
+}

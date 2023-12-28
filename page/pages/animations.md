@@ -3,7 +3,6 @@ layout: index.njk
 title: Animations
 nav: [
         { url: "/#components", text: "Back" },
-        { url: "#spinner", text: "Spinner" },
         { url: "#sparkle", text: "Sparkle" },
         { url: "#fade-in", text: "Fade in" },
         # { url: "#view-transitions", text: "View Transitions" },
