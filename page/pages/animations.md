@@ -15,16 +15,6 @@ permalink: "/{{ title | slugify }}/index.html"
 
 This is a collection of pre-defined animations.
 
-## Spinner
-
-This is a simple loading spinner in a `::before` pseudo element.
-
-```html
-<div data-spinner>Loading</div>
-```
-
-<div data-spinner>Loading</div>
-
 ## Sparkle
 
 ```html

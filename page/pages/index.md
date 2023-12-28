@@ -66,7 +66,9 @@ npm install ssstyles
 
 You can also simply download the CSS file and include it however you wish:
 
-<button>Base Styles (2.2kB)</button> <button>Base and Components (4.3kB)</button>
+<button>Base Styles (2.2kB)</button>
+
+<button>Base and Components (4.3kB)</button>
 
 All file sizes are gzipped.
 
@@ -181,6 +183,14 @@ Here are some optional components. They're invoked by adding `data-componentname
         <figure data-card-background>
             {% svg "toggle.svg" %}
             <figcaption>Toggle</figcaption>
+        </figure>
+    </li>
+    </li>
+    <li data-card data-shadow="2-hover">
+        <a data-card-link href="/loading" aria-label="Toggle"></a>
+        <figure data-card-background>
+            {% svg "toggle.svg" %}
+            <figcaption>Loading</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">

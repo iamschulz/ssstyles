@@ -14,3 +14,5 @@ The action link is a circular link at the bottom right-hand corner of the viewpo
 ```
 
 <a data-actionlink data-shadow="2-hover" href="#top">To top</a>
+
+This will also work with a `<button>`.

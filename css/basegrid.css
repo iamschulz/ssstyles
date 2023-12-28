@@ -1,7 +1,7 @@
 :root {
 	--basegrid: "header ." "nav side" "content side" "footer .";
 	--basegrid-rows: max-content max-content auto max-content;
-	--basegrid-cols: calc(100% - 1rem) 20ch;
+	--basegrid-cols: 100% 20ch;
 }
 
 body {

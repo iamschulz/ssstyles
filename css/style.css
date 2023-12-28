@@ -14,6 +14,7 @@
 @import "./nav.css" layer(components);
 @import "./card.css" layer(components);
 @import "./toggle.css" layer(components);
+@import "./loading.css" layer(components);
 @import "./actionlink.css" layer(components);
 @import "./carousel.css" layer(components);
 @import "./callout.css" layer(components);
