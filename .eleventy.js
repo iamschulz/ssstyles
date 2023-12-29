@@ -18,7 +18,10 @@ const getSvgContent = function (file) {
 module.exports = (eleventyConfig) => {
 	eleventyConfig.addWatchTarget("./css/");
 	eleventyConfig.addWatchTarget("./page/assets/");
-	eleventyConfig.addPassthroughCopy({ "./page/assets/icon.*": "/" });
+	eleventyConfig.addPassthroughCopy({
+		"./page/assets/icon.*": "/",
+		"./page/assets/*.jpg": "/",
+	});
 	eleventyConfig.setLibrary(
 		"md",
 		markdownIt({

@@ -167,7 +167,7 @@ Here are some optional components. They're invoked by adding `data-componentname
     <li data-card data-shadow="2-hover">
         <a data-card-link href="/group" aria-label="Group"></a>
         <figure data-card-background>
-            {% svg "breakout.svg" %}
+            {% svg "group.svg" %}
             <figcaption>Group</figcaption>
         </figure>
     </li>
@@ -196,7 +196,7 @@ Here are some optional components. They're invoked by adding `data-componentname
     <li data-card data-shadow="2-hover">
         <a data-card-link href="/loading" aria-label="Loading"></a>
         <figure data-card-background>
-            {% svg "toggle.svg" %}
+            {% svg "loading.svg" %}
             <figcaption>Loading</figcaption>
         </figure>
     </li>
