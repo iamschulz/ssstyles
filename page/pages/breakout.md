@@ -16,7 +16,8 @@ The breakout component will expand its background across the content area to the
 -   `fg2`
 -   `accent`
 -   `accent2`
-    Or you can define your own colors by setting `--col-breakout` for the background color and `color` for the font.
+
+Or you can define your own colors by setting `--col-breakout` for the background color and `color` for the font.
 
 <br>
 
