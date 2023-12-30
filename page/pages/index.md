@@ -11,7 +11,7 @@ nav:
     ]
 ---
 
-*[classless]: That means it works on bare html tags
+\*[classless]: That means it works on bare html tags
 
 Ssstyles is a very simple CSS style system. It consists of a classless stylesheet as a base layer and some small, optional components on top.
 
@@ -66,9 +66,9 @@ npm install ssstyles
 
 You can also simply download the CSS file and include it however you wish:
 
-<button>Base Styles (2.2kB)</button>
+<button>Base Styles (2.4kB)</button>
 
-<button>Base and Components (4.3kB)</button>
+<button>Base and Components (4.7kB)</button>
 
 All file sizes are gzipped.
 
