@@ -1,7 +1,8 @@
 blockquote {
 	margin: 1rem 0;
 	padding: 1rem 2ch;
-	border-radius: var(--border-radius);
+	border-radius: var(--br-tl, var(--border-radius)) var(--br-tr, var(--border-radius))
+		var(--br-br, var(--border-radius)) var(--br-bl, var(--border-radius));
 	background: var(--col-bg2);
 	font-size: 1.2rem;
 	font-style: italic;

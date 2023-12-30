@@ -2,14 +2,46 @@
 	display: inline-flex;
 	flex-wrap: wrap;
 	gap: 1px;
-	border-radius: var(--border-radius);
-	overflow: hidden;
+	border-radius: var(--br-tl, var(--border-radius)) var(--br-tr, var(--border-radius))
+		var(--br-br, var(--border-radius)) var(--br-bl, var(--border-radius));
 
-	> * {
-		--border-radius: 0;
+	&:not([data-group="vertical"]) {
+		> *:first-child {
+			--br-tr: 0;
+			--br-br: 0;
+		}
+
+		> *:not(:first-child):not(:last-child) {
+			--br-tl: 0;
+			--br-tr: 0;
+			--br-bl: 0;
+			--br-br: 0;
+		}
+
+		> *:last-child {
+			--br-tl: 0;
+			--br-bl: 0;
+		}
 	}
 
 	&[data-group="vertical"] {
 		flex-direction: column;
+
+		> *:first-child {
+			--br-bl: 0;
+			--br-br: 0;
+		}
+
+		> *:not(:first-child):not(:last-child) {
+			--br-tl: 0;
+			--br-tr: 0;
+			--br-bl: 0;
+			--br-br: 0;
+		}
+
+		> *:last-child {
+			--br-tr: 0;
+			--br-tl: 0;
+		}
 	}
 }
