@@ -1,0 +1,34 @@
+button,
+[data-button],
+input[type="submit"],
+input[type="button"],
+input[type="reset"] {
+	--col-button: var(--col-accent);
+	--col-button2: var(--col-button);
+	--pos-gradient: -0.25rem;
+	padding: 0.25rem 1ch;
+	border: none;
+	border-radius: var(--br-tl, var(--border-radius)) var(--br-tr, var(--border-radius))
+		var(--br-br, var(--border-radius)) var(--br-bl, var(--border-radius));
+	color: var(--col-accent-contrast);
+	font-weight: 500;
+	text-decoration: none;
+	cursor: pointer;
+	background: linear-gradient(
+		to bottom,
+		var(--col-button2) calc(100% + var(--pos-gradient)),
+		color-mix(in oklab, var(--col-button2), black 20%) calc(100% + var(--pos-gradient))
+	);
+
+	&:hover:not(:is([disabled], [aria-disabled])) {
+		--col-button2: color-mix(in oklab, var(--col-button), white 10%);
+	}
+
+	&:active:not(:is([disabled], [aria-disabled])) {
+		--pos-gradient: -0.35rem;
+	}
+
+	&[data-button="accent2"] {
+		--col-button: var(--col-accent2);
+	}
+}
