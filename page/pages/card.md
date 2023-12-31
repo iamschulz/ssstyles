@@ -37,7 +37,7 @@ This component will render a card. It can have a header, content, background ima
 ```html
 <article data-card>
 	<figure data-card-background>
-		<img src="https://picsum.photos/1920/600" />
+		<img src="https://picsum.photos/1920/600">
 		<figcaption>Caption</figcaption>
 	</figure>
 </article>
@@ -55,7 +55,7 @@ This component will render a card. It can have a header, content, background ima
 ```html
 <article data-card>
 	<a data-card-link href="#"></a>
-	<img data-card-background src="https://picsum.photos/1920/1080" />
+	<img data-card-background src="https://picsum.photos/1920/1080">
 </article>
 ```
 

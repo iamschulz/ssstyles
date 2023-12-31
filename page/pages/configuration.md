@@ -21,17 +21,6 @@ The stylesheet is configurable by a few custom properties.
 
 ## Colors
 
-<style>
-    .colors-demo {
-        display: flex;
-        gap: 1rem;
-    }
-
-    .colors-demo > div {
-        aspect-ratio: 1;
-        flex: 1 1 100px;
-    }
-</style>
 <div class="colors-demo">
     <div style="background:var(--col-bg)"></div>
     <div style="background:var(--col-bg2)"></div>

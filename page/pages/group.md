@@ -33,12 +33,6 @@ This component allows you to group elements together.
 
 You can stack elements vertically, if you add the value `vertical` to the data attribute.
 
-<style>
-    [data-card] {
-        background: var(--col-bg3);
-    }
-</style>
-
 ```html
 <div data-group="vertical">
 	<article data-card>Top Bun</article>
@@ -49,7 +43,7 @@ You can stack elements vertically, if you add the value `vertical` to the data a
 </div>
 ```
 
-<div data-group="vertical">
+<div class="demo-group" data-group="vertical">
     <article data-card>Top Bun</article>
     <article data-card>Cheese</article>
     <article data-card>Patty</article>
@@ -68,19 +62,19 @@ You can also group mixed elements to create your new UIs.
 </div>
 ```
 
-<div data-group>
+<div class="demo-group" data-group>
     <article data-card>Rocket Ship</article>
     <button>Launch!</button>
 </div>
 
 ```html
 <div data-group>
-	<input type="text" placeholder="Type here" />
+	<input type="text" placeholder="Type here">
 	<button>Go!</button>
 </div>
 ```
 
-<div data-group>
+<div class="demo-group" data-group>
     <input type="text" placeholder="Type here">
     <button>Go!</button>
 </div>
@@ -103,7 +97,7 @@ Yo dawg! I put a group in your group.
 </div>
 ```
 
-<div data-group>
+<div class="demo-group" data-group>
     <div data-group="vertical">
         <article data-card>Top Bun</article>
         <article data-card>Cheese</article>

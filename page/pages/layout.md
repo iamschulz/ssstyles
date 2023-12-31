@@ -21,7 +21,7 @@ The base grid is the basic layout of the site. It supports a header, a navigatio
 
 On large viewports, the navigation snaps to the right side of the content area. You don't need to add a data attribute to anything. As soon as you import the `basegrid.css`, it will automatically apply to the document.
 
-<input type="checkbox" data-toggle id="base-grid-vis" /> <label for="base-grid-vis">Visualize the base grid</label>
+<input type="checkbox" data-toggle id="base-grid-vis"> <label for="base-grid-vis">Visualize the base grid</label>
 
 You can configure the basegrid yourself by editing the values of those variables:
 
@@ -40,54 +40,9 @@ You can configure the basegrid yourself by editing the values of those variables
 
 <script>
     document.querySelector('#base-grid-vis').addEventListener('change', (e) => {
-        document.body.classList.toggle('demo', e.target.checked);
+        document.body.classList.toggle('demo-layout', e.target.checked);
     });
 </script>
-
-<style>
-    body.demo > :is(header, footer, nav, main, aside) {
-        outline: 2px dashed var(--col-accent);
-        outline-offset: -1px;
-        position: relative;
-
-        &::after {
-            position: fixed;
-            inset: calc(50% - 5ch);
-            font-size: 1.5rem;
-            font-family: var(--font-mono);
-            background: var(--col-accent2);
-            color: var(--col-accent-contrast);
-            display: none;
-            place-items: center;
-            z-index: 10;
-        }
-
-        &::before {
-                content: "";
-                position: absolute;
-                inset: 0;
-                background-color: var(--col-accent2);
-                opacity: 0.2;
-                display: none;
-                z-index: 9;
-                pointer-events: none;
-            }
-
-        &:hover {
-            &::before, &::after {
-                display: inline-grid;
-            }
-        }
-    }
-
-    body.demo {
-        > header::after { content: "header" }
-        > footer::after { content: "footer" }
-        > nav::after { content: "nav" }
-        > main::after { content: "main" }
-        > aside::after { content: "aside" }
-    }
-</style>
 
 ## Auto grid
 

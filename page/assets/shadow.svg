@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 800 600">
   <title>Shadow</title>
-  <defs>
-    <clipPath id="b">
-      <path d="m191.4,112.68l29.91-11.96c7.89-3.16,16.37-5.21,25.35-6.03l-29.91,11.96c-8.98.81-17.46,2.87-25.35,6.03Z"
-        style="fill: none;" />
-    </clipPath>
-    <clipPath id="c">
-      <path d="m219.31,106.42l29.91-11.96c9.95-.9,19.96-.22,29.8,1.87l-29.91,11.96c-9.84-2.09-19.84-2.77-29.8-1.87Z"
-        style="fill: none;" />
-    </clipPath>
-    <clipPath id="d">
-      <path
-        d="m336.11,380.64l-29.91,11.96c48.86-19.54,75.41-81.19,60.79-150.66-14.37-68.25-63.87-122.18-117.87-133.65l29.91-11.96c54,11.47,103.5,65.4,117.87,133.65,14.63,69.47-11.92,131.12-60.79,150.66Z"
-        style="fill: none;" />
-    </clipPath>
-  </defs>
   <g style="fill: none; isolation: isolate;">
     <polygon points="715.6 171.06 745.52 159.1 748.51 570.1 718.59 582.06 715.6 171.06" style="fill: #4e7790;" />
     <polygon points="51.5 29.9 81.41 17.94 745.52 159.1 715.6 171.06 51.5 29.9" style="fill: #5986a3;" />
@@ -35,20 +20,16 @@
     </g>
     <polygon points="216.75 106.66 246.67 94.7 249.23 94.46 219.31 106.42 216.75 106.66" style="fill: #a32756;" />
     <g style="fill: none; isolation: isolate;">
-      <g style="clip-path: url(#c); fill: none;">
-        <g style="fill: none; isolation: isolate;">
-          <path d="m219.31,106.42l29.91-11.96c9.95-.9,19.96-.22,29.8,1.87l-29.91,11.96c-9.84-2.09-19.84-2.77-29.8-1.87"
-            style="fill: #bc2c64;" />
-        </g>
+      <g style="fill: none; isolation: isolate;">
+        <path d="m219.31,106.42l29.91-11.96c9.95-.9,19.96-.22,29.8,1.87l-29.91,11.96c-9.84-2.09-19.84-2.77-29.8-1.87"
+          style="fill: #bc2c64;" />
       </g>
     </g>
     <g style="fill: none; isolation: isolate;">
-      <g style="clip-path: url(#d); fill: none;">
-        <g style="fill: none; isolation: isolate;">
-          <path
-            d="m249.11,108.29l29.91-11.96c54,11.47,103.5,65.4,117.87,133.65,14.63,69.47-11.92,131.12-60.79,150.66l-29.91,11.96c48.86-19.54,75.41-81.19,60.79-150.66-14.37-68.25-63.87-122.18-117.87-133.65"
-            style="fill: #bc2c64;" />
-        </g>
+      <g style="fill: none; isolation: isolate;">
+        <path
+          d="m249.11,108.29l29.91-11.96c54,11.47,103.5,65.4,117.87,133.65,14.63,69.47-11.92,131.12-60.79,150.66l-29.91,11.96c48.86-19.54,75.41-81.19,60.79-150.66-14.37-68.25-63.87-122.18-117.87-133.65"
+          style="fill: #bc2c64;" />
       </g>
     </g>
     <path

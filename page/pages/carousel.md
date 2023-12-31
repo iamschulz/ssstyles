@@ -9,18 +9,6 @@ permalink: "/{{ title | slugify }}/index.html"
 
 A carousel is a UX element that scrolls its content horizontally. It will auto-stop your scrolling when the next element is reached. You can tell it to anchor its elements to the left or right by calling `data-carousel="left"` or `data-carousel="right"`, respectively. Anchroing at the center is the default behavior.
 
-<style>
-    .demo {
-        [data-card] {
-            width: 80%;
-            display: grid;
-            place-items: center;
-            font-size: 2rem;
-            background: var(--col-bg3);
-        }
-    }
-</style>
-
 ```html
 <div data-carousel tabindex="0">
 	<div data-card>Hi!</div>
@@ -32,7 +20,7 @@ A carousel is a UX element that scrolls its content horizontally. It will auto-s
 ```
 
 <br>
-<div data-carousel tabindex="0" class="demo">
+<div data-carousel tabindex="0" class="demo-carousel">
     <div data-card>Hi!</div>
     <div data-card>I just met you</div>
     <div data-card>And this is crazy</div>

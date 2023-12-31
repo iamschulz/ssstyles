@@ -11,7 +11,7 @@ nav:
     ]
 ---
 
-\*[classless]: That means it works on bare html tags
+*[classless]: That means it works on bare html tags
 
 Ssstyles is a very simple CSS style system. It consists of a classless stylesheet as a base layer and some small, optional components on top.
 
@@ -38,13 +38,13 @@ You have multiple options to install Ssstyles. I provide two packages:
 Use this snippet to insert the **base styles**:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/package@version/file" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/package@version/file">
 ```
 
 Use this snippet to insert the base styles **and all components**:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/package@version/file" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/package@version/file">
 ```
 
 ### npm
@@ -192,7 +192,6 @@ Here are some optional components. They're invoked by adding `data-componentname
             <figcaption>Toggle</figcaption>
         </figure>
     </li>
-    </li>
     <li data-card data-shadow="2-hover">
         <a data-card-link href="/loading" aria-label="Loading"></a>
         <figure data-card-background>
@@ -247,13 +246,6 @@ Don't like that the sparkle animation uses the ✨-emoji?
 }
 ```
 
-<style>
-    .sparkle-demo [data-sparkle]::before,
-    .sparkle-demo [data-sparkle]::after {
-            content: "👁️";
-    }
-</style>
-
 <p class="sparkle-demo">Why would you do that? <span data-sparkle>I have no idea.</span> But now you can.</p>
 
 I would advise that you put your own modifications into a layer as well, to keep the specificity down. That'll help you keep your code organised.
@@ -297,30 +289,7 @@ That way I can enable and combine selected transitions by setting a time:
 }
 ```
 
-<style>
-.demo {
-    padding: 5rem;
-    text-align: center;
-}
-
-.shrink {
-    --t-scale: 0.5s;
-
-    &:hover {
-        scale: 0.8;
-    }
-}
-
-.fade {
-    --t-opacity: 0.5s;
-
-    &:hover {
-        opacity: 0.2;
-    }
-}
-</style>
-
-<div data-card class="demo shrink fade">
+<div data-card class="demo-transition shrink fade">
     <code>.shrink.fade</code>
 </div>
 
