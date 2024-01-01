@@ -2,7 +2,8 @@ details {
 	background-color: var(--col-bg2);
 	border-color: var(--col-bg3);
 	border-style: solid;
-	border-radius: var(--border-radius);
+	border-radius: var(--br-tl, var(--border-radius)) var(--br-tr, var(--border-radius))
+		var(--br-br, var(--border-radius)) var(--br-bl, var(--border-radius));
 	padding: 0.5rem 1ch;
 
 	> summary {

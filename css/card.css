@@ -2,7 +2,8 @@
 	position: relative;
 	display: inline-block;
 	background-color: var(--col-bg2);
-	border-radius: var(--border-radius);
+	border-radius: var(--br-tl, var(--border-radius)) var(--br-tr, var(--border-radius))
+		var(--br-br, var(--border-radius)) var(--br-bl, var(--border-radius));
 	padding: 1rem 1ch;
 	overflow: hidden;
 	--t-translate: 0.25s;
@@ -12,7 +13,8 @@
 		position: absolute;
 		inset: 0;
 		z-index: 2;
-		border-radius: var(--border-radius);
+		border-radius: var(--br-tl, var(--border-radius)) var(--br-tr, var(--border-radius))
+			var(--br-br, var(--border-radius)) var(--br-bl, var(--border-radius));
 
 		&:focus {
 			outline: 0.125rem solid dodgerblue;
@@ -36,6 +38,15 @@
 		position: relative;
 		margin: -1rem -1ch;
 		max-width: calc(100% + 2ch);
+
+		& * {
+			max-width: 100%;
+			height: auto;
+		}
+
+		&:has(figcaption) {
+			min-height: 3.5rem;
+		}
 
 		> figcaption {
 			position: absolute;

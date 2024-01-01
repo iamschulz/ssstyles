@@ -8,11 +8,11 @@
 }
 
 [data-autogrid="1/4"] {
-	--grid-item-width: max(calc(25% - var(--gap) * 3), 200px);
+	--grid-item-width: max(calc(25% - var(--gap) * 3), 140px);
 }
 
 [data-autogrid="1/3"] {
-	--grid-item-width: max(calc(33% - var(--gap) * 2), 240px);
+	--grid-item-width: max(calc(33% - var(--gap) * 2), 200px);
 }
 
 [data-autogrid="1/2"] {

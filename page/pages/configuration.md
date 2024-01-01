@@ -13,25 +13,14 @@ nav:
 
 The stylesheet is configurable by a few custom properties.
 
-### Layout and design
+## Layout and design
 
 `--body-width` Sets the max width of the content area. It's default is `45rem`.
 
 `--border-radius` Sets the border-radius of various elements, like buttons, forms, code snippets and more. It's set to `10px` by default.
 
-### Colors
+## Colors
 
-<style>
-    .colors-demo {
-        display: flex;
-        gap: 1rem;
-    }
-
-    .colors-demo > div {
-        aspect-ratio: 1;
-        flex: 1 1 100px;
-    }
-</style>
 <div class="colors-demo">
     <div style="background:var(--col-bg)"></div>
     <div style="background:var(--col-bg2)"></div>
@@ -61,9 +50,9 @@ Their default values are:
 and for dark mode:
 
 ```css
---col-bg: #1c2227;
---col-bg2: #1e282d;
---col-bg3: #222d31;
+--col-bg: #171b1e;
+--col-bg2: #161e21;
+--col-bg3: #1a2225;
 --col-fg: #eee;
 --col-fg2: #7c8386;
 --col-accent: #ff297a;
@@ -71,7 +60,7 @@ and for dark mode:
 --col-accent-contrast: #111;
 ```
 
-### Typography
+## Typography
 
 This Stylesheet uses a system font stack, but you can insert your own fonts with `--font` and `--font-mono`.
 

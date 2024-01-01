@@ -10,6 +10,8 @@ nav:
 permalink: "/{{ title | slugify }}/index.html"
 ---
 
+<a href="https://github.com/iamschulz/ssstyles/blob/main/css/shadow.css" data-button>{% svg "github-mark.svg" %} Source</a>
+
 The shadow component will allow you to use a pleasing box-shadow in five levels of size. The shadow size is calculated from the custom property `--shadow-level`, in case you need to add your own values.
 
 Prepending the level with `-hover` will increase it's level on hover by 1.
@@ -24,22 +26,11 @@ Prepending the level with `-hover` will increase it's level on hover by 1.
 <div data-shadow="5"></div>
 ```
 
-<style>
-    .demo {
-        background: var(--col-bg2);
-        margin: 3rem 0;
-        height: 200px;
-        display: grid;
-        align-items: center;
-        justify-items: center;
-    }
-</style>
-
-<div class="demo" data-shadow="1"><code>data-shadow="1"</code></div>
-<div class="demo" data-shadow="2"><code>data-shadow="2"</code></div>
-<div class="demo" data-shadow="3"><code>data-shadow="3"</code></div>
-<div class="demo" data-shadow="4"><code>data-shadow="4"</code></div>
-<div class="demo" data-shadow="5"><code>data-shadow="5"</code></div>
+<div class="demo-shadow" data-shadow="1"><code>data-shadow="1"</code></div>
+<div class="demo-shadow" data-shadow="2"><code>data-shadow="2"</code></div>
+<div class="demo-shadow" data-shadow="3"><code>data-shadow="3"</code></div>
+<div class="demo-shadow" data-shadow="4"><code>data-shadow="4"</code></div>
+<div class="demo-shadow" data-shadow="5"><code>data-shadow="5"</code></div>
 
 ## Hover
 
@@ -47,4 +38,4 @@ Prepending the level with `-hover` will increase it's level on hover by 1.
 <div data-shadow="3-hover"></div>
 ```
 
-<div class="demo" data-shadow="3-hover"><code>data-shadow="3-hover"</code></div>
+<div class="demo-shadow" data-shadow="3-hover"><code>data-shadow="3-hover"</code></div>

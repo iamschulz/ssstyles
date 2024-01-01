@@ -5,6 +5,8 @@ nav: [{ url: "/#components", text: "Back" }]
 permalink: "/{{ title | slugify }}/index.html"
 ---
 
+<a href="https://github.com/iamschulz/ssstyles/blob/main/css/headline.css" data-button>{% svg "github-mark.svg" %} Source</a>
+
 The headline component will style the anchor link in front of a headline. The link needs to be the first direct child of the headline.
 
 ```html

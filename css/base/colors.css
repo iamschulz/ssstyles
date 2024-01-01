@@ -8,7 +8,7 @@
 	accent-color: var(--col-accent);
 }
 
-a {
+a:not([data-button]) {
 	color: var(--col-accent);
 
 	&:hover {

@@ -1,0 +1,122 @@
+---
+permalink: style.css
+---
+{% include "../../dist/style.css" %}
+
+@media (prefers-color-scheme: light), (prefers-color-scheme: no-preference) {
+    {% include "../../node_modules/prism-themes/themes/prism-ghcolors.min.css" %}
+}
+
+@media (prefers-color-scheme: dark) {
+    {% include "../../node_modules/prism-themes/themes/prism-vsc-dark-plus.min.css" %}
+}
+
+pre[class*=language-] {
+    background: var(--col-bg2);
+    margin: 1rem 0;
+    padding: 0.5rem;
+}
+
+.colors-demo {
+        display: flex;
+        gap: 1rem;
+    }
+
+.colors-demo > div {
+    aspect-ratio: 1;
+    flex: 1 1 100px;
+}
+
+.demo-carousel {
+    [data-card] {
+        width: 80%;
+        display: grid;
+        place-items: center;
+        font-size: 2rem;
+        background: var(--col-bg3);
+    }
+}
+
+.demo-group {
+    [data-card] {
+        background: var(--col-bg3);
+    }
+}
+
+body.demo-layout > :is(header, footer, nav, main, aside) {
+    outline: 2px dashed var(--col-accent);
+    outline-offset: -1px;
+    position: relative;
+
+    &::after {
+        position: fixed;
+        inset: calc(50% - 5ch);
+        font-size: 1.5rem;
+        font-family: var(--font-mono);
+        background: var(--col-accent2);
+        color: var(--col-accent-contrast);
+        display: none;
+        place-items: center;
+        z-index: 10;
+    }
+
+    &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-color: var(--col-accent2);
+            opacity: 0.2;
+            display: none;
+            z-index: 9;
+            pointer-events: none;
+        }
+
+    &:hover {
+        &::before, &::after {
+            display: inline-grid;
+        }
+    }
+}
+
+body.demo-layout {
+    > header::after { content: "header" }
+    > footer::after { content: "footer" }
+    > nav::after { content: "nav" }
+    > main::after { content: "main" }
+    > aside::after { content: "aside" }
+}
+
+.demo-shadow {
+    background: var(--col-bg2);
+    margin: 3rem 0;
+    height: 200px;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.sparkle-demo [data-sparkle]::before,
+.sparkle-demo [data-sparkle]::after {
+        content: "👁️";
+}
+
+.demo-transition {
+    padding: 5rem;
+    text-align: center;
+}
+
+.shrink {
+    --t-scale: 0.5s;
+
+    &:hover {
+        scale: 0.8;
+    }
+}
+
+.fade {
+    --t-opacity: 0.5s;
+
+    &:hover {
+        opacity: 0.2;
+    }
+}

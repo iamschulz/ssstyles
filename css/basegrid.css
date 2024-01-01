@@ -1,15 +1,17 @@
+:root {
+	--basegrid: "header ." "nav side" "content side" "footer .";
+	--basegrid-rows: max-content max-content auto max-content;
+	--basegrid-cols: 100% 20ch;
+}
+
 body {
 	display: grid;
 	min-height: 100vh;
 	grid-auto-columns: 1fr;
-	grid-template-columns: 100% 20ch;
-	grid-template-rows: max-content max-content auto max-content;
+	grid-template-columns: var(--basegrid-cols);
+	grid-template-rows: var(--basegrid-rows);
 	gap: 0 1rem;
-	grid-template-areas:
-		"header ."
-		"nav side"
-		"content side"
-		"footer .";
+	grid-template-areas: var(--basegrid);
 }
 
 body > header {

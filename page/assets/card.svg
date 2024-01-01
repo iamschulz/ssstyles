@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <title>Card</title>
+  <g style="fill: none; isolation: isolate;">
+    <polygon points="660.65 157.19 690.56 145.23 693.59 560.66 663.67 572.62 660.65 157.19" style="fill: #4e7790;" />
+    <polygon points="106.41 39.38 136.33 27.42 690.56 145.23 660.65 157.19 106.41 39.38" style="fill: #5986a3;" />
+    <polygon points="660.65 157.19 663.67 572.62 109.44 454.82 106.41 39.38 660.65 157.19" style="fill: #72add3;" />
+  </g>
+  <g style="fill: none; isolation: isolate;">
+    <polygon points="593.19 205.14 623.1 193.18 623.56 256.26 593.65 268.22 593.19 205.14" style="fill: #8e214a;" />
+    <polygon points="91.21 98.44 121.13 86.48 623.1 193.18 593.19 205.14 91.21 98.44" style="fill: #a02655;" />
+    <polygon points="593.19 205.14 593.65 268.22 91.67 161.52 91.21 98.44 593.19 205.14" style="fill: #d0306e;" />
+  </g>
+  <g style="fill: none; isolation: isolate;">
+    <polygon points="592.57 318.74 622.49 306.78 624.18 540.01 594.27 551.97 592.57 318.74" style="fill: #8e214a;" />
+    <polygon points="90.6 212.04 120.51 200.08 622.49 306.78 592.57 318.74 90.6 212.04" style="fill: #a02655;" />
+    <polygon points="592.57 318.74 594.27 551.97 92.29 445.27 90.6 212.04 592.57 318.74" style="fill: #d0306e;" />
+  </g>
+</svg>

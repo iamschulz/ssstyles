@@ -1,18 +1,22 @@
 [data-actionlink] {
+	--actionlink-size: 3rem;
+	--col-button: var(--col-accent);
 	position: fixed;
 	bottom: 2rem;
 	right: 2rem;
-	aspect-ratio: 1;
-	border-radius: 50%;
-	background-color: var(--col-accent);
+	min-height: var(--actionlink-size);
+	min-width: var(--actionlink-size);
+	border-radius: var(--actionlink-size);
+	background-color: var(--col-button);
 	color: var(--col-accent-contrast);
 	font-weight: 600;
 	display: grid;
 	place-items: center;
 	padding: 1ch;
 	text-decoration: none;
+	z-index: 1;
 
 	&:hover {
-		background-color: var(--col-accent2);
+		background-color: color-mix(in oklab, var(--col-button), white 10%);
 	}
 }

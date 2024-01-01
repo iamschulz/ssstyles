@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <title>Breakout</title>
+  <g style="fill: none; isolation: isolate;">
+    <polygon points="582.8 103.1 612.71 91.14 616.25 576.77 586.33 588.73 582.8 103.1" style="fill: #4e7790;" />
+    <polygon points="207.32 23.29 237.23 11.33 612.71 91.14 582.8 103.1 207.32 23.29" style="fill: #5986a3;" />
+    <polygon points="582.8 103.1 586.33 588.73 210.85 508.92 207.32 23.29 582.8 103.1" style="fill: #72add3;" />
+  </g>
+  <g style="fill: none; isolation: isolate;">
+    <polygon points="733.73 276.42 763.64 264.46 765.37 502.26 735.46 514.22 733.73 276.42" style="fill: #8e214a;" />
+    <polygon points="16.3 123.92 46.22 111.96 763.64 264.46 733.73 276.42 16.3 123.92" style="fill: #a02655;" />
+    <polygon points="733.73 276.42 735.46 514.22 18.03 361.73 16.3 123.92 733.73 276.42" style="fill: #d0306e;" />
+  </g>
+</svg>

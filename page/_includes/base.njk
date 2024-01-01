@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Base Styles &bull; Ssstyles</title>
 		<link rel="stylesheet" href="{{ '/base.css' | url }}">
+		<link rel="shortcut icon" type="image/png" href="{{ '/icon.svg' | url }}">
+		<link rel="apple-touch-icon" href="{{ '/icon.png' | url }}">
 	</head>
 	<body>
 		<header>
@@ -25,23 +27,19 @@
 		</nav>
 		<main>
 			<section>
-				<h2><a id="base-styles"></a>Base Styles</h2>
-				<p>You can opt to use only the base package. This one uses only html tags as selectors and is meant to work with any website that hase some clean HTML right out of the box. It applies some styles to native elements, adds a basic layout and color theming.</p>
-				<p>It weighs in at 8.2kB gzipped (8.3kB with brotli), which makes it neither the lightest, nor the most feature-complete, but I think I struck a nice balance.</p>
-				<p>The base package also serves as the foundation to all other components.</p>
+				<h2><a id="base-styles">#</a> Base Styles</h2>
+				<a href="https://github.com/iamschulz/ssstyles/tree/main/css/base" data-button>{% svg "github-mark.svg" %} Source</a>
+				<p>You can opt to use only the base package. This one uses only HTML tags as selectors and is meant to work with any website with clean HTML right out of the box. It applies some styles to native elements, adds a basic layout and color theming.</p>
+				<p>It weighs in at <b>2.4kB gzipped</b>, which makes it neither the lightest, nor the most feature-complete, but I think I struck a nice balance.</p>
+				<p>Include this snippet in your <code>&lt;head&gt;</code> to use it:</p>
+				<pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/package@version/file"&gt;</code></pre>
 				<p>Here are some included elements:</p>
 			</section>
 			<section>
-				<h2><a id="content"></a>Content</h2>
+				<h2><a id="content">#</a> Content</h2>
+				<p>A paragraph of text with <a href="">some</a> <a href="">links</a>.</p>
 				<p>
-					Impedit aut <a href="">quos aut labore</a> modi aut maxime architecto. Aliquam fugiat fugit
-					necessitatibus similique id. Fugit beatae <abbr title="This is an abbreviation">rerum</abbr> optio enim. Animi facilis delectus culpa aut ea facilis.
-					Eveniet illo est qui molestiae <mark>voluptatem placeat</mark>. Eligendi vitae rerum sed molestias iusto atque iste minima.
-				</p>
-				<p>
-					Est et veritatis reprehenderit neque voluptatibus
-					ex aperiam. Veritatis temporibus omnis corporis aut atque qui aperiam officiis. Eligendi similique
-					dignissimos totam vel repellendus. Magni veritatis quidem eos natus nostrum consequatur et ea.
+					And another one. This is an <abbr title="abbreviation">abbr</abbr>. This text is <mark>marked</mark>. I can do <b>bold</b>, <i>italic</i> and <u>underlined</u>. There is also <del>deleted</del> and <ins>inserted</ins>. And don't forget about <sub>subscript</sub> and <sup>superscript</sup>.
 				</p>
 				<ul>
 					<li>Toast</li>
@@ -56,7 +54,7 @@
 					<li>Cheese</li>
 				</ol>
 				<p>Here is an <code>&lt;hr&gt;</code>:</p>
-				<hr />
+				<hr>
 				A blockquote to feature something smart:
 				<blockquote>
 					Good design involves as little design as possible.
@@ -66,26 +64,26 @@
 				</blockquote>
 			</section>
 			<section>
-				<h2><a id="images"></a>Images</h2>
+				<h2><a id="images">#</a> Images</h2>
 				<figure>
-					<img src="https://picsum.photos/id/420/1200/800" alt="Placeholder image" />
-					<figcaption>An image.</figcaption>
+					<img src="{{ '/japan.jpg' | url }}" alt="This is just a placeholder image with no meaningful content">
+					<figcaption>It's an image! <cite><a href="https://pixabay.com/photos/japan-osaka-night-asia-landmark-2014617/" target="_blank">Source</a></cite></figcaption>
 				</figure>
 			</section>
 			<section>
-				<h2><a id="forms"></a>Forms</h2>
+				<h2><a id="forms">#</a> Forms</h2>
 				<p>
-				<label>Options</label><br>
-				<input type="radio" id="radio1" name="radio" value="1" /><label for="radio1">Radio 1</label><br />
-				<input type="radio" id="radio2" name="radio" value="2" /><label for="radio2">Radio 2</label><br />
-				<input type="radio" id="radio3" name="radio" value="3" /><label for="radio3">Radio 3</label><br />
-				<input type="checkbox" id="check" name="check" value="1" /><label for="check">Check</label><br />
+					<label>Options</label><br>
+					<input type="radio" id="radio1" name="radio" value="1"><label for="radio1">Radio 1</label><br>
+					<input type="radio" id="radio2" name="radio" value="2"><label for="radio2">Radio 2</label><br>
+					<input type="radio" id="radio3" name="radio" value="3"><label for="radio3">Radio 3</label><br>
+					<input type="checkbox" id="check" name="check" value="1"><label for="check">Check</label><br>
 				</p>
 
 				<p>
     			<label for="search">Search</label>
-    			<input id="search" />
-    			<input type="button" value="Go!" />
+    			<input type="text" id="search">
+    			<input type="button" value="Go!">
 				</p>
 
     			<form>
@@ -93,15 +91,15 @@
     					<legend>some input fields</legend>
     					<p>
     						<label for="fname">First Name:</label><br>
-    						<input type="text" id="fname" name="fname" value="a value" />
+    						<input type="text" id="fname" name="fname" value="a value">
     					</p>
     					<p>
     						<label for="mname">Middle Name:</label><br>
-    						<input type="text" id="mname" name="mname" value="disabled" disabled />
+    						<input type="text" id="mname" name="mname" value="disabled" disabled>
     					</p>
     					<p>
     						<label for="lname">Last Name:</label><br>
-    						<input type="text" id="lname" name="lname" placeholder="a placeholder" />
+    						<input type="text" id="lname" name="lname" placeholder="a placeholder">
     					</p>
     					<p>
     						<label for="cake">Cake:</label><br>
@@ -115,28 +113,28 @@
     					</p>
     					<p>
     						<label for="range">Range:</label><br>
-    						<input id="range" type="range" min="0" max="100" value="30" />
+    						<input id="range" type="range" min="0" max="100" value="30">
     					</p>
     					<p>
     						<label for="textarea">Text:</label><br>
     						<textarea id="textarea">Some Text</textarea>
     					</p>
-    					<input type="submit" value="Submit" />
+    					<input type="submit" value="Submit">
     				</fieldset>
     			</form>
     		</section>
     		<section>
-    			<h2><a id="tables"></a>Tables</h2>
+    			<h2><a id="tables">#</a> Tables</h2>
 
 				Wrap a table in a <code>&lt;figure&gt;</code> to make it scrollable on small screens.
 				<figure>
 					<table>
 						<thead>
 							<tr>
-								<th>Name</th>
-								<th>Strength</th>
-								<th>Weakness</th>
-								<th>Notes</th>
+								<th scope="col">Name</th>
+								<th scope="col">Strength</th>
+								<th scope="col">Weakness</th>
+								<th scope="col">Notes</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -176,12 +174,11 @@
     			</dl>
     		</section>
     		<section>
-    			<h2><a id="interactive"></a>Interactive</h2>
+    			<h2><a id="interactive">#</a> Interactive</h2>
     			<details>
     				<summary>This is a summary</summary>
-    				Sunt veniam est possimus et. Odit optio distinctio non deserunt nemo. Voluptas voluptas hic tenetur
-    				autem voluptas et est. Impedit quasi sunt nihil. Distinctio et fugit maxime quis recusandae magnam.
-    				Facere et numquam mollitia tempore.
+    				Oh, gosh, you clicked on it. Uhm, this is a bit embarrassing, but I didn't really prepare anything funny to show here.<br>
+					Sorry.
     			</details>
     			<p>
     				<button id="dialogTrigger">Open dialog</button>
@@ -189,8 +186,8 @@
     			<dialog id="dialog">
     				<header>This is a sample dialog</header>
     				<form method="dialog">
-    					<p>Some sample text</p>
-    					<button>Close dialog</button>
+    					<p>Boo, I'm a jump scare!</p>
+    					<button type="submit">Close dialog</button>
     				</form>
     			</dialog>
 
@@ -199,7 +196,7 @@
 	    		Progress: <progress id="file" max="100" value="70">70%</progress></p>
     		</section>
     		<section>
-    			<h2><a id="code"></a>Code</h2>
+    			<h2><a id="code">#</a> Code</h2>
     			<pre><code>() => {
     console.log("hi");
 }</code></pre>
@@ -209,7 +206,7 @@
 			</section>
 
 			<section>
-				<h2><a id="headlines"></a>Headlines</h2>
+				<h2><a id="headlines">#</a> Headlines</h2>
 				<div>
 					<h1>Some headlines</h1>
 					<h2>Some headlines</h2>
@@ -222,7 +219,7 @@
 		</main>
 		<footer>
 			✌️ Made by <a href="https://iamschulz.com">me</a> in 2023<br>
-			💻 <a href="https://github.com/iamschulz/ssstyles">Source Code</a></br>
+			💻 <a href="https://github.com/iamschulz/ssstyles">Source Code</a><br>
 			🚓 <a href="https://spdx.org/licenses/MIT.html">MIT Licence</a><br>
 			🎈 <a href="https://www.11ty.dev/">Built with 11ty</a>
 		</footer>

@@ -15,64 +15,38 @@ The layout components don't style elements on itself, but provide a pattern for 
 
 ## Base grid
 
+<a href="https://github.com/iamschulz/ssstyles/blob/main/css/basegrid.css" data-button>{% svg "github-mark.svg" %} Source</a>
+
 The base grid is the basic layout of the site. It supports a header, a navigation below and a footer on the bottom. The rest of the viewport is taken up by the main content area, which can expand to accommodate its content.
 
 On large viewports, the navigation snaps to the right side of the content area. You don't need to add a data attribute to anything. As soon as you import the `basegrid.css`, it will automatically apply to the document.
 
-<input type="checkbox" data-toggle id="base-grid-vis" /> <label for="base-grid-vis">Visualize the base grid</label>
+<input type="checkbox" data-toggle id="base-grid-vis"> <label for="base-grid-vis">Visualize the base grid</label>
+
+You can configure the basegrid yourself by editing the values of those variables:
+
+```css
+:root {
+	--basegrid: "header ." "nav side" "content side" "footer .";
+	--basegrid-rows: max-content max-content auto max-content;
+	--basegrid-cols: calc(100% - 1rem) 20ch;
+}
+```
+
+<aside data-callout>
+<header><h3>Breakpoints are dangerous</h3></header>
+<p>Please notice that the media query that breaks the navigation out to the side will not adhere to the <code>--body-width</code> variable. It is set to <code>85rem</code>. Increasing <code>--body-width</code> without overwriting the media query might break things.</p>
+</aside>
 
 <script>
     document.querySelector('#base-grid-vis').addEventListener('change', (e) => {
-        document.body.classList.toggle('demo', e.target.checked);
+        document.body.classList.toggle('demo-layout', e.target.checked);
     });
 </script>
 
-<style>
-    body.demo > :is(header, footer, nav, main, aside) {
-        outline: 2px dashed var(--col-accent);
-        outline-offset: -1px;
-        position: relative;
-
-        &::after {
-            position: fixed;
-            inset: calc(50% - 5ch);
-            font-size: 1.5rem;
-            font-family: var(--font-mono);
-            background: var(--col-accent2);
-            color: var(--col-accent-contrast);
-            display: none;
-            place-items: center;
-            z-index: 10;
-        }
-
-        &::before {
-                content: "";
-                position: absolute;
-                inset: 0;
-                background-color: var(--col-accent2);
-                opacity: 0.2;
-                display: none;
-                z-index: 9;
-                pointer-events: none;
-            }
-
-        &:hover {
-            &::before, &::after {
-                display: inline-grid;
-            }
-        }
-    }
-
-    body.demo {
-        > header::after { content: "header" }
-        > footer::after { content: "footer" }
-        > nav::after { content: "nav" }
-        > main::after { content: "main" }
-        > aside::after { content: "aside" }
-    }
-</style>
-
 ## Auto grid
+
+<a href="https://github.com/iamschulz/ssstyles/blob/main/css/autogrid.css" data-button>{% svg "github-mark.svg" %} Source</a>
 
 The auto grid divides its children into groups of 2, 3 or 4, depending on what you write into the data attribute. The children will be fitted into the viewport based on available space.
 
@@ -122,7 +96,9 @@ The auto grid divides its children into groups of 2, 3 or 4, depending on what y
 
 ## Flex grid
 
-The flex grid will spread its children evenly across the availbale space. It will line-break if necessary and automatically fill uo the next line.
+<a href="https://github.com/iamschulz/ssstyles/blob/main/css/flexgrid.css" data-button>{% svg "github-mark.svg" %} Source</a>
+
+The flex grid will spread its children evenly across the availbale space. It will line-break if necessary and automatically fill up the next line.
 
 ```html
 <div data-flexgrid>

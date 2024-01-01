@@ -1,30 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>{{ title }}{% if title %} &bull; {%endif%}Ssstyles</title>
+		<meta name="description" content="Ssstyles is a very simple CSS style system. It consists of a classless stylesheet as a base layer and some small, optional components on top.">
 		<link rel="stylesheet" href="{{ '/style.css' | url }}">
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-ghcolors.min.css"  media="(prefers-color-scheme=no-preference)">
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-ghcolors.min.css"  media="(prefers-color-scheme=light)">
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-vsc-dark-plus.min.css"  media="(prefers-color-scheme=dark)">
-		<style>
-			pre[class*=language-] {
-				background: var(--col-bg2);
-				margin: 1rem 0;
-				padding: 0.5rem;
-			}
-		</style>
+		<link rel="shortcut icon" type="image/png" href="{{ '/icon.svg' | url }}">
+		<link rel="apple-touch-icon" href="{{ '/icon.png' | url }}">
 	</head>
 	<body>
 		<header>
+			<a data-skiplink href="#content">Skip to content</a>
 			<h1><a href="{{ '/' | url }}">Ssstyles</a>{% if title %} ›&nbsp;{%endif%}{{ title }}</h1>
 		</header>
 		<nav data-nav>
 			<ul>
-				{% for link in nav %}
+				{%- for link in nav -%}
 					<li><a href="{{ link.url | url }}">{{link.text}}</a></li>
-				{% endfor %}
+				{%- endfor -%}
 			</ul>
 		</nav>
 		<main>
@@ -32,7 +26,7 @@
 		</main>
 		<footer>
 			✌️ Made by <a href="https://iamschulz.com">me</a> in 2023<br>
-			💻 <a href="https://github.com/iamschulz/ssstyles">Source Code</a></br>
+			💻 <a href="https://github.com/iamschulz/ssstyles">Source Code</a><br>
 			🚓 <a href="https://spdx.org/licenses/MIT.html">MIT Licence</a><br>
 			🎈 <a href="https://www.11ty.dev/">Built with 11ty</a>
 		</footer>
