@@ -27,7 +27,7 @@
 		</nav>
 		<main>
 			<section>
-				<h2><a id="base-styles"></a>Base Styles</h2>
+				<h2><a id="base-styles">#</a> Base Styles</h2>
 				<a href="https://github.com/iamschulz/ssstyles/tree/main/css/base" data-button>{% svg "github-mark.svg" %} Source</a>
 				<p>You can opt to use only the base package. This one uses only HTML tags as selectors and is meant to work with any website that hase some clean HTML right out of the box. It applies some styles to native elements, adds a basic layout and color theming.</p>
 				<p>It weighs in at <b>2.4kB gzipped</b>, which makes it neither the lightest, nor the most feature-complete, but I think I struck a nice balance.</p>
@@ -35,7 +35,7 @@
 				<p>Here are some included elements:</p>
 			</section>
 			<section>
-				<h2><a id="content"></a>Content</h2>
+				<h2><a id="content">#</a> Content</h2>
 				<p>A paragraph of text with <a href="">some</a> <a href="">links</a>.</p>
 				<p>
 					And another one. This is an <abbr title="abbreviation">abbr</abbr>. This text is <mark>marked</mark>. I can do <b>bold</b>, <i>italic</i> and <u>underlined</u>. There is also <del>deleted</del> and <ins>inserted</ins>. And don't forget about <sub>subscript</sub> and <sup>superscript</sup>.
@@ -63,14 +63,14 @@
 				</blockquote>
 			</section>
 			<section>
-				<h2><a id="images"></a>Images</h2>
+				<h2><a id="images">#</a> Images</h2>
 				<figure>
-					<img src="{{ '/japan.jpg' | url }}" alt="Placeholder image">
+					<img src="{{ '/japan.jpg' | url }}" alt="This is just a placeholder image with no meaningful content">
 					<figcaption>It's an image! <cite><a href="https://pixabay.com/photos/japan-osaka-night-asia-landmark-2014617/" target="_blank">Source</a></cite></figcaption>
 				</figure>
 			</section>
 			<section>
-				<h2><a id="forms"></a>Forms</h2>
+				<h2><a id="forms">#</a> Forms</h2>
 				<p>
 					<label>Options</label><br>
 					<input type="radio" id="radio1" name="radio" value="1"><label for="radio1">Radio 1</label><br>
@@ -81,7 +81,7 @@
 
 				<p>
     			<label for="search">Search</label>
-    			<input id="search">
+    			<input type="text" id="search">
     			<input type="button" value="Go!">
 				</p>
 
@@ -123,17 +123,17 @@
     			</form>
     		</section>
     		<section>
-    			<h2><a id="tables"></a>Tables</h2>
+    			<h2><a id="tables">#</a> Tables</h2>
 
 				Wrap a table in a <code>&lt;figure&gt;</code> to make it scrollable on small screens.
 				<figure>
 					<table>
 						<thead>
 							<tr>
-								<th>Name</th>
-								<th>Strength</th>
-								<th>Weakness</th>
-								<th>Notes</th>
+								<th scope="col">Name</th>
+								<th scope="col">Strength</th>
+								<th scope="col">Weakness</th>
+								<th scope="col">Notes</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -173,7 +173,7 @@
     			</dl>
     		</section>
     		<section>
-    			<h2><a id="interactive"></a>Interactive</h2>
+    			<h2><a id="interactive">#</a> Interactive</h2>
     			<details>
     				<summary>This is a summary</summary>
     				Oh, gosh, you clicked on it. Uhm, this is a bit embarrassing, but I didn't really prepare anything funny to show here.<br>
@@ -186,7 +186,7 @@
     				<header>This is a sample dialog</header>
     				<form method="dialog">
     					<p>Boo, I'm a jump scare!</p>
-    					<button>Close dialog</button>
+    					<button type="submit">Close dialog</button>
     				</form>
     			</dialog>
 
@@ -195,7 +195,7 @@
 	    		Progress: <progress id="file" max="100" value="70">70%</progress></p>
     		</section>
     		<section>
-    			<h2><a id="code"></a>Code</h2>
+    			<h2><a id="code">#</a> Code</h2>
     			<pre><code>() => {
     console.log("hi");
 }</code></pre>
@@ -205,7 +205,7 @@
 			</section>
 
 			<section>
-				<h2><a id="headlines"></a>Headlines</h2>
+				<h2><a id="headlines">#</a> Headlines</h2>
 				<div>
 					<h1>Some headlines</h1>
 					<h2>Some headlines</h2>

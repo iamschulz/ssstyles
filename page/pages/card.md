@@ -6,7 +6,7 @@ nav:
         { url: "/#components", text: "Back" },
         { url: "#with-content", text: "With content" },
         { url: "#with-image-and-caption", text: "With image and caption" },
-        { url: "#with-header%2C-image-and-link", text: "With header, image and link" },
+        { url: "#with-header-image-and-link", text: "With header, image and link" },
         { url: "#combined-with-shadow", text: "Combined with shadow" },
     ]
 permalink: "/{{ title | slugify }}/index.html"
@@ -37,7 +37,7 @@ This component will render a card. It can have a header, content, background ima
 ```html
 <article data-card>
 	<figure data-card-background>
-		<img src="https://picsum.photos/1920/600">
+		<img src="https://picsum.photos/1920/600" alt="This is just a placeholder image with no meaningful content" />
 		<figcaption>Caption</figcaption>
 	</figure>
 </article>
@@ -45,24 +45,28 @@ This component will render a card. It can have a header, content, background ima
 
 <article data-card>
     <figure data-card-background>
-        <img src="https://picsum.photos/1920/600">
+        <img src="https://picsum.photos/1920/600" alt="This is just a placeholder image with no meaningful content">
         <figcaption>Caption</figcaption>
     </figure>
 </article>
 
-## With header, image and link
+## With header image and link
 
 ```html
 <article data-card>
-	<a data-card-link href="#"></a>
-	<img data-card-background src="https://picsum.photos/1920/1080">
+	<a data-card-link href="#" aria-label="A generic card"></a>
+	<img
+		alt="This is just a placeholder image with no meaningful content"
+		data-card-background
+		src="https://picsum.photos/1920/1080"
+	/>
 </article>
 ```
 
 <article data-card>
-    <a data-card-link href="#"></a>
+    <a data-card-link href="#" aria-label="A generic card"></a>
     <header>A generic card</header>
-    <img data-card-background src="https://picsum.photos/1920/1080">
+    <img alt="This is just a placeholder image with no meaningful content" data-card-background src="https://picsum.photos/1920/1080">
 </article>
 
 ## Combined with shadow

@@ -16,9 +16,9 @@
 		</header>
 		<nav data-nav>
 			<ul>
-				{% for link in nav %}
+				{%- for link in nav -%}
 					<li><a href="{{ link.url | url }}">{{link.text}}</a></li>
-				{% endfor %}
+				{%- endfor -%}
 			</ul>
 		</nav>
 		<main>

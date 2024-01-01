@@ -19,4 +19,4 @@ Links that start with `mailto:` and `tel:` have an icon that shows what it'll do
 <a href="tel:123456789">123 456 789</a>
 ```
 
-<a href="tel:123456789">123 456 789</a>
+<a href="tel:123456789">123&nbsp;456&nbsp;789</a>
