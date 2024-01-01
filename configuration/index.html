@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Configuration &bull; Ssstyles</title>
+		<meta name="description" content="Ssstyles is a very simple CSS style system. It consists of a classless stylesheet as a base layer and some small, optional components on top.">
+		<link rel="stylesheet" href="/style.css">
+		<link rel="shortcut icon" type="image/png" href="/icon.svg">
+		<link rel="apple-touch-icon" href="/icon.png">
+	</head>
+	<body>
+		<header>
+			<a data-skiplink href="#content">Skip to content</a>
+			<h1><a href="/">Ssstyles</a> ›&nbsp;Configuration</h1>
+		</header>
+		<nav data-nav>
+			<ul><li><a href="/#configuration">Back</a></li><li><a href="#layout-and-design">Layout and Design</a></li><li><a href="#colors">Colors</a></li><li><a href="#typography">Typography</a></li></ul>
+		</nav>
+		<main>
+			<p>The stylesheet is configurable by a few custom properties.</p>
+<h2 id="layout-and-design" tabindex="-1"><a class="header-anchor" href="#layout-and-design">#</a> Layout and design</h2>
+<p><code>--body-width</code> Sets the max width of the content area. It's default is <code>45rem</code>.</p>
+<p><code>--border-radius</code> Sets the border-radius of various elements, like buttons, forms, code snippets and more. It's set to <code>10px</code> by default.</p>
+<h2 id="colors" tabindex="-1"><a class="header-anchor" href="#colors">#</a> Colors</h2>
+<div class="colors-demo">
+    <div style="background:var(--col-bg)"></div>
+    <div style="background:var(--col-bg2)"></div>
+    <div style="background:var(--col-bg3)"></div>
+    <div style="background:var(--col-fg)"></div>
+    <div style="background:var(--col-fg2)"></div>
+    <div style="background:var(--col-accent)"></div>
+    <div style="background:var(--col-accent2)"></div>
+    <div style="background:var(--col-accent-contrast)"></div>
+</div>
+<p><code>--col-bg</code>, <code>--col-bg2</code> and <code>--col-bg3</code> define background colors in three shades. Font colors are specified by <code>--col-fg</code> and <code>--col-fg2</code>. I use two accent colors to differeniate elements by color: <code>--col-accent</code> and <code>--col-accent2</code>, and a contrasting color to those: <code>--col-accent-contrast</code>.</p>
+<p>Their default values are:</p>
+<pre class="language-css"><code class="language-css"><span class="token property">--col-bg</span><span class="token punctuation">:</span> #eee<span class="token punctuation">;</span>
+<span class="token property">--col-bg2</span><span class="token punctuation">:</span> #e8e8e8<span class="token punctuation">;</span>
+<span class="token property">--col-bg3</span><span class="token punctuation">:</span> #dfdfdf<span class="token punctuation">;</span>
+<span class="token property">--col-fg</span><span class="token punctuation">:</span> #333<span class="token punctuation">;</span>
+<span class="token property">--col-fg2</span><span class="token punctuation">:</span> #7c8386<span class="token punctuation">;</span>
+<span class="token property">--col-accent</span><span class="token punctuation">:</span> #b2033a<span class="token punctuation">;</span>
+<span class="token property">--col-accent2</span><span class="token punctuation">:</span> #1c618f<span class="token punctuation">;</span>
+<span class="token property">--col-accent-contrast</span><span class="token punctuation">:</span> #eee<span class="token punctuation">;</span></code></pre>
+<p>and for dark mode:</p>
+<pre class="language-css"><code class="language-css"><span class="token property">--col-bg</span><span class="token punctuation">:</span> #171b1e<span class="token punctuation">;</span>
+<span class="token property">--col-bg2</span><span class="token punctuation">:</span> #161e21<span class="token punctuation">;</span>
+<span class="token property">--col-bg3</span><span class="token punctuation">:</span> #1a2225<span class="token punctuation">;</span>
+<span class="token property">--col-fg</span><span class="token punctuation">:</span> #eee<span class="token punctuation">;</span>
+<span class="token property">--col-fg2</span><span class="token punctuation">:</span> #7c8386<span class="token punctuation">;</span>
+<span class="token property">--col-accent</span><span class="token punctuation">:</span> #ff297a<span class="token punctuation">;</span>
+<span class="token property">--col-accent2</span><span class="token punctuation">:</span> #72c4ff<span class="token punctuation">;</span>
+<span class="token property">--col-accent-contrast</span><span class="token punctuation">:</span> #111<span class="token punctuation">;</span></code></pre>
+<h2 id="typography" tabindex="-1"><a class="header-anchor" href="#typography">#</a> Typography</h2>
+<p>This Stylesheet uses a system font stack, but you can insert your own fonts with <code>--font</code> and <code>--font-mono</code>.</p>
+<pre class="language-css"><code class="language-css"><span class="token property">--font</span><span class="token punctuation">:</span> Inter<span class="token punctuation">,</span> Roboto<span class="token punctuation">,</span> <span class="token string">"Helvetica Neue"</span><span class="token punctuation">,</span> <span class="token string">"Arial Nova"</span><span class="token punctuation">,</span> <span class="token string">"Nimbus Sans"</span><span class="token punctuation">,</span> Arial<span class="token punctuation">,</span> sans-serif<span class="token punctuation">;</span>
+<span class="token property">--font-mono</span><span class="token punctuation">:</span> Consolas<span class="token punctuation">,</span> monaco<span class="token punctuation">,</span> <span class="token string">"Ubuntu Mono"</span><span class="token punctuation">,</span> <span class="token string">"Liberation Mono"</span><span class="token punctuation">,</span> <span class="token string">"Courier New"</span><span class="token punctuation">,</span> Courier<span class="token punctuation">,</span> monospace<span class="token punctuation">;</span></code></pre>
+<p>You can also set <code>--font-accent</code>. This will apply to <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>, but default to <code>--font</code>, when unset. This should help you set a fancy font for your branding.</p>
+<p>Font sizes are scaled dynamically to the viewport width. Larger screens get larger letters. You can manipulate their behaviour or switch font scaling off entirely with <code>--font-size-min</code> and <code>--font-size-max</code>.</p>
+<pre class="language-css"><code class="language-css"><span class="token property">--font-size-min</span><span class="token punctuation">:</span> 1rem<span class="token punctuation">;</span>
+<span class="token property">--font-size-max</span><span class="token punctuation">:</span> 1.2rem<span class="token punctuation">;</span></code></pre>
+<p>The remaining two variables regulate spaces between lines and characters:</p>
+<pre class="language-css"><code class="language-css"><span class="token property">--line-height</span><span class="token punctuation">:</span> 1.6<span class="token punctuation">;</span>
+<span class="token property">--letter-spacing</span><span class="token punctuation">:</span> 0.01875em<span class="token punctuation">;</span></code></pre>
+
+		</main>
+		<footer>
+			✌️ Made by <a href="https://iamschulz.com">me</a> in 2023<br>
+			💻 <a href="https://github.com/iamschulz/ssstyles">Source Code</a><br>
+			🚓 <a href="https://spdx.org/licenses/MIT.html">MIT Licence</a><br>
+			🎈 <a href="https://www.11ty.dev/">Built with 11ty</a>
+		</footer>
+	</body>
+</html>
