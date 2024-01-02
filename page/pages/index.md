@@ -95,7 +95,7 @@ Update the following custom properties to personalize the stylesheet:
 --border-radius: <length>;
 ```
 
-[Read further configuration details](/configuration)
+[Read further configuration details](./configuration)
 
 ---
 
