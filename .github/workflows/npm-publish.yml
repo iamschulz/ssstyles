@@ -4,31 +4,31 @@
 name: Ssstyles
 
 on:
-  release:
-    types: [created]
+    release:
+        types: [created]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 19
-      - run: npm ci
-      - run: npm run build:css
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 19
+            - run: npm ci
+            - run: npm run build:css
 
-  publish-npm:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 19
-          registry-url: https://registry.npmjs.org/
-      - run: npm ci
-      - run: npm run build:css
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+    publish-npm:
+        needs: build
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 19
+                  registry-url: https://registry.npmjs.org/
+            - run: npm ci
+            - run: npm run build:css
+            - run: npm publish
+              env:
+                  NODE_AUTH_TOKEN: ${{secrets.npm_token}}
