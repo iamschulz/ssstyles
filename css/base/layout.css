@@ -23,6 +23,18 @@ body {
 		}
 	}
 
+	&:not(:has(header)) {
+		padding-top: 1rem;
+	}
+
+	&:not(:has(footer)) {
+		padding-bottom: 1rem;
+	}
+
+	> header {
+		margin-bottom: 1rem;
+	}
+
 	> footer {
 		margin-top: 5rem;
 	}
