@@ -9,6 +9,12 @@ permalink: "/{{ title | slugify }}/index.html"
 
 The callout is an info box for important information. It can have a header and some content.
 
+You need to import the CSS file and assign the data attribute to use it.
+
+```css
+@import "ssstyles/callout.css" layer(components);
+```
+
 ```html
 <aside data-callout>
 	<header><h3>Watch out!</h3></header>

@@ -9,6 +9,12 @@ permalink: "/{{ title | slugify }}/index.html"
 
 The action link is a circular link at the bottom right-hand corner of the viewport.
 
+You need to import the CSS file and assign the data attribute to use it.
+
+```css
+@import "ssstyles/actionlink.css" layer(components);
+```
+
 ```html
 <a data-actionlink data-shadow="2-hover" href="#top">To top</a>
 ```

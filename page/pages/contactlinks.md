@@ -9,6 +9,12 @@ permalink: "/{{ title | slugify }}/index.html"
 
 Links that start with `mailto:` and `tel:` have an icon that shows what it'll do. This component doesn't need a data attribute, it's always active whenever the component is imported.
 
+You need to import the CSS file. Contact links apply automatically to their elements.
+
+```css
+@import "ssstyles/contactlinks.css" layer(components);
+```
+
 ```html
 <a href="mailto:foo@bar.com">foo@bar.com</a>
 ```

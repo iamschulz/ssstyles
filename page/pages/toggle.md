@@ -9,14 +9,20 @@ permalink: "/{{ title | slugify }}/index.html"
 
 The toggle is really just a fancy checkbox, but it's better suited to convey the state of a thing.
 
+You need to import the CSS file and assign the data attribute to use it.
+
+```css
+@import "ssstyles/toggle.css" layer(components);
+```
+
 ```html
-<input type="checkbox" data-toggle id="toggle"> <label for="toggle">Pull the switch!</label>
+<input type="checkbox" data-toggle id="toggle" /> <label for="toggle">Pull the switch!</label>
 ```
 
 <input type="checkbox" data-toggle id="toggle"> <label for="toggle">Pull the switch!</label>
 
 ```html
-<input type="checkbox" data-toggle disabled id="notoggle"> <label for="notoggle">Don't pull the switch!</label>
+<input type="checkbox" data-toggle disabled id="notoggle" /> <label for="notoggle">Don't pull the switch!</label>
 ```
 
 <input type="checkbox" disabled data-toggle id="notoggle"> <label for="notoggle">Don't pull the switch!</label>

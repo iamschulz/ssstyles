@@ -9,6 +9,12 @@ permalink: "/{{ title | slugify }}/index.html"
 
 This is a simple loading spinner in a `::before` pseudo element.
 
+You need to import the CSS file and assign the data attribute to use it.
+
+```css
+@import "ssstyles/loading.css" layer(components);
+```
+
 ```html
 <div data-loading>Loading</div>
 ```

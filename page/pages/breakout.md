@@ -19,7 +19,11 @@ The breakout component will expand its background across the content area to the
 
 Or you can define your own colors by setting `--col-breakout` for the background color and `color` for the font.
 
-<br>
+You need to import the CSS file and assign the data attribute to use it.
+
+```css
+@import "ssstyles/breakout.css" layer(components);
+```
 
 ```html
 <section data-breakout="accent2">

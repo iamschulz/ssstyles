@@ -9,6 +9,12 @@ permalink: "/{{ title | slugify }}/index.html"
 
 The headline component will style the anchor link in front of a headline. The link needs to be the first direct child of the headline.
 
+You need to import the CSS file and assign the data attribute to use it.
+
+```css
+@import "ssstyles/headline.css" layer(components);
+```
+
 ```html
 <h1><a href="#headline1" id="headline1">#</a> Headline 1</h1>
 <h1><a href="#headline2" id="headline2">#</a> Headline 2</h1>

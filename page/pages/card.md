@@ -14,7 +14,13 @@ permalink: "/{{ title | slugify }}/index.html"
 
 <a href="https://github.com/iamschulz/ssstyles/blob/main/css/card.css" data-button>{% svg "github-mark.svg" %} Source</a>
 
-This component will render a card. It can have a header, content, background image and full-size link. Here are some examples:
+This component will render a card. It can have a header, content, background image and full-size link.
+
+You need to import the CSS file and assign the data attribute to use it.
+
+```css
+@import "ssstyles/card.css" layer(components);
+```
 
 ## With content
 

@@ -15,12 +15,22 @@ permalink: "/{{ title | slugify }}/index.html"
 
 This is supposed to be a site navigation. The list styles are removed from the `<ul>` and links are printed in bold.
 
+You need to import the CSS file and assign the data attribute to use it.
+
+```css
+@import "ssstyles/nav.css" layer(components);
+```
+
+<br>
+
 ```html
 <nav data-nav>
 	<ul>
-		<li><a href="#">Navigation Entry 1</a></li>
-		<li><a href="#">Navigation Entry 2</a></li>
-		<li><a href="#">Navigation Entry 3</a></li>
+		<li><a href="/">Back</a></li>
+		<li><a href="#">Just</a></li>
+		<li><a href="#">some</a></li>
+		<li><a href="#">placeholder</a></li>
+		<li><a href="#">link</a></li>
 	</ul>
 </nav>
 ```

@@ -15,6 +15,14 @@ permalink: "/{{ title | slugify }}/index.html"
 
 This component allows you to group elements together.
 
+You need to import the CSS file and assign the data attribute to use it.
+
+```css
+@import "ssstyles/group.css" layer(components);
+```
+
+Items are grouped horizontally by default.
+
 ```html
 <div data-group>
 	<button><b>Bold</b></button>
@@ -53,23 +61,11 @@ You can stack elements vertically, if you add the value `vertical` to the data a
 
 ## Mixed Elements
 
-You can also group mixed elements to create your new UIs.
+You can also group mixed elements to create new UI patterns.
 
 ```html
 <div data-group>
-	<article data-card>Rocket Ship</article>
-	<button>Launch!</button>
-</div>
-```
-
-<div class="demo-group" data-group>
-    <article data-card>Rocket Ship</article>
-    <button>Launch!</button>
-</div>
-
-```html
-<div data-group>
-	<input type="text" placeholder="Type here">
+	<input type="text" placeholder="Type here" />
 	<button>Go!</button>
 </div>
 ```

@@ -19,7 +19,13 @@ The layout components don't style elements on itself, but provide a pattern for 
 
 The base grid is the basic layout of the site. It supports a header, a navigation below and a footer on the bottom. The rest of the viewport is taken up by the main content area, which can expand to accommodate its content.
 
-On large viewports, the navigation snaps to the right side of the content area. You don't need to add a data attribute to anything. As soon as you import the `basegrid.css`, it will automatically apply to the document.
+On large viewports, the navigation snaps to the right side of the content area.
+
+You don't need to add a data attribute to anything. As soon as you import the css file, it will automatically apply to the document.
+
+```css
+@import "ssstyles/basegrid.css" layer(layout);
+```
 
 <input type="checkbox" data-toggle id="base-grid-vis"> <label for="base-grid-vis">Visualize the base grid</label>
 
@@ -49,6 +55,14 @@ You can configure the basegrid yourself by editing the values of those variables
 <a href="https://github.com/iamschulz/ssstyles/blob/main/css/autogrid.css" data-button>{% svg "github-mark.svg" %} Source</a>
 
 The auto grid divides its children into groups of 2, 3 or 4, depending on what you write into the data attribute. The children will be fitted into the viewport based on available space.
+
+You need to import the CSS file and assign the data attribute to use it.
+
+```css
+@import "ssstyles/autogrid.css" layer(layout);
+```
+
+<br>
 
 ```html
 <div data-autogrid="1/3">
@@ -99,6 +113,14 @@ The auto grid divides its children into groups of 2, 3 or 4, depending on what y
 <a href="https://github.com/iamschulz/ssstyles/blob/main/css/flexgrid.css" data-button>{% svg "github-mark.svg" %} Source</a>
 
 The flex grid will spread its children evenly across the availbale space. It will line-break if necessary and automatically fill up the next line.
+
+You need to import the CSS file and assign the data attribute to use it.
+
+```css
+@import "ssstyles/flexgrid.css" layer(layout);
+```
+
+<br>
 
 ```html
 <div data-flexgrid>
