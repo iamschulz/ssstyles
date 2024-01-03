@@ -12,7 +12,7 @@ The callout is an info box for important information. It can have a header and s
 You need to import the CSS file and assign the data attribute to use it.
 
 ```css
-@import "ssstyles/callout.css" layer(components);
+@import "ssstyles/css/callout.css" layer(components);
 ```
 
 ```html

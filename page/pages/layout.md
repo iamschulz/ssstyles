@@ -24,7 +24,7 @@ On large viewports, the navigation snaps to the right side of the content area.
 You don't need to add a data attribute to anything. As soon as you import the css file, it will automatically apply to the document.
 
 ```css
-@import "ssstyles/basegrid.css" layer(layout);
+@import "ssstyles/css/basegrid.css" layer(layout);
 ```
 
 <input type="checkbox" data-toggle id="base-grid-vis"> <label for="base-grid-vis">Visualize the base grid</label>
@@ -59,7 +59,7 @@ The auto grid divides its children into groups of 2, 3 or 4, depending on what y
 You need to import the CSS file and assign the data attribute to use it.
 
 ```css
-@import "ssstyles/autogrid.css" layer(layout);
+@import "ssstyles/css/autogrid.css" layer(layout);
 ```
 
 <br>
@@ -117,7 +117,7 @@ The flex grid will spread its children evenly across the availbale space. It wil
 You need to import the CSS file and assign the data attribute to use it.
 
 ```css
-@import "ssstyles/flexgrid.css" layer(layout);
+@import "ssstyles/css/flexgrid.css" layer(layout);
 ```
 
 <br>

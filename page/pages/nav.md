@@ -18,7 +18,7 @@ This is supposed to be a site navigation. The list styles are removed from the `
 You need to import the CSS file and assign the data attribute to use it.
 
 ```css
-@import "ssstyles/nav.css" layer(components);
+@import "ssstyles/css/nav.css" layer(components);
 ```
 
 <br>

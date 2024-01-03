@@ -17,7 +17,7 @@ This is a collection of pre-defined animations.
 You need to import the CSS file and assign the data attribute to use them.
 
 ```css
-@import "ssstyles/animations.css" layer(components);
+@import "ssstyles/css/animations.css" layer(components);
 ```
 
 ## Sparkle

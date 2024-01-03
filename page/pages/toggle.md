@@ -12,7 +12,7 @@ The toggle is really just a fancy checkbox, but it's better suited to convey the
 You need to import the CSS file and assign the data attribute to use it.
 
 ```css
-@import "ssstyles/toggle.css" layer(components);
+@import "ssstyles/css/toggle.css" layer(components);
 ```
 
 ```html

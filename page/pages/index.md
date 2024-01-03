@@ -55,11 +55,14 @@ npm install ssstyles
 
 ```css
 @layer base, layout, components;
-@import "ssstyles/base.css" layer(base);
-@import "ssstyles/transition.css" layer(base);
-@import "ssstyles/basegrid.css" layer(layout);
-@import "ssstyles/headline.css" layer(components);
-/* ... */
+@import "ssstyles" layer(base);
+@import "ssstyles/css/transition.css" layer(base);
+@import "ssstyles/css/basegrid.css" layer(layout);
+@import "ssstyles/css/headline.css" layer(components);
+/* Whatever components you need */
+
+/* Or the complete package: */
+@import "ssstyles/css/all.css" layer(base);
 ```
 
 ### Manual installation
@@ -75,14 +78,7 @@ All file sizes are gzipped.
 ### Bookmarklet
 
 You can save this link to your bookmarks and press it on any site to make it use this stylesheet:
-<a data-button href="javascript:(function(){[Array.from(document.querySelectorAll('style')), Array.from(document.querySelectorAll('link[href$=\'css\']'))].flat().forEach((x) => x.remove());
-document.querySelectorAll('[style]').forEach((x) => x.setAttribute('style', ''));
-var linkElement = document.createElement('link');
-linkElement.rel = 'stylesheet';
-linkElement.type = 'text/css';
-linkElement.href = 'https://iamschulz.github.io/ssstyles/base.css';
-document.head.appendChild(linkElement);})();">Ssstylize</a>
-
+<a data-button href="javascript:(function(){[Array.from(document.querySelectorAll('style')), Array.from(document.querySelectorAll('link[href$=\'css\']'))].flat().forEach((x) => x.remove());document.querySelectorAll('[style]').forEach((x) => x.setAttribute('style', ''));var linkElement = document.createElement('link');linkElement.rel = 'stylesheet';linkElement.type = 'text/css';linkElement.href = 'https://iamschulz.github.io/ssstyles/base.css';document.head.appendChild(linkElement);})();">Ssstylize</a>
 
 ---
 
@@ -131,7 +127,16 @@ Here are some included elements:
 
 ## Components
 
-Here are some optional components. They're invoked by adding `data-componentname` to the corresponding element.
+Here are some optional components. Most of the time, you can use them by importing the CSS file into your own styles and adding the corresponding data attribute to the element.
+```css
+@import "ssstyles/css/mycomponent.css" layer(components);
+```
+
+```html
+<div data-mycomponent></div>
+```
+
+Here's a list of all available components:
 
 <ul data-autogrid="1/3" data-hint="nolist">
     <li data-card data-shadow="2-hover">
@@ -258,7 +263,8 @@ Don't like that the sparkle animation uses the ✨-emoji?
 }
 ```
 
-<p class="sparkle-demo">Why would you do that? <span data-sparkle>I have no idea.</span> But now you can.</p>
+<p class="sparkle-demo">Why would you do that?<br>
+<span data-sparkle>I have no idea.</span> But now you can.</p>
 
 I would advise that you put your own modifications into a layer as well, to keep the specificity down. That'll help you keep your code organised.
 
@@ -308,7 +314,7 @@ That way I can enable and combine selected transitions by setting a time:
 In order to get transitions working you need to import the package:
 
 ```css
-@import "./transition.css" layer(base);
+@import "ssstyles/css/transition.css" layer(base);
 ```
 
 It's already included in the full package. It's not included in the base styles, since there are not combined transitions in there.

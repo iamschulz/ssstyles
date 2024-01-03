@@ -12,7 +12,7 @@ A skip link is a local link that allows users to skip past large link collection
 You need to import the CSS file and assign the data attribute to use it.
 
 ```css
-@import "ssstyles/skiplink.css" layer(components);
+@import "ssstyles/css/skiplink.css" layer(components);
 ```
 
 ```html

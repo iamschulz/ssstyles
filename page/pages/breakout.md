@@ -22,7 +22,7 @@ Or you can define your own colors by setting `--col-breakout` for the background
 You need to import the CSS file and assign the data attribute to use it.
 
 ```css
-@import "ssstyles/breakout.css" layer(components);
+@import "ssstyles/css/breakout.css" layer(components);
 ```
 
 ```html

@@ -12,7 +12,7 @@ A carousel is a UX element that scrolls its content horizontally. It will auto-s
 You need to import the CSS file and assign the data attribute to use it.
 
 ```css
-@import "ssstyles/carousel.css" layer(components);
+@import "ssstyles/css/carousel.css" layer(components);
 ```
 
 ```html

@@ -23,13 +23,13 @@ You have multiple options to install Ssstyles. I provide two packages:
 Use this snippet to insert the **base styles**:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/package@version/file">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/package@version/file" />
 ```
 
 Use this snippet to insert the base styles **and all components**:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/package@version/file">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/package@version/file" />
 ```
 
 ### npm
@@ -40,11 +40,14 @@ npm install ssstyles
 
 ```css
 @layer base, layout, components;
-@import "ssstyles/base.css" layer(base);
-@import "ssstyles/transition.css" layer(base);
-@import "ssstyles/basegrid.css" layer(layout);
-@import "ssstyles/headline.css" layer(components);
-/* ... */
+@import "ssstyles" layer(base);
+@import "ssstyles/css/transition.css" layer(base);
+@import "ssstyles/css/basegrid.css" layer(layout);
+@import "ssstyles/css/headline.css" layer(components);
+/* Whatever components you need */
+
+/* Or the complete package: */
+@import "ssstyles/css/all.css" layer(base);
 ```
 
 ### Manual installation

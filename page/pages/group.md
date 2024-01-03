@@ -18,7 +18,7 @@ This component allows you to group elements together.
 You need to import the CSS file and assign the data attribute to use it.
 
 ```css
-@import "ssstyles/group.css" layer(components);
+@import "ssstyles/css/group.css" layer(components);
 ```
 
 Items are grouped horizontally by default.

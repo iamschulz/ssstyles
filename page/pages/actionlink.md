@@ -12,7 +12,7 @@ The action link is a circular link at the bottom right-hand corner of the viewpo
 You need to import the CSS file and assign the data attribute to use it.
 
 ```css
-@import "ssstyles/actionlink.css" layer(components);
+@import "ssstyles/css/actionlink.css" layer(components);
 ```
 
 ```html

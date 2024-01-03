@@ -12,7 +12,7 @@ The headline component will style the anchor link in front of a headline. The li
 You need to import the CSS file and assign the data attribute to use it.
 
 ```css
-@import "ssstyles/headline.css" layer(components);
+@import "ssstyles/css/headline.css" layer(components);
 ```
 
 ```html

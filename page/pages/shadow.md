@@ -19,7 +19,7 @@ Prepending the level with `-hover` will increase it's level on hover by 1.
 You need to import the CSS file and assign the data attribute to use it.
 
 ```css
-@import "ssstyles/shadow.css" layer(components);
+@import "ssstyles/css/shadow.css" layer(components);
 ```
 
 ## Shadow levels

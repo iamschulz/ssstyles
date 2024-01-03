@@ -12,7 +12,7 @@ Links that start with `mailto:` and `tel:` have an icon that shows what it'll do
 You need to import the CSS file. Contact links apply automatically to their elements.
 
 ```css
-@import "ssstyles/contactlinks.css" layer(components);
+@import "ssstyles/css/contactlinks.css" layer(components);
 ```
 
 ```html

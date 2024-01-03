@@ -19,7 +19,7 @@ This component will render a card. It can have a header, content, background ima
 You need to import the CSS file and assign the data attribute to use it.
 
 ```css
-@import "ssstyles/card.css" layer(components);
+@import "ssstyles/css/card.css" layer(components);
 ```
 
 ## With content
