@@ -4,7 +4,7 @@ const watchFlag = process.argv.indexOf("--watch") > -1;
 const minifyFlag = process.argv.indexOf("--minify") > -1;
 
 const opts = {
-	entryPoints: ["./css/style.css", "./css/base.css"],
+	entryPoints: ["./css/all.css", "./css/base.css"],
 	outdir: "dist",
 	bundle: true,
 	minify: minifyFlag,

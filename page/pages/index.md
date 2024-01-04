@@ -44,7 +44,7 @@ Use this snippet to insert the **base styles**:
 Use this snippet to insert the base styles **and all components**:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ssstyles/dist/style.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ssstyles/dist/all.css" />
 ```
 
 ### npm
