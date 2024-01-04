@@ -71,7 +71,7 @@ You can also simply download the CSS file and include it however you wish:
 
 <button>Base Styles (2.4kB)</button>
 
-<button>Base and Components (4.7kB)</button>
+<button>Base and Components (4.8kB)</button>
 
 All file sizes are gzipped.
 
