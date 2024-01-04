@@ -38,6 +38,7 @@
 				<p>It weighs in at <b>2.4kB gzipped</b>, which makes it neither the lightest, nor the most feature-complete, but I think I struck a nice balance.</p>
 				<p>Include this snippet in your <code>&lt;head&gt;</code> to use it:</p>
 				<pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/package@version/file"&gt;</code></pre>
+				<p>Or use this bookmarklet to make a site use this stylesheet: <a data-button href="javascript:(function(){[Array.from(document.querySelectorAll('style')), Array.from(document.querySelectorAll('link[href$=\'css\']')), Array.from(document.querySelectorAll('link[rel=\'stylesheet\']'))].flat().forEach((x) => x.remove());document.querySelectorAll('[style]').forEach((x) => x.setAttribute('style', ''));var linkElement = document.createElement('link');linkElement.rel = 'stylesheet';linkElement.type = 'text/css';linkElement.href = 'https://iamschulz.github.io/ssstyles/base.css';document.head.appendChild(linkElement);})();">Ssstylize</a></p>
 				<p>Here are some included elements:</p>
 			</section>
 			<section>
@@ -223,7 +224,7 @@
 			</section>
 		</main>
 		<footer>
-			✌️ Made by <a href="https://iamschulz.com">me</a> in 2023<br>
+			✌️ Made by <a href="https://iamschulz.com">me</a> in 2024<br>
 			💻 <a href="https://github.com/iamschulz/ssstyles">Source Code</a><br>
 			🚓 <a href="https://spdx.org/licenses/MIT.html">MIT Licence</a><br>
 			🎈 <a href="https://www.11ty.dev/">Built with 11ty</a>

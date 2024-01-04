@@ -27,7 +27,9 @@
         fill="currentColor" />
 </svg> Source</a></p>
 <p>The base grid is the basic layout of the site. It supports a header, a navigation below and a footer on the bottom. The rest of the viewport is taken up by the main content area, which can expand to accommodate its content.</p>
-<p>On large viewports, the navigation snaps to the right side of the content area. You don't need to add a data attribute to anything. As soon as you import the <code>basegrid.css</code>, it will automatically apply to the document.</p>
+<p>On large viewports, the navigation snaps to the right side of the content area.</p>
+<p>You don't need to add a data attribute to anything. As soon as you import the css file, it will automatically apply to the document.</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@import</span> <span class="token string">"ssstyles/css/basegrid.css"</span> <span class="token function">layer</span><span class="token punctuation">(</span>layout<span class="token punctuation">)</span><span class="token punctuation">;</span></span></code></pre>
 <p><input type="checkbox" data-toggle id="base-grid-vis"> <label for="base-grid-vis">Visualize the base grid</label></p>
 <p>You can configure the basegrid yourself by editing the values of those variables:</p>
 <pre class="language-css"><code class="language-css"><span class="token selector">:root</span> <span class="token punctuation">{</span>
@@ -52,6 +54,9 @@
         fill="currentColor" />
 </svg> Source</a></p>
 <p>The auto grid divides its children into groups of 2, 3 or 4, depending on what you write into the data attribute. The children will be fitted into the viewport based on available space.</p>
+<p>You need to import the CSS file and assign the data attribute to use it.</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@import</span> <span class="token string">"ssstyles/css/autogrid.css"</span> <span class="token function">layer</span><span class="token punctuation">(</span>layout<span class="token punctuation">)</span><span class="token punctuation">;</span></span></code></pre>
+<br>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">data-autogrid</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1/3<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
 	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">data-card</span><span class="token punctuation">></span></span>What<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">data-card</span><span class="token punctuation">></span></span>is<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
@@ -92,6 +97,9 @@
         fill="currentColor" />
 </svg> Source</a></p>
 <p>The flex grid will spread its children evenly across the availbale space. It will line-break if necessary and automatically fill up the next line.</p>
+<p>You need to import the CSS file and assign the data attribute to use it.</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@import</span> <span class="token string">"ssstyles/css/flexgrid.css"</span> <span class="token function">layer</span><span class="token punctuation">(</span>layout<span class="token punctuation">)</span><span class="token punctuation">;</span></span></code></pre>
+<br>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">data-flexgrid</span><span class="token punctuation">></span></span>
 	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">data-card</span><span class="token punctuation">></span></span>What is love?<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">data-card</span><span class="token punctuation">></span></span>Baby don't hurt me<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
@@ -105,7 +113,7 @@
 
 		</main>
 		<footer>
-			✌️ Made by <a href="https://iamschulz.com">me</a> in 2023<br>
+			✌️ Made by <a href="https://iamschulz.com">me</a> in 2024<br>
 			💻 <a href="https://github.com/iamschulz/ssstyles">Source Code</a><br>
 			🚓 <a href="https://spdx.org/licenses/MIT.html">MIT Licence</a><br>
 			🎈 <a href="https://www.11ty.dev/">Built with 11ty</a>
