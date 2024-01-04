@@ -69,9 +69,9 @@ npm install ssstyles
 
 You can also simply download the CSS file and include it however you wish:
 
-<button>Base Styles (2.4kB)</button>
+<a href="https://cdn.jsdelivr.net/npm/ssstyles/dist/base.css" target="_blank" data-button>Base Styles (2.4kB)</a>
 
-<button>Base and Components (4.8kB)</button>
+<a href="https://cdn.jsdelivr.net/npm/ssstyles/dist/base.css" target="_blank" data-button>Base and Components (4.8kB)</a>
 
 All file sizes are gzipped.
 
