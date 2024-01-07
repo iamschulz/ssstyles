@@ -112,41 +112,81 @@ Update the following custom properties to personalize the stylesheet:
 <section data-carousel>
     <article data-card>
         <figure data-card-background>
-            <img src="https://picsum.photos/seed/1/400/300">
+            <img src="https://picsum.photos/seed/1/400/200">
         </figure>
         <footer>
-            <input type="radio" data-toggle id="theme-ssstylish" name="theme" checked>
+            <input type="radio" data-toggle id="theme-ssstylish" name="theme" value="ssstylish" checked>
             <label for="theme-ssstylish">Ssstylish</label>
+            <a href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/ssstylish.css">{% svg "github-mark.svg" %}</a>
         </footer>
     </article>
     <article data-card>
         <figure data-card-background>
-            <img src="https://picsum.photos/seed/2/400/300">
+            <img src="https://picsum.photos/seed/2/400/200">
         </figure>
         <footer>
-            <input type="radio" data-toggle id="theme-business" name="theme">
+            <input type="radio" data-toggle id="theme-business" name="theme" value="business">
             <label for="theme-business">Business</label>
+            <a href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/business.css">{% svg "github-mark.svg" %}</a>
         </footer>
     </article>
     <article data-card>
         <figure data-card-background>
-            <img src="https://picsum.photos/seed/3/400/300">
+            <img src="https://picsum.photos/seed/5/400/200">
         </figure>
         <footer>
-            <input type="radio" data-toggle id="theme-terminal" name="theme">
+            <input type="radio" data-toggle id="theme-minimal" name="theme" value="minimal">
+            <label for="theme-minimal">Minimal</label>
+            <a href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/minimal.css">{% svg "github-mark.svg" %}</a>
+        </footer>
+    </article>
+    <article data-card>
+        <figure data-card-background>
+            <img src="https://picsum.photos/seed/3/400/200">
+        </figure>
+        <footer>
+            <input type="radio" data-toggle id="theme-terminal" name="theme" value="terminal">
             <label for="theme-terminal">Terminal</label>
+            <a href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/terminal.css">{% svg "github-mark.svg" %}</a>
         </footer>
     </article>
     <article data-card>
         <figure data-card-background>
-            <img src="https://picsum.photos/seed/4/400/300">
+            <img src="https://picsum.photos/seed/4/400/200">
         </figure>
         <footer>
-            <input type="radio" data-toggle id="theme-passion" name="theme">
+            <input type="radio" data-toggle id="theme-passion" name="theme" value="graphic-design-is-my-passion">
             <label for="theme-passion">Graphic design is my passion</label>
+            <a href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/graphic-design-is-my-passion.css">{% svg "github-mark.svg" %}</a>
         </footer>
     </article>
 </section>
+
+<script>
+    const styles = Array.from(document.styleSheets[0].cssRules).find(x => x.cssText.includes('ssstylish'));
+    const themeNames = styles.cssRules[0].cssText.replaceAll(/;|,/g,'').split(' ').filter(x => !x.startsWith('@'));
+    const rules = {};
+    themeNames.forEach(name => rules[name] = Array.from(styles.cssRules).find(x => x.name === name))
+    const deleteTheme = (index) => styles.deleteRule(index);
+    const selectTheme = (name) => {
+        [5,4,3,2,1].forEach(i => {
+            try {
+                deleteTheme(i)
+            } catch(e) {}
+        });
+        styles.insertRule(rules[name].cssText, styles.cssRules.length);
+    }
+
+    document.querySelectorAll('[data-toggle][id^=theme]').forEach(x => {
+        x.addEventListener('change', (e) => {
+            if (!e.returnValue) { return; }
+            const name = e.target.value;
+            selectTheme(name);
+        });
+    })
+
+    selectTheme('ssstylish');
+</script>
 
 ---
 
@@ -171,6 +211,7 @@ Here are some included elements:
 ## Components
 
 Here are some optional components. Most of the time, you can use them by importing the CSS file into your own styles and adding the corresponding data attribute to the element.
+
 ```css
 @import "ssstyles/css/mycomponent.css" layer(components);
 ```

@@ -3,6 +3,27 @@ permalink: style.css
 ---
 {% include "../../dist/all.css" %}
 
+@layer themes {
+    @layer business, terminal, graphic-design-is-my-passion, minimal, ssstylish;
+
+    @layer business {
+        {% include "../../dist/themes/business.css" %}
+    }
+    @layer terminal {
+        {% include "../../dist/themes/terminal.css" %}
+    }
+    @layer graphic-design-is-my-passion {
+        {% include "../../dist/themes/graphic-design-is-my-passion.css" %}
+    }
+    @layer minimal {
+        {% include "../../dist/themes/minimal.css" %}
+    }
+    @layer ssstylish {
+        {% include "../../dist/themes/ssstylish.css" %}
+    }
+}
+
+
 @media (prefers-color-scheme: light), (prefers-color-scheme: no-preference) {
     {% include "../../node_modules/prism-themes/themes/prism-ghcolors.min.css" %}
 }

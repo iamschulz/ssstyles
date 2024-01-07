@@ -12,6 +12,7 @@
 
 	--font: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial, sans-serif;
 	--font-mono: Consolas, monaco, "Ubuntu Mono", "Liberation Mono", "Courier New", Courier, monospace;
+	--font-accent: var(--font);
 	--font-size-min: 1rem;
 	--font-size-max: 1.2rem;
 	--line-height: 1.6;

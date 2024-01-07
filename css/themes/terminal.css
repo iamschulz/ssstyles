@@ -1,17 +1,18 @@
 :root {
 	--body-width: 45rem;
 
-	--col-bg: #fff;
-	--col-bg2: #fff;
-	--col-bg3: #fff;
-	--col-fg: #051000;
-	--col-fg2: #051000;
-	--col-accent: #184c00;
-	--col-accent2: #184c00;
+	--col-bg: #e5ffd8;
+	--col-bg2: #e5ffd8;
+	--col-bg3: #e5ffd8;
+	--col-fg: #247300;
+	--col-fg2: #247300;
+	--col-accent: #247300;
+	--col-accent2: #247300;
 	--col-accent-contrast: #fff;
 
 	--font: Consolas, monaco, "Ubuntu Mono", "Liberation Mono", "Courier New", Courier, monospace;
 	--font-mono: Consolas, monaco, "Ubuntu Mono", "Liberation Mono", "Courier New", Courier, monospace;
+	--font-accent: var(--font);
 	--font-size-min: 1rem;
 	--font-size-max: 1rem;
 	--line-height: 1.3;
