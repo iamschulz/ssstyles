@@ -107,6 +107,49 @@ Update the following custom properties to personalize the stylesheet:
 
 ---
 
+## Themes
+
+<section data-carousel>
+    <article data-card>
+        <figure data-card-background>
+            <img src="https://picsum.photos/seed/1/400/300">
+        </figure>
+        <footer>
+            <input type="radio" data-toggle id="theme-ssstylish" name="theme" checked>
+            <label for="theme-ssstylish">Ssstylish</label>
+        </footer>
+    </article>
+    <article data-card>
+        <figure data-card-background>
+            <img src="https://picsum.photos/seed/2/400/300">
+        </figure>
+        <footer>
+            <input type="radio" data-toggle id="theme-business" name="theme">
+            <label for="theme-business">Business</label>
+        </footer>
+    </article>
+    <article data-card>
+        <figure data-card-background>
+            <img src="https://picsum.photos/seed/3/400/300">
+        </figure>
+        <footer>
+            <input type="radio" data-toggle id="theme-terminal" name="theme">
+            <label for="theme-terminal">Terminal</label>
+        </footer>
+    </article>
+    <article data-card>
+        <figure data-card-background>
+            <img src="https://picsum.photos/seed/4/400/300">
+        </figure>
+        <footer>
+            <input type="radio" data-toggle id="theme-passion" name="theme">
+            <label for="theme-passion">Graphic design is my passion</label>
+        </footer>
+    </article>
+</section>
+
+---
+
 ## Base Styles
 
 You can opt to use only the base package. This one uses only html tags as selectors and is meant to work with any website that hase some clean HTML right out of the box. It applies some styles to native elements, adds a basic layout and color theming. It's neither the lightest, nor the most feature complete, but it's also not too far off.

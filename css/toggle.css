@@ -1,4 +1,4 @@
-input[type="checkbox"][data-toggle] {
+input:is([type="checkbox"], [type="radio"])[data-toggle] {
 	appearance: none;
 	position: relative;
 	display: inline-grid;
