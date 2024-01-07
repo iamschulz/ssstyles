@@ -1,0 +1,34 @@
+:root {
+	--body-width: 45rem;
+
+	--col-bg: #eaeaea;
+	--col-bg2: #eee;
+	--col-bg3: #e0e0e0;
+	--col-fg: #111;
+	--col-fg2: #333;
+	--col-accent: #547286;
+	--col-accent2: #414667;
+	--col-accent-contrast: #fff;
+
+	--font: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial, sans-serif;
+	--font-mono: Consolas, monaco, "Ubuntu Mono", "Liberation Mono", "Courier New", Courier, monospace;
+	--font-size-min: 1rem;
+	--font-size-max: 1.2rem;
+	--line-height: 1.6;
+	--letter-spacing: 0.01875em;
+
+	--border-radius: 5px;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--col-bg: #111;
+		--col-bg2: #161616;
+		--col-bg3: #1b1b1b;
+		--col-fg: #eee;
+		--col-fg2: #aaa;
+		--col-accent: #7eb5ef;
+		--col-accent2: #a6c5e7;
+		--col-accent-contrast: #111;
+	}
+}
