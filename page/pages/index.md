@@ -137,7 +137,7 @@ Here's a list of all available themes:
         <footer>
             <input type="radio" data-toggle id="theme-default" name="theme" value="default" checked>
             <label for="theme-default"><code>default</code></label>
-            <a href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/default.css">{% svg "github-mark.svg" %}</a>
+            <a aria-label="Source code on GitHub" href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/default.css">{% svg "github-mark.svg" %}</a>
         </footer>
     </article>
     <article data-card>
@@ -147,7 +147,7 @@ Here's a list of all available themes:
         <footer>
             <input type="radio" data-toggle id="theme-business" name="theme" value="business">
             <label for="theme-business"><code>business</code></label>
-            <a href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/business.css">{% svg "github-mark.svg" %}</a>
+            <a aria-label="Source code on GitHub" href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/business.css">{% svg "github-mark.svg" %}</a>
         </footer>
     </article>
     <article data-card>
@@ -157,7 +157,7 @@ Here's a list of all available themes:
         <footer>
             <input type="radio" data-toggle id="theme-minimal" name="theme" value="minimal">
             <label for="theme-minimal"><code>minimal</code></label>
-            <a href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/minimal.css">{% svg "github-mark.svg" %}</a>
+            <a aria-label="Source code on GitHub" href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/minimal.css">{% svg "github-mark.svg" %}</a>
         </footer>
     </article>
     <article data-card>
@@ -167,7 +167,7 @@ Here's a list of all available themes:
         <footer>
             <input type="radio" data-toggle id="theme-terminal" name="theme" value="terminal">
             <label for="theme-terminal"><code>terminal</code></label>
-            <a href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/terminal.css">{% svg "github-mark.svg" %}</a>
+            <a aria-label="Source code on GitHub" href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/terminal.css">{% svg "github-mark.svg" %}</a>
         </footer>
     </article>
     <article data-card>
@@ -177,7 +177,7 @@ Here's a list of all available themes:
         <footer>
             <input type="radio" data-toggle id="theme-passion" name="theme" value="graphic-design-is-my-passion">
             <label for="theme-passion"><code>graphic-design-is-my-passion</code></label>
-            <a href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/graphic-design-is-my-passion.css">{% svg "github-mark.svg" %}</a>
+            <a aria-label="Source code on GitHub" href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/graphic-design-is-my-passion.css">{% svg "github-mark.svg" %}</a>
         </footer>
     </article>
 </section>
