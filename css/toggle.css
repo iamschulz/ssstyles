@@ -1,4 +1,4 @@
-input[type="checkbox"][data-toggle] {
+input:is([type="checkbox"], [type="radio"])[data-toggle] {
 	appearance: none;
 	position: relative;
 	display: inline-grid;
@@ -8,7 +8,8 @@ input[type="checkbox"][data-toggle] {
 	height: 1.65em;
 	width: 2.75em;
 	border-radius: 2em;
-	vertical-align: middle;
+	vertical-align: sub;
+
 	&:not([disabled], [aria-disabled]) {
 		cursor: pointer;
 	}

@@ -1,34 +1,35 @@
 :root {
 	--body-width: 45rem;
 
-	--col-bg: #eee;
-	--col-bg2: #e8e8e8;
-	--col-bg3: #dfdfdf;
-	--col-fg: #333;
-	--col-fg2: #7c8386;
-	--col-accent: #b2033a;
-	--col-accent2: #1c618f;
-	--col-accent-contrast: #eee;
+	--col-bg: #eaeaea;
+	--col-bg2: #eee;
+	--col-bg3: #e0e0e0;
+	--col-fg: #111;
+	--col-fg2: #333;
+	--col-accent: #4e575e;
+	--col-accent2: #4c535c;
+	--col-accent-contrast: #fff;
 
 	--font: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial, sans-serif;
 	--font-mono: Consolas, monaco, "Ubuntu Mono", "Liberation Mono", "Courier New", Courier, monospace;
+	--font-accent: var(--font);
 	--font-size-min: 1rem;
 	--font-size-max: 1.2rem;
 	--line-height: 1.6;
 	--letter-spacing: 0.01875em;
 
-	--border-radius: 10px;
+	--border-radius: 5px;
 }
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--col-bg: #15181a;
-		--col-bg2: #161e21;
-		--col-bg3: #1a2225;
+		--col-bg: #111;
+		--col-bg2: #161616;
+		--col-bg3: #1b1b1b;
 		--col-fg: #eee;
-		--col-fg2: #7c8386;
-		--col-accent: #ff297a;
-		--col-accent2: #72c4ff;
+		--col-fg2: #aaa;
+		--col-accent: #c8d5e3;
+		--col-accent2: #c1cdd9;
 		--col-accent-contrast: #111;
 	}
 }

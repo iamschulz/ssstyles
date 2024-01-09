@@ -5,6 +5,7 @@ nav:
     [
         { url: "#install", text: "Install" },
         { url: "#configuration", text: "Configuration" },
+        { url: "#themes", text: "Themes" },
         { url: "#base-styles", text: "Base Styles" },
         { url: "#components", text: "Components" },
         { url: "#tips-and-tricks", text: "Tips and Tricks" },
@@ -107,6 +108,108 @@ Update the following custom properties to personalize the stylesheet:
 
 ---
 
+## Themes
+
+I've added some themes, in case you don't like the default look. To apply a theme, you need to add a new layer (the `themes` one) and import the theme into it:
+
+```css
+@layer base, themes, layout, components;
+@import "ssstyles" layer(base);
+@import "ssstyles/css/themes/business.css" layer(themes);
+@import "ssstyles/css/transition.css" layer(base);
+/* ... */
+```
+
+You can also link to a theme directly in HTML:
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ssstyles/dist/base.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ssstyles/dist/themes/business.css" />
+```
+
+Here's a list of all available themes:
+
+<section data-carousel>
+    <article data-card>
+        <figure data-card-background>
+            <img src="./default.jpg" alt="Screenshot of this website with neutral background and font colors and bright pink accents" width="400" height="240" loading="lazy">
+        </figure>
+        <footer>
+            <input type="radio" data-toggle id="theme-default" name="theme" value="default" checked>
+            <label for="theme-default"><code>default</code></label>
+            <a aria-label="Source code on GitHub" href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/default.css">{% svg "github-mark.svg" %}</a>
+        </footer>
+    </article>
+    <article data-card>
+        <figure data-card-background>
+            <img src="./business.jpg" alt="Screenshot of this website with neutral background and font colors and bluesh-grey accents" width="400" height="240" loading="lazy">
+        </figure>
+        <footer>
+            <input type="radio" data-toggle id="theme-business" name="theme" value="business">
+            <label for="theme-business"><code>business</code></label>
+            <a aria-label="Source code on GitHub" href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/business.css">{% svg "github-mark.svg" %}</a>
+        </footer>
+    </article>
+    <article data-card>
+        <figure data-card-background>
+            <img src="./minimal.jpg" alt="Screenshot of this website in only black and white">
+        </figure>
+        <footer>
+            <input type="radio" data-toggle id="theme-minimal" name="theme" value="minimal">
+            <label for="theme-minimal"><code>minimal</code></label>
+            <a aria-label="Source code on GitHub" href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/minimal.css">{% svg "github-mark.svg" %}</a>
+        </footer>
+    </article>
+    <article data-card>
+        <figure data-card-background>
+            <img src="./terminal.jpg" alt="Screenshot of this website with green background and font colors, entirely in a monospace font" width="400" height="240" loading="lazy">
+        </figure>
+        <footer>
+            <input type="radio" data-toggle id="theme-terminal" name="theme" value="terminal">
+            <label for="theme-terminal"><code>terminal</code></label>
+            <a aria-label="Source code on GitHub" href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/terminal.css">{% svg "github-mark.svg" %}</a>
+        </footer>
+    </article>
+    <article data-card>
+        <figure data-card-background>
+            <img src="./graphic-design-is-my-passion.jpg" alt="Screenshot of this website with garishly bright background and font colors. Also, Comic Sans" width="400" height="240" loading="lazy">
+        </figure>
+        <footer>
+            <input type="radio" data-toggle id="theme-passion" name="theme" value="graphic-design-is-my-passion">
+            <label for="theme-passion"><code>graphic-design-is-my-passion</code></label>
+            <a aria-label="Source code on GitHub" href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/graphic-design-is-my-passion.css">{% svg "github-mark.svg" %}</a>
+        </footer>
+    </article>
+</section>
+
+<script>
+    const styles = Array.from(document.styleSheets[0].cssRules).find(x => x.cssText.includes('default'));
+    const themeNames = styles.cssRules[0].cssText.replaceAll(/;|,/g,'').split(' ').filter(x => !x.startsWith('@'));
+    const rules = {};
+    themeNames.forEach(name => rules[name] = Array.from(styles.cssRules).find(x => x.name === name))
+    const deleteTheme = (index) => styles.deleteRule(index);
+    const selectTheme = (name) => {
+        [5,4,3,2,1].forEach(i => {
+            try {
+                deleteTheme(i)
+            } catch(e) {}
+        });
+        styles.insertRule(rules[name].cssText, styles.cssRules.length);
+    }
+
+    document.querySelectorAll('[data-toggle][id^=theme]').forEach(x => {
+        x.addEventListener('change', (e) => {
+            if (!e.returnValue) { return; }
+            const name = e.target.value;
+            selectTheme(name);
+        });
+    })
+
+    selectTheme('default');
+</script>
+
+---
+
 ## Base Styles
 
 You can opt to use only the base package. This one uses only html tags as selectors and is meant to work with any website that hase some clean HTML right out of the box. It applies some styles to native elements, adds a basic layout and color theming. It's neither the lightest, nor the most feature complete, but it's also not too far off.
@@ -128,6 +231,7 @@ Here are some included elements:
 ## Components
 
 Here are some optional components. Most of the time, you can use them by importing the CSS file into your own styles and adding the corresponding data attribute to the element.
+
 ```css
 @import "ssstyles/css/mycomponent.css" layer(components);
 ```

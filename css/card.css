@@ -34,6 +34,12 @@
 		font-weight: 600;
 	}
 
+	> footer {
+		background-color: var(--col-bg3);
+		margin: 1rem -1ch -1rem;
+		padding: 1rem 1ch;
+	}
+
 	> [data-card-background] {
 		position: relative;
 		margin: -1rem -1ch;
