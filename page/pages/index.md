@@ -5,6 +5,7 @@ nav:
     [
         { url: "#install", text: "Install" },
         { url: "#configuration", text: "Configuration" },
+        { url: "#themes", text: "Themes" },
         { url: "#base-styles", text: "Base Styles" },
         { url: "#components", text: "Components" },
         { url: "#tips-and-tricks", text: "Tips and Tricks" },
@@ -131,7 +132,7 @@ Here's a list of all available themes:
 <section data-carousel>
     <article data-card>
         <figure data-card-background>
-            <img src="./default.jpg">
+            <img src="./default.jpg" alt="Screenshot of this website with neutral background and font colors and bright pink accents" width="400" height="240" loading="lazy">
         </figure>
         <footer>
             <input type="radio" data-toggle id="theme-default" name="theme" value="default" checked>
@@ -141,7 +142,7 @@ Here's a list of all available themes:
     </article>
     <article data-card>
         <figure data-card-background>
-            <img src="./business.jpg">
+            <img src="./business.jpg" alt="Screenshot of this website with neutral background and font colors and bluesh-grey accents" width="400" height="240" loading="lazy">
         </figure>
         <footer>
             <input type="radio" data-toggle id="theme-business" name="theme" value="business">
@@ -151,7 +152,7 @@ Here's a list of all available themes:
     </article>
     <article data-card>
         <figure data-card-background>
-            <img src="./minimal.jpg">
+            <img src="./minimal.jpg" alt="Screenshot of this website in only black and white">
         </figure>
         <footer>
             <input type="radio" data-toggle id="theme-minimal" name="theme" value="minimal">
@@ -161,7 +162,7 @@ Here's a list of all available themes:
     </article>
     <article data-card>
         <figure data-card-background>
-            <img src="./terminal.jpg">
+            <img src="./terminal.jpg" alt="Screenshot of this website with green background and font colors, entirely in a monospace font" width="400" height="240" loading="lazy">
         </figure>
         <footer>
             <input type="radio" data-toggle id="theme-terminal" name="theme" value="terminal">
@@ -171,7 +172,7 @@ Here's a list of all available themes:
     </article>
     <article data-card>
         <figure data-card-background>
-            <img src="./graphic-design-is-my-passion.jpg">
+            <img src="./graphic-design-is-my-passion.jpg" alt="Screenshot of this website with garishly bright background and font colors. Also, Comic Sans" width="400" height="240" loading="lazy">
         </figure>
         <footer>
             <input type="radio" data-toggle id="theme-passion" name="theme" value="graphic-design-is-my-passion">
