@@ -4,7 +4,7 @@ permalink: style.css
 {% include "../../dist/all.css" %}
 
 @layer themes {
-    @layer business, terminal, graphic-design-is-my-passion, minimal, ssstylish;
+    @layer business, terminal, graphic-design-is-my-passion, minimal, default;
 
     @layer business {
         {% include "../../dist/themes/business.css" %}
@@ -18,8 +18,8 @@ permalink: style.css
     @layer minimal {
         {% include "../../dist/themes/minimal.css" %}
     }
-    @layer ssstylish {
-        {% include "../../dist/themes/ssstylish.css" %}
+    @layer default {
+        {% include "../../dist/themes/default.css" %}
     }
 }
 

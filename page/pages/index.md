@@ -109,61 +109,80 @@ Update the following custom properties to personalize the stylesheet:
 
 ## Themes
 
+I've added some themes, in case you don't like the default look. To apply a theme, you need to add a new layer (the `themes` one) and import the theme into it:
+
+```css
+@layer base, themes, layout, components;
+@import "ssstyles" layer(base);
+@import "ssstyles/css/themes/business.css" layer(themes);
+@import "ssstyles/css/transition.css" layer(base);
+/* ... */
+```
+
+You can also link to a theme directly in HTML:
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ssstyles/dist/base.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ssstyles/dist/themes/business.css" />
+```
+
+Here's a list of all available themes:
+
 <section data-carousel>
     <article data-card>
         <figure data-card-background>
-            <img src="https://picsum.photos/seed/1/400/200">
+            <img src="./default.jpg">
         </figure>
         <footer>
-            <input type="radio" data-toggle id="theme-ssstylish" name="theme" value="ssstylish" checked>
-            <label for="theme-ssstylish">Ssstylish</label>
-            <a href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/ssstylish.css">{% svg "github-mark.svg" %}</a>
+            <input type="radio" data-toggle id="theme-default" name="theme" value="default" checked>
+            <label for="theme-default"><code>default</code></label>
+            <a href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/default.css">{% svg "github-mark.svg" %}</a>
         </footer>
     </article>
     <article data-card>
         <figure data-card-background>
-            <img src="https://picsum.photos/seed/2/400/200">
+            <img src="./business.jpg">
         </figure>
         <footer>
             <input type="radio" data-toggle id="theme-business" name="theme" value="business">
-            <label for="theme-business">Business</label>
+            <label for="theme-business"><code>business</code></label>
             <a href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/business.css">{% svg "github-mark.svg" %}</a>
         </footer>
     </article>
     <article data-card>
         <figure data-card-background>
-            <img src="https://picsum.photos/seed/5/400/200">
+            <img src="./minimal.jpg">
         </figure>
         <footer>
             <input type="radio" data-toggle id="theme-minimal" name="theme" value="minimal">
-            <label for="theme-minimal">Minimal</label>
+            <label for="theme-minimal"><code>minimal</code></label>
             <a href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/minimal.css">{% svg "github-mark.svg" %}</a>
         </footer>
     </article>
     <article data-card>
         <figure data-card-background>
-            <img src="https://picsum.photos/seed/3/400/200">
+            <img src="./terminal.jpg">
         </figure>
         <footer>
             <input type="radio" data-toggle id="theme-terminal" name="theme" value="terminal">
-            <label for="theme-terminal">Terminal</label>
+            <label for="theme-terminal"><code>terminal</code></label>
             <a href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/terminal.css">{% svg "github-mark.svg" %}</a>
         </footer>
     </article>
     <article data-card>
         <figure data-card-background>
-            <img src="https://picsum.photos/seed/4/400/200">
+            <img src="./graphic-design-is-my-passion.jpg">
         </figure>
         <footer>
             <input type="radio" data-toggle id="theme-passion" name="theme" value="graphic-design-is-my-passion">
-            <label for="theme-passion">Graphic design is my passion</label>
+            <label for="theme-passion"><code>graphic-design-is-my-passion</code></label>
             <a href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/graphic-design-is-my-passion.css">{% svg "github-mark.svg" %}</a>
         </footer>
     </article>
 </section>
 
 <script>
-    const styles = Array.from(document.styleSheets[0].cssRules).find(x => x.cssText.includes('ssstylish'));
+    const styles = Array.from(document.styleSheets[0].cssRules).find(x => x.cssText.includes('default'));
     const themeNames = styles.cssRules[0].cssText.replaceAll(/;|,/g,'').split(' ').filter(x => !x.startsWith('@'));
     const rules = {};
     themeNames.forEach(name => rules[name] = Array.from(styles.cssRules).find(x => x.name === name))
@@ -185,7 +204,7 @@ Update the following custom properties to personalize the stylesheet:
         });
     })
 
-    selectTheme('ssstylish');
+    selectTheme('default');
 </script>
 
 ---
