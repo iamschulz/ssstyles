@@ -2,6 +2,7 @@
 	position: relative;
 	display: inline-block;
 	background-color: var(--col-bg2);
+	color: var(--col-fg);
 	border-radius: var(--br-tl, var(--border-radius)) var(--br-tr, var(--border-radius))
 		var(--br-br, var(--border-radius)) var(--br-bl, var(--border-radius));
 	padding: 1rem 1ch;
