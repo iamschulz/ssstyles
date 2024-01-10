@@ -2,6 +2,7 @@
 	position: relative;
 	padding-right: 1rem;
 	text-wrap: wrap;
+	z-index: 1;
 
 	> ul {
 		position: sticky;
