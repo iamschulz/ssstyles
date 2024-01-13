@@ -129,7 +129,7 @@ You can also link to a theme directly in HTML:
 
 Here's a list of all available themes:
 
-<section data-carousel>
+<section data-carousel tabindex="0">
     <article data-card>
         <figure data-card-background>
             <img src="./default.jpg" alt="Screenshot of this website with neutral background and font colors and bright pink accents" width="400" height="240" loading="lazy">
@@ -181,6 +181,40 @@ Here's a list of all available themes:
         </footer>
     </article>
 </section>
+<br>
+
+Don't like predefined themes? You can generate your own.
+
+<article data-card id="theme-auto-card">
+    <input type="radio" data-toggle id="theme-auto" name="theme" value="auto">
+    <label for="theme-passion"><code>custom</code></label>
+    <a aria-label="Source code on GitHub" href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/custom.css">{% svg "github-mark.svg" %}</a>
+
+    <label for="theme-auto-hue">Hue</label><br>
+    <input type="range" name="hue" min="1" max="360" value="50" id="theme-auto-hue">
+
+    <label for="theme-auto-sat">Saturation</label><br>
+    <input type="range" name="sat" min="1" max="100" value="50" id="theme-auto-sat">
+
+    <details>
+    <summary>How to use the auto-color theme</summary>
+
+```css
+@layer base, themes, layout, components;
+@import "ssstyles" layer(base);
+@import "ssstyles/css/themes/auto.css" layer(themes);
+
+@layer themes {
+	:root {
+		--hue: 50;
+		--sat: 50;
+	}
+}
+```
+
+    </details>
+
+</article>
 
 <script>
     const styles = Array.from(document.styleSheets[0].cssRules).find(x => x.cssText.includes('default'));
@@ -206,6 +240,22 @@ Here's a list of all available themes:
     })
 
     selectTheme('default');
+
+    document.querySelectorAll('[type="range"][id^=theme-auto-]').forEach(x => {
+        x.addEventListener('input', (e) => {
+            const value = e.target.value;
+            if (e.target.name === 'hue') {
+                document.documentElement.style.setProperty('--hue', value);
+                Array.from(document.querySelectorAll('#theme-auto-card .token.property')).find(x => x.textContent === '--hue').nextSibling.nextSibling.textContent = ` ${value}`;
+            }
+
+            if (e.target.name === 'sat') {
+                document.documentElement.style.setProperty('--sat', value);
+                Array.from(document.querySelectorAll('#theme-auto-card .token.property')).find(x => x.textContent === '--sat').nextSibling.nextSibling.textContent = ` ${value}`;
+            }
+            document.querySelector('[data-toggle][id=theme-auto]').click();
+        });
+    })
 </script>
 
 ---
