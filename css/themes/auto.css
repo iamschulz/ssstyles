@@ -1,0 +1,32 @@
+:root {
+	--body-width: 45rem;
+
+	--hue: 0;
+	--sat: 100;
+	--lit: 95;
+
+	--col-bg: oklch(calc(var(--lit) * 1%) calc(var(--sat) * 0.1%) var(--hue));
+	--col-bg2: oklch(from var(--col-bg) calc(l * 0.95) c h);
+	--col-bg3: oklch(from var(--col-bg) calc(l * 0.92) c h);
+	--col-fg: oklch(calc((100 - var(--lit)) * 1%) calc(var(--sat) * 0.1%) var(--hue));
+	--col-fg2: oklch(from var(--col-fg) calc(l * 0.9) c h);
+	--col-accent: oklch(clamp(35%, calc((100 - var(--lit)) * 1%), 65%) calc(var(--sat) * 1%) var(--hue));
+	--col-accent2: oklch(from var(--col-accent) l c calc(h - 60));
+	--col-accent-contrast: oklch(from var(--col-accent) calc((var(--lit) / 100) * (3 * (var(--lit) / 100)) * 100%) c h);
+
+	--font: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial, sans-serif;
+	--font-mono: Consolas, monaco, "Ubuntu Mono", "Liberation Mono", "Courier New", Courier, monospace;
+	--font-accent: var(--font);
+	--font-size-min: 1rem;
+	--font-size-max: 1.2rem;
+	--line-height: 1.6;
+	--letter-spacing: 0.01875em;
+
+	--border-radius: 5px;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--lit: 15;
+	}
+}
