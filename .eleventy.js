@@ -1,7 +1,6 @@
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const pluginTOC = require("eleventy-plugin-toc");
-const markdownItAbbr = require("markdown-it-abbr");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const fs = require("fs");
 
@@ -32,7 +31,6 @@ module.exports = (eleventyConfig) => {
 					placement: "before",
 				}),
 			})
-			.use(markdownItAbbr)
 	);
 	eleventyConfig.addPlugin(pluginTOC, {
 		ul: "ol",
