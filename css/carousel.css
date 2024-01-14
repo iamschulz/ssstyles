@@ -1,5 +1,6 @@
 [data-carousel] {
 	display: flex;
+	align-items: flex-start;
 	gap: 1rem;
 	overflow-x: auto;
 	scroll-snap-type: x mandatory;
