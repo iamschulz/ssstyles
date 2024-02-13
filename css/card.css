@@ -5,10 +5,15 @@
 	color: var(--col-fg);
 	border-radius: var(--br-tl, var(--border-radius)) var(--br-tr, var(--border-radius))
 		var(--br-br, var(--border-radius)) var(--br-bl, var(--border-radius));
-	padding: 1rem 1ch;
-	overflow: hidden;
+	padding: 1rem;
+
 	--t-translate: 0.25s;
 	translate: 0 0;
+
+	> * + * {
+		margin-block-start: 1rem;
+		margin-block-end: 0;
+	}
 
 	> [data-card-link] {
 		position: absolute;
@@ -29,22 +34,27 @@
 
 	> header {
 		background-color: var(--col-bg3);
-		margin: -1rem -1ch 1rem;
-		padding: 1rem 1ch;
+		margin: -1rem -1rem 1rem;
+		padding: 1rem;
+		border-radius: var(--br-tl, var(--border-radius)) var(--br-tr, var(--border-radius)) 0 0;
 		font-size: 1.2rem;
 		font-weight: 600;
 	}
 
 	> footer {
 		background-color: var(--col-bg3);
-		margin: 1rem -1ch -1rem;
-		padding: 1rem 1ch;
+		margin: 1rem -1rem -1rem;
+		padding: 1rem 1rem;
+		border-radius: 0 0 var(--br-br, var(--border-radius)) var(--br-bl, var(--border-radius));
 	}
 
 	> [data-card-background] {
 		position: relative;
-		margin: -1rem -1ch;
-		max-width: calc(100% + 2ch);
+		margin: -1rem;
+		max-width: calc(100% + 2rem);
+		border-radius: var(--br-tl, var(--border-radius)) var(--br-tr, var(--border-radius))
+			var(--br-br, var(--border-radius)) var(--br-bl, var(--border-radius));
+		overflow: hidden;
 
 		& * {
 			max-width: 100%;

@@ -1,0 +1,42 @@
+[data-avatar] {
+	aspect-ratio: 1/1;
+	border-radius: 1000rem;
+	object-fit: cover;
+	background-color: var(--col-bg);
+	width: 1.5lh;
+}
+
+[data-avatar]:not(img) {
+	/* todo: auto-contrast */
+	display: inline-grid;
+	place-items: center;
+	width: 1.5lh;
+	padding: 0.3rem;
+	background-color: var(--col-fg2);
+	color: var(--col-bg);
+	overflow: hidden;
+	font-weight: 700;
+}
+
+a[href] > [data-avatar]:first-child:last-child {
+	position: relative;
+	border: 2px solid var(--col-accent);
+	translate: 0 0;
+	--t-translate: 0.2s;
+	z-index: 1;
+
+	&:hover {
+		translate: 0 -0.3rem;
+		z-index: 2;
+		border-color: var(--col-accent2);
+	}
+}
+
+[data-group]:not([data-group="vertical"])
+	> :is([data-avatar]:not(:first-child), a:has(> [data-avatar]):not(:first-child)) {
+	margin-inline-start: -0.6em;
+}
+
+[data-group="vertical"] > :is([data-avatar]:not(:first-child), a:has(> [data-avatar]):not(:first-child)) {
+	margin-block-start: -0.6em;
+}

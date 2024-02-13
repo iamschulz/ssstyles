@@ -31,4 +31,14 @@ input[type="reset"] {
 	&[data-button="accent2"] {
 		--col-button: var(--col-accent2);
 	}
+
+	&[data-button="bg"] {
+		--col-button: var(--col-bg);
+		color: var(--col-fg);
+	}
+
+	&[data-button="fg"] {
+		--col-button: var(--col-fg);
+		color: var(--col-bg);
+	}
 }

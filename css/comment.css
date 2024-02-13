@@ -1,0 +1,39 @@
+/* todo: logical properties! */
+[data-comment] {
+	position: relative;
+	margin: 2rem 0;
+	margin-left: calc(2rem * var(--level, 0));
+
+	> [data-comment] {
+		--level: 1;
+	}
+
+	&[data-card] {
+		display: block;
+	}
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: -1rem;
+		left: calc(-2rem * var(--level, 0));
+		bottom: -1rem;
+		width: calc(2rem * var(--level, 0));
+		background: repeating-linear-gradient(
+				to right,
+				var(--col-fg2),
+				var(--col-fg2) 2px,
+				transparent 2px,
+				transparent 2rem
+			)
+			0.5rem;
+	}
+
+	> header {
+		font-weight: 600;
+
+		* {
+			vertical-align: middle;
+		}
+	}
+}

@@ -17,6 +17,8 @@
 @import "./toggle.css" layer(components);
 @import "./loading.css" layer(components);
 @import "./actionlink.css" layer(components);
+@import "./avatar.css" layer(components);
+@import "./comment.css" layer(components);
 @import "./carousel.css" layer(components);
 @import "./callout.css" layer(components);
 @import "./shadow.css" layer(components);
