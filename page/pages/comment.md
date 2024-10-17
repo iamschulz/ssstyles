@@ -14,6 +14,18 @@ permalink: "/{{ title | slugify }}/index.html"
 
 This component will let you display comments, but please keep it civil.
 
+```html
+<article data-comment>
+	<header>Chester Bennington</header>
+	<p>It starts with one</p>
+</article>
+```
+
+<article data-comment>
+	<header>Chester Bennington</header>
+	<p>It starts with one</p>
+</article>
+
 ## Nested comments
 
 Nested comments will show up as visually tiered.
