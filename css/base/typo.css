@@ -5,7 +5,7 @@
 
 :root {
 	font-family: var(--font);
-	font-size: min(max(var(--font-size-min), 1.5vw), var(--font-size-max));
+	font-size: round(min(max(var(--font-size-min), 1.5vw), var(--font-size-max)), 1px);
 	line-height: var(--line-height);
 	letter-spacing: var(--letter-spacing);
 	text-wrap: balance;
