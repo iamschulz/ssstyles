@@ -34,14 +34,9 @@ Nested comments will show up as visually tiered.
 <article data-comment>
 	<header>Chester Bennington</header>
 	<p>It starts with one</p>
-
 	<article data-comment>
 		<header>Mike Shinoda</header>
-		<p>
-			One thing: I don't know why. It doesn't really matter how hard you try. Keep that in mind I designed this
-			rhyme to explain in due time.
-		</p>
-
+		<p>One thing: I don't know why. It doesn't really matter how hard you try. Keep that in mind I designed this rhyme to explain in due time.</p>
 		<article data-comment>
 			<header>Chester Bennington</header>
 			<p>All I know</p>
@@ -52,24 +47,14 @@ Nested comments will show up as visually tiered.
 
 <article data-comment>
 	<header>Chester Bennington</header>
-	<p>
-		It starts with one
-	</p>
-
-    <article data-comment>
+	<article data-comment>
     	<header>Mike Shinoda</header>
-    	<p>
-    		One thing: I don't know why. It doesn't really matter how hard you try. Keep that in mind I designed this rhyme to explain in due time.
-    	</p>
-
+    	<p>One thing: I don't know why. It doesn't really matter how hard you try. Keep that in mind I designed this rhyme to explain in due time.</p>
     	<article data-comment>
     		<header>Chester Bennington</header>
-    		<p>
-    			All I know
-    		</p>
+    		<p>All I know</p>
     	</article>
     </article>
-
 </article>
 
 You can also manually set the level:
@@ -114,7 +99,7 @@ You can integrate them with [avatars](/avatar) and [cards](/card).
 
 <article data-card data-comment data-shadow="1">
     <header>
-        <a href="/foo"><img data-avatar data-shadow="1-hover" src="https://randomuser.me/api/portraits/lego/1.jpg" alt="" /></a>
+        <a href="/foo"><img data-avatar data-shadow="1-hover" src="https://randomuser.me/api/portraits/lego/1.jpg" alt="A portrait photo of a handsome little fella"></a>
         <a href="/foo">Lorem Ipsum</a>
     </header>
     <p>Quia voluptates architecto qui. Id maiores eum quis neque. Eligendi ut officiis eos laudantium dolorem eius et. Veniam sit illum ut sed maxime error eius. Est ducimus laudantium accusantium rerum. Qui sit sed porro ipsa culpa quibusdam laudantium.</p>
