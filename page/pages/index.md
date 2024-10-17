@@ -335,14 +335,14 @@ Here's a list of all available components:
     <li data-card data-shadow="2-hover">
         <a data-card-link href="{{ '/avatar' | url }}" aria-label="Avatar"></a>
         <figure data-card-background>
-            {% svg "actionlink.svg" %}
+            {% svg "avatar.svg" %}
             <figcaption>Avatar</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
         <a data-card-link href="{{ '/comment' | url }}" aria-label="Comment"></a>
         <figure data-card-background>
-            {% svg "actionlink.svg" %}
+            {% svg "comment.svg" %}
             <figcaption>Comment</figcaption>
         </figure>
     </li>
