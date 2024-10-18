@@ -354,6 +354,13 @@ Here's a list of all available components:
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
+        <a data-card-link href="{{ '/spoiler' | url }}" aria-label="Spoiler"></a>
+        <figure data-card-background>
+            {% svg "spoiler.svg" %}
+            <figcaption>Spoiler</figcaption>
+        </figure>
+    </li>
+    <li data-card data-shadow="2-hover">
         <a data-card-link href="{{ '/animations' | url }}" aria-label="Animations"></a>
         <figure data-card-background>
             {% svg "animations.svg" %}
