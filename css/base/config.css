@@ -1,0 +1,68 @@
+@property --body-width {
+	syntax: "<length>";
+	inherits: true;
+}
+@property --col-bg {
+	syntax: "<color>";
+	inherits: true;
+}
+@property --col-bg2 {
+	syntax: "<color>";
+	inherits: true;
+}
+@property --col-bg3 {
+	syntax: "<color>";
+	inherits: true;
+}
+@property --col-fg {
+	syntax: "<color>";
+	inherits: true;
+}
+@property --col-fg2 {
+	syntax: "<color>";
+	inherits: true;
+}
+@property --col-accent {
+	syntax: "<color>";
+	inherits: true;
+}
+@property --col-accent2 {
+	syntax: "<color>";
+	inherits: true;
+}
+@property --col-accent-contrast {
+	syntax: "<color>";
+	inherits: true;
+}
+@property --font {
+	syntax: "<string>";
+	inherits: true;
+}
+@property --font-mono {
+	syntax: "<string>";
+	inherits: true;
+}
+@property --font-accent {
+	syntax: "<string>";
+	inherits: true;
+}
+@property --font-size-min {
+	syntax: "<length>";
+	inherits: true;
+}
+@property --font-size-max {
+	syntax: "<length>";
+	inherits: true;
+}
+@property --line-height {
+	syntax: "<integer> | <length> normal";
+	inherits: true;
+}
+@property --letter-spacing {
+	syntax: "<length>";
+	inherits: true;
+}
+@property --border-radius {
+	syntax: "<length>";
+	inherits: true;
+}
