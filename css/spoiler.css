@@ -1,0 +1,14 @@
+[data-spoiler] {
+	background-color: currentColor;
+	cursor: pointer;
+	speak: never;
+
+	&:focus-within {
+		background-color: transparent;
+		speak: auto;
+
+		@media (prefers-reduced-motion: no-preference) {
+			transition: background-color 1s ease-out;
+		}
+	}
+}

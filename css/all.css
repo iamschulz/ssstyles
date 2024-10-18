@@ -22,4 +22,5 @@
 @import "./carousel.css" layer(components);
 @import "./callout.css" layer(components);
 @import "./shadow.css" layer(components);
+@import "./spoiler.css" layer(components);
 @import "./animation.css" layer(components);
