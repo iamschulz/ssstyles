@@ -55,7 +55,7 @@
 	inherits: true;
 }
 @property --line-height {
-	syntax: "<integer> | <length> normal";
+	syntax: "<integer> | <length> | normal";
 	inherits: true;
 }
 @property --letter-spacing {

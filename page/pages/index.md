@@ -94,9 +94,11 @@ Update the following custom properties to personalize the stylesheet:
 --col-accent: <color>;
 --col-accent2: <color>;
 --col-accent-contrast: <color>;
+--font: <string>;
+--font-mono: <string>;
 --font-size-min: <length>;
 --font-size-max: <length>;
---line-height: <number>;
+--line-height: <integer> | <length> | normal;
 --letter-spacing: <length>;
 --body-width: <length>;
 --border-radius: <length>;
