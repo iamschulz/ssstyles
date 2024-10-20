@@ -1,6 +1,6 @@
 {
 	"name": "ssstyles",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "Ssstyles is a very simple CSS style system",
 	"main": "dist/base.css",
 	"scripts": {
