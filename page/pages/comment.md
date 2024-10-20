@@ -78,10 +78,10 @@ You can integrate them with [avatars](/avatar) and [cards](/card).
 ```html
 <article data-card data-comment data-shadow="1">
 	<header>
-		<a href="/foo"
+		<a href=""
 			><img data-avatar data-shadow="1-hover" src="https://randomuser.me/api/portraits/lego/1.jpg" alt=""
 		/></a>
-		<a href="/foo">Lorem Ipsum</a>
+		<a href="">Lorem Ipsum</a>
 	</header>
 	<p>
 		Quia voluptates architecto qui. Id maiores eum quis neque. Eligendi ut officiis eos laudantium dolorem eius et.
@@ -90,8 +90,8 @@ You can integrate them with [avatars](/avatar) and [cards](/card).
 	</p>
 	<footer>
 		<div data-group>
-			<a href="/foo" data-button="accent">Read more</a>
-			<a href="/foo" data-button="accent">Reply</a>
+			<a href="" data-button="accent">Read more</a>
+			<a href="" data-button="accent">Reply</a>
 		</div>
 	</footer>
 </article>
@@ -99,14 +99,14 @@ You can integrate them with [avatars](/avatar) and [cards](/card).
 
 <article data-card data-comment data-shadow="1">
     <header>
-        <a href="/foo"><img data-avatar data-shadow="1-hover" src="https://randomuser.me/api/portraits/lego/1.jpg" alt="A portrait photo of a handsome little fella"></a>
-        <a href="/foo">Lorem Ipsum</a>
+        <a href=""><img data-avatar data-shadow="1-hover" src="https://randomuser.me/api/portraits/lego/1.jpg" alt="A portrait photo of a handsome little fella"></a>
+        <a href="">Lorem Ipsum</a>
     </header>
     <p>Quia voluptates architecto qui. Id maiores eum quis neque. Eligendi ut officiis eos laudantium dolorem eius et. Veniam sit illum ut sed maxime error eius. Est ducimus laudantium accusantium rerum. Qui sit sed porro ipsa culpa quibusdam laudantium.</p>
     <footer>
         <div data-group>
-            <a href="/foo" data-button="accent">Read more</a>
-            <a href="/foo" data-button="accent">Reply</a>
+            <a href="" data-button="accent">Read more</a>
+            <a href="" data-button="accent">Reply</a>
         </div>
     </footer>
 </article>
