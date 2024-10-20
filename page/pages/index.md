@@ -29,8 +29,8 @@ You can use this as a quick start for simple websites and build your own stuff o
 
 You have multiple options to install Ssstyles. I provide two packages:
 
--   The base styles, which include a classless stylesheet for simple HTML sites
--   The complete base+components package, which you can use to build more advanced sites
+-   The **[base styles](#base-styles)**, which include a classless stylesheet for simple HTML sites
+-   The complete **[base+components](#components)** package, which you can use to build more advanced sites
 
 ### CDN
 
@@ -78,6 +78,37 @@ All file sizes are gzipped.
 
 You can save this link to your bookmarks and press it on any site to make it use this stylesheet:
 <a data-button href="javascript:(function(){[Array.from(document.querySelectorAll('style')), Array.from(document.querySelectorAll('link[href$=\'css\']')), Array.from(document.querySelectorAll('link[rel=\'stylesheet\']'))].flat().forEach((x) => x.remove());document.querySelectorAll('[style]').forEach((x) => x.setAttribute('style', ''));var linkElement = document.createElement('link');linkElement.rel = 'stylesheet';linkElement.type = 'text/css';linkElement.href = 'https://iamschulz.github.io/ssstyles/base.css';document.head.appendChild(linkElement);})();">Ssstylize</a>
+
+### Changelog
+
+<details>
+<summary>Show full changelog</summary>
+
+### 1.0.3
+
+-   Add **Spoiler** component
+-   Add **Comment** component
+-   Add **Avatar** component
+-   Fix item alignment in **Carousel** component
+-   Round dynamic font size to steps of `1px`
+-   Safely typed config with `@property`
+
+### 1.0.2
+
+-   Add **Themes**
+-   Use `border-box` for all elements
+-   Fix **Navigation** component sliding beneath the **Breakout** component in z-axis
+-   Fix font color on **Card** component
+
+### 1.0.1
+
+-   Move `styles.css` to `all.css`
+
+### 1.0.0
+
+-   Initial release
+
+</details>
 
 ---
 
