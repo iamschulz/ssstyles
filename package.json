@@ -2,6 +2,7 @@
 	"name": "ssstyles",
 	"version": "1.0.3",
 	"description": "Ssstyles is a very simple CSS style system",
+	"homepage": "https://iamschulz.github.io/ssstyles/",
 	"main": "dist/base.css",
 	"scripts": {
 		"build:css": "node ./esbuild.js --minify",
