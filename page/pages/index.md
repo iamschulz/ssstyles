@@ -273,7 +273,7 @@ Here are some optional components. Most of the time, you can use them by importi
 
 Here's a list of all available components:
 
-<ul data-autogrid="1/3" data-hint="nolist">
+<ul data-autogrid="1/4" data-hint="nolist">
     <li data-card data-shadow="2-hover">
         <a data-card-link href="{{ '/layout' | url }}" aria-label="Layout"></a>
         <figure data-card-background>

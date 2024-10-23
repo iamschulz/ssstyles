@@ -47,6 +47,7 @@ Nested comments will show up as visually tiered.
 
 <article data-comment>
 	<header>Chester Bennington</header>
+	<p>It starts with one</p>
 	<article data-comment>
     	<header>Mike Shinoda</header>
     	<p>One thing: I don't know why. It doesn't really matter how hard you try. Keep that in mind I designed this rhyme to explain in due time.</p>
