@@ -61,6 +61,11 @@
 <h3 id="changelog" tabindex="-1"><a class="header-anchor" href="#changelog">#</a> Changelog</h3>
 <details>
 <summary>Show full changelog</summary>
+<h3 id="1.0.4" tabindex="-1"><a class="header-anchor" href="#1.0.4">#</a> 1.0.4</h3>
+<ul>
+<li>Add <strong>Columns</strong> component</li>
+<li>Fix units in Auto Grid</li>
+</ul>
 <h3 id="1.0.3" tabindex="-1"><a class="header-anchor" href="#1.0.3">#</a> 1.0.3</h3>
 <ul>
 <li>Add <strong>Spoiler</strong> component</li>
@@ -293,7 +298,7 @@
 <pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@import</span> <span class="token string">"ssstyles/css/mycomponent.css"</span> <span class="token function">layer</span><span class="token punctuation">(</span>components<span class="token punctuation">)</span><span class="token punctuation">;</span></span></code></pre>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">data-mycomponent</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
 <p>Here's a list of all available components:</p>
-<ul data-autogrid="1/3" data-hint="nolist">
+<ul data-autogrid="1/4" data-hint="nolist">
     <li data-card data-shadow="2-hover">
         <a data-card-link href="/ssstyles/layout" aria-label="Layout"></a>
         <figure data-card-background>
@@ -402,6 +407,24 @@
   </g>
 </svg>
             <figcaption>Headline</figcaption>
+        </figure>
+    </li>
+    <li data-card data-shadow="2-hover">
+        <a data-card-link href="/ssstyles/columns" aria-label="Columns"></a>
+        <figure data-card-background>
+            <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" stroke-linejoin="round"
+  stroke-miterlimit="2" clip-rule="evenodd" viewBox="0 0 800 600">
+  <path fill="#62a9dc" d="M20 91v335l200 40V131L20 91Z" />
+  <path fill="#396280" d="m220 131 35-14v335l-35 14V131Z" />
+  <path fill="#447598" d="m20 91 35-14 200 40-35 14L20 91Z" />
+  <path fill="#d0306e" d="m283 144-1 335 200 40V184l-199-40Z" />
+  <path fill="#8e214a" d="m482 184 36-15-1 336-35 14V184Z" />
+  <path fill="#a02655" d="m282 144 36-14 200 39-36 15-200-40Z" />
+  <path fill="#62a9dc" d="M545 197v335l200 40V236l-200-39Z" />
+  <path fill="#396280" d="m745 236 35-14v335l-35 15V236Z" />
+  <path fill="#447598" d="m545 197 35-15 200 40-35 14-200-39Z" />
+</svg>
+            <figcaption>Columns</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
@@ -705,7 +728,7 @@
         <a data-card-link href="/ssstyles/comment" aria-label="Comment"></a>
         <figure data-card-background>
             <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" stroke-linejoin="round"
-  stroke-miterlimit="2" clip-rule="evenodd" viewBox="-200 0 1567 1337" width="220">
+  stroke-miterlimit="2" clip-rule="evenodd" viewBox="0 0 1367 1337" width="800" height="600">
   <title>Avatar</title>
   <path fill="#396280" d="m1164 1033-101 103 51-82 50-21Z" />
   <path fill="#62a9dc" d="M0 20v797l911 194 152 125 51-82 202 43V300L0 20Z" />
