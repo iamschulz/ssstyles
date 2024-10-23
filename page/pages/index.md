@@ -84,6 +84,11 @@ You can save this link to your bookmarks and press it on any site to make it use
 <details>
 <summary>Show full changelog</summary>
 
+### 1.0.4
+
+-   Add **Columns** component
+-   Fix units in Auto Grid
+
 ### 1.0.3
 
 -   Add **Spoiler** component
