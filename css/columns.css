@@ -1,0 +1,11 @@
+[data-columns] {
+	columns: 2;
+}
+
+[data-columns="3"] {
+	columns: 3;
+}
+
+[data-columns="4"] {
+	columns: 4;
+}

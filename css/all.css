@@ -12,6 +12,7 @@
 @import "./skiplink.css" layer(components);
 @import "./contactlinks.css" layer(components);
 @import "./headline.css" layer(components);
+@import "./columns.css" layer(components);
 @import "./nav.css" layer(components);
 @import "./card.css" layer(components);
 @import "./toggle.css" layer(components);

@@ -303,6 +303,13 @@ Here's a list of all available components:
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
+        <a data-card-link href="{{ '/columns' | url }}" aria-label="Columns"></a>
+        <figure data-card-background>
+            {% svg "columns.svg" %}
+            <figcaption>Columns</figcaption>
+        </figure>
+    </li>
+    <li data-card data-shadow="2-hover">
         <a data-card-link href="{{ '/card' | url }}" aria-label="Card"></a>
         <figure data-card-background>
             {% svg "card.svg" %}
