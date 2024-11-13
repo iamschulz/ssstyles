@@ -25,3 +25,4 @@
 @import "./shadow.css" layer(components);
 @import "./spoiler.css" layer(components);
 @import "./animation.css" layer(components);
+@import "./viewtransitions.css" layer(components);

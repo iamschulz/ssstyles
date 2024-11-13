@@ -1,0 +1,13 @@
+@media not (prefers-reduced-motion) {
+	@view-transition {
+		navigation: auto;
+	}
+
+	::view-transition-group(*) {
+		animation-duration: var(--view-transition-duration, 0.4s);
+	}
+
+	[data-view-transition] {
+		view-transition-name: var(--view-transition-name, default-view-transition);
+	}
+}
