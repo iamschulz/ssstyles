@@ -1,13 +1,37 @@
-@media not (prefers-reduced-motion) {
+@property --view-transition-duration {
+	syntax: "<time>";
+	inherits: true;
+	initial-value: 0.4s;
+}
+
+@keyframes enable-vt {
+	from {
+		--enable-view-transitions: none;
+	}
+	to {
+		--enable-view-transitions: var(--view-transition-name, default-view-transition);
+	}
+}
+
+@media (prefers-reduced-motion: no-preference) {
 	@view-transition {
 		navigation: auto;
 	}
 
 	::view-transition-group(*) {
-		animation-duration: var(--view-transition-duration, 0.4s);
+		animation-duration: var(--view-transition-duration);
 	}
 
 	[data-view-transition] {
+		view-timeline-name: --enable-vt;
+		view-timeline-axis: block;
+		animation: linear enable-vt both;
+		animation-timeline: --enable-vt;
+		animation-range: entry 0% cover 0%;
+
 		view-transition-name: var(--view-transition-name, default-view-transition);
+		@supports (animation-timeline: --enable-vt) {
+			view-transition-name: var(--enable-view-transitions);
+		}
 	}
 }
