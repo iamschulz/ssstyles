@@ -84,6 +84,10 @@ You can save this link to your bookmarks and press it on any site to make it use
 <details>
 <summary>Show full changelog</summary>
 
+### 1.1.0
+
+-   Add **view-transition** component
+
 ### 1.0.4
 
 -   Add **Columns** component
@@ -219,7 +223,7 @@ Here's a list of all available themes:
 </section>
 
 <script>
-    const styles = Array.from(document.styleSheets[0].cssRules).find(x => x.cssText.includes('default'));
+    const styles = Array.from(document.styleSheets[0].cssRules).find(x => x.name === "themes" && x.cssText.includes('default'));
     const themeNames = styles.cssRules[0].cssText.replaceAll(/;|,/g,'').split(' ').filter(x => !x.startsWith('@'));
     const rules = {};
     themeNames.forEach(name => rules[name] = Array.from(styles.cssRules).find(x => x.name === name))
