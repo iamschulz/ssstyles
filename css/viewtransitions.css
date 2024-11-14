@@ -5,10 +5,12 @@
 }
 
 @keyframes enable-vt {
-	from {
+	0%,
+	100% {
 		--enable-view-transitions: none;
 	}
-	to {
+	0.1%,
+	99.9% {
 		--enable-view-transitions: var(--view-transition-name, default-view-transition);
 	}
 }
@@ -27,7 +29,7 @@
 		view-timeline-axis: block;
 		animation: linear enable-vt both;
 		animation-timeline: --enable-vt;
-		animation-range: entry 0% cover 0%;
+		animation-range: cover;
 
 		view-transition-name: var(--view-transition-name, default-view-transition);
 		@supports (animation-timeline: --enable-vt) {

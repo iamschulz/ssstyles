@@ -77,7 +77,7 @@ This component supports one transitioning element per page out of the box. If yo
 
 ```html
 <article id="card-2" data-card data-view-transition style="--view-transition-name: card-2">
-	<a data-card-link href="/view-transitions-2#card-2" aria-label="A generic card"></a>
+	<a data-card-link href="/view-transitions-3#card-2" aria-label="A generic card"></a>
 	<header>Click me</header>
 	<img
 		alt="This is just a placeholder image with no meaningful content"
@@ -89,7 +89,7 @@ This component supports one transitioning element per page out of the box. If yo
 </article>
 
 <article id="card-3" data-card data-view-transition style="--view-transition-name: card-3">
-	<a data-card-link href="/view-transitions-2#card-3" aria-label="A generic card"></a>
+	<a data-card-link href="/view-transitions-4#card-3" aria-label="A generic card"></a>
 	<header>Click me</header>
 	<img
 		alt="This is just a placeholder image with no meaningful content"
@@ -103,13 +103,13 @@ This component supports one transitioning element per page out of the box. If yo
 
 <div data-group>
 <article id="card-2" data-card data-view-transition style="--view-transition-name: card-2">
-    <a data-card-link href="{{ '/view-transitions-2#card-2' | url }}" aria-label="A generic card"></a>
+    <a data-card-link href="{{ '/view-transitions-3#card-2' | url }}" aria-label="A generic card"></a>
     <header>Click me</header>
     <img alt="This is just a placeholder image with no meaningful content" data-card-background src="https://picsum.photos/id/234/1920/1080" width="240" height="135">
 </article>
 
 <article id="card-3" data-card data-view-transition style="--view-transition-name: card-3">
-    <a data-card-link href="{{ '/view-transitions-2#card-3' | url }}" aria-label="A generic card"></a>
+    <a data-card-link href="{{ '/view-transitions-4#card-3' | url }}" aria-label="A generic card"></a>
     <header>Click me</header>
     <img alt="This is just a placeholder image with no meaningful content" data-card-background src="https://picsum.photos/id/345/1920/1080" width="240" height="135">
 </article>
