@@ -28,6 +28,23 @@ View Transitions can animate elements across page navigations. With this you can
 
 You can define the transition duration with the custom property `--view-transition-duration: <time>`. It defaults to `0.4s`.
 
+It's a good idea to preload images on tranitioning elements to prevent large [CLS](https://web.dev/articles/cls) on page loads. Those layout shifts can become very prominent inside a view transition.
+
+<style>
+    @supports (view-transition-name: --vt-name) {
+        #browserwarning {
+            display: none;
+        }
+    }
+</style>
+
+<aside data-callout id="browserwarning">
+    <header><h3>Not supported!</h3></header>
+    <p>Your browser doesn't support this feature yet.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@view-transition">See which browsers do!</a></p>
+    <p>Don't worry, your project will work just fine without it. </p>
+</aside>
+
 ## One element
 
 ```css
@@ -41,7 +58,9 @@ You can define the transition duration with the custom property `--view-transiti
 	<img
 		alt="This is just a placeholder image with no meaningful content"
 		data-card-background
-		src="https://picsum.photos/id/123/480/270"
+		src="https://picsum.photos/id/123/1920/1080"
+		width="480"
+		height="270"
 	/>
 </article>
 ```
@@ -49,7 +68,7 @@ You can define the transition duration with the custom property `--view-transiti
 <article id="card-1" data-card data-view-transition>
     <a data-card-link href="/view-transitions-2#card-1" aria-label="A generic card"></a>
     <header>Click me</header>
-    <img alt="This is just a placeholder image with no meaningful content" data-card-background src="https://picsum.photos/id/123/480/270">
+    <img alt="This is just a placeholder image with no meaningful content" data-card-background src="https://picsum.photos/id/123/1920/1080" width="480" height="270">
 </article>
 
 ## Multiple elements
@@ -63,7 +82,9 @@ This component supports one transitioning element per page out of the box. If yo
 	<img
 		alt="This is just a placeholder image with no meaningful content"
 		data-card-background
-		src="https://picsum.photos/id/234/480/270"
+		src="https://picsum.photos/id/234/1920/1080"
+		width="240"
+		height="135"
 	/>
 </article>
 
@@ -73,7 +94,9 @@ This component supports one transitioning element per page out of the box. If yo
 	<img
 		alt="This is just a placeholder image with no meaningful content"
 		data-card-background
-		src="https://picsum.photos/id/345/480/270"
+		src="https://picsum.photos/id/345/1920/1080"
+		width="240"
+		height="135"
 	/>
 </article>
 ```
@@ -82,13 +105,13 @@ This component supports one transitioning element per page out of the box. If yo
 <article id="card-2" data-card data-view-transition style="--view-transition-name: card-2">
     <a data-card-link href="/view-transitions-3#card-2" aria-label="A generic card"></a>
     <header>Click me</header>
-    <img alt="This is just a placeholder image with no meaningful content" data-card-background src="https://picsum.photos/id/234/240/135">
+    <img alt="This is just a placeholder image with no meaningful content" data-card-background src="https://picsum.photos/id/234/1920/1080" width="240" height="135">
 </article>
 
 <article id="card-3" data-card data-view-transition style="--view-transition-name: card-3">
     <a data-card-link href="/view-transitions-4#card-3" aria-label="A generic card"></a>
     <header>Click me</header>
-    <img alt="This is just a placeholder image with no meaningful content" data-card-background src="https://picsum.photos/id/345/240/135">
+    <img alt="This is just a placeholder image with no meaningful content" data-card-background src="https://picsum.photos/id/345/1920/1080" width="240" height="135">
 </article>
 </div>
 

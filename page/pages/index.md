@@ -412,6 +412,13 @@ Here's a list of all available components:
             <figcaption>Animations</figcaption>
         </figure>
     </li>
+    <li data-card data-shadow="2-hover">
+        <a data-card-link href="{{ '/view-transitions' | url }}" aria-label="View Transitions"></a>
+        <figure data-card-background>
+            {% svg "viewtransitions.svg" %}
+            <figcaption>View Transitions</figcaption>
+        </figure>
+    </li>
 </ul>
 
 ---
