@@ -61,6 +61,10 @@
 <h3 id="changelog" tabindex="-1"><a class="header-anchor" href="#changelog">#</a> Changelog</h3>
 <details>
 <summary>Show full changelog</summary>
+<h3 id="1.1.0" tabindex="-1"><a class="header-anchor" href="#1.1.0">#</a> 1.1.0</h3>
+<ul>
+<li>Add <strong>view-transition</strong> component</li>
+</ul>
 <h3 id="1.0.4" tabindex="-1"><a class="header-anchor" href="#1.0.4">#</a> 1.0.4</h3>
 <ul>
 <li>Add <strong>Columns</strong> component</li>
@@ -201,7 +205,7 @@
     </article>
 </section>
 <script>
-    const styles = Array.from(document.styleSheets[0].cssRules).find(x => x.cssText.includes('default'));
+    const styles = Array.from(document.styleSheets[0].cssRules).find(x => x.name === "themes" && x.cssText.includes('default'));
     const themeNames = styles.cssRules[0].cssText.replaceAll(/;|,/g,'').split(' ').filter(x => !x.startsWith('@'));
     const rules = {};
     themeNames.forEach(name => rules[name] = Array.from(styles.cssRules).find(x => x.name === name))
