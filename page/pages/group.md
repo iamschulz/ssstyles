@@ -59,6 +59,32 @@ You can stack elements vertically, if you add the value `vertical` to the data a
     <article data-card>Bottom Bun</article>
 </div>
 
+You can use `<details>`/`<summary>` in a vertical group to create an accordeon:
+
+```css
+<div data-group="vertical">
+    <details name="heynow" open>
+        <summary>Some<strong>body</strong> once told me</summary>
+        <p>The world is gonna roll me</p>
+    </details>
+    <details name="heynow">
+        <summary>I ain't</summary>
+        <p>The sharpest tool in the shed ✄</p>
+    </details>
+</div>
+```
+
+<div data-group="vertical">
+    <details name="heynow" open>
+        <summary>Some<strong>body</strong> once told me</summary>
+        <p>The world is gonna roll me</p>
+    </details>
+    <details name="heynow">
+        <summary>I ain't...</summary>
+        <p>The sharpest tool in the shed ✄</p>
+    </details>
+</div>
+
 ## Mixed Elements
 
 You can also group mixed elements to create new UI patterns.
