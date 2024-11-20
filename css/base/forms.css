@@ -1,11 +1,16 @@
 fieldset {
 	background-color: var(--col-bg2);
-	border-radius: var(--br-tl, var(--border-radius)) var(--br-tr, var(--border-radius))
-		var(--br-br, var(--border-radius)) var(--br-bl, var(--border-radius));
+	border-radius: var(--br-tl, var(--border-radius))
+		var(--br-tr, var(--border-radius)) var(--br-br, var(--border-radius))
+		var(--br-bl, var(--border-radius));
 	border-color: var(--col-bg3);
 	border-style: solid;
 
-	:is(input:not(:is([type="button"], [type="submit"], [type="reset"])), textarea, select) {
+	:is(
+			input:not(:is([type="button"], [type="submit"], [type="reset"])),
+			textarea,
+			select
+		) {
 		background-color: color-mix(in lch, var(--col-bg2) 95%, var(--col-fg));
 		border-color: var(--col-fg2);
 	}
@@ -15,6 +20,7 @@ input:not(:is([type="button"], [type="submit"], [type="reset"])),
 textarea,
 select {
 	padding: 0.1rem 1ch;
+	color: var(--col-fg);
 	background-color: var(--col-bg2);
 	border: 0.125rem solid var(--col-fg2);
 	--br-tl: var(--border-radius);

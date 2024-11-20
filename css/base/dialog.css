@@ -16,6 +16,7 @@ body:has(dialog[open]) {
 dialog {
 	padding: 1rem 2ch;
 	border: 0.125rem solid var(--col-bg3);
+	color: var(--col-fg);
 	background: var(--col-bg);
 	@media (prefers-reduced-motion: no-preference) {
 		animation: dialog-fade-in 0.1s ease-out;
