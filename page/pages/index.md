@@ -84,6 +84,12 @@ You can save this link to your bookmarks and press it on any site to make it use
 <details>
 <summary>Show full changelog</summary>
 
+### 1.1.1
+
+-   fix mismatched font colors
+-   add `:invalid` to forms
+-   fix card background border radius
+
 ### 1.1.0
 
 -   Add **view-transition** component
