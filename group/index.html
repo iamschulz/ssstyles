@@ -54,6 +54,27 @@
     <article data-card>Salad</article>
     <article data-card>Bottom Bun</article>
 </div>
+<p>You can use <code>&lt;details&gt;</code>/<code>&lt;summary&gt;</code> in a vertical group to create an accordeon:</p>
+<pre class="language-css"><code class="language-css">&lt;div data-group=<span class="token string">"vertical"</span>>
+    &lt;details name=<span class="token string">"heynow"</span> open>
+        &lt;summary>Some&lt;strong>body&lt;/strong> once told me&lt;/summary>
+        &lt;p>The world is gonna roll me&lt;/p>
+    &lt;/details>
+    &lt;details name=<span class="token string">"heynow"</span>>
+        &lt;summary>I ain't&lt;/summary>
+        &lt;p>The sharpest tool in the shed ✄&lt;/p>
+    &lt;/details>
+&lt;/div></code></pre>
+<div data-group="vertical">
+    <details name="heynow" open>
+        <summary>Some<strong>body</strong> once told me</summary>
+        <p>The world is gonna roll me</p>
+    </details>
+    <details name="heynow">
+        <summary>I ain't...</summary>
+        <p>The sharpest tool in the shed ✄</p>
+    </details>
+</div>
 <h2 id="mixed-elements" tabindex="-1"><a class="header-anchor" href="#mixed-elements">#</a> Mixed Elements</h2>
 <p>You can also group mixed elements to create new UI patterns.</p>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">data-group</span><span class="token punctuation">></span></span>
