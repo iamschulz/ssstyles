@@ -3,23 +3,19 @@
 }
 
 body {
-	max-width: var(--body-width);
 	margin: auto;
-	padding: 0 1rem;
 	word-wrap: break-word;
 
 	> :is(header, footer) {
+		display: grid;
+		grid-template-columns: auto var(--body-width) auto;
 		position: relative;
-		margin: 0 calc((50vw - 50%) * -1 + 1rem);
-		padding: 2rem calc(50vw - 50% - 1rem);
+		margin: 0;
+		padding: 1rem;
 		background: var(--col-bg3);
 
-		&::before {
-			content: "";
-			position: absolute;
-			inset: 0;
-			box-shadow: -2rem 0 0 0 var(--col-bg3), 2rem 0 0 0 var(--col-bg3);
-			z-index: -1;
+		> * {
+			grid-column: 2 / 4;
 		}
 	}
 
@@ -33,6 +29,12 @@ body {
 
 	> header {
 		margin-bottom: 1rem;
+	}
+
+	> *:not(header, footer) {
+		max-width: var(--body-width);
+		margin: auto;
+		width: 100%;
 	}
 
 	> footer {
@@ -55,4 +57,9 @@ svg {
 	max-width: 100%;
 	height: auto;
 	vertical-align: text-bottom;
+}
+
+nav ul {
+	list-style: none;
+	padding-inline-start: 0;
 }

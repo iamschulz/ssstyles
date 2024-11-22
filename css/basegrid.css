@@ -1,13 +1,12 @@
 :root {
-	--basegrid: "header ." "nav side" "content side" "footer .";
+	--basegrid: "header header header header" ". nav side ." ". content side ." "footer footer footer footer";
+	--basegrid-cols: 1fr min(var(--body-width, 100%), calc(100% - 5rem)) 0 1fr;
 	--basegrid-rows: max-content max-content auto max-content;
-	--basegrid-cols: 100% 20ch;
 }
 
 body {
 	display: grid;
 	min-height: 100vh;
-	grid-auto-columns: 1fr;
 	grid-template-columns: var(--basegrid-cols);
 	grid-template-rows: var(--basegrid-rows);
 	gap: 0 1rem;
@@ -16,10 +15,12 @@ body {
 
 body > header {
 	grid-area: header;
+	grid-template-columns: subgrid;
 }
 
 body > nav {
 	grid-area: nav;
+	height: 100%;
 }
 
 body > main {
@@ -28,6 +29,7 @@ body > main {
 
 body > footer {
 	grid-area: footer;
+	grid-template-columns: subgrid;
 }
 
 body > aside {
@@ -37,6 +39,7 @@ body > aside {
 @media (min-width: 85rem) {
 	[data-nav] {
 		grid-area: side;
+		min-width: 20ch;
 
 		& > ul > li {
 			width: 100%;

@@ -13,6 +13,7 @@
 		<header>
 			<a data-skiplink href="#content">Skip to content</a>
 			<h1><a href="{{ '/' | url }}">Ssstyles</a>{% if title %} ›&nbsp;{%endif%}{{ title }}</h1>
+			<p>v{{pkg.version}}</p>
 		</header>
 		<nav data-nav>
 			<ul>
@@ -25,10 +26,14 @@
 			{{ content | safe }}
 		</main>
 		<footer>
-			✌️ Made by <a href="https://iamschulz.com">me</a> in 2024<br>
-			💻 <a href="https://github.com/iamschulz/ssstyles">Source Code</a><br>
-			🚓 <a href="https://spdx.org/licenses/MIT.html">MIT Licence</a><br>
-			🎈 <a href="https://www.11ty.dev/">Built with 11ty</a>
+			<nav>
+				<ul>
+					<li>✌️ Made by <a href="https://iamschulz.com">me</a> in 2024<br></li>
+					<li>💻 <a href="https://github.com/iamschulz/ssstyles">Source Code</a><br></li>
+					<li>🚓 <a href="https://spdx.org/licenses/MIT.html">MIT Licence</a><br></li>
+					<li>🎈 <a href="https://www.11ty.dev/">Built with 11ty</a></li>
+				</ul>
+			</nav>
 		</footer>
 	</body>
 </html>
