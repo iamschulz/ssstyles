@@ -1,7 +1,7 @@
 :root {
-	--basegrid: "header header header header" ". nav side ." ". content side ." "footer footer footer footer";
-	--basegrid-cols: 1fr min(var(--body-width, 100%), calc(100% - 5rem)) 0 1fr;
-	--basegrid-rows: max-content max-content auto max-content;
+	--basegrid: "header header header" ". nav ." ". side ." ". content ." "footer footer footer";
+	--basegrid-cols: 0 calc(100% - 2rem) 0;
+	--basegrid-rows: max-content max-content max-content auto max-content;
 }
 
 body {
@@ -37,6 +37,12 @@ body > aside {
 }
 
 @media (min-width: 85rem) {
+	:root {
+		--basegrid: "header header header header" ". nav side ." ". content side ." "footer footer footer footer";
+		--basegrid-cols: 1fr var(--body-width, 100%) 0 1fr;
+		--basegrid-rows: max-content max-content auto max-content;
+	}
+
 	[data-nav] {
 		grid-area: side;
 		min-width: 20ch;
