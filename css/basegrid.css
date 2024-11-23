@@ -1,15 +1,16 @@
 :root {
 	--basegrid: "header header header" ". nav ." ". side ." ". content ." "footer footer footer";
-	--basegrid-cols: 0 calc(100% - 2rem) 0;
+	--basegrid-cols: auto min(var(--body-width, 100%), 100%) auto;
 	--basegrid-rows: max-content max-content max-content auto max-content;
 }
 
 body {
 	display: grid;
 	min-height: 100vh;
+	padding: 0;
+	width: calc(100% - 2rem);
 	grid-template-columns: var(--basegrid-cols);
 	grid-template-rows: var(--basegrid-rows);
-	gap: 0 1rem;
 	grid-template-areas: var(--basegrid);
 }
 
@@ -46,6 +47,7 @@ body > aside {
 	[data-nav] {
 		grid-area: side;
 		min-width: 20ch;
+		padding-inline-start: 1rem;
 
 		& > ul > li {
 			width: 100%;
