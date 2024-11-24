@@ -10,7 +10,7 @@ details {
 		position: relative;
 		font-weight: 500;
 		cursor: pointer;
-		padding-left: 1rem;
+		padding-inline-start: 1rem;
 		list-style-type: none;
 
 		&::marker,

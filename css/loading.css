@@ -13,7 +13,7 @@ button[aria-busy="true"] {
 		content: "";
 		display: inline-block;
 		vertical-align: text-bottom;
-		margin-right: 0.5ch;
+		margin-inline-end: 0.5ch;
 		animation: spin 1s linear infinite;
 		width: 1em;
 		aspect-ratio: 1;
@@ -23,6 +23,6 @@ button[aria-busy="true"] {
 	}
 
 	&:is(button)::before {
-		margin-right: 1ch;
+		margin-inline-end: 1ch;
 	}
 }

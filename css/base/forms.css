@@ -37,5 +37,5 @@ select {
 	-webkit-appearance: none;
 	background: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20height%3D%2740%27%20width%3D%27100%27%20fill%3D%22%23888%22%3E%3Cpolygon%20points%3D%220%2C0%2050%2C40%20100%2C0%22%2F%3E%3C%2Fsvg%3E")
 		calc(100% - 0.8rem) 50%/0.8rem no-repeat;
-	padding-right: 2rem;
+	padding-inline-end: 2rem;
 }

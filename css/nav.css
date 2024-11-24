@@ -1,6 +1,6 @@
 [data-nav] {
 	position: relative;
-	padding-right: 1rem;
+	padding-inline-end: 1rem;
 	text-wrap: wrap;
 	z-index: 1;
 
@@ -15,7 +15,7 @@
 			font-weight: 600;
 
 			&:not(:last-of-type) {
-				margin-right: 1rem;
+				margin-inline-end: 1rem;
 			}
 		}
 	}
