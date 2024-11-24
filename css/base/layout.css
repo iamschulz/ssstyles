@@ -3,6 +3,7 @@
 }
 
 body {
+	min-width: 17.5rem;
 	margin: auto;
 	word-wrap: break-word;
 	padding: 0 1rem;
