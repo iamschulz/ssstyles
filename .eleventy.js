@@ -18,6 +18,7 @@ module.exports = (eleventyConfig) => {
 	eleventyConfig.addWatchTarget("./css/");
 	eleventyConfig.addWatchTarget("./page/assets/");
 	eleventyConfig.addPassthroughCopy({
+		"./css/themes/*.css": "/",
 		"./page/assets/icon.*": "/",
 		"./page/assets/*.jpg": "/",
 	});
@@ -25,12 +26,11 @@ module.exports = (eleventyConfig) => {
 		"md",
 		markdownIt({
 			html: true,
+		}).use(markdownItAnchor, {
+			permalink: markdownItAnchor.permalink.linkInsideHeader({
+				placement: "before",
+			}),
 		})
-			.use(markdownItAnchor, {
-				permalink: markdownItAnchor.permalink.linkInsideHeader({
-					placement: "before",
-				}),
-			})
 	);
 	eleventyConfig.addPlugin(pluginTOC, {
 		ul: "ol",

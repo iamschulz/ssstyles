@@ -7,6 +7,18 @@
 		<link rel="stylesheet" href="{{ '/base.css' | url }}">
 		<link rel="shortcut icon" type="image/png" href="{{ '/icon.svg' | url }}">
 		<link rel="apple-touch-icon" href="{{ '/icon.png' | url }}">
+		<script>
+			const useTheme = (name) => {
+				const linkElement = document.createElement('link');
+				linkElement.rel = 'stylesheet';
+				linkElement.type = 'text/css';
+				linkElement.href = `../${name}.css`;
+				linkElement.layer = 'themes'
+				document.head.appendChild(linkElement);
+			}
+			const currentTheme = localStorage.getItem('theme') || 'default';
+			useTheme(currentTheme);
+		</script>
 	</head>
 	<body>
 		<header>
