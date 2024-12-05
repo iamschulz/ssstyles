@@ -229,29 +229,18 @@ Here's a list of all available themes:
 </section>
 
 <script>
-    const styles = Array.from(document.styleSheets[0].cssRules).find(x => x.name === "themes" && x.cssText.includes('default'));
-    const themeNames = styles.cssRules[0].cssText.replaceAll(/;|,/g,'').split(' ').filter(x => !x.startsWith('@'));
-    const rules = {};
-    themeNames.forEach(name => rules[name] = Array.from(styles.cssRules).find(x => x.name === name))
-    const deleteTheme = (index) => styles.deleteRule(index);
-    const selectTheme = (name) => {
-        [5,4,3,2,1].forEach(i => {
-            try {
-                deleteTheme(i)
-            } catch(e) {}
-        });
-        styles.insertRule(rules[name].cssText, styles.cssRules.length);
-    }
-
     document.querySelectorAll('[data-toggle][id^=theme]').forEach(x => {
+        if (currentTheme === x.value) {
+            x.setAttribute('checked', 'checked');
+        } else {
+            x.removeAttribute('checked');
+        }
         x.addEventListener('change', (e) => {
             if (!e.returnValue) { return; }
             const name = e.target.value;
             selectTheme(name);
         });
     })
-
-    selectTheme('default');
 </script>
 
 ---
