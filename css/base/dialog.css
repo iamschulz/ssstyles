@@ -13,7 +13,8 @@ body:has(dialog[open]) {
 	overflow: hidden;
 }
 
-dialog {
+dialog,
+[popover] {
 	padding: 1rem 2ch;
 	border: 0.125rem solid var(--col-bg3);
 	color: var(--col-fg);
@@ -28,7 +29,9 @@ dialog {
 		padding: 1rem 2ch;
 		font-weight: 700;
 	}
+}
 
+dialog {
 	&::backdrop {
 		background: rgba(0, 0, 0, 0.4);
 		backdrop-filter: blur(4px);
