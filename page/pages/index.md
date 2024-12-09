@@ -37,13 +37,19 @@ You have multiple options to install Ssstyles. I provide two packages:
 Use this snippet to insert the **base styles**:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ssstyles/dist/base.css" />
+<link
+	rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/ssstyles/dist/base.css"
+/>
 ```
 
 Use this snippet to insert the base styles **and all components**:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ssstyles/dist/all.css" />
+<link
+	rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/ssstyles/dist/all.css"
+/>
 ```
 
 ### npm
@@ -84,11 +90,20 @@ You can save this link to your bookmarks and press it on any site to make it use
 <details>
 <summary>Show full changelog</summary>
 
+### 1.2.0
+
+-   Overhauled base grid
+-   Fix iOS viewport bug
+-   Breakout component has full-width background
+-   Header has full-width background
+-   Add popover element support
+-   Style scrollbars
+
 ### 1.1.1
 
--   fix mismatched font colors
--   add `:invalid` to forms
--   fix card background border radius
+-   Fix mismatched font colors
+-   Add `:invalid` to forms
+-   Fix card background border radius
 
 ### 1.1.0
 
@@ -169,8 +184,14 @@ I've added some themes, in case you don't like the default look. To apply a them
 You can also link to a theme directly in HTML:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ssstyles/dist/base.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ssstyles/dist/themes/business.css" />
+<link
+	rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/ssstyles/dist/base.css"
+/>
+<link
+	rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/ssstyles/dist/themes/business.css"
+/>
 ```
 
 Here's a list of all available themes:
@@ -538,5 +559,7 @@ module.exports = {
 You can use it like this:
 
 ```html
-<article data-card class="bg-accent text-accent-contrast">I'm a modified card!</article>
+<article data-card class="bg-accent text-accent-contrast">
+	I'm a modified card!
+</article>
 ```
