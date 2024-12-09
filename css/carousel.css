@@ -9,6 +9,10 @@
 		flex: 0 0 auto;
 		scroll-snap-align: center;
 	}
+
+	&:hover {
+		scrollbar-color: var(--col-accent) transparent;
+	}
 }
 
 [data-carousel="left"] > * {
