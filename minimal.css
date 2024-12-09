@@ -1,0 +1,35 @@
+:root {
+	--body-width: 45rem;
+
+	--col-bg: #fff;
+	--col-bg2: #fff;
+	--col-bg3: #fff;
+	--col-fg: #000;
+	--col-fg2: #000;
+	--col-accent: #000;
+	--col-accent2: #000;
+	--col-accent-contrast: #fff;
+
+	--font: sans-serif;
+	--font-mono: monospace;
+	--font-accent: var(--font);
+	--font-size-min: 1rem;
+	--font-size-max: 1rem;
+	--line-height: initial;
+	--letter-spacing: initial;
+
+	--border-radius: 0px;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--col-bg: #000;
+		--col-bg2: #000;
+		--col-bg3: #000;
+		--col-fg: #fff;
+		--col-fg2: #fff;
+		--col-accent: #fff;
+		--col-accent2: #fff;
+		--col-accent-contrast: #000;
+	}
+}

@@ -2,17 +2,38 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0 viewport-fit=cover">
 		<title>Loading &bull; Ssstyles</title>
 		<meta name="description" content="Ssstyles is a very simple CSS style system. It consists of a classless stylesheet as a base layer and some small, optional components on top.">
 		<link rel="stylesheet" href="/ssstyles/style.css">
 		<link rel="shortcut icon" type="image/png" href="/ssstyles/icon.svg">
 		<link rel="apple-touch-icon" href="/ssstyles/icon.png">
+		<script>
+			const styles = Array.from(document.styleSheets[0].cssRules).find(x => x.name === "themes" && x.cssText.includes('default'));
+			const themeNames = styles.cssRules[0].cssText.replaceAll(/;|,/g,'').split(' ').filter(x => !x.startsWith('@'));
+			const rules = {};
+			themeNames.forEach(name => rules[name] = Array.from(styles.cssRules).find(x => x.name === name))
+			const deleteTheme = (index) => styles.deleteRule(index);
+			const selectTheme = (name) => {
+				[5,4,3,2,1].forEach(i => {
+					try {
+						deleteTheme(i)
+					} catch(e) {}
+				});
+				styles.insertRule(rules[name].cssText, styles.cssRules.length);
+
+				localStorage.setItem('theme', name);
+			}
+
+			const currentTheme = localStorage.getItem('theme') || 'default';
+			selectTheme(currentTheme);
+		</script>
 	</head>
 	<body>
 		<header>
 			<a data-skiplink href="#content">Skip to content</a>
 			<h1><a href="/ssstyles/">Ssstyles</a> ›&nbsp;Loading</h1>
+			<span>A simple style system &bull; v1.2.0</span>
 		</header>
 		<nav data-nav>
 			<ul><li><a href="/ssstyles/#components">Back</a></li></ul>
@@ -36,10 +57,14 @@
 
 		</main>
 		<footer>
-			✌️ Made by <a href="https://iamschulz.com">me</a> in 2024<br>
-			💻 <a href="https://github.com/iamschulz/ssstyles">Source Code</a><br>
-			🚓 <a href="https://spdx.org/licenses/MIT.html">MIT Licence</a><br>
-			🎈 <a href="https://www.11ty.dev/">Built with 11ty</a>
+			<nav>
+				<ul>
+					<li>✌️ Made by <a href="https://iamschulz.com">me</a> in 2024<br></li>
+					<li>💻 <a href="https://github.com/iamschulz/ssstyles">Source Code</a><br></li>
+					<li>🚓 <a href="https://spdx.org/licenses/MIT.html">MIT Licence</a><br></li>
+					<li>🎈 <a href="https://www.11ty.dev/">Built with 11ty</a></li>
+				</ul>
+			</nav>
 		</footer>
 	</body>
 </html>

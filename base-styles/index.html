@@ -7,10 +7,23 @@
 		<link rel="stylesheet" href="/ssstyles/base.css">
 		<link rel="shortcut icon" type="image/png" href="/ssstyles/icon.svg">
 		<link rel="apple-touch-icon" href="/ssstyles/icon.png">
+		<script>
+			const useTheme = (name) => {
+				const linkElement = document.createElement('link');
+				linkElement.rel = 'stylesheet';
+				linkElement.type = 'text/css';
+				linkElement.href = `../${name}.css`;
+				linkElement.layer = 'themes'
+				document.head.appendChild(linkElement);
+			}
+			const currentTheme = localStorage.getItem('theme') || 'default';
+			useTheme(currentTheme);
+		</script>
 	</head>
 	<body>
 		<header>
 			<h1><a href="/ssstyles/">Ssstyles</a> ›&nbsp;Base</h1>
+			<span>A simple style system &bull; v1.2.0</span>
 		</header>
 		<nav>
 			<ul>
@@ -197,6 +210,9 @@
     				</form>
     			</dialog>
 
+                <button popovertarget="my-popover">Open popover</button>
+                <div popover id="my-popover">Boo! Ha, got you again!</div>
+
 				<p>Finally, some status displays:<br>
 				Meter: <meter id="fuel" min="0" max="100" low="33" high="66" optimum="80" value="77"></meter><br>
 	    		Progress: <progress id="file" max="100" value="70">70%</progress></p>
@@ -224,10 +240,14 @@
 			</section>
 		</main>
 		<footer>
-			✌️ Made by <a href="https://iamschulz.com">me</a> in 2024<br>
-			💻 <a href="https://github.com/iamschulz/ssstyles">Source Code</a><br>
-			🚓 <a href="https://spdx.org/licenses/MIT.html">MIT Licence</a><br>
-			🎈 <a href="https://www.11ty.dev/">Built with 11ty</a>
+			<nav>
+				<ul>
+					<li>✌️ Made by <a href="https://iamschulz.com">me</a> in 2024<br></li>
+					<li>💻 <a href="https://github.com/iamschulz/ssstyles">Source Code</a><br></li>
+					<li>🚓 <a href="https://spdx.org/licenses/MIT.html">MIT Licence</a><br></li>
+					<li>🎈 <a href="https://www.11ty.dev/">Built with 11ty</a></li>
+				</ul>
+			</nav>
 		</footer>
 
 		<script>

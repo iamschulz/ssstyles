@@ -2,17 +2,38 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0 viewport-fit=cover">
 		<title>Ssstyles</title>
 		<meta name="description" content="Ssstyles is a very simple CSS style system. It consists of a classless stylesheet as a base layer and some small, optional components on top.">
 		<link rel="stylesheet" href="/ssstyles/style.css">
 		<link rel="shortcut icon" type="image/png" href="/ssstyles/icon.svg">
 		<link rel="apple-touch-icon" href="/ssstyles/icon.png">
+		<script>
+			const styles = Array.from(document.styleSheets[0].cssRules).find(x => x.name === "themes" && x.cssText.includes('default'));
+			const themeNames = styles.cssRules[0].cssText.replaceAll(/;|,/g,'').split(' ').filter(x => !x.startsWith('@'));
+			const rules = {};
+			themeNames.forEach(name => rules[name] = Array.from(styles.cssRules).find(x => x.name === name))
+			const deleteTheme = (index) => styles.deleteRule(index);
+			const selectTheme = (name) => {
+				[5,4,3,2,1].forEach(i => {
+					try {
+						deleteTheme(i)
+					} catch(e) {}
+				});
+				styles.insertRule(rules[name].cssText, styles.cssRules.length);
+
+				localStorage.setItem('theme', name);
+			}
+
+			const currentTheme = localStorage.getItem('theme') || 'default';
+			selectTheme(currentTheme);
+		</script>
 	</head>
 	<body>
 		<header>
 			<a data-skiplink href="#content">Skip to content</a>
 			<h1><a href="/ssstyles/">Ssstyles</a></h1>
+			<span>A simple style system &bull; v1.2.0</span>
 		</header>
 		<nav data-nav>
 			<ul><li><a href="#install">Install</a></li><li><a href="#configuration">Configuration</a></li><li><a href="#themes">Themes</a></li><li><a href="#base-styles">Base Styles</a></li><li><a href="#components">Components</a></li><li><a href="#tips-and-tricks">Tips and Tricks</a></li></ul>
@@ -36,9 +57,15 @@
 </ul>
 <h3 id="cdn" tabindex="-1"><a class="header-anchor" href="#cdn">#</a> CDN</h3>
 <p>Use this snippet to insert the <strong>base styles</strong>:</p>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/ssstyles/dist/base.css<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span>
+	<span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span>
+	<span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/ssstyles/dist/base.css<span class="token punctuation">"</span></span>
+<span class="token punctuation">/></span></span></code></pre>
 <p>Use this snippet to insert the base styles <strong>and all components</strong>:</p>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/ssstyles/dist/all.css<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span>
+	<span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span>
+	<span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/ssstyles/dist/all.css<span class="token punctuation">"</span></span>
+<span class="token punctuation">/></span></span></code></pre>
 <h3 id="npm" tabindex="-1"><a class="header-anchor" href="#npm">#</a> npm</h3>
 <pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> ssstyles</code></pre>
 <pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@layer</span> base<span class="token punctuation">,</span> layout<span class="token punctuation">,</span> components<span class="token punctuation">;</span></span>
@@ -61,11 +88,20 @@
 <h3 id="changelog" tabindex="-1"><a class="header-anchor" href="#changelog">#</a> Changelog</h3>
 <details>
 <summary>Show full changelog</summary>
+<h3 id="1.2.0" tabindex="-1"><a class="header-anchor" href="#1.2.0">#</a> 1.2.0</h3>
+<ul>
+<li>Overhauled base grid</li>
+<li>Fix iOS viewport bug</li>
+<li>Breakout component has full-width background</li>
+<li>Header has full-width background</li>
+<li>Add popover element support</li>
+<li>Style scrollbars</li>
+</ul>
 <h3 id="1.1.1" tabindex="-1"><a class="header-anchor" href="#1.1.1">#</a> 1.1.1</h3>
 <ul>
-<li>fix mismatched font colors</li>
-<li>add <code>:invalid</code> to forms</li>
-<li>fix card background border radius</li>
+<li>Fix mismatched font colors</li>
+<li>Add <code>:invalid</code> to forms</li>
+<li>Fix card background border radius</li>
 </ul>
 <h3 id="1.1.0" tabindex="-1"><a class="header-anchor" href="#1.1.0">#</a> 1.1.0</h3>
 <ul>
@@ -130,8 +166,14 @@
 <span class="token atrule"><span class="token rule">@import</span> <span class="token string">"ssstyles/css/transition.css"</span> <span class="token function">layer</span><span class="token punctuation">(</span>base<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
 <span class="token comment">/* ... */</span></code></pre>
 <p>You can also link to a theme directly in HTML:</p>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/ssstyles/dist/base.css<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/ssstyles/dist/themes/business.css<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span>
+	<span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span>
+	<span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/ssstyles/dist/base.css<span class="token punctuation">"</span></span>
+<span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span>
+	<span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span>
+	<span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/ssstyles/dist/themes/business.css<span class="token punctuation">"</span></span>
+<span class="token punctuation">/></span></span></code></pre>
 <p>Here's a list of all available themes:</p>
 <section data-carousel>
     <article data-card>
@@ -211,29 +253,18 @@
     </article>
 </section>
 <script>
-    const styles = Array.from(document.styleSheets[0].cssRules).find(x => x.name === "themes" && x.cssText.includes('default'));
-    const themeNames = styles.cssRules[0].cssText.replaceAll(/;|,/g,'').split(' ').filter(x => !x.startsWith('@'));
-    const rules = {};
-    themeNames.forEach(name => rules[name] = Array.from(styles.cssRules).find(x => x.name === name))
-    const deleteTheme = (index) => styles.deleteRule(index);
-    const selectTheme = (name) => {
-        [5,4,3,2,1].forEach(i => {
-            try {
-                deleteTheme(i)
-            } catch(e) {}
-        });
-        styles.insertRule(rules[name].cssText, styles.cssRules.length);
-    }
-
     document.querySelectorAll('[data-toggle][id^=theme]').forEach(x => {
+        if (currentTheme === x.value) {
+            x.setAttribute('checked', 'checked');
+        } else {
+            x.removeAttribute('checked');
+        }
         x.addEventListener('change', (e) => {
             if (!e.returnValue) { return; }
             const name = e.target.value;
             selectTheme(name);
         });
     })
-
-    selectTheme('default');
 </script>
 <hr>
 <h2 id="base-styles" tabindex="-1"><a class="header-anchor" href="#base-styles">#</a> Base Styles</h2>
@@ -983,14 +1014,20 @@
 	<span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 <p>You can use it like this:</p>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>article</span> <span class="token attr-name">data-card</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bg-accent text-accent-contrast<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>I'm a modified card!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>article</span><span class="token punctuation">></span></span></code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>article</span> <span class="token attr-name">data-card</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bg-accent text-accent-contrast<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+	I'm a modified card!
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>article</span><span class="token punctuation">></span></span></code></pre>
 
 		</main>
 		<footer>
-			✌️ Made by <a href="https://iamschulz.com">me</a> in 2024<br>
-			💻 <a href="https://github.com/iamschulz/ssstyles">Source Code</a><br>
-			🚓 <a href="https://spdx.org/licenses/MIT.html">MIT Licence</a><br>
-			🎈 <a href="https://www.11ty.dev/">Built with 11ty</a>
+			<nav>
+				<ul>
+					<li>✌️ Made by <a href="https://iamschulz.com">me</a> in 2024<br></li>
+					<li>💻 <a href="https://github.com/iamschulz/ssstyles">Source Code</a><br></li>
+					<li>🚓 <a href="https://spdx.org/licenses/MIT.html">MIT Licence</a><br></li>
+					<li>🎈 <a href="https://www.11ty.dev/">Built with 11ty</a></li>
+				</ul>
+			</nav>
 		</footer>
 	</body>
 </html>
