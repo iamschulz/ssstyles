@@ -5,6 +5,7 @@
 	justify-items: stretch;
 	align-items: flex-start;
 	gap: var(--gap);
+	margin-block: 1rem;
 }
 
 [data-autogrid="1/4"] {
