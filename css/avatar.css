@@ -2,6 +2,7 @@
 	aspect-ratio: 1/1;
 	border-radius: 1000rem;
 	object-fit: cover;
+	vertical-align: middle;
 	background-color: var(--col-bg);
 	width: 1.5lh;
 }
@@ -18,14 +19,20 @@
 	font-weight: 700;
 }
 
-a[href] > [data-avatar]:first-child:last-child {
-	position: relative;
-	border: 2px solid var(--col-accent);
-	translate: 0 0;
-	--t-translate: 0.2s;
-	z-index: 1;
+a:has(> [data-avatar]) {
+	text-decoration: none;
+}
 
-	&:hover {
+a[href] {
+	> [data-avatar]:first-child:last-child {
+		position: relative;
+		border: 2px solid var(--col-accent);
+		translate: 0 0;
+		--t-translate: 0.2s;
+		z-index: 1;
+	}
+
+	&:hover > [data-avatar]:first-child:last-child {
 		translate: 0 -0.3rem;
 		z-index: 2;
 		border-color: var(--col-accent2);
