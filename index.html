@@ -33,7 +33,7 @@
 		<header>
 			<a data-skiplink href="#content">Skip to content</a>
 			<h1><a href="/ssstyles/">Ssstyles</a></h1>
-			<span>A simple style system &bull; v1.2.0</span>
+			<span>A simple style system &bull; v1.2.1</span>
 		</header>
 		<nav data-nav>
 			<ul><li><a href="#install">Install</a></li><li><a href="#configuration">Configuration</a></li><li><a href="#themes">Themes</a></li><li><a href="#base-styles">Base Styles</a></li><li><a href="#components">Components</a></li><li><a href="#tips-and-tricks">Tips and Tricks</a></li></ul>
@@ -57,15 +57,9 @@
 </ul>
 <h3 id="cdn" tabindex="-1"><a class="header-anchor" href="#cdn">#</a> CDN</h3>
 <p>Use this snippet to insert the <strong>base styles</strong>:</p>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span>
-	<span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span>
-	<span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/ssstyles/dist/base.css<span class="token punctuation">"</span></span>
-<span class="token punctuation">/></span></span></code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/ssstyles/dist/base.css<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
 <p>Use this snippet to insert the base styles <strong>and all components</strong>:</p>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span>
-	<span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span>
-	<span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/ssstyles/dist/all.css<span class="token punctuation">"</span></span>
-<span class="token punctuation">/></span></span></code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/ssstyles/dist/all.css<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
 <h3 id="npm" tabindex="-1"><a class="header-anchor" href="#npm">#</a> npm</h3>
 <pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> ssstyles</code></pre>
 <pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@layer</span> base<span class="token punctuation">,</span> layout<span class="token punctuation">,</span> components<span class="token punctuation">;</span></span>
@@ -79,8 +73,8 @@
 <span class="token atrule"><span class="token rule">@import</span> <span class="token string">"ssstyles/css/all.css"</span> <span class="token function">layer</span><span class="token punctuation">(</span>base<span class="token punctuation">)</span><span class="token punctuation">;</span></span></code></pre>
 <h3 id="manual-installation" tabindex="-1"><a class="header-anchor" href="#manual-installation">#</a> Manual installation</h3>
 <p>You can also simply download the CSS file and include it however you wish:</p>
-<p><a href="https://cdn.jsdelivr.net/npm/ssstyles/dist/base.css" target="_blank" data-button>Base Styles (2.6kB)</a></p>
-<p><a href="https://cdn.jsdelivr.net/npm/ssstyles/dist/all.css" target="_blank" data-button>Base and Components (5.2kB)</a></p>
+<p><a href="https://cdn.jsdelivr.net/npm/ssstyles/dist/base.css" target="_blank" data-button>Base Styles (2.7kB)</a></p>
+<p><a href="https://cdn.jsdelivr.net/npm/ssstyles/dist/all.css" target="_blank" data-button>Base and Components (5.7kB)</a></p>
 <p>All file sizes are gzipped.</p>
 <h3 id="bookmarklet" tabindex="-1"><a class="header-anchor" href="#bookmarklet">#</a> Bookmarklet</h3>
 <p>You can save this link to your bookmarks and press it on any site to make it use this stylesheet:
@@ -88,6 +82,12 @@
 <h3 id="changelog" tabindex="-1"><a class="header-anchor" href="#changelog">#</a> Changelog</h3>
 <details>
 <summary>Show full changelog</summary>
+<h3 id="1.2.1" tabindex="-1"><a class="header-anchor" href="#1.2.1">#</a> 1.2.1</h3>
+<ul>
+<li>Fix autogrid margins</li>
+<li>Fix avatar alignment and links</li>
+<li>Fix card margins</li>
+</ul>
 <h3 id="1.2.0" tabindex="-1"><a class="header-anchor" href="#1.2.0">#</a> 1.2.0</h3>
 <ul>
 <li>Overhauled base grid</li>
@@ -166,14 +166,8 @@
 <span class="token atrule"><span class="token rule">@import</span> <span class="token string">"ssstyles/css/transition.css"</span> <span class="token function">layer</span><span class="token punctuation">(</span>base<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
 <span class="token comment">/* ... */</span></code></pre>
 <p>You can also link to a theme directly in HTML:</p>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span>
-	<span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span>
-	<span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/ssstyles/dist/base.css<span class="token punctuation">"</span></span>
-<span class="token punctuation">/></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span>
-	<span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span>
-	<span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/ssstyles/dist/themes/business.css<span class="token punctuation">"</span></span>
-<span class="token punctuation">/></span></span></code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/ssstyles/dist/base.css<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/ssstyles/dist/themes/business.css<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
 <p>Here's a list of all available themes:</p>
 <section data-carousel>
     <article data-card>
@@ -1014,9 +1008,7 @@
 	<span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 <p>You can use it like this:</p>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>article</span> <span class="token attr-name">data-card</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bg-accent text-accent-contrast<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-	I'm a modified card!
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>article</span><span class="token punctuation">></span></span></code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>article</span> <span class="token attr-name">data-card</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bg-accent text-accent-contrast<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>I'm a modified card!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>article</span><span class="token punctuation">></span></span></code></pre>
 
 		</main>
 		<footer>
