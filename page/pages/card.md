@@ -26,14 +26,14 @@ You need to import the CSS file and assign the data attribute to use it.
 
 ```html
 <article data-card>
-	<header>Another card</header>
+	<header><h2>Another card</h2></header>
 	<p>Lorem Ipsum dolor sit amet</p>
 	<button>Click</button>
 </article>
 ```
 
 <article data-card>
-    <header>Another card</header>
+    <header><h2>Another card</h2></header>
     <p>Lorem Ipsum dolor sit amet</p>
     <button>Click</button>
 </article>
