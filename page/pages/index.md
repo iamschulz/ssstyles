@@ -37,19 +37,13 @@ You have multiple options to install Ssstyles. I provide two packages:
 Use this snippet to insert the **base styles**:
 
 ```html
-<link
-	rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/ssstyles/dist/base.css"
-/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ssstyles/dist/base.css" />
 ```
 
 Use this snippet to insert the base styles **and all components**:
 
 ```html
-<link
-	rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/ssstyles/dist/all.css"
-/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ssstyles/dist/all.css" />
 ```
 
 ### npm
@@ -74,9 +68,9 @@ npm install ssstyles
 
 You can also simply download the CSS file and include it however you wish:
 
-<a href="https://cdn.jsdelivr.net/npm/ssstyles/dist/base.css" target="_blank" data-button>Base Styles (2.6kB)</a>
+<a href="https://cdn.jsdelivr.net/npm/ssstyles/dist/base.css" target="_blank" data-button>Base Styles (2.7kB)</a>
 
-<a href="https://cdn.jsdelivr.net/npm/ssstyles/dist/all.css" target="_blank" data-button>Base and Components (5.2kB)</a>
+<a href="https://cdn.jsdelivr.net/npm/ssstyles/dist/all.css" target="_blank" data-button>Base and Components (5.7kB)</a>
 
 All file sizes are gzipped.
 
@@ -89,6 +83,12 @@ You can save this link to your bookmarks and press it on any site to make it use
 
 <details>
 <summary>Show full changelog</summary>
+
+### 1.2.1
+
+-   Fix autogrid margins
+-   Fix avatar alignment and links
+-   Fix card margins
 
 ### 1.2.0
 
@@ -184,14 +184,8 @@ I've added some themes, in case you don't like the default look. To apply a them
 You can also link to a theme directly in HTML:
 
 ```html
-<link
-	rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/ssstyles/dist/base.css"
-/>
-<link
-	rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/ssstyles/dist/themes/business.css"
-/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ssstyles/dist/base.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ssstyles/dist/themes/business.css" />
 ```
 
 Here's a list of all available themes:
@@ -559,7 +553,5 @@ module.exports = {
 You can use it like this:
 
 ```html
-<article data-card class="bg-accent text-accent-contrast">
-	I'm a modified card!
-</article>
+<article data-card class="bg-accent text-accent-contrast">I'm a modified card!</article>
 ```
