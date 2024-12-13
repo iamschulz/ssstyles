@@ -6,6 +6,22 @@ details {
 		var(--br-br, var(--border-radius)) var(--br-bl, var(--border-radius));
 	padding: 0.5rem 1ch;
 
+	@media (prefers-reduced-motion: no-preference) {
+		interpolate-size: allow-keywords;
+
+		&::details-content {
+			opacity: 0;
+			block-size: 0;
+			overflow-y: clip;
+			transition: content-visibility 0.2s allow-discrete ease-out, block-size 0.2s ease-out, opacity 0.2s ease-out;
+		}
+	}
+
+	&[open]::details-content {
+		opacity: 1;
+		block-size: auto;
+	}
+
 	> summary {
 		position: relative;
 		font-weight: 500;
@@ -37,8 +53,6 @@ details {
 	}
 
 	&[open] > summary {
-		margin-bottom: 1rem;
-
 		&::before {
 			--dstr: 90deg;
 		}
