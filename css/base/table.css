@@ -35,7 +35,7 @@ dl {
 		&::before {
 			content: "├";
 			margin-inline-end: 0.5ch;
-			font-family: var(--font-mono);
+			font-family: monospace;
 			font-size: 2em;
 			position: relative;
 			top: 0.4rem;
