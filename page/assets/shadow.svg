@@ -2,19 +2,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 800 600">
   <title>Shadow</title>
   <g style="fill: none; isolation: isolate;">
-    <polygon points="715.6 171.06 745.52 159.1 748.51 570.1 718.59 582.06 715.6 171.06" style="fill: #4e7790;" />
-    <polygon points="51.5 29.9 81.41 17.94 745.52 159.1 715.6 171.06 51.5 29.9" style="fill: #5986a3;" />
-    <polygon points="715.6 171.06 718.59 582.06 54.49 440.9 51.5 29.9 715.6 171.06" style="fill: #72add3;" />
+    <polygon points="715.6 171.06 745.52 159.1 748.51 570.1 718.59 582.06 715.6 171.06"
+      style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" />
+    <polygon points="51.5 29.9 81.41 17.94 745.52 159.1 715.6 171.06 51.5 29.9"
+      style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);" />
+    <polygon points="715.6 171.06 718.59 582.06 54.49 440.9 51.5 29.9 715.6 171.06" style="fill: var(--col-accent2)" />
   </g>
   <polygon points="320.78 114.09 717.65 418.45 718.59 582.06 441.22 523.4 254.64 397.79 320.78 114.09"
-    style="opacity: .38;" />
+    style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" />
   <g style="fill: none; isolation: isolate;">
     <g style="fill: none; isolation: isolate;">
       <g style="clip-path: url(#b); fill: none;">
         <g style="fill: none; isolation: isolate;">
           <path
             d="m191.4,112.68l29.91-11.96c7.89-3.16,16.37-5.21,25.35-6.03l-29.91,11.96c-8.98.81-17.46,2.87-25.35,6.03"
-            style="fill: #bc2c64;" />
+            style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);" />
         </g>
       </g>
     </g>
@@ -22,18 +24,18 @@
     <g style="fill: none; isolation: isolate;">
       <g style="fill: none; isolation: isolate;">
         <path d="m219.31,106.42l29.91-11.96c9.95-.9,19.96-.22,29.8,1.87l-29.91,11.96c-9.84-2.09-19.84-2.77-29.8-1.87"
-          style="fill: #bc2c64;" />
+          style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);" />
       </g>
     </g>
     <g style="fill: none; isolation: isolate;">
       <g style="fill: none; isolation: isolate;">
         <path
           d="m249.11,108.29l29.91-11.96c54,11.47,103.5,65.4,117.87,133.65,14.63,69.47-11.92,131.12-60.79,150.66l-29.91,11.96c48.86-19.54,75.41-81.19,60.79-150.66-14.37-68.25-63.87-122.18-117.87-133.65"
-          style="fill: #bc2c64;" />
+          style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);" />
       </g>
     </g>
     <path
       d="m249.11,108.29c54,11.47,103.5,65.4,117.87,133.65,16.99,80.69-21.58,150.84-86.14,156.68l-2.56.23c-9.96.9-19.96.22-29.81-1.87-53.99-11.48-103.49-65.4-117.86-133.64-16.99-80.69,21.58-150.84,86.14-156.68l2.56-.24c9.95-.9,19.96-.22,29.8,1.87Z"
-      style="fill: #d0306e;" />
+      style="fill: var(--col-accent)" />
   </g>
 </svg>

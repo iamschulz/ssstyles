@@ -2,12 +2,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
   <title>Animations</title>
   <g style="fill: none; isolation: isolate;">
-    <polygon points="195.53 64.37 225.45 52.41 228.92 528.79 199 540.75 195.53 64.37" style="fill: #4e7790;" />
-    <polygon points="85.68 41.02 115.6 29.06 225.45 52.41 195.53 64.37 85.68 41.02" style="fill: #5986a3;" />
-    <polygon points="195.53 64.37 199 540.75 89.15 517.4 85.68 41.02 195.53 64.37" style="fill: #72add3;" />
+    <polygon points="195.53 64.37 225.45 52.41 228.92 528.79 199 540.75 195.53 64.37"
+      style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" />
+    <polygon points="85.68 41.02 115.6 29.06 225.45 52.41 195.53 64.37 85.68 41.02"
+      style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);" />
+    <polygon points="195.53 64.37 199 540.75 89.15 517.4 85.68 41.02 195.53 64.37" style="fill: var(--col-accent2)" />
   </g>
   <g style="fill: none; isolation: isolate;">
-    <polygon points="272.75 80.79 302.67 68.83 752.82 402.33 722.9 414.29 272.75 80.79" style="fill: #992450;" />
-    <polygon points="272.75 80.79 722.9 414.29 276.22 557.17 272.75 80.79" style="fill: #d0306e;" />
+    <polygon points="272.75 80.79 302.67 68.83 752.82 402.33 722.9 414.29 272.75 80.79"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);" />
+    <polygon points="272.75 80.79 722.9 414.29 276.22 557.17 272.75 80.79" style="fill: var(--col-accent)" />
   </g>
 </svg>

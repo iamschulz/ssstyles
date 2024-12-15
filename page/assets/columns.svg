@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" stroke-linejoin="round"
   stroke-miterlimit="2" clip-rule="evenodd" viewBox="0 0 800 600">
-  <path fill="#62a9dc" d="M20 91v335l200 40V131L20 91Z" />
-  <path fill="#396280" d="m220 131 35-14v335l-35 14V131Z" />
-  <path fill="#447598" d="m20 91 35-14 200 40-35 14L20 91Z" />
-  <path fill="#d0306e" d="m283 144-1 335 200 40V184l-199-40Z" />
-  <path fill="#8e214a" d="m482 184 36-15-1 336-35 14V184Z" />
-  <path fill="#a02655" d="m282 144 36-14 200 39-36 15-200-40Z" />
-  <path fill="#62a9dc" d="M545 197v335l200 40V236l-200-39Z" />
-  <path fill="#396280" d="m745 236 35-14v335l-35 15V236Z" />
-  <path fill="#447598" d="m545 197 35-15 200 40-35 14-200-39Z" />
+  <path style="fill: var(--col-accent2)" d="M20 91v335l200 40V131L20 91Z" />
+  <path style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" d="m220 131 35-14v335l-35 14V131Z" />
+  <path style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);" d="m20 91 35-14 200 40-35 14L20 91Z" />
+  <path style="fill: var(--col-accent)" d="m283 144-1 335 200 40V184l-199-40Z" />
+  <path style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);" d="m482 184 36-15-1 336-35 14V184Z" />
+  <path style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);" d="m282 144 36-14 200 39-36 15-200-40Z" />
+  <path style="fill: var(--col-accent2)" d="M545 197v335l200 40V236l-200-39Z" />
+  <path style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" d="m745 236 35-14v335l-35 15V236Z" />
+  <path style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);" d="m545 197 35-15 200 40-35 14-200-39Z" />
 </svg>
