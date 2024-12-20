@@ -213,6 +213,16 @@ Here's a list of all available themes:
     </article>
     <article data-card>
         <figure data-card-background>
+            <img src="./ocean.jpg" alt="Screenshot of this website with blueish background and font colors and blue-green accents" width="400" height="240" loading="lazy">
+        </figure>
+        <footer>
+            <input type="radio" data-toggle id="theme-ocean" name="theme" value="ocean">
+            <label for="theme-ocean"><code>ocean</code></label>
+            <a aria-label="Source code on GitHub" href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/ocean.css">{% svg "github-mark.svg" %}</a>
+        </footer>
+    </article>
+    <article data-card>
+        <figure data-card-background>
             <img src="./minimal.jpg" alt="Screenshot of this website in only black and white">
         </figure>
         <footer>
