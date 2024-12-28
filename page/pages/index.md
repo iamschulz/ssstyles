@@ -70,7 +70,7 @@ You can also simply download the CSS file and include it however you wish:
 
 <a href="https://cdn.jsdelivr.net/npm/ssstyles/dist/base.css" target="_blank" data-button>Base Styles (2.7kB)</a>
 
-<a href="https://cdn.jsdelivr.net/npm/ssstyles/dist/all.css" target="_blank" data-button>Base and Components (5.7kB)</a>
+<a href="https://cdn.jsdelivr.net/npm/ssstyles/dist/all.css" target="_blank" data-button>Base and Components (5.8kB)</a>
 
 All file sizes are gzipped.
 
@@ -83,6 +83,12 @@ You can save this link to your bookmarks and press it on any site to make it use
 
 <details>
 <summary>Show full changelog</summary>
+
+### 1.3.0
+
+-   add ocean theme
+-   fix alignments on definition lists
+-   animate details/summary content
 
 ### 1.2.1
 
