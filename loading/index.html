@@ -15,7 +15,7 @@
 			themeNames.forEach(name => rules[name] = Array.from(styles.cssRules).find(x => x.name === name))
 			const deleteTheme = (index) => styles.deleteRule(index);
 			const selectTheme = (name) => {
-				[5,4,3,2,1].forEach(i => {
+				[6,5,4,3,2,1].forEach(i => {
 					try {
 						deleteTheme(i)
 					} catch(e) {}
@@ -33,7 +33,7 @@
 		<header>
 			<a data-skiplink href="#content">Skip to content</a>
 			<h1><a href="/ssstyles/">Ssstyles</a> ›&nbsp;Loading</h1>
-			<span>A simple style system &bull; v1.2.1</span>
+			<span>A simple style system &bull; v1.3.0</span>
 		</header>
 		<nav data-nav>
 			<ul><li><a href="/ssstyles/#components">Back</a></li></ul>
