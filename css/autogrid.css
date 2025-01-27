@@ -1,7 +1,7 @@
 [data-autogrid] {
 	--gap: 1rem;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(var(--grid-item-width), 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(var(--grid-item-width, 100%), 1fr));
 	justify-items: stretch;
 	align-items: flex-start;
 	gap: var(--gap);
