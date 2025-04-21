@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Base Styles &bull; Ssstyles</title>
+		<link rel="stylesheet" href="/base.css">
+		<link rel="shortcut icon" type="image/png" href="/icon.svg">
+		<link rel="apple-touch-icon" href="/icon.png">
+		<script>
+			const useTheme = (name) => {
+				const linkElement = document.createElement('link');
+				linkElement.rel = 'stylesheet';
+				linkElement.type = 'text/css';
+				linkElement.href = `../${name}.css`;
+				linkElement.layer = 'themes'
+				document.head.appendChild(linkElement);
+			}
+			const currentTheme = localStorage.getItem('theme') || 'default';
+			useTheme(currentTheme);
+		</script>
+	</head>
+	<body>
+		<header>
+			<h1><a href="/">Ssstyles</a> ›&nbsp;Base</h1>
+			<span>A simple style system &bull; v1.3.1</span>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="/">Back</a></li>
+				<li><a href="#base-styles">Base Styles</a></li>
+				<li><a href="#content">Content</a></li>
+				<li><a href="#images">Images</a></li>
+				<li><a href="#forms">Forms</a></li>
+				<li><a href="#tables">Tables</a></li>
+				<li><a href="#interactive">Interactive</a></li>
+				<li><a href="#code">Code</a></li>
+				<li><a href="#headlines">Headlines</a></li>
+			</ul>
+		</nav>
+		<main>
+			<section>
+				<h2><a id="base-styles">#</a> Base Styles</h2>
+				<a href="https://github.com/iamschulz/ssstyles/tree/main/css/base" data-button><?xml version="1.0" encoding="UTF-8"?>
+<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 98 96">
+    <path
+        d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"
+        fill="currentColor" />
+</svg> Source</a>
+				<p>You can opt to use only the base package. This one uses only HTML tags as selectors and is meant to work with any website with clean HTML right out of the box. It applies some styles to native elements, adds a basic layout and color theming.</p>
+				<p>It weighs in at <b>2.7kB gzipped</b>, which makes it neither the lightest, nor the most feature-complete, but I think I struck a nice balance.</p>
+				<p>Include this snippet in your <code>&lt;head&gt;</code> to use it:</p>
+				<pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ssstyles/dist/base.css"&gt;</code></pre>
+				<p>Or use this bookmarklet to make a site use this stylesheet: <a data-button href="javascript:(function(){[Array.from(document.querySelectorAll('style')), Array.from(document.querySelectorAll('link[href$=\'css\']')), Array.from(document.querySelectorAll('link[rel=\'stylesheet\']'))].flat().forEach((x) => x.remove());document.querySelectorAll('[style]').forEach((x) => x.setAttribute('style', ''));var linkElement = document.createElement('link');linkElement.rel = 'stylesheet';linkElement.type = 'text/css';linkElement.href = 'https://iamschulz.github.io/ssstyles/base.css';document.head.appendChild(linkElement);})();">Ssstylize</a></p>
+				<p>Here are some included elements:</p>
+			</section>
+			<section>
+				<h2><a id="content">#</a> Content</h2>
+				<p>A paragraph of text with <a href="">some</a> <a href="">links</a>.</p>
+				<p>
+					And another one. This is an <abbr title="abbreviation">abbr</abbr>. This text is <mark>marked</mark>. I can do <b>bold</b>, <i>italic</i> and <u>underlined</u>. There is also <del>deleted</del> and <ins>inserted</ins>. And don't forget about <sub>subscript</sub> and <sup>superscript</sup>.
+				</p>
+				<ul>
+					<li>Toast</li>
+					<li>Bacon</li>
+					<li>Pineapple</li>
+					<li>Cheese</li>
+				</ul>
+				<ol>
+					<li>Toast</li>
+					<li>Bacon</li>
+					<li>Pineapple</li>
+					<li>Cheese</li>
+				</ol>
+				<p>Here is an <code>&lt;hr&gt;</code>:</p>
+				<hr>
+				A blockquote to feature something smart:
+				<blockquote>
+					Good design involves as little design as possible.
+					<footer>
+						Dieter Rams, <cite><a href="https://tenprinciples.design/">10 principles of design</a></cite>
+					</footer>
+				</blockquote>
+			</section>
+			<section>
+				<h2><a id="images">#</a> Images</h2>
+				<figure>
+					<img src="/japan.jpg" alt="This is just a placeholder image with no meaningful content">
+					<figcaption>It's an image! <cite><a href="https://pixabay.com/photos/japan-osaka-night-asia-landmark-2014617/" target="_blank">Source</a></cite></figcaption>
+				</figure>
+			</section>
+			<section>
+				<h2><a id="forms">#</a> Forms</h2>
+				<p>
+					<label>Options</label><br>
+					<input type="radio" id="radio1" name="radio" value="1"><label for="radio1">Radio 1</label><br>
+					<input type="radio" id="radio2" name="radio" value="2"><label for="radio2">Radio 2</label><br>
+					<input type="radio" id="radio3" name="radio" value="3"><label for="radio3">Radio 3</label><br>
+					<input type="checkbox" id="check" name="check" value="1"><label for="check">Check</label><br>
+				</p>
+
+				<p>
+    			<label for="search">Search</label>
+    			<input type="text" id="search">
+    			<input type="button" value="Go!">
+				</p>
+
+    			<form>
+    				<fieldset>
+    					<legend>some input fields</legend>
+    					<p>
+    						<label for="fname">First Name (required):</label><br>
+    						<input type="text" id="fname" name="fname" value="a value" required>
+    					</p>
+    					<p>
+    						<label for="mname">Middle Name:</label><br>
+    						<input type="text" id="mname" name="mname" value="disabled" disabled>
+    					</p>
+    					<p>
+    						<label for="lname">Last Name (required):</label><br>
+    						<input type="text" id="lname" name="lname" placeholder="a placeholder" required>
+    					</p>
+    					<p>
+    						<label for="cake">Cake:</label><br>
+    						<select type="text" id="cake" name="cake">
+    							<option>The</option>
+    							<option>cake</option>
+    							<option>is</option>
+    							<option>a</option>
+    							<option>lie</option>
+    						</select>
+    					</p>
+    					<p>
+    						<label for="range">Range:</label><br>
+    						<input id="range" type="range" min="0" max="100" value="30">
+    					</p>
+    					<p>
+    						<label for="textarea">Text:</label><br>
+    						<textarea id="textarea">Some Text</textarea>
+    					</p>
+    					<input type="submit" value="Submit">
+    				</fieldset>
+    			</form>
+    		</section>
+    		<section>
+    			<h2><a id="tables">#</a> Tables</h2>
+
+				Wrap a table in a <code>&lt;figure&gt;</code> to make it scrollable on small screens.
+				<figure>
+					<table>
+						<thead>
+							<tr>
+								<th scope="col">Name</th>
+								<th scope="col">Strength</th>
+								<th scope="col">Weakness</th>
+								<th scope="col">Notes</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Paper</td>
+								<td>vs Stone</td>
+								<td>vs Scissor</td>
+								<td>fun to draw on</td>
+							</tr>
+							<tr>
+								<td>Scissor</td>
+								<td>vs Paper</td>
+								<td>vs Stone</td>
+								<td>ouchy when careless</td>
+							</tr>
+							<tr>
+								<td>Stone</td>
+								<td>vs Scissor</td>
+								<td>vs Paper</td>
+								<td>never disappoints</td>
+							</tr>
+						</tbody>
+					</table>
+				</figure>
+
+				<p>Also, definition lists:</p>
+    			<dl>
+    				<dt>Coffee</dt>
+    				<dd>Black hot drink</dd>
+    				<dd>Sometimes with milk</dd>
+    				<dd>And even sugar</dd>
+    				<dt>Milk</dt>
+    				<dd>White cold drink</dd>
+    				<dd>Comes after the cornflakes</dd>
+    				<dt>Tea</dt>
+    				<dd>Without milk and sugar, please</dd>
+    			</dl>
+    		</section>
+    		<section>
+    			<h2><a id="interactive">#</a> Interactive</h2>
+    			<details>
+    				<summary>This is a summary</summary>
+    				Oh, gosh, you clicked on it. Uhm, this is a bit embarrassing, but I didn't really prepare anything funny to show here.<br>
+					Sorry.
+    			</details>
+    			<p>
+    				<button id="dialogTrigger">Open dialog</button>
+    			</p>
+    			<dialog id="dialog">
+    				<header>This is a sample dialog</header>
+    				<form method="dialog">
+    					<p>Boo, I'm a jump scare!</p>
+    					<button type="submit">Close dialog</button>
+    				</form>
+    			</dialog>
+
+                <button popovertarget="my-popover">Open popover</button>
+                <div popover id="my-popover">Boo! Ha, got you again!</div>
+
+				<p>Finally, some status displays:<br>
+				Meter: <meter id="fuel" min="0" max="100" low="33" high="66" optimum="80" value="77"></meter><br>
+	    		Progress: <progress id="file" max="100" value="70">70%</progress></p>
+    		</section>
+    		<section>
+    			<h2><a id="code">#</a> Code</h2>
+    			<pre><code>() => {
+    console.log("hi");
+}</code></pre>
+
+				<p>This will do <code>Some stuff</code>, curiously.</p>
+				<p><kbd>Alt</kbd> + <kbd>F4</kbd></p>
+			</section>
+
+			<section>
+				<h2><a id="headlines">#</a> Headlines</h2>
+				<div>
+					<h1>Some headlines</h1>
+					<h2>Some headlines</h2>
+					<h3>Some headlines</h3>
+					<h4>Some headlines</h4>
+					<h5>Some headlines</h5>
+					<h6>Some headlines</h6>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<nav>
+				<ul>
+					<li>✌️ Made by <a href="https://iamschulz.com">me</a> in 2024<br></li>
+					<li>💻 <a href="https://github.com/iamschulz/ssstyles">Source Code</a><br></li>
+					<li>🚓 <a href="https://spdx.org/licenses/MIT.html">MIT Licence</a><br></li>
+					<li>🎈 <a href="https://www.11ty.dev/">Built with 11ty</a></li>
+				</ul>
+			</nav>
+		</footer>
+
+		<script>
+			document.querySelector("#dialogTrigger").onclick = function () {
+				document.getElementById("dialog").showModal();
+			};
+
+			const setMeter = () => {
+				const meter = document.querySelector("meter");
+				meter.value = meter.value >= 1 ? meter.value - 1 : 100;
+				window.requestAnimationFrame(() => {
+					setMeter();	
+				})
+			}
+			setMeter();
+
+			const setProgress = () => {
+				const progress = document.querySelector("progress");
+				progress.value = progress.value < 100 ? progress.value + 1 : 0;
+				window.requestAnimationFrame(() => {
+					setProgress();	
+				})
+			}
+			setProgress();
+			
+		</script>
+	</body>
+</html>

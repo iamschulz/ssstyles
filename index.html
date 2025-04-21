@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0 viewport-fit=cover">
+		<title>Ssstyles</title>
+		<meta name="description" content="Ssstyles is a very simple CSS style system. It consists of a classless stylesheet as a base layer and some small, optional components on top.">
+		<link rel="stylesheet" href="/style.css">
+		<link rel="shortcut icon" type="image/png" href="/icon.svg">
+		<link rel="apple-touch-icon" href="/icon.png">
+		<script>
+			const styles = Array.from(document.styleSheets[0].cssRules).find(x => x.name === "themes" && x.cssText.includes('default'));
+			const themeNames = styles.cssRules[0].cssText.replaceAll(/;|,/g,'').split(' ').filter(x => !x.startsWith('@'));
+			const rules = {};
+			themeNames.forEach(name => rules[name] = Array.from(styles.cssRules).find(x => x.name === name))
+			const deleteTheme = (index) => styles.deleteRule(index);
+			const selectTheme = (name) => {
+				[6,5,4,3,2,1].forEach(i => {
+					try {
+						deleteTheme(i)
+					} catch(e) {}
+				});
+				styles.insertRule(rules[name].cssText, styles.cssRules.length);
+
+				localStorage.setItem('theme', name);
+			}
+
+			const currentTheme = localStorage.getItem('theme') || 'default';
+			selectTheme(currentTheme);
+		</script>
+	</head>
+	<body>
+		<header>
+			<a data-skiplink href="#content">Skip to content</a>
+			<h1><a href="/">Ssstyles</a></h1>
+			<span>A simple style system &bull; v1.3.1</span>
+		</header>
+		<nav data-nav>
+			<ul><li><a href="#install">Install</a></li><li><a href="#configuration">Configuration</a></li><li><a href="#themes">Themes</a></li><li><a href="#base-styles">Base Styles</a></li><li><a href="#components">Components</a></li><li><a href="#tips-and-tricks">Tips and Tricks</a></li></ul>
+		</nav>
+		<main>
+			<p>Ssstyles is a very simple CSS style system. It consists of a classless stylesheet as a base layer and some small, optional components on top.</p>
+<p>It's supposed to be:</p>
+<ul>
+<li>Lightweight</li>
+<li>Configurable</li>
+<li>Hackable</li>
+<li>Accessible</li>
+</ul>
+<p>You can use this as a quick start for simple websites and build your own stuff on top.</p>
+<hr>
+<h2 id="install" tabindex="-1"><a class="header-anchor" href="#install">#</a> Install</h2>
+<p>You have multiple options to install Ssstyles. I provide two packages:</p>
+<ul>
+<li>The <strong><a href="#base-styles">base styles</a></strong>, which include a classless stylesheet for simple HTML sites</li>
+<li>The complete <strong><a href="#components">base+components</a></strong> package, which you can use to build more advanced sites</li>
+</ul>
+<h3 id="cdn" tabindex="-1"><a class="header-anchor" href="#cdn">#</a> CDN</h3>
+<p>Use this snippet to insert the <strong>base styles</strong>:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/ssstyles/dist/base.css<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
+<p>Use this snippet to insert the base styles <strong>and all components</strong>:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/ssstyles/dist/all.css<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
+<h3 id="npm" tabindex="-1"><a class="header-anchor" href="#npm">#</a> npm</h3>
+<pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> ssstyles</code></pre>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@layer</span> base<span class="token punctuation">,</span> layout<span class="token punctuation">,</span> components<span class="token punctuation">;</span></span>
+<span class="token atrule"><span class="token rule">@import</span> <span class="token string">"ssstyles"</span> <span class="token function">layer</span><span class="token punctuation">(</span>base<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="token atrule"><span class="token rule">@import</span> <span class="token string">"ssstyles/css/transition.css"</span> <span class="token function">layer</span><span class="token punctuation">(</span>base<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="token atrule"><span class="token rule">@import</span> <span class="token string">"ssstyles/css/basegrid.css"</span> <span class="token function">layer</span><span class="token punctuation">(</span>layout<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="token atrule"><span class="token rule">@import</span> <span class="token string">"ssstyles/css/headline.css"</span> <span class="token function">layer</span><span class="token punctuation">(</span>components<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="token comment">/* Whatever components you need */</span>
+
+<span class="token comment">/* Or the complete package: */</span>
+<span class="token atrule"><span class="token rule">@import</span> <span class="token string">"ssstyles/css/all.css"</span> <span class="token function">layer</span><span class="token punctuation">(</span>base<span class="token punctuation">)</span><span class="token punctuation">;</span></span></code></pre>
+<h3 id="manual-installation" tabindex="-1"><a class="header-anchor" href="#manual-installation">#</a> Manual installation</h3>
+<p>You can also simply download the CSS file and include it however you wish:</p>
+<p><a href="https://cdn.jsdelivr.net/npm/ssstyles/dist/base.css" target="_blank" data-button>Base Styles (2.7kB)</a></p>
+<p><a href="https://cdn.jsdelivr.net/npm/ssstyles/dist/all.css" target="_blank" data-button>Base and Components (5.8kB)</a></p>
+<p>All file sizes are gzipped.</p>
+<h3 id="bookmarklet" tabindex="-1"><a class="header-anchor" href="#bookmarklet">#</a> Bookmarklet</h3>
+<p>You can save this link to your bookmarks and press it on any site to make it use this stylesheet:
+<a data-button href="javascript:(function(){[Array.from(document.querySelectorAll('style')), Array.from(document.querySelectorAll('link[href$=\'css\']')), Array.from(document.querySelectorAll('link[rel=\'stylesheet\']'))].flat().forEach((x) => x.remove());document.querySelectorAll('[style]').forEach((x) => x.setAttribute('style', ''));var linkElement = document.createElement('link');linkElement.rel = 'stylesheet';linkElement.type = 'text/css';linkElement.href = 'https://iamschulz.github.io/ssstyles/base.css';document.head.appendChild(linkElement);})();">Ssstylize</a></p>
+<h3 id="changelog" tabindex="-1"><a class="header-anchor" href="#changelog">#</a> Changelog</h3>
+<details>
+<summary>Show full changelog</summary>
+<h3 id="1.3.0" tabindex="-1"><a class="header-anchor" href="#1.3.0">#</a> 1.3.0</h3>
+<ul>
+<li>add ocean theme</li>
+<li>fix alignments on definition lists</li>
+<li>animate details/summary content</li>
+</ul>
+<h3 id="1.2.1" tabindex="-1"><a class="header-anchor" href="#1.2.1">#</a> 1.2.1</h3>
+<ul>
+<li>Fix autogrid margins</li>
+<li>Fix avatar alignment and links</li>
+<li>Fix card margins</li>
+</ul>
+<h3 id="1.2.0" tabindex="-1"><a class="header-anchor" href="#1.2.0">#</a> 1.2.0</h3>
+<ul>
+<li>Overhauled base grid</li>
+<li>Fix iOS viewport bug</li>
+<li>Breakout component has full-width background</li>
+<li>Header has full-width background</li>
+<li>Add popover element support</li>
+<li>Style scrollbars</li>
+</ul>
+<h3 id="1.1.1" tabindex="-1"><a class="header-anchor" href="#1.1.1">#</a> 1.1.1</h3>
+<ul>
+<li>Fix mismatched font colors</li>
+<li>Add <code>:invalid</code> to forms</li>
+<li>Fix card background border radius</li>
+</ul>
+<h3 id="1.1.0" tabindex="-1"><a class="header-anchor" href="#1.1.0">#</a> 1.1.0</h3>
+<ul>
+<li>Add <strong>view-transition</strong> component</li>
+</ul>
+<h3 id="1.0.4" tabindex="-1"><a class="header-anchor" href="#1.0.4">#</a> 1.0.4</h3>
+<ul>
+<li>Add <strong>Columns</strong> component</li>
+<li>Fix units in Auto Grid</li>
+</ul>
+<h3 id="1.0.3" tabindex="-1"><a class="header-anchor" href="#1.0.3">#</a> 1.0.3</h3>
+<ul>
+<li>Add <strong>Spoiler</strong> component</li>
+<li>Add <strong>Comment</strong> component</li>
+<li>Add <strong>Avatar</strong> component</li>
+<li>Fix item alignment in <strong>Carousel</strong> component</li>
+<li>Round dynamic font size to steps of <code>1px</code></li>
+<li>Safely typed config with <code>@property</code></li>
+</ul>
+<h3 id="1.0.2" tabindex="-1"><a class="header-anchor" href="#1.0.2">#</a> 1.0.2</h3>
+<ul>
+<li>Add <strong>Themes</strong></li>
+<li>Use <code>border-box</code> for all elements</li>
+<li>Fix <strong>Navigation</strong> component sliding beneath the <strong>Breakout</strong> component in z-axis</li>
+<li>Fix font color on <strong>Card</strong> component</li>
+</ul>
+<h3 id="1.0.1" tabindex="-1"><a class="header-anchor" href="#1.0.1">#</a> 1.0.1</h3>
+<ul>
+<li>Move <code>styles.css</code> to <code>all.css</code></li>
+</ul>
+<h3 id="1.0.0" tabindex="-1"><a class="header-anchor" href="#1.0.0">#</a> 1.0.0</h3>
+<ul>
+<li>Initial release</li>
+</ul>
+</details>
+<hr>
+<h2 id="configuration" tabindex="-1"><a class="header-anchor" href="#configuration">#</a> Configuration</h2>
+<p>Update the following custom properties to personalize the stylesheet:</p>
+<pre class="language-css"><code class="language-css"><span class="token property">--col-bg</span><span class="token punctuation">:</span> &lt;color><span class="token punctuation">;</span>
+<span class="token property">--col-bg2</span><span class="token punctuation">:</span> &lt;color><span class="token punctuation">;</span>
+<span class="token property">--col-bg3</span><span class="token punctuation">:</span> &lt;color><span class="token punctuation">;</span>
+<span class="token property">--col-fg</span><span class="token punctuation">:</span> &lt;color><span class="token punctuation">;</span>
+<span class="token property">--col-fg2</span><span class="token punctuation">:</span> &lt;color><span class="token punctuation">;</span>
+<span class="token property">--col-accent</span><span class="token punctuation">:</span> &lt;color><span class="token punctuation">;</span>
+<span class="token property">--col-accent2</span><span class="token punctuation">:</span> &lt;color><span class="token punctuation">;</span>
+<span class="token property">--col-accent-contrast</span><span class="token punctuation">:</span> &lt;color><span class="token punctuation">;</span>
+<span class="token property">--font</span><span class="token punctuation">:</span> &lt;string><span class="token punctuation">;</span>
+<span class="token property">--font-mono</span><span class="token punctuation">:</span> &lt;string><span class="token punctuation">;</span>
+<span class="token property">--font-size-min</span><span class="token punctuation">:</span> &lt;length><span class="token punctuation">;</span>
+<span class="token property">--font-size-max</span><span class="token punctuation">:</span> &lt;length><span class="token punctuation">;</span>
+<span class="token property">--line-height</span><span class="token punctuation">:</span> &lt;integer> | &lt;length> | normal<span class="token punctuation">;</span>
+<span class="token property">--letter-spacing</span><span class="token punctuation">:</span> &lt;length><span class="token punctuation">;</span>
+<span class="token property">--body-width</span><span class="token punctuation">:</span> &lt;length><span class="token punctuation">;</span>
+<span class="token property">--border-radius</span><span class="token punctuation">:</span> &lt;length><span class="token punctuation">;</span></code></pre>
+<p><a href="./configuration">Read further configuration details</a></p>
+<hr>
+<h2 id="themes" tabindex="-1"><a class="header-anchor" href="#themes">#</a> Themes</h2>
+<p>I've added some themes, in case you don't like the default look. To apply a theme, you need to add a new layer (the <code>themes</code> one) and import the theme into it:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@layer</span> base<span class="token punctuation">,</span> themes<span class="token punctuation">,</span> layout<span class="token punctuation">,</span> components<span class="token punctuation">;</span></span>
+<span class="token atrule"><span class="token rule">@import</span> <span class="token string">"ssstyles"</span> <span class="token function">layer</span><span class="token punctuation">(</span>base<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="token atrule"><span class="token rule">@import</span> <span class="token string">"ssstyles/css/themes/business.css"</span> <span class="token function">layer</span><span class="token punctuation">(</span>themes<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="token atrule"><span class="token rule">@import</span> <span class="token string">"ssstyles/css/transition.css"</span> <span class="token function">layer</span><span class="token punctuation">(</span>base<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="token comment">/* ... */</span></code></pre>
+<p>You can also link to a theme directly in HTML:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/ssstyles/dist/base.css<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/ssstyles/dist/themes/business.css<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
+<p>Here's a list of all available themes:</p>
+<section data-carousel>
+    <article data-card>
+        <figure data-card-background>
+            <img src="./default.jpg" alt="Screenshot of this website with neutral background and font colors and bright pink accents" width="400" height="240" loading="lazy">
+        </figure>
+        <footer>
+            <input type="radio" data-toggle id="theme-default" name="theme" value="default" checked>
+            <label for="theme-default"><code>default</code></label>
+            <a aria-label="Source code on GitHub" href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/default.css"><?xml version="1.0" encoding="UTF-8"?>
+<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 98 96">
+    <path
+        d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"
+        fill="currentColor" />
+</svg></a>
+        </footer>
+    </article>
+    <article data-card>
+        <figure data-card-background>
+            <img src="./business.jpg" alt="Screenshot of this website with neutral background and font colors and bluesh-grey accents" width="400" height="240" loading="lazy">
+        </figure>
+        <footer>
+            <input type="radio" data-toggle id="theme-business" name="theme" value="business">
+            <label for="theme-business"><code>business</code></label>
+            <a aria-label="Source code on GitHub" href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/business.css"><?xml version="1.0" encoding="UTF-8"?>
+<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 98 96">
+    <path
+        d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"
+        fill="currentColor" />
+</svg></a>
+        </footer>
+    </article>
+    <article data-card>
+        <figure data-card-background>
+            <img src="./ocean.jpg" alt="Screenshot of this website with blueish background and font colors and blue-green accents" width="400" height="240" loading="lazy">
+        </figure>
+        <footer>
+            <input type="radio" data-toggle id="theme-ocean" name="theme" value="ocean">
+            <label for="theme-ocean"><code>ocean</code></label>
+            <a aria-label="Source code on GitHub" href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/ocean.css"><?xml version="1.0" encoding="UTF-8"?>
+<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 98 96">
+    <path
+        d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"
+        fill="currentColor" />
+</svg></a>
+        </footer>
+    </article>
+    <article data-card>
+        <figure data-card-background>
+            <img src="./minimal.jpg" alt="Screenshot of this website in only black and white">
+        </figure>
+        <footer>
+            <input type="radio" data-toggle id="theme-minimal" name="theme" value="minimal">
+            <label for="theme-minimal"><code>minimal</code></label>
+            <a aria-label="Source code on GitHub" href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/minimal.css"><?xml version="1.0" encoding="UTF-8"?>
+<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 98 96">
+    <path
+        d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"
+        fill="currentColor" />
+</svg></a>
+        </footer>
+    </article>
+    <article data-card>
+        <figure data-card-background>
+            <img src="./terminal.jpg" alt="Screenshot of this website with green background and font colors, entirely in a monospace font" width="400" height="240" loading="lazy">
+        </figure>
+        <footer>
+            <input type="radio" data-toggle id="theme-terminal" name="theme" value="terminal">
+            <label for="theme-terminal"><code>terminal</code></label>
+            <a aria-label="Source code on GitHub" href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/terminal.css"><?xml version="1.0" encoding="UTF-8"?>
+<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 98 96">
+    <path
+        d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"
+        fill="currentColor" />
+</svg></a>
+        </footer>
+    </article>
+    <article data-card>
+        <figure data-card-background>
+            <img src="./graphic-design-is-my-passion.jpg" alt="Screenshot of this website with garishly bright background and font colors. Also, Comic Sans" width="400" height="240" loading="lazy">
+        </figure>
+        <footer>
+            <input type="radio" data-toggle id="theme-passion" name="theme" value="graphic-design-is-my-passion">
+            <label for="theme-passion"><code>graphic-design-is-my-passion</code></label>
+            <a aria-label="Source code on GitHub" href="https://github.com/iamschulz/ssstyles/blob/main/css/themes/graphic-design-is-my-passion.css"><?xml version="1.0" encoding="UTF-8"?>
+<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 98 96">
+    <path
+        d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"
+        fill="currentColor" />
+</svg></a>
+        </footer>
+    </article>
+</section>
+<script>
+    document.querySelectorAll('[data-toggle][id^=theme]').forEach(x => {
+        if (currentTheme === x.value) {
+            x.setAttribute('checked', 'checked');
+        } else {
+            x.removeAttribute('checked');
+        }
+        x.addEventListener('change', (e) => {
+            if (!e.returnValue) { return; }
+            const name = e.target.value;
+            selectTheme(name);
+        });
+    })
+</script>
+<hr>
+<h2 id="base-styles" tabindex="-1"><a class="header-anchor" href="#base-styles">#</a> Base Styles</h2>
+<p>You can opt to use only the base package. This one uses only html tags as selectors and is meant to work with any website that hase some clean HTML right out of the box. It applies some styles to native elements, adds a basic layout and color theming. It's neither the lightest, nor the most feature complete, but it's also not too far off.</p>
+<p>The base package also serves as the foundation to all other components.</p>
+<p>Here are some included elements:</p>
+<article data-card data-shadow="2-hover">
+    <a data-card-link href="/base-styles" aria-label="Base Styles"></a>
+    <figure data-card-background>
+        <?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1599.55 600" width="1600" height="600">
+  <polygon style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);"
+    points="288.9 575.74 257.51 563.19 104.05 481.61 135.44 494.16 288.9 575.74" />
+  <polygon style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);"
+    points="135.44 494.16 104.05 481.61 104.43 428.68 135.82 441.23 135.44 494.16" />
+  <polygon style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);"
+    points="135.82 441.23 104.43 428.68 260.56 280.84 291.95 293.39 135.82 441.23" />
+  <polygon style="fill: var(--col-accent2)"
+    points="291.95 293.39 318.9 339.09 189.71 455.97 317.61 516.55 288.9 575.74 135.44 494.16 135.82 441.23 291.95 293.39" />
+  <polygon style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);"
+    points="372.43 565.29 341.04 552.74 343.59 202.08 374.98 214.63 372.43 565.29" />
+  <path style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);"
+    d="M491.54,352.64c-1.21-5.56-3.26-9.33-6.14-11.31-.33-.23-.69-.43-1.05-.62-.12-.06-.24-.11-.36-.17-2.74-1.28-6.29-1.47-10.65-.54-4.16.89-8.25,2.88-12.26,5.97.56,4.84.82,10.76.77,17.83l-1.19,163.52,31.39,12.55,1.19-163.52c.07-10.24-.5-18.14-1.71-23.7Z" />
+  <path style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);"
+    d="M498.7,279.64c1.04-.22,2.06-.41,3.07-.59.21-.04.42-.07.64-.11.98-.16,1.95-.3,2.9-.42.16-.02.33-.04.49-.05.88-.1,1.75-.18,2.6-.25.14-.01.29-.02.43-.03.92-.06,1.83-.1,2.73-.12.2,0,.39,0,.59,0,.91,0,1.8,0,2.69.04.04,0,.09,0,.13,0,.85.04,1.68.1,2.51.18.17.02.35.03.52.05.83.09,1.65.2,2.46.34.15.03.3.05.45.08.75.13,1.48.28,2.21.46.1.02.21.04.31.07.78.19,1.54.41,2.29.64.17.05.33.11.5.16.73.24,1.44.49,2.14.77l-31.39-12.55c-8.2-3.28-18.08-3.69-29.66-1.23-10.72,2.28-20.82,6.7-30.32,13.24l-.33,45.53c17.72-25.79,38.4-41.2,62.04-46.22Z" />
+  <polygon style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);"
+    points="406.23 181.45 343.59 202.08 374.98 214.63 437.62 194 406.23 181.45" />
+  <path style="fill: var(--col-accent)"
+    d="M541.44,290.02c-4.26-4.69-9.34-8-15.22-9.93-.16-.05-.33-.11-.5-.16-.75-.24-1.52-.45-2.29-.64-.1-.03-.21-.05-.31-.07-.72-.17-1.46-.32-2.21-.46-.15-.03-.3-.06-.45-.08-.81-.13-1.62-.25-2.46-.34-.17-.02-.35-.03-.52-.05-.83-.08-1.66-.15-2.51-.18-.04,0-.09,0-.13,0-.88-.04-1.78-.04-2.69-.04-.2,0-.39,0-.59,0-.9.02-1.81.05-2.73.12-.14,0-.28.02-.43.03-.86.06-1.73.15-2.6.25-.16.02-.33.03-.49.05-.95.12-1.92.26-2.9.42-.21.03-.42.07-.64.11-1.01.17-2.03.36-3.07.59-23.64,5.02-44.32,20.43-62.04,46.22l.33-45.53.63-86.33-62.64,20.63-2.55,350.66,62.59-13.3,1.26-173.67c6.41-11.28,12.61-20.14,18.59-26.6,2.05-2.22,4.13-4.13,6.22-5.74,4.01-3.09,8.09-5.09,12.26-5.97,4.36-.93,7.91-.74,10.65.54.12.06.24.11.36.17.36.19.72.39,1.05.62,2.88,1.98,4.93,5.76,6.14,11.31,1.21,5.56,1.78,13.47,1.71,23.7l-1.19,163.52,62.59-13.3,1.34-184.31c.17-23.94-4.68-41.36-14.55-52.23Z" />
+  <path style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);"
+    d="M1202.63,331.38c1.12.84,2.35,1.52,3.7,2.05.47.18.95.35,1.45.5.11.03.22.06.33.09.44.12.9.23,1.37.33.1.02.19.04.28.06.54.1,1.09.18,1.65.24.13.01.26.03.39.04.52.05,1.04.08,1.58.1.08,0,.16,0,.25.01.6.02,1.22,0,1.85-.02.15,0,.3-.01.45-.02.6-.03,1.21-.07,1.84-.14.06,0,.11,0,.17-.01.67-.07,1.36-.17,2.06-.27.17-.03.34-.05.51-.08.71-.12,1.43-.25,2.18-.41,9.5-2.02,19.43-6.64,29.76-13.88l-31.39-12.55c-8.49,5.94-16.7,10.12-24.63,12.54.98,5.24,3.05,9.05,6.2,11.42Z" />
+  <path style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);"
+    d="M1167.53,394.55c-.27-.11-.53-.23-.79-.34-.69-.3-1.38-.62-2.05-.95-.3-.15-.6-.3-.9-.46-.68-.36-1.34-.74-2-1.13-.22-.14-.45-.26-.68-.4-.86-.54-1.7-1.1-2.51-1.7-.17-.12-.33-.26-.49-.38-.65-.49-1.29-1-1.91-1.54-.25-.22-.5-.44-.75-.66-.55-.49-1.09-1-1.62-1.53-.22-.22-.45-.44-.67-.67-.72-.75-1.43-1.52-2.12-2.33-12.1-14.34-18.03-36.63-17.81-66.88l1.54-211.49-31.53,6.7-1.4,192.24c-.22,30.25,5.71,52.54,17.81,66.88,4.66,5.53,10.26,9.61,16.8,12.22l31.39,12.55c-.11-.04-.21-.09-.31-.14Z" />
+  <polygon style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);"
+    points="1041.76 53.68 1041.39 104.72 1072.78 117.27 1073.15 66.23 1041.76 53.68" />
+  <polygon style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);"
+    points="1197.73 39.75 1166.34 27.2 1041.76 53.68 1073.15 66.23 1197.73 39.75" />
+  <path style="fill: var(--col-accent)"
+    d="M1252.45,319.97c-10.34,7.24-20.26,11.86-29.76,13.88-.74.16-1.46.29-2.18.41-.17.03-.34.06-.51.08-.7.11-1.39.2-2.06.27-.06,0-.11,0-.17.01-.63.06-1.24.11-1.84.14-.15,0-.3.02-.45.02-.63.02-1.25.03-1.85.02-.08,0-.16,0-.25-.01-.54-.02-1.06-.05-1.58-.1-.13-.01-.26-.02-.39-.04-.56-.06-1.12-.14-1.65-.24-.1-.02-.19-.04-.28-.06-.47-.09-.92-.2-1.37-.33-.11-.03-.22-.06-.33-.09-.5-.15-.98-.31-1.45-.5-1.35-.53-2.59-1.21-3.7-2.05-3.16-2.37-5.22-6.18-6.2-11.42-.47-2.5-.69-5.32-.67-8.47l1.98-271.74-124.58,26.48-.37,51.03,30.46-6.47,31.53-6.7-1.54,211.49c-.22,30.25,5.71,52.54,17.81,66.88.68.81,1.39,1.58,2.12,2.33.22.23.45.45.67.67.53.52,1.07,1.03,1.62,1.53.25.22.5.44.75.66.62.53,1.26,1.04,1.91,1.54.17.13.33.26.49.38.82.6,1.66,1.17,2.51,1.7.22.14.45.27.68.4.66.39,1.32.77,2,1.13.3.16.59.31.9.46.67.33,1.36.65,2.05.95.26.11.52.24.79.34,10.47,4.28,23.36,4.8,38.68,1.54,22.97-4.88,43.28-14.71,60.92-29.46l-14.69-46.66Z" />
+  <path style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);"
+    d="M992.8,237.73c-.18-.41-.39-.79-.61-1.13-.08-.12-.17-.21-.25-.31-.16-.21-.31-.43-.49-.62-.11-.11-.23-.2-.34-.3-.17-.15-.34-.31-.52-.44-.13-.09-.28-.16-.42-.23-.19-.11-.37-.22-.58-.3-1.37-.57-3.06-.64-5.07-.22-3.56.76-7.11,2.74-10.63,5.92-1.62,1.47-3.29,3.34-5.01,5.58-1.78,2.31-3.61,5.04-5.51,8.17l-1.21,166.88,31.39,12.55,1.29-177.22c.07-8.98-.62-15.08-2.04-18.32Z" />
+  <path style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);"
+    d="M995.19,160.3c-5.9-2.36-13.04-2.65-21.43-.87-13.27,2.82-25.89,11.92-37.88,27.26l7.01,2.8s-.07-.02-.1-.03c1.47.58,2.86,1.31,4.18,2.21,5.44,3.72,9.32,10.37,11.63,19.94,14.53-22.9,30.05-36.11,46.56-39.62,1-.21,1.98-.39,2.94-.54.32-.05.62-.08.93-.13.64-.09,1.28-.18,1.9-.24.36-.04.72-.06,1.07-.09.56-.04,1.11-.08,1.66-.11.37-.01.73-.02,1.1-.02.52,0,1.03,0,1.54,0,.36,0,.72.03,1.08.05.49.03.98.07,1.46.11.35.03.69.07,1.03.12.48.06.95.14,1.41.23.32.06.65.11.96.18.48.1.94.23,1.41.35.29.08.58.15.86.23.52.16,1.02.34,1.52.53.18.07.38.12.56.19l-31.39-12.55Z" />
+  <path style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);"
+    d="M916.55,253.93c-.18-.41-.39-.79-.61-1.13-.08-.12-.17-.21-.25-.32-.16-.21-.31-.43-.49-.62-.11-.11-.23-.2-.34-.3-.17-.15-.34-.31-.52-.44-.13-.09-.28-.16-.42-.23-.19-.11-.37-.22-.57-.3-1.37-.57-3.06-.64-5.07-.21-3.56.76-7.11,2.74-10.62,5.92-1.62,1.47-3.29,3.34-5.02,5.57-1.78,2.31-3.61,5.04-5.5,8.17l-1.21,166.88,31.39,12.55,1.29-177.22c.07-8.98-.62-15.08-2.04-18.32Z" />
+  <path style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);"
+    d="M882.3,230.66c6.94-12.63,13.81-22.31,20.58-29.03,6.77-6.7,14.65-11.02,23.63-12.93.7-.15,1.38-.27,2.05-.38.16-.03.32-.05.48-.08.67-.1,1.33-.18,1.97-.24.05,0,.1,0,.15-.01.61-.05,1.2-.08,1.79-.1.15,0,.3,0,.44-.01.52,0,1.04,0,1.55.01.31-.4.61-.8.92-1.19l-24.38-9.75c-4.65-1.86-10.11-2.13-16.37-.8-8.98,1.91-16.86,6.22-23.63,12.93-3.2,3.18-6.43,7.02-9.67,11.53l16.5,6.6,3.98,23.45Z" />
+  <path style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);"
+    d="M935.24,187.9c.08,0,.16.01.24.02.54.03,1.07.08,1.59.14.13.02.27.03.4.05.57.08,1.14.17,1.69.28.09.02.19.04.28.06.49.11.96.23,1.43.37.12.03.24.07.35.1.53.16,1.05.34,1.56.54.03.01.07.02.1.03l-7.01-2.8c-.31.39-.61.79-.92,1.19.09,0,.19,0,.28.01Z" />
+  <polygon style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);"
+    points="861.82 200.61 846.93 194.65 800.98 204.42 832.37 216.97 854.21 212.33 878.32 207.2 861.82 200.61" />
+  <path style="fill: var(--col-accent)"
+    d="M1038.29,182.4c-3.24-4.66-7.34-7.9-12.27-9.74-.5-.19-1-.37-1.52-.53-.28-.09-.57-.15-.86-.23-.46-.13-.93-.25-1.41-.35-.32-.07-.64-.12-.96-.18-.47-.08-.94-.16-1.41-.23-.34-.04-.68-.08-1.03-.12-.48-.05-.97-.09-1.46-.11-.36-.02-.71-.04-1.08-.05-.51-.01-1.02-.01-1.54,0-.36,0-.73,0-1.1.02-.55.02-1.1.06-1.66.11-.36.03-.71.05-1.07.09-.62.06-1.26.15-1.9.24-.31.04-.62.08-.93.13-.96.15-1.94.33-2.94.54-16.51,3.51-32.03,16.72-46.56,39.62-2.31-9.57-6.18-16.22-11.63-19.94-1.31-.9-2.7-1.63-4.18-2.21-.51-.2-1.03-.38-1.56-.54-.12-.04-.23-.07-.35-.1-.47-.14-.95-.26-1.43-.37-.09-.02-.19-.04-.28-.06-.55-.11-1.12-.21-1.69-.28-.13-.02-.27-.03-.4-.05-.52-.06-1.05-.11-1.59-.14-.08,0-.16-.01-.24-.02-.09,0-.19,0-.29,0-.51-.02-1.02-.03-1.54-.02-.15,0-.3,0-.44.01-.59.02-1.18.05-1.79.1-.05,0-.1,0-.15.01-.65.06-1.31.14-1.97.24-.16.02-.32.05-.48.08-.68.11-1.36.23-2.05.38-8.98,1.91-16.86,6.22-23.63,12.93-6.77,6.71-13.64,16.39-20.58,29.03l-3.98-23.45-24.11,5.12-21.84,4.64-1.83,250.95,54.47-11.58,1.35-185.02c.26-.44.51-.85.77-1.27,1.89-3.13,3.72-5.86,5.5-8.17,1.72-2.24,3.4-4.11,5.02-5.57,3.51-3.18,7.06-5.16,10.62-5.92,2.01-.43,3.7-.35,5.07.21.2.08.39.2.57.3.14.08.29.14.42.23.19.13.35.29.52.44.11.1.24.19.34.3.18.18.33.4.49.62.08.11.17.2.25.32.22.34.43.72.61,1.13,1.42,3.24,2.11,9.34,2.04,18.32l-1.29,177.22,43.96-9.34,1.35-185.02c.26-.44.51-.85.77-1.27,1.89-3.14,3.73-5.86,5.51-8.17,1.72-2.24,3.39-4.11,5.01-5.58,3.51-3.18,7.06-5.16,10.63-5.92,2.01-.43,3.7-.35,5.07.22.2.08.39.2.58.3.14.08.29.14.42.23.19.13.35.29.52.44.11.1.24.19.34.3.18.19.33.4.49.62.08.11.17.2.25.31.22.34.43.72.61,1.13,1.43,3.24,2.11,9.34,2.04,18.32l-1.29,177.22,53.67-11.41,1.35-185.72c.19-25.67-3.24-43.59-10.28-53.73Z" />
+  <polygon style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);"
+    points="800.98 204.42 799.15 455.37 830.54 467.92 832.37 216.97 800.98 204.42" />
+  <path style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);"
+    d="M724.17,435.76c.45.17.91.33,1.38.47.07.02.14.05.22.07.55.15,1.11.28,1.7.39.15.03.3.05.46.08.49.08.99.15,1.5.2.13.01.27.03.4.04.63.06,1.28.09,1.94.1.15,0,.3,0,.46,0,.56,0,1.12,0,1.71-.03.18,0,.36-.01.54-.02.72-.04,1.45-.1,2.2-.18.12-.01.24-.03.36-.05.66-.08,1.33-.17,2.02-.28.22-.03.43-.07.65-.11.81-.14,1.63-.29,2.48-.47,13.2-2.81,25.51-9.2,36.93-19.18l-31.39-12.55c-10.48,9.16-21.71,15.29-33.69,18.41,1.13,4.48,2.91,7.88,5.34,10.15,1.35,1.26,2.95,2.24,4.8,2.95Z" />
+  <polygon style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);"
+    points="781.47 227.79 750.08 215.24 713.88 222.93 713.74 242.19 781.47 227.79" />
+  <path style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);"
+    d="M684.76,495.52c-.24-.1-.47-.2-.7-.3-.9-.39-1.78-.8-2.64-1.23-.09-.05-.18-.09-.27-.13-.93-.48-1.83-1-2.71-1.53-.22-.13-.43-.27-.65-.4-.84-.53-1.67-1.08-2.47-1.66-.05-.03-.09-.06-.14-.1-.84-.61-1.65-1.27-2.45-1.94-.2-.16-.39-.33-.58-.5-.79-.69-1.57-1.4-2.32-2.15-13.48-13.49-20.11-35.04-19.9-64.66l.83-113.89-31.53,6.7-.69,94.64c-.22,29.62,6.42,51.18,19.9,64.66,4.44,4.44,9.61,7.85,15.51,10.2l31.39,12.55c-.2-.08-.39-.17-.58-.25Z" />
+  <polygon style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);"
+    points="714.2 178.86 682.81 166.31 620.15 188.59 651.54 201.14 714.2 178.86" />
+  <polygon style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);"
+    points="651.54 201.14 620.15 188.59 619.75 242.94 651.14 255.49 651.54 201.14" />
+  <polygon style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);"
+    points="575.58 252.33 575.21 303.85 606.6 316.4 606.97 264.88 575.58 252.33" />
+  <path style="fill: var(--col-accent)"
+    d="M779.11,416.8c-11.41,9.98-23.72,16.37-36.93,19.18-.85.18-1.67.33-2.48.47-.22.04-.43.07-.65.11-.69.11-1.36.2-2.02.28-.12.01-.24.03-.36.05-.75.08-1.49.14-2.2.18-.18.01-.36.02-.54.02-.58.02-1.15.04-1.71.03-.15,0-.31,0-.46,0-.67-.01-1.32-.05-1.94-.1-.14-.01-.27-.03-.4-.04-.51-.05-1.01-.12-1.5-.2-.15-.03-.31-.05-.46-.08-.58-.11-1.15-.24-1.7-.39-.07-.02-.14-.05-.22-.07-.48-.14-.94-.3-1.38-.47-1.85-.71-3.45-1.69-4.8-2.95-2.43-2.28-4.21-5.67-5.34-10.15-1.04-4.1-1.54-9.11-1.5-15.06l.83-113.89,61.59-13.09,6.52-52.83-67.74,14.4.14-19.25.32-44.08-62.66,22.29-.4,54.35-44.17,9.39-.37,51.52,12.64-2.69,31.53-6.7-.83,113.89c-.22,29.62,6.42,51.18,19.9,64.66.75.75,1.53,1.46,2.32,2.15.19.17.39.34.58.5.8.67,1.61,1.33,2.45,1.94.05.03.09.06.14.1.8.58,1.63,1.13,2.47,1.66.21.14.43.27.65.4.89.54,1.79,1.06,2.71,1.53.09.05.18.09.27.13.86.44,1.74.85,2.64,1.23.23.1.47.2.7.3,12.11,5.03,27.34,5.6,45.7,1.69,13.73-2.92,26.45-7.67,38.17-14.24,11.71-6.58,22.02-14.27,30.92-23.08l-20.45-43.08Z" />
+  <polygon style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);"
+    points="651.14 255.49 619.75 242.94 575.58 252.33 606.97 264.88 651.14 255.49" />
+  <polygon style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);"
+    points="1351.3 349.92 1319.91 337.37 1291.96 292.58 1323.35 305.13 1351.3 349.92" />
+  <polygon style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);"
+    points="1323.35 305.13 1291.96 292.58 1421.36 174.95 1452.75 187.5 1323.35 305.13" />
+  <polygon style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);"
+    points="1452.75 187.5 1421.36 174.95 1293.25 114.89 1324.64 127.44 1452.75 187.5" />
+  <polygon style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);"
+    points="1324.64 127.44 1293.25 114.89 1321.37 55.36 1352.76 67.91 1324.64 127.44" />
+  <polygon style="fill: var(--col-accent2)"
+    points="1352.76 67.91 1506.82 149.35 1506.43 202.75 1351.3 349.92 1323.35 305.13 1452.75 187.5 1324.64 127.44 1352.76 67.91" />
+</svg>
+        <figcaption>Base Styles</figcaption>
+    </figure>
+</article>
+<hr>
+<h2 id="components" tabindex="-1"><a class="header-anchor" href="#components">#</a> Components</h2>
+<p>Here are some optional components. Most of the time, you can use them by importing the CSS file into your own styles and adding the corresponding data attribute to the element.</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@import</span> <span class="token string">"ssstyles/css/mycomponent.css"</span> <span class="token function">layer</span><span class="token punctuation">(</span>components<span class="token punctuation">)</span><span class="token punctuation">;</span></span></code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">data-mycomponent</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+<p>Here's a list of all available components:</p>
+<ul data-autogrid="1/4" data-hint="nolist">
+    <li data-card data-shadow="2-hover">
+        <a data-card-link href="/layout" aria-label="Layout"></a>
+        <figure data-card-background>
+            <?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 580">
+    <title>Layout</title>
+    <polygon style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);"
+        points="495.74 215.02 525.66 203.06 528.05 531.04 498.13 543 495.74 215.02" />
+    <polygon style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);"
+        points="124.92 136.2 154.83 124.24 525.66 203.06 495.74 215.02 124.92 136.2" />
+    <polygon style="fill: var(--col-accent2)"
+        points="495.74 215.02 498.13 543 127.31 464.18 124.92 136.2 495.74 215.02" />
+    <polygon style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);"
+        points="623.61 242.2 653.52 230.24 655.91 558.22 625.99 570.18 623.61 242.2" />
+    <polygon style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);"
+        points="508.53 217.74 538.44 205.78 653.52 230.24 623.61 242.2 508.53 217.74" />
+    <polygon style="fill: var(--col-accent2)"
+        points="623.61 242.2 625.99 570.18 510.92 545.72 508.53 217.74 623.61 242.2" />
+    <polygon style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);"
+        points="623.33 204.06 653.24 192.1 653.41 214.98 623.5 226.94 623.33 204.06" />
+    <polygon style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);"
+        points="124.64 98.06 154.56 86.1 653.24 192.1 623.33 204.06 124.64 98.06" />
+    <polygon style="fill: var(--col-accent2)"
+        points="623.33 204.06 623.5 226.94 124.81 120.94 124.64 98.06 623.33 204.06" />
+    <polygon style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);"
+        points="622.77 127.78 652.69 115.82 653.13 176.84 623.22 188.8 622.77 127.78" />
+    <polygon style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);"
+        points="124.09 21.78 154 9.82 652.69 115.82 622.77 127.78 124.09 21.78" />
+    <polygon style="fill: var(--col-accent)"
+        points="622.77 127.78 623.22 188.8 124.53 82.8 124.09 21.78 622.77 127.78" />
+</svg>
+            <figcaption>Layout</figcaption>
+        </figure>
+    </li>
+    <li data-card data-shadow="2-hover">
+        <a data-card-link href="/nav" aria-label="Nav"></a>
+        <figure data-card-background>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="-80 -60 780 580">
+  <title>Navigation</title>
+  <path d="m547 596 30-12 1 61-30 12-1-61z" style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" />
+  <path d="m49 490 29-12 499 106-30 12L49 490z" style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);" />
+  <path d="m547 596 1 61L49 551v-61l498 106z" style="fill: var(--col-accent2)" />
+  <path d="m546 491 30-12 1 61-30 12-1-61z" style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" />
+  <path d="m48 385 30-12 498 106-30 12L48 385z" style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);" />
+  <path d="m546 491 1 61L48 446v-61l498 106z" style="fill: var(--col-accent2)" />
+  <path d="m546 386 30-12v61l-30 12v-61z" style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" />
+  <path d="m47 280 30-12 499 106-30 12L47 280z" style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);" />
+  <path d="M546 386v61L47 341v-61l499 106z" style="fill: var(--col-accent2)" />
+  <path d="m545 280 30-12v61l-30 12v-61z" style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" />
+  <path d="m46 174 30-12 499 106-30 12L46 174z" style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);" />
+  <path d="M545 280v61L47 235l-1-61 499 106z" style="fill: var(--col-accent2)" />
+  <path d="m544 175 30-12 1 61-30 12-1-61z" style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" />
+  <path d="m46 69 29-12 499 106-30 12L46 69z" style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);" />
+  <path d="m544 175 1 61L46 130V69l498 106z" style="fill: var(--col-accent2)" />
+  <path style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);" d="m543 72 30-11 1 61-30 11-1-61z" />
+  <path style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);" d="m45-34 30-12L573 61l-30 11L45-34z" />
+  <path style="fill: var(--col-accent)" d="m543 72 1 61L45 27v-61L543 72z" />
+</svg>
+            <figcaption>Nav</figcaption>
+        </figure>
+    </li>
+    <li data-card data-shadow="2-hover">
+        <a data-card-link href="/skip-link" aria-label="Skiplink"></a>
+        <figure data-card-background>
+            <?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <title>Shadow</title>
+  <g style="fill: none; isolation: isolate;">
+    <polygon points="69.38 50.23 99.29 38.27 275.33 168.69 245.41 180.65 69.38 50.23"
+      style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);" />
+    <polygon points="69.38 50.23 245.41 180.65 445.65 329 246.96 392.56 72.28 448.43 69.38 50.23"
+      style="fill: var(--col-accent2)" />
+    <polygon points="245.41 180.65 275.33 168.69 475.56 317.04 445.65 329 245.41 180.65"
+      style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);" />
+    <polygon points="338.55 115.28 368.47 103.32 744.74 382.09 714.83 394.05 338.55 115.28"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);" />
+    <polygon points="338.55 115.28 714.83 394.05 341.45 513.48 340.72 412.49 539.42 348.93 339.17 200.58 338.55 115.28"
+      style="fill: var(--col-accent)" />
+  </g>
+</svg>
+            <figcaption>Skiplink</figcaption>
+        </figure>
+    </li>
+    <li data-card data-shadow="2-hover">
+        <a data-card-link href="/headline" aria-label="Headline"></a>
+        <figure data-card-background>
+            <?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -10 820 620">
+  <title>Headline</title>
+  <g style="fill: none; isolation: isolate;">
+    <polygon points="763.86 511.81 793.78 499.85 793.91 518.53 764 530.49 763.86 511.81"
+      style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" />
+    <polygon points="9.31 351.42 39.23 339.46 793.78 499.85 763.86 511.81 9.31 351.42"
+      style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);" />
+    <polygon points="763.86 511.81 764 530.49 9.45 370.11 9.31 351.42 763.86 511.81" style="fill: var(--col-accent2)" />
+  </g>
+  <g style="fill: none; isolation: isolate;">
+    <polygon points="762.4 311.06 792.32 299.1 793.58 473.19 763.67 485.15 762.4 311.06"
+      style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" />
+    <polygon points="208.17 193.25 238.08 181.29 792.32 299.1 762.4 311.06 208.17 193.25"
+      style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);" />
+    <polygon points="762.4 311.06 763.67 485.15 209.43 367.35 208.17 193.25 762.4 311.06"
+      style="fill: var(--col-accent2)" />
+  </g>
+  <g style="fill: none; isolation: isolate;">
+    <polygon points="21.49 257.32 51.4 245.36 82.45 251.96 52.54 263.92 21.49 257.32"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);" />
+    <polygon points="68.42 292.69 98.33 280.73 82.49 330.86 52.57 342.82 68.42 292.69"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);" />
+    <polygon points="36.76 203.21 66.67 191.25 99.02 198.13 69.11 210.09 36.76 203.21"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);" />
+    <polygon points="84.66 238.53 114.57 226.57 104.97 257 75.05 268.96 84.66 238.53"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);" />
+    <polygon points="75.05 268.96 104.97 257 133.64 263.1 103.73 275.06 75.05 268.96"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);" />
+    <polygon points="119.17 303.48 149.08 291.52 133.46 341.69 103.54 353.65 119.17 303.48"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);" />
+    <polygon points="92.38 215.04 122.3 203.07 149.78 208.92 119.86 220.88 92.38 215.04"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);" />
+    <polygon points="135.85 249.67 165.76 237.71 156.47 267.69 126.55 279.65 135.85 249.67"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);" />
+    <polygon points="84.73 159.65 114.65 147.69 137.91 152.64 108 164.6 84.73 159.65"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);" />
+    <polygon points="108 164.6 137.91 152.64 122.3 203.07 92.38 215.04 108 164.6"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);" />
+    <polygon points="126.55 279.65 156.47 267.69 188.07 274.41 158.15 286.37 126.55 279.65"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);" />
+    <polygon points="158.15 286.37 188.07 274.41 180.57 298.21 150.66 310.17 158.15 286.37"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);" />
+    <polygon points="143.13 225.82 173.04 213.86 203.67 220.37 173.75 232.33 143.13 225.82"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);" />
+    <polygon points="173.75 232.33 203.67 220.37 195.84 244.1 165.93 256.06 173.75 232.33"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);" />
+    <polygon points="158.75 175.39 188.67 163.43 173.04 213.86 143.13 225.82 158.75 175.39"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);" />
+    <path
+      d="m165.93,256.06l-30.08-6.39-9.29,29.99,31.6,6.72-7.49,23.8-31.49-6.69-15.63,50.18-23.26-4.94,15.63-50.18-27.49-5.84-15.84,50.13-23.26-4.94,15.63-50.18-31.28-6.65,7.83-23.73,31.05,6.6,9.29-29.99-32.9-6.99,7.83-23.73,32.35,6.88,15.62-50.43,23.26,4.94-15.62,50.44,27.48,5.84,15.84-50.39,23.05,4.9-15.62,50.43,30.63,6.51-7.83,23.73Zm-62.2,19l9.29-30.5-28.35-6.03-9.61,30.44,28.67,6.09"
+      style="fill: var(--col-accent)" />
+    <polygon points="135.7 170.49 165.62 158.53 188.67 163.43 158.75 175.39 135.7 170.49"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);" />
+  </g>
+</svg>
+            <figcaption>Headline</figcaption>
+        </figure>
+    </li>
+    <li data-card data-shadow="2-hover">
+        <a data-card-link href="/columns" aria-label="Columns"></a>
+        <figure data-card-background>
+            <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" stroke-linejoin="round"
+  stroke-miterlimit="2" clip-rule="evenodd" viewBox="0 0 800 600">
+  <path style="fill: var(--col-accent2)" d="M20 91v335l200 40V131L20 91Z" />
+  <path style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" d="m220 131 35-14v335l-35 14V131Z" />
+  <path style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);" d="m20 91 35-14 200 40-35 14L20 91Z" />
+  <path style="fill: var(--col-accent)" d="m283 144-1 335 200 40V184l-199-40Z" />
+  <path style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);" d="m482 184 36-15-1 336-35 14V184Z" />
+  <path style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);" d="m282 144 36-14 200 39-36 15-200-40Z" />
+  <path style="fill: var(--col-accent2)" d="M545 197v335l200 40V236l-200-39Z" />
+  <path style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" d="m745 236 35-14v335l-35 15V236Z" />
+  <path style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);" d="m545 197 35-15 200 40-35 14-200-39Z" />
+</svg>
+            <figcaption>Columns</figcaption>
+        </figure>
+    </li>
+    <li data-card data-shadow="2-hover">
+        <a data-card-link href="/card" aria-label="Card"></a>
+        <figure data-card-background>
+            <?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <title>Card</title>
+  <g style="fill: none; isolation: isolate;">
+    <polygon points="660.65 157.19 690.56 145.23 693.59 560.66 663.67 572.62 660.65 157.19"
+      style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" />
+    <polygon points="106.41 39.38 136.33 27.42 690.56 145.23 660.65 157.19 106.41 39.38"
+      style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);" />
+    <polygon points="660.65 157.19 663.67 572.62 109.44 454.82 106.41 39.38 660.65 157.19"
+      style="fill: var(--col-accent2)" />
+  </g>
+  <g style="fill: none; isolation: isolate;">
+    <polygon points="593.19 205.14 623.1 193.18 623.56 256.26 593.65 268.22 593.19 205.14"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);" />
+    <polygon points="91.21 98.44 121.13 86.48 623.1 193.18 593.19 205.14 91.21 98.44"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);" />
+    <polygon points="593.19 205.14 593.65 268.22 91.67 161.52 91.21 98.44 593.19 205.14"
+      style="fill: var(--col-accent)" />
+  </g>
+  <g style="fill: none; isolation: isolate;">
+    <polygon points="592.57 318.74 622.49 306.78 624.18 540.01 594.27 551.97 592.57 318.74"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);" />
+    <polygon points="90.6 212.04 120.51 200.08 622.49 306.78 592.57 318.74 90.6 212.04"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);" />
+    <polygon points="592.57 318.74 594.27 551.97 92.29 445.27 90.6 212.04 592.57 318.74"
+      style="fill: var(--col-accent)" />
+  </g>
+</svg>
+            <figcaption>Card</figcaption>
+        </figure>
+    </li>
+    <li data-card data-shadow="2-hover">
+        <a data-card-link href="/breakout" aria-label="Breakout"></a>
+        <figure data-card-background>
+            <?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <title>Breakout</title>
+  <g style="fill: none; isolation: isolate;">
+    <polygon points="582.8 103.1 612.71 91.14 616.25 576.77 586.33 588.73 582.8 103.1"
+      style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" />
+    <polygon points="207.32 23.29 237.23 11.33 612.71 91.14 582.8 103.1 207.32 23.29"
+      style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);" />
+    <polygon points="582.8 103.1 586.33 588.73 210.85 508.92 207.32 23.29 582.8 103.1"
+      style="fill: var(--col-accent2)" />
+  </g>
+  <g style="fill: none; isolation: isolate;">
+    <polygon points="733.73 276.42 763.64 264.46 765.37 502.26 735.46 514.22 733.73 276.42"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);" />
+    <polygon points="16.3 123.92 46.22 111.96 763.64 264.46 733.73 276.42 16.3 123.92"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);" />
+    <polygon points="733.73 276.42 735.46 514.22 18.03 361.73 16.3 123.92 733.73 276.42"
+      style="fill: var(--col-accent)" />
+  </g>
+</svg>
+            <figcaption>Breakout</figcaption>
+        </figure>
+    </li>
+    <li data-card data-shadow="2-hover">
+        <a data-card-link href="/group" aria-label="Group"></a>
+        <figure data-card-background>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <title>Group</title>
+  <path style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" d="m246 103 30-12 2 319-30 11-2-318z" />
+  <path style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);" d="M78 49H67L37 61h11l198 42 30-12L78 49Z" />
+  <path style="fill: var(--col-accent2)" d="m246 103 2 318-198-42c-12-2-22-15-22-28L26 80c0-13 9-22 22-20l198 43Z" />
+  <path style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);" d="m492 155 30-12 2 319-30 12-2-319z" />
+  <path style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);" d="m272 108 30-12 220 47-30 12-220-47z" />
+  <path style="fill: var(--col-accent)" d="m492 155 2 319-220-47-2-319 220 47z" />
+  <path style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);" d="m518 161 30-12 198 42-30 12-198-42z" />
+  <path style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);"
+    d="M768 220c0-14-10-27-22-29l-30 12c12 2 22 15 22 28l2 271c0 9-4 16-11 19l30-12c7-3 11-10 11-19l-2-270Z" />
+  <path style="fill: var(--col-accent2)" d="M716 203c12 2 22 15 22 28l2 271c0 13-9 22-21 19l-199-42-2-319 198 43Z" />
+</svg>
+            <figcaption>Group</figcaption>
+        </figure>
+    </li>
+    <li data-card data-shadow="2-hover">
+        <a data-card-link href="/callout" aria-label="Callout"></a>
+        <figure data-card-background>
+            <?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 580">
+  <title>Callout</title>
+  <g style="fill: none; isolation: isolate;">
+    <polygon points="147.06 152.42 176.98 140.46 178.99 417.68 149.08 429.64 147.06 152.42"
+      style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" />
+    <polygon points="149.08 429.64 178.99 417.68 630.77 513.71 600.86 525.67 149.08 429.64"
+      style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);" />
+    <polygon points="558.99 268.61 560.59 488.48 192.02 410.13 190.42 190.27 558.99 268.61"
+      style="fill: var(--col-accent2)" />
+    <polygon points="558.99 268.61 588.9 256.65 590.51 476.52 560.59 488.48 558.99 268.61"
+      style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" />
+    <polygon points="190.42 190.27 220.33 178.31 588.9 256.65 558.99 268.61 190.42 190.27"
+      style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);" />
+    <polygon points="624.21 173.83 654.12 161.87 656.86 538.34 626.95 550.3 624.21 173.83"
+      style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" />
+    <polygon points="125.52 67.83 155.44 55.87 654.12 161.87 624.21 173.83 125.52 67.83"
+      style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);" />
+    <path
+      d="m125.52,67.83l498.69,106,2.74,376.47-498.69-106-2.74-376.47Zm475.34,457.84l-2.02-277.21-451.78-96.03,2.02,277.21,451.78,96.03"
+      style="fill: var(--col-accent2)" />
+  </g>
+  <g style="fill: none; isolation: isolate;">
+    <polygon points="554.26 200.07 584.17 188.11 584.38 216.79 554.47 228.75 554.26 200.07"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);" />
+    <polygon points="145.62 113.21 175.53 101.25 584.17 188.11 554.26 200.07 145.62 113.21"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);" />
+    <polygon points="554.26 200.07 554.47 228.75 145.83 141.89 145.62 113.21 554.26 200.07"
+      style="fill: var(--col-accent)" />
+  </g>
+</svg>
+            <figcaption>Callout</figcaption>
+        </figure>
+    </li>
+    <li data-card data-shadow="2-hover">
+        <a data-card-link href="/shadow" aria-label="Shadow"></a>
+        <figure data-card-background>
+            <?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 800 600">
+  <title>Shadow</title>
+  <g style="fill: none; isolation: isolate;">
+    <polygon points="715.6 171.06 745.52 159.1 748.51 570.1 718.59 582.06 715.6 171.06"
+      style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" />
+    <polygon points="51.5 29.9 81.41 17.94 745.52 159.1 715.6 171.06 51.5 29.9"
+      style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);" />
+    <polygon points="715.6 171.06 718.59 582.06 54.49 440.9 51.5 29.9 715.6 171.06" style="fill: var(--col-accent2)" />
+  </g>
+  <polygon points="320.78 114.09 717.65 418.45 718.59 582.06 441.22 523.4 254.64 397.79 320.78 114.09"
+    style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" />
+  <g style="fill: none; isolation: isolate;">
+    <g style="fill: none; isolation: isolate;">
+      <g style="clip-path: url(#b); fill: none;">
+        <g style="fill: none; isolation: isolate;">
+          <path
+            d="m191.4,112.68l29.91-11.96c7.89-3.16,16.37-5.21,25.35-6.03l-29.91,11.96c-8.98.81-17.46,2.87-25.35,6.03"
+            style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);" />
+        </g>
+      </g>
+    </g>
+    <polygon points="216.75 106.66 246.67 94.7 249.23 94.46 219.31 106.42 216.75 106.66" style="fill: #a32756;" />
+    <g style="fill: none; isolation: isolate;">
+      <g style="fill: none; isolation: isolate;">
+        <path d="m219.31,106.42l29.91-11.96c9.95-.9,19.96-.22,29.8,1.87l-29.91,11.96c-9.84-2.09-19.84-2.77-29.8-1.87"
+          style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);" />
+      </g>
+    </g>
+    <g style="fill: none; isolation: isolate;">
+      <g style="fill: none; isolation: isolate;">
+        <path
+          d="m249.11,108.29l29.91-11.96c54,11.47,103.5,65.4,117.87,133.65,14.63,69.47-11.92,131.12-60.79,150.66l-29.91,11.96c48.86-19.54,75.41-81.19,60.79-150.66-14.37-68.25-63.87-122.18-117.87-133.65"
+          style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);" />
+      </g>
+    </g>
+    <path
+      d="m249.11,108.29c54,11.47,103.5,65.4,117.87,133.65,16.99,80.69-21.58,150.84-86.14,156.68l-2.56.23c-9.96.9-19.96.22-29.81-1.87-53.99-11.48-103.49-65.4-117.86-133.64-16.99-80.69,21.58-150.84,86.14-156.68l2.56-.24c9.95-.9,19.96-.22,29.8,1.87Z"
+      style="fill: var(--col-accent)" />
+  </g>
+</svg>
+            <figcaption>Shadow</figcaption>
+        </figure>
+    </li>
+    <li data-card data-shadow="2-hover">
+        <a data-card-link href="/toggle" aria-label="Toggle"></a>
+        <figure data-card-background>
+            <?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <title>Toggle</title>
+  <path
+    d="m589.32,126.09L238.43,51.51c-20.45-4.35-39.71-2.58-56.67,4.2l-29.91,11.96c16.96-6.78,36.22-8.55,56.67-4.2l350.89,74.58c68.93,14.65,125.3,93.2,125.9,175.44.42,57.84-26.86,102.11-67.07,118.18l29.91-11.96c40.21-16.08,67.49-60.34,67.07-118.18-.6-82.25-56.97-160.79-125.9-175.44Z"
+    style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" />
+  <path
+    d="m559.41,138.05c68.93,14.65,125.3,93.2,125.9,175.44.6,82.24-54.8,137.03-123.74,122.38l-350.89-74.58c-68.93-14.65-125.31-93.21-125.9-175.44-.6-82.25,54.8-137.03,123.74-122.38l350.89,74.58Z"
+    style="fill: var(--col-accent2)" />
+  <path
+    d="m634.47,215c-22.51-33.47-52.95-54.46-83.37-60.92-17.65-3.75-35.3-2.61-51.38,3.82l-29.91,11.96c16.09-6.43,33.73-7.57,51.38-3.82,30.42,6.46,60.86,27.46,83.37,60.92,42.87,63.73,40.74,148.56-4.74,189.48l-1.8,1.63c-7.74,6.96-16.24,12.21-25.22,15.8l29.91-11.96c8.98-3.59,17.48-8.83,25.22-15.8l1.8-1.63c45.48-40.92,47.61-125.75,4.74-189.48Z"
+    style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);" />
+  <path
+    d="m521.19,166.04c30.42,6.46,60.86,27.46,83.37,60.92,42.87,63.73,40.74,148.56-4.74,189.48l-1.8,1.63c-21.6,19.43-49.09,25.46-76.6,19.62-30.42-6.47-60.86-27.46-83.37-60.92-42.87-63.73-40.75-148.57,4.74-189.48l1.8-1.63c21.6-19.43,49.09-25.46,76.6-19.62Z"
+    style="fill: var(--col-accent)" />
+</svg>
+            <figcaption>Toggle</figcaption>
+        </figure>
+    </li>
+    <li data-card data-shadow="2-hover">
+        <a data-card-link href="/loading" aria-label="Loading"></a>
+        <figure data-card-background>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <title>Loading</title>
+  <path style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);"
+    d="M412 406h-2c-63-15-115-88-115-164a142 142 0 0 1 12-57l2-4 4-7c7-11 15-21 25-28l5-4a87 87 0 0 0-18 6l-1 1-3 1-3 2h-1l-2 1-1 1a68 68 0 0 1-3 2l-2 1-1 1-3 2-2 2-1 1-2 2h-1l-2 3-2 2-1 1-2 2v1l-2 2-1 1-2 2v1l-2 3-2 3v1l-2 3-2 3v1a21 21 0 0 1-2 3l-1 4h-1l-1 3v1l-1 4-1 4-1 1-1 3-1 4v1l-1 3v5l-1 5v1l-1 3v15c0 76 51 149 115 164h1l4 1h4l2 1h24v-1h4l2-1h4l2-1 3-1 1-1h2l15-8c-12 2-24 2-37-1Zm-1-352-2-1c-30-6-57-4-82 6l-30 12 5-2 4-1 2-1h3l1-1 3-1h2l3-1h1l5-1h1l4-1h21a71 71 0 0 1 6 0h6l3 1h2l3 1h2l5 1 2 1c22 4 42 14 61 26l30-12c-19-12-39-22-61-26Zm150 275v12l-1 3v7l-1 4v1l-1 4v5l-1 1v4l-1 5-1 1-1 3v1l-1 4v1l-1 4-1 1-1 4-1 4-1 1-1 3v1l-2 4v1l-1 3-1 1-1 3-1 1-1 3-1 1-2 4-2 3v1l-2 3-2 4-1 1-2 2v1l-2 3-1 1-2 2v1l-3 3-2 3-1 1-2 2h-1l-2 3-1 1-2 2-1 1-2 2-1 1-2 2h-1l-3 3-3 2-3 2v1l-3 2h-1l-3 2-4 2v1l-3 1h-1l-3 2-3 2h-1l-3 2-3 1 30-12c57-23 96-85 97-167l-30 12v5Z" />
+  <path style="fill: var(--col-accent)"
+    d="M297 168Zm128 249h-1 1Zm3-1Zm-85-274a91 91 0 0 1 38 1c14 4 27 10 40 18l21-69c-18-13-39-22-60-27h-3l-5-1h-2l-3-1h-2l-3-1h-33l-4 1h-1l-5 1h-1l-3 1h-2l-3 1h-1l-3 1-2 1a40 40 0 0 0-4 1l-5 2c-57 23-97 86-97 168 0 119 80 234 180 257h2c31 7 60 4 85-7l3-2h1l3-1 1-1 3-1 1-1 2-1 1-1 3-2h1l2-2h1l3-2 3-2 1-1 2-2h1l2-3h1l2-2 1-1 3-2v-1l3-2v-1l3-2v-1l2-2 1-1 2-3h1l2-3 1-1 2-2v-1l2-3 1-1 2-2v-1l2-3 1-1 1-3 1-1 2-3 2-4v-1l2-3v-1l2-3v-1l1-3 1-1 1-4 1-1 1-3v-1l2-4 1-4v-1l1-4 2-5v-1l1-3v-1l1-4v-1l1-4v-1l1-4 1-5v-6l1-4v-7l1-4v-11l-66-15c0 44-19 80-47 98l-15 7-2 1-1 1a94 94 0 0 1-3 1h-2l-1 1h-3l-2 1h-4l-3 1h-21l-2-1h-4l-4-1h-1c-64-15-115-88-115-164v-10l1-4v-6l1-4v-4l1-1v-3l1-1v-4l1-1v-3l1-1 1-3 1-4 1-1 1-3 1-4 1-1 1-2 1-1 1-3 2-3v-1l2-3 2-3 1-1 1-2 1-1 2-3 2-2 1-1 2-2 3-3v-1l2-1 1-1 2-2h1l2-2 1-1 2-1 1-1 2-1 1-1 2-1 1-1 3-1 3-2h1l2-1 16-5m-71 72v-1 1Zm161 201h-1 1ZM283 187v-1 1Zm-2 3Zm-2 4v-1 1Zm10-17 1-1-1 1Zm-2 3v-1 1Zm-14 29Zm12-26h-1Zm-11 22v-1 1Zm18-32Zm2-2v-1 1Zm-19 31 1-1-1 1Zm2-5Z" />
+  <path style="fill: var(--col-accent)"
+    d="m324 149 1-1h-1Zm-56 78v-2 2Zm-2 18v-1 1Zm127 175h-2 2Zm6 0Zm-3 0h-1 1Zm-88-262v-1 1Zm9-6h1-1Zm-6 4Zm3-2 1-1-1 1Zm89 266h-1 1ZM267 231Zm119 188h-1 1ZM266 250v-1 1Zm123 169h-1 1Zm-87-256 1-1-1 1Zm-36 77v-1 1Zm147 180h-1Zm3-1ZM270 218v-1 1Zm29-53h1-1Zm-32 71v-1 1Zm152 182-1 1 1-1ZM305 160Zm117 258h-1 1Zm-12 2h-2 1Zm-89-270Zm-52 72v-1 1Zm137 198h-1 1ZM340 62Zm-5 0h-3 3Zm-38 9 5-2-5 2Zm14-4h-3 3Zm20-4h-5 5Zm16-1h5-5Zm-1 0h-4 3Zm-40 6-4 1 4-1Zm20-5Zm-6 1-3 1 3-1Zm-5 1-3 1 3-1Zm42-3h-5 5Zm5 0h-4 4Zm10 2-3-1 3 1Zm-5-1-3-1 3 1Zm12 2-5-1 5 1Zm103 416-1 1 1-1Zm73-106v1-1Zm2-5-1 1v-1Zm-71 109h-1 1Zm68-100v1-1Zm-2 10-1 1 1-1Zm-63 88h-1 1Zm68-112v1-1Zm-34 80-1 1 1-1Zm30-60Zm7-41v1-1Zm1-10v1-1Zm0 5v2-2Zm-90 148h-1 1Zm90-158v1-1Zm-86 156-1 1 1-1Zm84-130v1-1Zm-92 134Zm91-129c0 1 0 1 0 0Zm-79 123-1 1 1-1Zm81-133v1-1Zm-10 44Zm-20 41Zm-19 23v1-1Zm24-31v1-1Zm-2 4h-1 1Zm4-7Zm-28 37-1 1 1-1Zm16-19v1-1Zm-5 7Zm-15 15v1-1Zm23-26-1 1 1-1Zm-14 17Zm3-3v1-1Zm26-41v1-1Zm-44 59Zm46-63v1-1Zm4-9-1 1 1-1Zm-2 4v1-1Zm-55 73Zm4-3-1 1 1-1Zm43-53v1-1Zm2-4v1-1Zm-39 52Z" />
+  <path style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);"
+    d="m472 80-30 12 22 16a285 285 0 0 1 97 214v2l30-12v-2c1-94-49-184-119-230Z" />
+  <path style="fill: var(--col-accent2)" d="M561 305A285 285 0 0 0 442 92l-21 69c44 29 75 87 75 146v2l65 15v-19Z" />
+</svg>
+            <figcaption>Loading</figcaption>
+        </figure>
+    </li>
+    <li data-card data-shadow="2-hover">
+        <a data-card-link href="/carousel" aria-label="Carousel"></a>
+        <figure data-card-background>
+            <?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <title>Carousel</title>
+  <g style="fill: none; isolation: isolate;">
+    <polygon points="582.8 103.1 612.71 91.14 616.25 576.77 586.33 588.73 582.8 103.1"
+      style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" />
+    <polygon points="207.32 23.29 237.23 11.33 612.71 91.14 582.8 103.1 207.32 23.29"
+      style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);" />
+    <polygon points="582.8 103.1 586.33 588.73 210.85 508.92 207.32 23.29 582.8 103.1"
+      style="fill: var(--col-accent2)" />
+  </g>
+  <g style="fill: none; isolation: isolate;">
+    <polygon points="23.6 118.02 53.52 106.06 55.25 343.86 25.33 355.82 23.6 118.02"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);" />
+    <polygon points="-173.57 76.11 -143.66 64.15 53.52 106.06 23.6 118.02 -173.57 76.11"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);" />
+    <polygon points="23.6 118.02 25.33 355.82 -171.84 313.91 -173.57 76.11 23.6 118.02"
+      style="fill: var(--col-accent)" />
+  </g>
+  <g style="fill: none; isolation: isolate;">
+    <polygon points="246.15 169.08 276.06 157.12 277.79 394.91 247.88 406.87 246.15 169.08"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);" />
+    <polygon points="48.98 127.17 78.89 115.21 276.06 157.12 246.15 169.08 48.98 127.17"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);" />
+    <polygon points="246.15 169.08 247.88 406.87 50.71 364.96 48.98 127.17 246.15 169.08"
+      style="fill: var(--col-accent)" />
+  </g>
+  <g style="fill: none; isolation: isolate;">
+    <polygon points="468.04 217.2 497.95 205.24 499.68 443.04 469.77 455 468.04 217.2"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);" />
+    <polygon points="270.87 175.29 300.78 163.33 497.95 205.24 468.04 217.2 270.87 175.29"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);" />
+    <polygon points="468.04 217.2 469.77 455 272.6 413.09 270.87 175.29 468.04 217.2" style="fill: var(--col-accent)" />
+  </g>
+  <g style="fill: none; isolation: isolate;">
+    <polygon points="691.24 269.22 721.15 257.26 722.88 495.06 692.97 507.02 691.24 269.22"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);" />
+    <polygon points="494.07 227.31 523.98 215.35 721.15 257.26 691.24 269.22 494.07 227.31"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);" />
+    <polygon points="691.24 269.22 692.97 507.02 495.8 465.11 494.07 227.31 691.24 269.22"
+      style="fill: var(--col-accent)" />
+  </g>
+  <g style="fill: none; isolation: isolate;">
+    <polygon points="716.61 278.37 746.53 266.41 943.7 308.32 913.78 320.28 716.61 278.37"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);" />
+    <polygon points="913.78 320.28 915.51 558.07 718.34 516.16 716.61 278.37 913.78 320.28"
+      style="fill: var(--col-accent)" />
+  </g>
+</svg>
+            <figcaption>Carousel</figcaption>
+        </figure>
+    </li>
+    <li data-card data-shadow="2-hover">
+        <a data-card-link href="/action-link" aria-label="Action Link"></a>
+        <figure data-card-background>
+            <?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <title>Action Links</title>
+  <g style="fill: none; isolation: isolate;">
+    <polygon points="684.31 164.03 714.23 152.07 716.22 426.12 686.31 438.08 684.31 164.03"
+      style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" />
+    <polygon points="83.78 36.39 113.69 24.43 714.23 152.07 684.31 164.03 83.78 36.39"
+      style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);" />
+    <polygon points="684.31 164.03 686.31 438.08 85.77 310.44 83.78 36.39 684.31 164.03"
+      style="fill: var(--col-accent2)" />
+  </g>
+  <g>
+    <path
+      d="m665.65,336.36c-13.67-44.83-47.34-77.79-82.88-85.34-10.39-2.21-20.93-2.25-31.18.22l-1.8.43c-3.09.74-6.07,1.7-8.94,2.85l-29.91,11.96c.11-.04.23-.08.34-.13.4-.16.8-.31,1.21-.46.3-.11.59-.22.89-.33.43-.15.85-.29,1.28-.43.28-.09.56-.19.85-.28.48-.15.96-.29,1.45-.43.24-.07.48-.14.72-.21.73-.2,1.46-.4,2.21-.57l1.8-.43c10.25-2.47,20.8-2.43,31.18-.22,35.54,7.55,69.21,40.51,82.88,85.34.49,1.6.94,3.19,1.36,4.78.04.13.07.27.11.4.4,1.52.77,3.03,1.12,4.54.05.2.09.4.14.61.33,1.47.63,2.94.91,4.4.05.24.09.47.13.71.27,1.45.51,2.89.73,4.33.04.24.07.47.11.71.21,1.44.4,2.88.57,4.32.02.21.05.43.07.64.16,1.46.3,2.92.41,4.37.01.16.02.31.03.47.11,1.51.2,3.01.25,4.5,0,.05,0,.1,0,.16.05,1.5.08,3,.08,4.48,0,.09,0,.19,0,.28,0,1.45-.04,2.89-.09,4.32,0,.17-.01.35-.02.52-.06,1.38-.14,2.76-.25,4.13-.02.21-.03.42-.05.63-.11,1.34-.24,2.68-.4,4-.03.22-.05.44-.08.66-.16,1.32-.35,2.63-.55,3.93-.03.2-.07.4-.1.61-.22,1.32-.45,2.62-.71,3.91-.03.16-.07.32-.1.49-.28,1.33-.57,2.65-.89,3.96-.02.08-.04.17-.06.25-.33,1.33-.69,2.65-1.07,3.96-.01.04-.03.09-.04.13-.38,1.29-.79,2.57-1.22,3.83-.04.13-.09.27-.13.4-.42,1.21-.86,2.4-1.31,3.58-.07.17-.13.34-.2.52-.46,1.15-.93,2.28-1.43,3.4-.08.18-.16.37-.25.55-.5,1.11-1.02,2.2-1.56,3.28-.09.17-.18.35-.26.52-.55,1.08-1.12,2.15-1.71,3.2-.08.14-.16.29-.25.43-.61,1.07-1.24,2.13-1.9,3.16-.06.09-.12.18-.17.27-.69,1.08-1.39,2.14-2.13,3.17,0,0,0,0,0,0-.73,1.03-1.49,2.04-2.27,3.03-.07.08-.13.17-.2.26-.74.94-1.51,1.85-2.29,2.75-.11.12-.21.24-.32.36-.77.87-1.56,1.71-2.36,2.54-.13.13-.26.26-.39.4-.8.81-1.62,1.6-2.46,2.37-.14.13-.28.25-.42.38-.85.76-1.71,1.51-2.59,2.22-.13.11-.26.21-.4.32-.9.73-1.82,1.43-2.76,2.11-.1.07-.21.14-.31.22-.98.7-1.98,1.38-3,2.02-.03.02-.07.04-.1.06-1.03.65-2.08,1.26-3.14,1.85-.07.04-.14.08-.21.12-1.04.57-2.1,1.11-3.18,1.63-.13.06-.26.13-.4.19-1.05.49-2.11.95-3.19,1.39-.1.04-.19.09-.29.12l29.91-11.96c39.26-15.7,57.62-67.85,41.17-121.83Z"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);" />
+    <path
+      d="m598.44,468.44c1.08-.52,2.14-1.05,3.18-1.63.07-.04.14-.08.21-.12,1.07-.59,2.11-1.21,3.14-1.85.03-.02.07-.04.1-.06,1.02-.64,2.02-1.32,3-2.02.1-.07.21-.14.31-.22.94-.68,1.86-1.38,2.76-2.11.13-.11.27-.21.4-.32.88-.72,1.74-1.46,2.59-2.22.14-.13.28-.25.42-.38.84-.77,1.66-1.56,2.46-2.37.13-.13.26-.26.39-.4.8-.83,1.59-1.67,2.36-2.54.11-.12.21-.24.32-.36.78-.9,1.55-1.81,2.29-2.75.07-.08.13-.17.2-.26.78-.99,1.53-2,2.27-3.03,0,0,0,0,0,0,.73-1.03,1.44-2.1,2.13-3.17.06-.09.12-.18.17-.27.65-1.03,1.28-2.09,1.9-3.16.08-.14.17-.28.25-.43.59-1.05,1.16-2.12,1.71-3.2.09-.17.18-.35.26-.52.54-1.08,1.06-2.17,1.56-3.28.08-.18.16-.37.25-.55.5-1.12.97-2.25,1.43-3.4.07-.17.13-.34.2-.52.46-1.18.9-2.37,1.31-3.58.05-.13.09-.27.13-.4.43-1.26.84-2.54,1.22-3.83.01-.04.03-.09.04-.13.38-1.3.74-2.62,1.07-3.96.02-.08.04-.17.06-.25.32-1.3.62-2.62.89-3.96.03-.16.07-.32.1-.49.26-1.29.5-2.6.71-3.91.03-.2.07-.4.1-.61.21-1.3.39-2.61.55-3.93.03-.22.05-.44.08-.66.15-1.32.29-2.66.4-4,.02-.21.03-.42.05-.63.1-1.37.19-2.74.25-4.13,0-.17.01-.35.02-.52.05-1.43.09-2.87.09-4.32,0-.09,0-.19,0-.28,0-1.49-.03-2.98-.08-4.48,0-.05,0-.1,0-.16-.06-1.49-.14-2.99-.25-4.5-.01-.16-.02-.31-.03-.47-.11-1.45-.25-2.91-.41-4.37-.02-.21-.05-.43-.07-.64-.16-1.43-.35-2.87-.57-4.32-.04-.24-.07-.47-.11-.71-.22-1.44-.46-2.88-.73-4.33-.04-.24-.09-.47-.13-.71-.28-1.46-.58-2.93-.91-4.4-.05-.2-.09-.4-.14-.61-.35-1.51-.72-3.02-1.12-4.54-.03-.13-.07-.27-.11-.4-.43-1.59-.88-3.18-1.36-4.78-13.67-44.83-47.34-77.79-82.88-85.34-10.39-2.21-20.93-2.25-31.18.22l-1.8.43c-.74.18-1.48.37-2.21.57-.24.07-.48.14-.72.21-.49.14-.97.28-1.45.43-.28.09-.57.19-.85.28-.43.14-.86.28-1.28.43-.3.11-.59.22-.89.33-.4.15-.81.3-1.21.46-39.5,15.54-58.01,67.83-41.51,121.96,13.67,44.84,47.33,77.79,82.87,85.35,10.39,2.21,20.94,2.24,31.19-.23l1.8-.43c3.2-.77,6.28-1.77,9.24-2.97,1.08-.44,2.14-.9,3.19-1.39.13-.06.26-.13.4-.19Z"
+      style="fill: var(--col-accent)" />
+  </g>
+</svg>
+            <figcaption>Action Link</figcaption>
+        </figure>
+    </li>
+    <li data-card data-shadow="2-hover">
+        <a data-card-link href="/avatar" aria-label="Avatar"></a>
+        <figure data-card-background>
+            <!--<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 471.4 537.6">-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-170 -20 800 600">
+  <title>Avatar</title>
+  <path style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);"
+    d="M.2 394.8c-.2.7-.2 1.5-.2 2.3l5.7-20.9c-2.1 5.9-4 12.1-5.4 18.6Zm343.5 72.8L0 397.1c40 69.3 102.2 121.6 171.8 136.4 24.4 5.2 47.8 5.3 69.6 1.1 10-1.9 19.6-4.8 28.9-8.5 0 0-.2 0-.3.1l29.9-12c29.1-11.6 54.3-31.8 73.7-58.6l-29.9 12Z" />
+  <path style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);"
+    d="m254 4.3.5-.2c-35.4-7.5-68.8-4.5-98.2 7.3l-29.9 12c1.4-.6 2.8-1.1 4.2-1.6.3 0 .5-.2.8-.3 1.4-.5 2.7-1 4.1-1.4.3 0 .5-.2.8-.3 1.4-.5 2.9-.9 4.3-1.3h.2c1.4-.4 2.8-.8 4.3-1.2.2 0 .5-.1.7-.2 1.4-.4 2.8-.7 4.3-1 .3 0 .6-.1.9-.2 1.5-.3 2.9-.6 4.4-.9h.4c1.4-.3 2.9-.5 4.3-.8.2 0 .5 0 .7-.1 1.5-.2 2.9-.4 4.4-.6.3 0 .6 0 .9-.1 1.5-.2 3-.4 4.5-.5h.5c1.5-.1 2.9-.2 4.4-.3h.6c1.5 0 3.1-.2 4.6-.2h11.2c1.6 0 3.2.1 4.7.2h.9c1.6 0 3.1.2 4.7.4h.8c1.6.1 3.2.3 4.7.5h.3c1.6.2 3.3.4 4.9.7.3 0 .6 0 .9.1 1.6.2 3.2.5 4.8.8.3 0 .6.1.9.2 1.4.3 2.8.5 4.2.8l-.4.2c119.5 25.4 217.2 161.5 218.2 304.1v7.5c0 1.6 0 3.2-.1 4.9v1.1c0 1.9-.2 3.8-.3 5.7v1.4c0 1.5-.2 3.1-.3 4.6 0 .5 0 1-.1 1.5-.2 1.9-.3 3.8-.5 5.6v.9c-.2 1.6-.3 3.2-.5 4.8 0 .5-.1 1-.2 1.5-.2 1.7-.4 3.4-.7 5.1v.5l-.9 5.4c0 .5-.2 1-.3 1.5-.3 1.5-.5 2.9-.8 4.4 0 .4-.1.8-.2 1.2-.3 1.8-.7 3.5-1.1 5.3 0 .4-.2.8-.3 1.2-.3 1.4-.6 2.8-1 4.2-.1.5-.2.9-.3 1.4-.4 1.7-.9 3.4-1.3 5.1 0 .2 0 .4-.1.5-.4 1.5-.8 3.1-1.3 4.6-.1.5-.3.9-.4 1.4-.4 1.5-.9 2.9-1.3 4.3 0 .2-.1.5-.2.7-.5 1.6-1.1 3.3-1.6 4.9-.1.4-.3.8-.4 1.3-.5 1.3-.9 2.6-1.4 3.9-.1.4-.3.8-.4 1.1-.6 1.6-1.2 3.1-1.8 4.7-.1.3-.3.6-.4.9-.5 1.3-1.1 2.5-1.6 3.8-.2.4-.4.8-.5 1.3-.7 1.5-1.3 3-2 4.5v.1c-.7 1.5-1.4 2.9-2.1 4.3l-.6 1.2c-.6 1.2-1.2 2.4-1.9 3.7-.1.3-.3.5-.4.8-.8 1.4-1.5 2.8-2.3 4.2-.2.3-.4.7-.6 1-.6 1.1-1.3 2.2-1.9 3.3-.2.3-.4.7-.6 1-.8 1.4-1.7 2.7-2.5 4.1-.1.2-.3.5-.4.7-.7 1.1-1.5 2.3-2.2 3.4-.2.4-.5.7-.7 1.1-.8 1.2-1.7 2.5-2.5 3.7 0 0-.1.2-.2.2-.9 1.3-1.8 2.5-2.8 3.8-.3.3-.5.7-.8 1-.8 1-1.6 2-2.3 3-.2.3-.4.5-.6.8-1 1.2-1.9 2.4-2.9 3.5-.2.3-.5.5-.7.8-.8.9-1.6 1.9-2.4 2.8-.3.3-.5.6-.8.9-1 1.1-2.1 2.3-3.1 3.4l-.4.4c-.9 1-1.9 1.9-2.8 2.9l-.9.9c-1 .9-1.9 1.9-2.9 2.8l-.4.4-3.3 3c-.3.3-.6.5-.9.8-.9.8-1.8 1.6-2.8 2.4-.3.2-.5.4-.8.7-1.1.9-2.3 1.9-3.5 2.8-.2.2-.5.4-.7.6-1 .7-1.9 1.5-2.9 2.2-.3.2-.6.5-1 .7-1.2.9-2.4 1.7-3.6 2.6 0 0-.1 0-.2.1-1.2.8-2.3 1.6-3.5 2.3-.3.2-.7.4-1 .7-1.1.7-2.1 1.3-3.2 2-.2.1-.4.3-.6.4-1.3.8-2.5 1.5-3.8 2.2-.3.2-.7.4-1 .5-1 .6-2.1 1.1-3.1 1.7-.3.2-.7.3-1 .5-1.3.7-2.6 1.3-4 2-.2.1-.5.2-.7.3-1.1.5-2.3 1-3.4 1.6-.4.2-.7.3-1.1.5-1.3.6-2.6 1.1-4 1.7h-.1l29.9-12c69.7-27.9 117-104.6 116.2-204.8-1-142.2-98.3-278-217.4-303.9Z" />
+  <path style="fill: var(--col-accent2)"
+    d="M224.6 16.1c-1.7-.4-3.4-.7-5-1-.3 0-.6-.1-.9-.2-1.6-.3-3.2-.6-4.8-.8-.3 0-.6 0-.9-.1-1.6-.2-3.3-.5-4.9-.7h-.3c-1.6-.2-3.2-.4-4.7-.5h-.8c-1.6-.1-3.1-.3-4.7-.4h-.9c-1.6 0-3.2-.2-4.7-.2h-11.2c-1.5 0-3.1.1-4.6.2h-.6c-1.5 0-2.9.2-4.4.3h-.5c-1.5.1-3 .3-4.5.5-.3 0-.6 0-.9.1-1.5.2-3 .4-4.4.6-.2 0-.5 0-.7.1-1.4.2-2.9.5-4.3.8h-.4c-1.5.3-2.9.6-4.4.9-.3 0-.6.1-.9.2-1.4.3-2.9.7-4.3 1-.2 0-.5.1-.7.2-1.4.4-2.9.8-4.3 1.2h-.2c-1.4.4-2.9.9-4.3 1.3-.3 0-.5.2-.8.3-1.4.5-2.7.9-4.1 1.4-.3 0-.5.2-.8.3C58.5 48.2 9.4 126 10.1 228.2c.3 36.7 7 73 18.8 107.1 11.8-14 26.4-24.7 42.8-31.2-.2 0-.3.1-.5.2l29.9-12c3.8-1.5 7.7-2.8 11.8-3.9 24.1 19.7 55 31.6 88.6 31.6s38.2-4 55.2-11.3c56.2 21.2 102.1 79.8 117 146.9-19.4 26.8-44.6 46.9-73.7 58.6l-29.9 12s.2 0 .3-.1c-9.2 3.7-18.9 6.6-28.9 8.5 30.6 4.3 59.4.7 85.2-9.6h.1c1.3-.5 2.7-1.1 4-1.7.4-.2.7-.3 1.1-.5 1.1-.5 2.3-1 3.4-1.6.2-.1.5-.2.7-.3 1.3-.6 2.6-1.3 4-2 .3-.2.7-.3 1-.5 1.1-.5 2.1-1.1 3.1-1.7.3-.2.7-.4 1-.5 1.3-.7 2.6-1.5 3.8-2.2.2-.1.4-.3.6-.4 1.1-.6 2.1-1.3 3.2-2 .3-.2.7-.4 1-.7 1.2-.8 2.4-1.5 3.5-2.3 0 0 .1 0 .2-.1 1.2-.8 2.4-1.7 3.6-2.6.3-.2.7-.5 1-.7 1-.7 2-1.5 2.9-2.2.2-.2.5-.4.7-.6 1.2-.9 2.3-1.8 3.5-2.8.3-.2.5-.4.8-.7.9-.8 1.8-1.6 2.8-2.4.3-.3.6-.5.9-.8l3.3-3 .4-.4c1-.9 1.9-1.8 2.9-2.8l.9-.9c1-1 1.9-1.9 2.8-2.9l.4-.4c1-1.1 2.1-2.2 3.1-3.4.3-.3.5-.6.8-.9.8-.9 1.6-1.9 2.4-2.8.2-.3.5-.5.7-.8 1-1.2 2-2.4 2.9-3.5.2-.3.4-.5.6-.8.8-1 1.6-2 2.3-3 .3-.3.5-.7.8-1 .9-1.2 1.9-2.5 2.8-3.8 0 0 .1-.2.2-.2.9-1.2 1.7-2.4 2.5-3.7.2-.4.5-.7.7-1.1.7-1.1 1.5-2.2 2.2-3.4.1-.2.3-.5.4-.7.8-1.3 1.7-2.7 2.5-4.1.2-.3.4-.7.6-1 .7-1.1 1.3-2.2 1.9-3.3.2-.3.4-.7.6-1 .8-1.4 1.6-2.8 2.3-4.2.1-.3.3-.5.4-.8.6-1.2 1.3-2.4 1.9-3.7l.6-1.2c.7-1.4 1.4-2.9 2.1-4.3v-.1c.7-1.5 1.4-3 2-4.5.2-.4.4-.8.5-1.3.5-1.3 1.1-2.5 1.6-3.8.1-.3.3-.6.4-.9.6-1.5 1.2-3.1 1.8-4.7.1-.4.3-.8.4-1.1.5-1.3.9-2.6 1.4-3.9.1-.4.3-.8.4-1.3.6-1.6 1.1-3.2 1.6-4.9 0-.2.1-.5.2-.7.5-1.4.9-2.9 1.3-4.3.1-.5.3-.9.4-1.4.4-1.5.9-3 1.3-4.6 0-.2 0-.4.1-.5.5-1.7.9-3.4 1.3-5.1.1-.5.2-.9.3-1.4.3-1.4.7-2.8 1-4.2 0-.4.2-.8.3-1.2.4-1.7.7-3.5 1.1-5.3 0-.4.1-.8.2-1.2.3-1.4.5-2.9.8-4.4 0-.5.2-1 .3-1.5l.9-5.4v-.5c.2-1.7.5-3.4.7-5.1 0-.5.1-1 .2-1.5.2-1.6.4-3.2.5-4.8v-.9c.2-1.9.4-3.7.5-5.6 0-.5 0-1 .1-1.5.1-1.5.2-3 .3-4.6V339l.3-5.7v-1.1c0-1.6 0-3.2.1-4.9v-7.5c-1-142.5-98.7-278.7-218.2-304.1Z" />
+  <path style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);"
+    d="M292.8 169.6c-8-42.8-35.3-80.9-69.9-97.4-7.2-3.5-14.4-5.9-21.3-7.4-15.2-3.2-29.6-1.9-42.2 3.1l-29.9 12c.3-.1.5-.2.8-.3-36.2 14-58.6 58.3-48.2 114.3 7.1 38 29.4 72.3 58.5 91.1 3.7 2.4 7.5 4.5 11.4 6.4.6.3 1.1.5 1.7.8 6.7 3 13.3 5.2 19.7 6.6 13.3 2.8 25.8 2.2 37.2-1.4 1.8-.6 3.5-1.2 5.2-1.9h-.2l29.9-12c35.7-14.3 57.7-58.4 47.4-114Z" />
+  <path style="fill: var(--col-accent)"
+    d="M265.4 206.3c0-1.4 0-2.9-.1-4.3v-.5c0-1.3-.2-2.6-.3-3.9v-1.1c-.1-1.5-.3-3-.4-4.5v-.3l-.6-4.2c0-.4-.1-.8-.2-1.2-.2-1.5-.5-3.1-.8-4.6-8-42.8-35.3-80.9-69.9-97.4-7.2-3.5-14.4-5.9-21.3-7.4-.9-.2-1.9-.4-2.8-.5-.3 0-.6 0-.9-.1l-1.8-.3c-.4 0-.7 0-1.1-.1-.5 0-1.1-.1-1.6-.2-.4 0-.8 0-1.2-.1-.5 0-1 0-1.6-.1h-10.6c-.4 0-.8 0-1.2.1-.5 0-.9 0-1.4.1-.4 0-.8 0-1.2.1-.5 0-.9.1-1.4.2-.4 0-.8.1-1.2.2-.4 0-.9.2-1.3.2s-.8.1-1.2.2c-.4 0-.9.2-1.3.3-.4 0-.8.2-1.2.3-.4.1-.9.2-1.3.3-.4 0-.8.2-1.1.3-.4.1-.9.2-1.3.4-.4.1-.7.2-1.1.3-.4.1-.9.3-1.3.4-.4.1-.7.2-1.1.4-.4.2-.8.3-1.3.5-36.2 14-58.6 58.3-48.2 114.3 7.1 38 29.4 72.3 58.5 91.1 3.7 2.4 7.5 4.5 11.4 6.4.6.3 1.1.5 1.7.8 6.7 3 13.3 5.2 19.7 6.6 13.3 2.8 25.8 2.2 37.2-1.4 1.8-.6 3.5-1.2 5.2-1.9 1-.4 1.9-.8 2.9-1.3.2 0 .4-.2.6-.3l2.4-1.2c.2-.1.5-.2.7-.4.9-.5 1.8-1 2.8-1.5.2 0 .3-.2.5-.3.8-.5 1.5-1 2.3-1.5.2-.1.4-.3.7-.4.9-.6 1.7-1.2 2.6-1.8.1 0 .2-.2.4-.3.8-.6 1.5-1.2 2.2-1.8.2-.2.4-.3.6-.5l2.4-2.1s.2-.1.2-.2l2.1-2.1.6-.6c.8-.8 1.5-1.6 2.3-2.4l2.1-2.4c.2-.2.4-.4.5-.7.7-.8 1.3-1.7 2-2.6v-.1c.7-.9 1.3-1.8 1.9-2.8.2-.2.3-.5.5-.7.6-.9 1.1-1.7 1.7-2.6 0 0 .1-.2.2-.3.6-1 1.2-2 1.7-3 .1-.3.3-.5.4-.8.5-.9 1-1.8 1.4-2.7 0-.2.2-.3.2-.5.5-1.1 1-2.1 1.5-3.2.1-.3.2-.5.4-.8.4-.9.8-1.9 1.2-2.8 0-.2.2-.4.2-.6.4-1.1.8-2.3 1.2-3.4 0-.3.2-.6.3-.8.3-1 .6-2 1-3 0-.2.1-.5.2-.7.4-1.2.7-2.4 1-3.6 0-.3.1-.6.2-.8.3-1 .5-2.1.7-3.1 0-.3.1-.5.2-.8.3-1.2.5-2.5.7-3.8 0-.3 0-.5.1-.8.2-1.1.3-2.2.5-3.3 0-.3 0-.6.1-.9.2-1.3.3-2.6.5-4v-.8c.1-1.1.2-2.3.3-3.5v-1c0-1.4.1-2.7.2-4.1v-5.5Z" />
+  <path style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);"
+    d="m237.2 303-26.8-5.7c-11.4 3.5-24 4.2-37.2 1.4-6.4-1.4-13-3.5-19.7-6.6-.6-.3-1.1-.5-1.7-.8-3.9-1.9-7.7-4-11.4-6.4-14 0-27.2 2.5-39.4 7.4l-29.9 12c.2 0 .3-.1.5-.2-16.4 6.5-31 17.1-42.8 31.2-9.7 11.5-17.6 25.3-23.2 40.9L0 397.1l343.7 70.5 29.9-12C357 380.9 302.1 316.7 237.2 303Z" />
+  <path style="fill: var(--col-accent)"
+    d="M329.1 423.7c-.5-1.1-1-2.1-1.5-3.2-1.5-3.2-3.1-6.4-4.7-9.5-1.1-2.1-2.2-4.1-3.4-6.2-.6-1-1.2-2-1.7-3l-3.6-6c-1.9-2.9-3.8-5.8-5.8-8.7-1.3-1.9-2.7-3.7-4-5.6l-2.1-2.7c-1.4-1.8-2.8-3.6-4.3-5.3-2.2-2.6-4.4-5.2-6.7-7.7-1.5-1.7-3.1-3.3-4.6-4.9-7.8-8-16.2-15.2-25-21.5-1.8-1.3-3.5-2.5-5.3-3.7-15.3-10-31.8-17.2-49-20.9l-72.5-15.4c-1.3-.3-2.6-.5-3.8-.7-.4 0-.7-.1-1.1-.2-1-.2-2.1-.3-3.1-.5-.3 0-.5 0-.8-.1-1.2-.2-2.5-.3-3.7-.5h-.9c-1 0-2-.2-3-.3h-1c-1.2 0-2.5-.1-3.7-.2h-8.4c-1.2 0-2.4.1-3.6.2h-.9c-.9 0-1.9.2-2.8.3h-.9c-1.2.1-2.3.3-3.5.5-.2 0-.5 0-.7.1-1 .2-1.9.3-2.8.5-.3 0-.6.1-1 .2-1.1.2-2.3.5-3.4.7-1.1.3-2.2.6-3.4.9-.3 0-.6.2-.9.3-.9.3-1.8.5-2.7.8-.2 0-.5.1-.7.2-1.1.3-2.2.7-3.2 1.1-.3 0-.5.2-.8.3-.9.3-1.7.6-2.6 1-16.4 6.5-31 17.1-42.8 31.2C15.3 351.1 5.4 371.3.1 394.7c-.2.7-.2 1.5-.2 2.3 40 69.3 102.2 121.6 171.8 136.4 24.4 5.2 47.8 5.3 69.6 1.1 10-1.9 19.6-4.8 28.9-8.5 1.7-.7 3.3-1.4 5-2.1.1 0 .3-.1.4-.2 1.7-.7 3.3-1.5 4.9-2.3.1 0 .3-.1.4-.2 1.6-.8 3.2-1.6 4.8-2.5.1 0 .2-.1.4-.2l4.8-2.7c.1 0 .2-.1.3-.2 1.6-.9 3.1-1.9 4.7-2.9.1 0 .2-.1.3-.2 1.6-1 3.1-2 4.6-3 0 0 .2-.1.3-.2 1.5-1.1 3-2.1 4.5-3.2 0 0 .2-.1.2-.2 1.5-1.1 3-2.2 4.4-3.4l.2-.2c1.5-1.2 2.9-2.4 4.4-3.6l.2-.2c1.4-1.2 2.9-2.5 4.3-3.8l.2-.2c1.4-1.3 2.8-2.6 4.2-4l.1-.1c1.4-1.4 2.7-2.7 4.1-4.2l.1-.1c1.4-1.4 2.7-2.9 4-4.4l3.9-4.5c1.3-1.6 2.6-3.1 3.8-4.7 1.3-1.6 2.5-3.3 3.7-4.9-3.4-15.2-8.3-29.9-14.6-43.9Z" />
+</svg>
+            <figcaption>Avatar</figcaption>
+        </figure>
+    </li>
+    <li data-card data-shadow="2-hover">
+        <a data-card-link href="/comment" aria-label="Comment"></a>
+        <figure data-card-background>
+            <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" stroke-linejoin="round"
+  stroke-miterlimit="2" clip-rule="evenodd" viewBox="0 0 1367 1337" width="800" height="600">
+  <title>Avatar</title>
+  <path style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" d="m1164 1033-101 103 51-82 50-21Z" />
+  <path style="fill: var(--col-accent2)" d="M0 20v797l911 194 152 125 51-82 202 43V300L0 20Z" />
+  <path style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" d="m1316 300 51-20v796l-51 21V300Z" />
+  <path style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);" d="M0 20 51 0l1316 280-51 20L0 20Z" />
+  <path style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);"
+    d="M641 328c66-127 200-99 266-14 67 85 67 225 0 352-46 95-166 175-266 225-100-92-220-223-267-339-67-155-67-295 0-351 67-57 200-28 267 127Z" />
+  <path style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);"
+    d="m366 198 35-14 53 4-88 10Zm318 67 35-14 53 5-88 9Zm-81 641 38-15-9-13-29 28Z" />
+  <path style="fill: var(--col-accent)"
+    d="M603 343c66-127 200-98 266-14 67 85 67 226 0 352-46 96-166 176-266 225-100-92-220-223-267-338-67-155-67-296 0-352s200-28 267 127Z" />
+</svg>
+            <figcaption>Comment</figcaption>
+        </figure>
+    </li>
+    <li data-card data-shadow="2-hover">
+        <a data-card-link href="/contact-links" aria-label="Contact Links"></a>
+        <figure data-card-background>
+            <?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 800 600">
+  <title>Styled Links</title>
+  <g>
+    <g style="fill: none; isolation: isolate;">
+      <polygon points="88.12 192.68 121.49 179.33 261.03 303.8 227.66 317.14 88.12 192.68"
+        style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);" />
+      <polygon points="227.66 317.14 261.03 303.8 230.86 354.73 197.49 368.07 227.66 317.14"
+        style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" />
+      <polygon points="226.26 125.45 259.63 112.11 121.49 179.33 88.12 192.68 226.26 125.45"
+        style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" />
+      <polygon points="196.34 63.54 229.71 50.2 259.63 112.11 226.26 125.45 196.34 63.54"
+        style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);" />
+      <polygon
+        points="196.34 63.54 226.26 125.45 88.12 192.68 227.66 317.14 197.49 368.07 29.93 209.11 29.51 151.94 196.34 63.54"
+        style="fill: var(--col-accent2)" />
+    </g>
+    <g style="fill: none; isolation: isolate;">
+      <polygon points="493.73 393.58 527.1 380.24 513.58 430.37 480.21 443.71 493.73 393.58"
+        style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);" />
+      <g>
+        <path d="m319.55,245.7c-.34.09-.66.19-1,.28.33-.09.66-.19,1-.28Z" style="fill: none;" />
+        <path
+          d="m408.38,351.34c-.8-.11-1.6-.25-2.4-.42-9.56-2.03-17.03-6.5-22.42-13.43-5.39-6.91-8.13-15.65-8.21-26.21-.05-7.28,1.23-13.3,3.83-18.07-8.9-.54-16.16.42-21.8,2.88-.18.08-.36.15-.54.23-.55.25-1.09.52-1.61.8-8.94,4.89-13.36,14.06-13.26,27.5.08,10.56,2.82,19.29,8.21,26.21,5.39,6.92,12.86,11.4,22.42,13.43.79.17,1.59.3,2.38.41.1.01.2.03.3.04.75.1,1.51.17,2.26.22.13,0,.27.02.4.02.75.04,1.49.05,2.24.04.13,0,.25,0,.38,0,.77-.02,1.53-.06,2.3-.13.08,0,.16-.02.23-.03.77-.08,1.55-.18,2.32-.31.05,0,.1-.01.15-.02.78-.13,1.56-.3,2.34-.49.12-.03.24-.06.36-.09.75-.19,1.51-.41,2.26-.65.14-.04.27-.09.41-.13.76-.25,1.51-.52,2.27-.82.88-.35,1.76-.73,2.65-1.14,4.95-2.35,9.12-5.63,12.51-9.85Z"
+          style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);" />
+        <path
+          d="m313.7,247.49c.56-.2,1.14-.38,1.72-.56.39-.13.77-.26,1.16-.38.65-.2,1.31-.38,1.97-.56.33-.09.66-.19,1-.28,1.01-.27,2.03-.52,3.07-.75,16.5-3.71,36.36-3.1,59.61,1.84l30.59,6.5-.07-10.21c-.03-3.65-.32-7.11-.86-10.39-21.66-4.24-40.29-4.6-55.9-1.09-4.18.94-8.1,2.15-11.77,3.61l-33.37,13.34s.05-.02.07-.03c.52-.21,1.05-.4,1.58-.59.4-.15.79-.31,1.2-.45Z"
+          style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);" />
+        <path
+          d="m482.1,380.53c-2.32-5.16-3.51-12.76-3.59-22.8l-.77-106.18c-.23-31.48-8.6-57.04-25.12-76.7-16.52-19.65-41.47-33.02-74.84-40.11-13.13-2.79-27.59-4.12-43.4-4-15.81.13-30.81,1.9-45.03,5.34l16.01,56.92c10.95-2.09,22.15-3.2,33.62-3.31,11.46-.11,20.97.63,28.53,2.24,26.01,5.53,40.8,19.13,44.37,40.77.54,3.28.83,6.74.86,10.39l.07,10.21-30.59-6.5c-23.25-4.94-43.12-5.55-59.61-1.84-1.04.23-2.06.48-3.07.75-.34.09-.66.19-1,.28-.66.18-1.33.37-1.97.56-.39.12-.77.25-1.16.38-.57.19-1.15.37-1.72.56-.41.14-.8.3-1.2.45-.53.2-1.06.39-1.58.59-10.86,4.33-19.5,10.95-25.94,19.88-8.6,11.94-12.83,27.6-12.69,47,.12,16.68,3.37,32.11,9.73,46.28,6.37,14.18,15.39,26.13,27.06,35.82,11.68,9.71,25.22,16.2,40.62,19.47,14.83,3.15,28.89,3.04,42.18-.34,13.29-3.37,24.1-10.21,32.43-20.5,5.21,11.98,12.37,21.78,21.47,29.41,9.1,7.63,20.57,13.68,34.41,18.14l13.52-50.13c-5.44-3.53-9.32-7.88-11.63-13.05Zm-91.15-17.38c-.14.05-.27.09-.41.13-.75.24-1.51.46-2.26.65-.12.03-.24.06-.36.09-.78.19-1.56.36-2.34.49-.05,0-.1.01-.15.02-.77.13-1.55.23-2.32.31-.08,0-.16.02-.23.03-.77.07-1.53.11-2.3.13-.13,0-.25,0-.38,0-.75.01-1.5,0-2.24-.04-.13,0-.27-.02-.4-.02-.76-.05-1.51-.12-2.26-.22-.1-.01-.2-.03-.3-.04-.79-.11-1.59-.25-2.38-.41-9.56-2.03-17.03-6.5-22.42-13.43-5.39-6.91-8.13-15.65-8.21-26.21-.1-13.44,4.33-22.61,13.26-27.5.52-.28,1.06-.55,1.61-.8.18-.08.36-.16.54-.23,5.64-2.46,12.9-3.42,21.8-2.88,5.2.32,10.95,1.13,17.27,2.48l16.69,3.55.32,43.9c-1.44,3.05-3.14,5.77-5.09,8.2-3.39,4.21-7.56,7.5-12.51,9.85-.88.42-1.77.8-2.65,1.14-.76.3-1.51.57-2.27.82Z"
+          style="fill: var(--col-accent)" />
+      </g>
+    </g>
+    <g style="fill: none; isolation: isolate;">
+      <polygon points="740.63 360.18 774 346.84 608.24 434.94 574.87 448.29 740.63 360.18"
+        style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" />
+      <polygon points="740.21 302.49 773.58 289.14 774 346.84 740.63 360.18 740.21 302.49"
+        style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" />
+      <polygon points="572.01 143.39 605.38 130.05 773.58 289.14 740.21 302.49 572.01 143.39"
+        style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);" />
+      <polygon
+        points="572.01 143.39 740.21 302.49 740.63 360.18 574.87 448.29 543.88 386.9 682.23 318.96 542.48 194.97 572.01 143.39"
+        style="fill: var(--col-accent2)" />
+    </g>
+  </g>
+  <path
+    d="m515.47,367.19c-2.32-5.16-3.51-12.76-3.59-22.8l-.77-106.18c-.23-31.48-8.6-57.04-25.12-76.7-16.52-19.65-41.47-33.02-74.84-40.11-13.13-2.79-27.59-4.12-43.4-4-15.81.13-30.81,1.9-45.03,5.34l-33.37,13.34c14.22-3.44,29.22-5.21,45.03-5.34,15.81-.12,30.27,1.21,43.4,4,33.37,7.09,58.32,20.46,74.84,40.11,16.52,19.66,24.89,45.22,25.12,76.7l.77,106.18c.07,10.04,1.27,17.64,3.59,22.8,2.31,5.17,6.19,9.52,11.63,13.05l33.37-13.34c-5.44-3.53-9.32-7.88-11.63-13.05Z"
+    style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);" />
+</svg>
+            <figcaption>Contact Links</figcaption>
+        </figure>
+    </li>
+    <li data-card data-shadow="2-hover">
+        <a data-card-link href="/spoiler" aria-label="Spoiler"></a>
+        <figure data-card-background>
+            <?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <title>Spoiler</title>
+  <path style="fill: var(--col-accent2)" d="M20 88v268l732 156V244L20 88Z" />
+  <path style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" d="m752 244 28-12v269l-28 11V244Z" />
+  <path style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);" d="m20 88 28-11 732 155-28 12L20 88Z" />
+  <path style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);"
+    d="M330 285 201 128l54-42 129 157 129-101 54 65-129 101 129 157-54 42-129-156-129 100-54-65 129-101Z" />
+  <path style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);" d="m255 451-30 6 21-17m267 67-30 6 21-17" />
+  <path style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);"
+    d="m513 142-30 5 54 66 30-6-54-65ZM255 86l-30 6 129 156 21-16L255 86Zm183 222-30 6 129 157 30-6-129-157Z" />
+  <path style="fill: var(--col-accent)"
+    d="M300 290 171 134l54-42 129 156 129-101 54 66-129 101 129 157-54 42-129-157-129 101-54-66 129-101Z" />
+</svg>
+            <figcaption>Spoiler</figcaption>
+        </figure>
+    </li>
+    <li data-card data-shadow="2-hover">
+        <a data-card-link href="/animations" aria-label="Animations"></a>
+        <figure data-card-background>
+            <?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <title>Animations</title>
+  <g style="fill: none; isolation: isolate;">
+    <polygon points="195.53 64.37 225.45 52.41 228.92 528.79 199 540.75 195.53 64.37"
+      style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" />
+    <polygon points="85.68 41.02 115.6 29.06 225.45 52.41 195.53 64.37 85.68 41.02"
+      style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);" />
+    <polygon points="195.53 64.37 199 540.75 89.15 517.4 85.68 41.02 195.53 64.37" style="fill: var(--col-accent2)" />
+  </g>
+  <g style="fill: none; isolation: isolate;">
+    <polygon points="272.75 80.79 302.67 68.83 752.82 402.33 722.9 414.29 272.75 80.79"
+      style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);" />
+    <polygon points="272.75 80.79 722.9 414.29 276.22 557.17 272.75 80.79" style="fill: var(--col-accent)" />
+  </g>
+</svg>
+            <figcaption>Animations</figcaption>
+        </figure>
+    </li>
+    <li data-card data-shadow="2-hover">
+        <a data-card-link href="/view-transitions" aria-label="View Transitions"></a>
+        <figure data-card-background>
+            <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg width="100%"
+    height="100%" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/"
+    style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <title>View Transitions</title>
+    <g>
+        <path d="M321.419,203.184l-0.04,200.311l134.422,-74.382l-134.382,-125.929Z" style="fill: var(--col-accent)" />
+        <path d="M455.801,329.113l21.021,-8.493l-134.421,74.382l-21.022,8.493l134.422,-74.382Z"
+            style="fill: oklch(from var(--col-accent) calc(l - 0.2) c h);" />
+        <path d="M321.417,203.184l21.021,-8.493l134.384,125.929l-21.021,8.493l-134.384,-125.929Z"
+            style="fill: oklch(from var(--col-accent) calc(l - 0.1) c h);" />
+    </g>
+    <g>
+        <path d="M33.967,71.848l-0.054,374.11l246.386,43.412l0.054,-374.109l-246.386,-43.413Z"
+            style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);" />
+        <path d="M280.407,115.261l17.186,-5.756l-0.053,374.11l-17.187,5.755l0.054,-374.109Z"
+            style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" />
+        <path d="M33.966,71.849l17.186,-5.756l246.388,43.413l-17.187,5.755l-246.387,-43.412Z"
+            style="fill: var(--col-accent2)" />
+    </g>
+    <g>
+        <path d="M491.747,152.478l-0.054,374.11l246.385,43.412l0.054,-374.11l-246.385,-43.412Z"
+            style="fill: oklch(from var(--col-accent2) calc(l - 0.1) c h);" />
+        <path d="M738.186,195.89l17.187,-5.755l-0.054,374.109l-17.187,5.756l0.054,-374.11Z"
+            style="fill: oklch(from var(--col-accent2) calc(l - 0.2) c h);" />
+        <path d="M491.745,152.479l17.187,-5.756l246.387,43.412l-17.187,5.756l-246.387,-43.412Z"
+            style="fill: var(--col-accent2)" />
+    </g>
+</svg>
+            <figcaption>View Transitions</figcaption>
+        </figure>
+    </li>
+</ul>
+<hr>
+<h2 id="tips-and-tricks" tabindex="-1"><a class="header-anchor" href="#tips-and-tricks">#</a> Tips and Tricks</h2>
+<h3 id="modify-a-component" tabindex="-1"><a class="header-anchor" href="#modify-a-component">#</a> Modify a component</h3>
+<p>Every component's CSS is linked on its page. Since all styles are packed into a layer, their specificity as squashed to 1. That means you can use the selector of the component and write your own styles on top.</p>
+<p>Don't like that the sparkle animation uses the ✨-emoji?</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">[data-sparkle]::before,
+[data-sparkle]::after</span> <span class="token punctuation">{</span>
+	<span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">"👁️"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p class="sparkle-demo">Why would you do that?<br>
+<span data-sparkle>I have no idea.</span> But now you can.</p>
+<p>I would advise that you put your own modifications into a layer as well, to keep the specificity down. That'll help you keep your code organised.</p>
+<h3 id="transitions" tabindex="-1"><a class="header-anchor" href="#transitions">#</a> Transitions</h3>
+<p>Some components need a different transition than others - for example, combining the Card component (<code>transition: translate</code>) with a Shadow (<code>transition: box-shadow</code>). CSS would normally overwrite one transition with the other. I've added transitions to a global selector and put the <code>transition-time</code> in a variable that defaults to <code>0s</code>.</p>
+<p>Here is a list of all available transition variables:</p>
+<pre class="language-css"><code class="language-css">--t-transform
+--t-translate
+--t-rotate
+--t-scale
+--t-box-shadow
+--t-color
+--t-background
+--t-border-color
+--t-opacity
+--t-filter</code></pre>
+<p>That way I can enable and combine selected transitions by setting a time:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">.shrink</span> <span class="token punctuation">{</span>
+	<span class="token property">--t-scale</span><span class="token punctuation">:</span> 0.5s<span class="token punctuation">;</span>
+
+	<span class="token selector">&amp;:hover</span> <span class="token punctuation">{</span>
+		<span class="token property">scale</span><span class="token punctuation">:</span> 0.8<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.fade</span> <span class="token punctuation">{</span>
+	<span class="token property">--t-opacity</span><span class="token punctuation">:</span> 0.5s<span class="token punctuation">;</span>
+
+	<span class="token selector">&amp;:hover</span> <span class="token punctuation">{</span>
+		<span class="token property">opacity</span><span class="token punctuation">:</span> 0.2<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<div data-card class="demo-transition shrink fade">
+    <code>.shrink.fade</code>
+</div>
+<p>In order to get transitions working you need to import the package:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@import</span> <span class="token string">"ssstyles/css/transition.css"</span> <span class="token function">layer</span><span class="token punctuation">(</span>base<span class="token punctuation">)</span><span class="token punctuation">;</span></span></code></pre>
+<p>It's already included in the full package. It's not included in the base styles, since there are not combined transitions in there.</p>
+<h3 id="custom-fonts" tabindex="-1"><a class="header-anchor" href="#custom-fonts">#</a> Custom fonts</h3>
+<p>You can include your own webfonts and set them via custom properties:</p>
+<pre class="language-css"><code class="language-css"><span class="token property">--font</span><span class="token punctuation">:</span> <span class="token string">"Inter"</span><span class="token punctuation">;</span>
+<span class="token property">--font-mono</span><span class="token punctuation">:</span> <span class="token string">"Fira Code"</span><span class="token punctuation">;</span>
+<span class="token property">--font-accent</span><span class="token punctuation">:</span> <span class="token string">"Lobster"</span><span class="token punctuation">;</span></code></pre>
+<p>Make sure you set a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display">working fallback option</a> and <a href="https://screenspan.net/fallback">adjust for font size diffenreces</a> to minimize <a href="https://web.dev/articles/cls?hl=de">CLS</a>.</p>
+<h3 id="include-tailwind" tabindex="-1"><a class="header-anchor" href="#include-tailwind">#</a> Include Tailwind</h3>
+<p>Tailwind works great as style tokens on top of Ssstyles. You can even include Ssstyles' custom properties as Tailwind classes. Insert this into your <code>tailwind.config.js</code>:</p>
+<pre class="language-js"><code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+	<span class="token literal-property property">theme</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+		<span class="token literal-property property">extend</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+			<span class="token literal-property property">colors</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+				<span class="token literal-property property">fg</span><span class="token operator">:</span> <span class="token string">"var(--col-fg)"</span><span class="token punctuation">,</span>
+				<span class="token literal-property property">fg2</span><span class="token operator">:</span> <span class="token string">"var(--col-fg2)"</span><span class="token punctuation">,</span>
+				<span class="token literal-property property">bg1</span><span class="token operator">:</span> <span class="token string">"var(--col-bg1)"</span><span class="token punctuation">,</span>
+				<span class="token literal-property property">bg2</span><span class="token operator">:</span> <span class="token string">"var(--col-bg2)"</span><span class="token punctuation">,</span>
+				<span class="token literal-property property">bg3</span><span class="token operator">:</span> <span class="token string">"var(--col-bg3)"</span><span class="token punctuation">,</span>
+				<span class="token literal-property property">accent</span><span class="token operator">:</span> <span class="token string">"var(--col-accent)"</span><span class="token punctuation">,</span>
+				<span class="token literal-property property">accent2</span><span class="token operator">:</span> <span class="token string">"var(--col-accent2)"</span><span class="token punctuation">,</span>
+				<span class="token string-property property">"accent-contrast"</span><span class="token operator">:</span> <span class="token string">"var(--col-accent-contrast)"</span><span class="token punctuation">,</span>
+			<span class="token punctuation">}</span><span class="token punctuation">,</span>
+			<span class="token literal-property property">fontFamily</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+				<span class="token literal-property property">base</span><span class="token operator">:</span> <span class="token string">"var(--font)"</span><span class="token punctuation">,</span>
+				<span class="token literal-property property">mono</span><span class="token operator">:</span> <span class="token string">"var(--font-mono)"</span><span class="token punctuation">,</span>
+				<span class="token literal-property property">accent</span><span class="token operator">:</span> <span class="token string">"var(--font-accent)"</span><span class="token punctuation">,</span>
+			<span class="token punctuation">}</span><span class="token punctuation">,</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token literal-property property">variants</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p>You can use it like this:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>article</span> <span class="token attr-name">data-card</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bg-accent text-accent-contrast<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>I'm a modified card!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>article</span><span class="token punctuation">></span></span></code></pre>
+
+		</main>
+		<footer>
+			<nav>
+				<ul>
+					<li>✌️ Made by <a href="https://iamschulz.com">me</a> in 2024<br></li>
+					<li>💻 <a href="https://github.com/iamschulz/ssstyles">Source Code</a><br></li>
+					<li>🚓 <a href="https://spdx.org/licenses/MIT.html">MIT Licence</a><br></li>
+					<li>🎈 <a href="https://www.11ty.dev/">Built with 11ty</a></li>
+				</ul>
+			</nav>
+		</footer>
+	</body>
+</html>
