@@ -1,6 +1,6 @@
 {
 	"name": "ssstyles",
-	"version": "1.3.1",
+	"version": "1.3.2",
 	"description": "Ssstyles is a very simple CSS style system",
 	"homepage": "https://iamschulz.github.io/ssstyles/",
 	"main": "dist/base.css",
