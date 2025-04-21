@@ -24,6 +24,7 @@ body {
 
 		> * {
 			grid-column: 2 / 4;
+			max-width: min(var(--body-width, 100%));
 		}
 	}
 
