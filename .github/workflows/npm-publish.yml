@@ -5,7 +5,11 @@ name: Ssstyles
 
 on:
     release:
-        types: [created]
+        types: [published]
+
+permissions:
+    contents: read
+    id-token: write
 
 jobs:
     build:
@@ -14,7 +18,7 @@ jobs:
             - uses: actions/checkout@v4
             - uses: actions/setup-node@v4
               with:
-                  node-version: 19
+                  node-version: 20
             - run: npm ci
             - run: npm run build:css
 
@@ -25,10 +29,8 @@ jobs:
             - uses: actions/checkout@v4
             - uses: actions/setup-node@v4
               with:
-                  node-version: 19
+                  node-version: 20
                   registry-url: https://registry.npmjs.org/
             - run: npm ci
             - run: npm run build:css
-            - run: npm publish
-              env:
-                  NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+            - run: npm publish --access public
