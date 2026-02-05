@@ -27,6 +27,8 @@ jobs:
                 with:
                 node-version: '24'
                 registry-url: 'https://registry.npmjs.org'
+            - name: Update npm to latest
+                run: npm install -g npm@latest
             - run: npm ci
             - run: npm run build:css
-            - run: npm publish
+            - run: npm publish --access public
