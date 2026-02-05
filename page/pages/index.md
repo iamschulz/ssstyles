@@ -84,6 +84,15 @@ You can save this link to your bookmarks and press it on any site to make it use
 <details>
 <summary>Show full changelog</summary>
 
+### 1.3.3.
+-   add nuxt/nextjs base ids to body selector
+
+### 1.3.2
+-   fix header content boundaries
+
+### 1.3.1
+-   Add missing default to autogrid
+
 ### 1.3.0
 
 -   add ocean theme
