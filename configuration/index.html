@@ -5,9 +5,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0 viewport-fit=cover">
 		<title>Configuration &bull; Ssstyles</title>
 		<meta name="description" content="Ssstyles is a very simple CSS style system. It consists of a classless stylesheet as a base layer and some small, optional components on top.">
-		<link rel="stylesheet" href="style.css">
-		<link rel="shortcut icon" type="image/png" href="icon.svg">
-		<link rel="apple-touch-icon" href="icon.png">
+		<link rel="stylesheet" href="/ssstyles/style.css">
+		<link rel="shortcut icon" type="image/png" href="/ssstyles/icon.svg">
+		<link rel="apple-touch-icon" href="/ssstyles/icon.png">
 		<script>
 			const styles = Array.from(document.styleSheets[0].cssRules).find(x => x.name === "themes" && x.cssText.includes('default'));
 			const themeNames = styles.cssRules[0].cssText.replaceAll(/;|,/g,'').split(' ').filter(x => !x.startsWith('@'));
@@ -32,11 +32,11 @@
 	<body>
 		<header>
 			<a data-skiplink href="#content">Skip to content</a>
-			<h1><a href="/">Ssstyles</a> ›&nbsp;Configuration</h1>
+			<h1><a href="/ssstyles/">Ssstyles</a> ›&nbsp;Configuration</h1>
 			<span>A simple style system &bull; v1.3.3</span>
 		</header>
 		<nav data-nav>
-			<ul><li><a href="/#configuration">Back</a></li><li><a href="#layout-and-design">Layout and Design</a></li><li><a href="#colors">Colors</a></li><li><a href="#typography">Typography</a></li></ul>
+			<ul><li><a href="/ssstyles/#configuration">Back</a></li><li><a href="#layout-and-design">Layout and Design</a></li><li><a href="#colors">Colors</a></li><li><a href="#typography">Typography</a></li></ul>
 		</nav>
 		<main>
 			<p>The stylesheet is configurable by a few custom properties.</p>
