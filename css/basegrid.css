@@ -4,7 +4,7 @@
 	--basegrid-rows: max-content max-content max-content auto max-content;
 }
 
-body, #__nuxt, #__next {
+body:not(:has(#__nuxt, #__next)), #__nuxt, #__next {
 	display: grid;
 	min-height: 100vh;
 	padding: 0;

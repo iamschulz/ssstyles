@@ -7,7 +7,11 @@
 	}
 }
 
-body, #__nuxt, #__next {
+body:has(#__nuxt, #__next) {
+	padding: 0;
+}
+
+body:not(:has(#__nuxt, #__next)), #__nuxt, #__next {
 	min-width: 17.5rem;
 	margin: auto;
 	word-wrap: break-word;
