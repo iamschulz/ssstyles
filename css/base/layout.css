@@ -7,7 +7,7 @@
 	}
 }
 
-body {
+body, #__nuxt, #__next {
 	min-width: 17.5rem;
 	margin: auto;
 	word-wrap: break-word;

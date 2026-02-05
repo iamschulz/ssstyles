@@ -4,7 +4,7 @@
 	--basegrid-rows: max-content max-content max-content auto max-content;
 }
 
-body {
+body, #__nuxt, #__next {
 	display: grid;
 	min-height: 100vh;
 	padding: 0;
@@ -12,29 +12,29 @@ body {
 	grid-template-columns: var(--basegrid-cols);
 	grid-template-rows: var(--basegrid-rows);
 	grid-template-areas: var(--basegrid);
-}
 
-body > header {
-	grid-area: header;
-	grid-template-columns: subgrid;
-}
+	> header {
+		grid-area: header;
+		grid-template-columns: subgrid;
+	}
 
-body > nav {
-	grid-area: nav;
-	height: 100%;
-}
+	> nav {
+		grid-area: nav;
+		height: 100%;
+	}
 
-body > main {
-	grid-area: content;
-}
+	> main {
+		grid-area: content;
+	}
 
-body > footer {
-	grid-area: footer;
-	grid-template-columns: subgrid;
-}
+	> footer {
+		grid-area: footer;
+		grid-template-columns: subgrid;
+	}
 
-body > aside {
-	grid-area: side;
+	> aside {
+		grid-area: side;
+	}
 }
 
 @media (min-width: 85rem) {
