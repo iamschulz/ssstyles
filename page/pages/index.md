@@ -84,7 +84,10 @@ You can save this link to your bookmarks and press it on any site to make it use
 <details>
 <summary>Show full changelog</summary>
 
-### 1.3.3.
+### 1.3.4
+-   experimental support for nuxt and nextjs
+
+### 1.3.3
 -   add nuxt/nextjs base ids to body selector
 
 ### 1.3.2
