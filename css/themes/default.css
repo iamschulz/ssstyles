@@ -1,15 +1,6 @@
 :root {
 	--body-width: 45rem;
 
-	--col-bg: #eee;
-	--col-bg2: #e8e8e8;
-	--col-bg3: #dfdfdf;
-	--col-fg: #333;
-	--col-fg2: #7c8386;
-	--col-accent: #b2033a;
-	--col-accent2: #1c618f;
-	--col-accent-contrast: #eee;
-
 	--font: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial, sans-serif;
 	--font-mono: Consolas, monaco, "Ubuntu Mono", "Liberation Mono", "Courier New", Courier, monospace;
 	--font-accent: var(--font);
@@ -21,8 +12,19 @@
 	--border-radius: 10px;
 }
 
+:root, [force-scheme="light"] {
+	--col-bg: #eee;
+	--col-bg2: #e8e8e8;
+	--col-bg3: #dfdfdf;
+	--col-fg: #333;
+	--col-fg2: #7c8386;
+	--col-accent: #b2033a;
+	--col-accent2: #1c618f;
+	--col-accent-contrast: #eee;
+}
+
 @media (prefers-color-scheme: dark) {
-	:root {
+	:root:not([force-scheme="light"]) {
 		--col-bg: #15181a;
 		--col-bg2: #161e21;
 		--col-bg3: #1a2225;
@@ -32,4 +34,15 @@
 		--col-accent2: #72c4ff;
 		--col-accent-contrast: #111;
 	}
+}
+
+[force-scheme="dark"] {
+	--col-bg: #15181a;
+	--col-bg2: #161e21;
+	--col-bg3: #1a2225;
+	--col-fg: #eee;
+	--col-fg2: #7c8386;
+	--col-accent: #ff297a;
+	--col-accent2: #72c4ff;
+	--col-accent-contrast: #111;
 }

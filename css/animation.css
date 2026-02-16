@@ -74,8 +74,21 @@
 	}
 }
 
-[data-sparkle] {
+:root, [force-scheme="light"] {
 	--sparkle-color: oklch(100% 0 259.28 / 100%);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:not([force-scheme="light"]) {
+		--sparkle-color: oklch(100% 0 259.28 / 50%);
+	}
+}
+
+[force-scheme="dark"] {
+	--sparkle-color: oklch(100% 0 259.28 / 50%);
+}
+
+[data-sparkle] {
 	position: relative;
 	text-shadow: 0 0 10px var(--sparkle-color);
 	letter-spacing: calc(var(--letter-spacing) + 0.03em);
@@ -95,10 +108,6 @@
 
 	&::after {
 		animation-delay: 1s;
-	}
-
-	@media (prefers-color-scheme: dark) {
-		--sparkle-color: oklch(100% 0 259.28 / 50%);
 	}
 
 	@media (prefers-reduced-motion) {
