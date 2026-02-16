@@ -16,7 +16,6 @@ body:not(:has(#__nuxt, #__next)), #__nuxt, #__next {
 	margin: auto;
 	word-wrap: break-word;
 	padding: 0 1rem;
-	overflow-x: hidden;
 
 	> :is(header, footer) {
 		display: grid;
