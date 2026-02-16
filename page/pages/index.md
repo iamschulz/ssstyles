@@ -84,6 +84,10 @@ You can save this link to your bookmarks and press it on any site to make it use
 <details>
 <summary>Show full changelog</summary>
 
+### 1.4.0
+-   support for nuxt and nextjs
+-   add theme override
+
 ### 1.3.4
 -   experimental support for nuxt and nextjs
 
@@ -484,6 +488,12 @@ Don't like that the sparkle animation uses the ✨-emoji?
 <span data-sparkle>I have no idea.</span> But now you can.</p>
 
 I would advise that you put your own modifications into a layer as well, to keep the specificity down. That'll help you keep your code organised.
+
+### Color scheme override
+
+You can add the attribute `force-scheme="dark"` or `force-scheme="light"` to the `<html>` tag to force a color scheme. This can be useful when adding a JS-powered theme switch that overrides the system settings.
+
+You can also add the `force-scheme`. attribute to any component to use a certain color scheme on it and its children.
 
 ### Transitions
 
