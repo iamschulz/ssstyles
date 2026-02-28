@@ -28,9 +28,16 @@ dialog,
 		animation: dialog-fade-in 0.1s ease-out;
 	}
 
+	&:has(> header) {
+        padding: 0;
+
+        & > * {
+            padding: 1rem;
+        }
+    }
+
 	> header {
 		background: var(--col-bg3);
-		margin: -1rem -2ch 1rem;
 		padding: 1rem 2ch;
 		font-weight: 700;
 	}
