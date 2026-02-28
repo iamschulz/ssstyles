@@ -84,7 +84,13 @@ You can save this link to your bookmarks and press it on any site to make it use
 <details>
 <summary>Show full changelog</summary>
 
-### 1.4.0
+### 1.3.6
+- add rounded corners to dialog
+- make height and max-height transitionable
+- make avatars and buttons play nice
+- fix vertical stretch of basegrid
+
+### 1.3.5
 -   support for nuxt and nextjs
 -   add theme override
 
