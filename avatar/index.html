@@ -33,7 +33,7 @@
 		<header>
 			<a data-skiplink href="#content">Skip to content</a>
 			<h1><a href="/ssstyles/">Ssstyles</a> ›&nbsp;Avatar</h1>
-			<span>A simple style system &bull; v1.3.5</span>
+			<span>A simple style system &bull; v1.3.6</span>
 		</header>
 		<nav data-nav>
 			<ul><li><a href="/ssstyles/#components">Back</a></li><li><a href="#image-avatar">Image avatar</a></li><li><a href="#text-avatar">Text avatar</a></li><li><a href="#linked-avatar">Linked avatar</a></li><li><a href="#grouped-avatars">Grouped avatars</a></li></ul>
@@ -56,10 +56,26 @@
 <img data-avatar src="https://randomuser.me/api/portraits/lego/1.jpg" alt="Guy-Manuel de Homem Christo's profile picture">
 <h2 id="linked-avatar" tabindex="-1"><a class="header-anchor" href="#linked-avatar">#</a> Linked avatar</h2>
 <p>Linking to a profile page gets you a hover style:</p>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#thomas-bangaltar<span class="token punctuation">"</span></span>
-	<span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">data-avatar</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://randomuser.me/api/portraits/lego/1.jpg<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Thomas Bangaltar's profile picture<span class="token punctuation">"</span></span>
-<span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span></code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#thomas-bangaltar<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">data-avatar</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://randomuser.me/api/portraits/lego/1.jpg<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Thomas Bangaltar's profile picture<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span></code></pre>
 <p><a href="#thomas-bangaltar"><img data-avatar src="https://randomuser.me/api/portraits/lego/1.jpg" alt="Thomas Bangaltar's profile picture" ></a></p>
+<h2 id="avatar-with-a-button" tabindex="-1"><a class="header-anchor" href="#avatar-with-a-button">#</a> Avatar with a button</h2>
+<p>Sometimes you want to use this as a button:</p>
+<pre><code>&lt;button data-avatar&gt;
+	&lt;img src=&quot;https://randomuser.me/api/portraits/lego/2.jpg&quot; alt=&quot;Guy-Manuel de Homem-Christo's profile picture&quot;/&gt;
+&lt;/button&gt;
+</code></pre>
+<button data-avatar >
+	<img src="https://randomuser.me/api/portraits/lego/2.jpg" alt="Guy-Manuel de Homem-Christo's profile picture"/>
+</button>
+<pre><code>&lt;div href=&quot;#guy-manuel-de-homem-christo&quot; data-avatar&gt;
+	&lt;button&gt;G&lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+<div href="#guy-manuel-de-homem-christo" data-avatar>
+	<button>G</button>
+</div>
 <h2 id="text-avatar" tabindex="-1"><a class="header-anchor" href="#text-avatar">#</a> Text avatar</h2>
 <p>No profile picture? Go with initial instead:</p>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#leonard-cohen<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">data-avatar</span> <span class="token attr-name">aria-title</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Leonard Cohen<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>LC<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span> Leonard Cohen<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span></code></pre>
