@@ -17,6 +17,11 @@ dialog,
 [popover] {
 	padding: 1rem 2ch;
 	border: 0.125rem solid var(--col-bg3);
+	border-radius: 
+		var(--br-tl, var(--border-radius))
+		var(--br-tr, var(--border-radius))
+		var(--br-br, var(--border-radius))
+		var(--br-bl, var(--border-radius));
 	color: var(--col-fg);
 	background: var(--col-bg);
 	@media (prefers-reduced-motion: no-preference) {
