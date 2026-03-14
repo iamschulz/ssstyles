@@ -1,3 +1,17 @@
+:root, [force-animation="true"] {
+	--enable-animation: 1;
+}
+
+[force-animation="false"] {
+	--enable-animation: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	:root {
+		--enable-animation: 0;
+	}
+}
+
 * {
 	box-sizing: border-box;
 	scrollbar-color: var(--col-fg) transparent;

@@ -24,9 +24,7 @@ dialog,
 		var(--br-bl, var(--border-radius));
 	color: var(--col-fg);
 	background: var(--col-bg);
-	@media (prefers-reduced-motion: no-preference) {
-		animation: dialog-fade-in 0.1s ease-out;
-	}
+	animation: dialog-fade-in calc(0.1s * var(--enable-animation, 1)) ease-out;
 
 	&:has(> header) {
         padding: 0;
@@ -47,6 +45,6 @@ dialog {
 	&::backdrop {
 		background: rgba(0, 0, 0, 0.4);
 		backdrop-filter: blur(4px);
-		animation: fade-in 0.1s ease-out;
+		animation: fade-in calc(0.1s * var(--enable-animation, 1)) ease-out;
 	}
 }

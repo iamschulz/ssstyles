@@ -499,7 +499,35 @@ I would advise that you put your own modifications into a layer as well, to keep
 
 You can add the attribute `force-scheme="dark"` or `force-scheme="light"` to the `<html>` tag to force a color scheme. This can be useful when adding a JS-powered theme switch that overrides the system settings.
 
-You can also add the `force-scheme`. attribute to any component to use a certain color scheme on it and its children.
+You can also add the `force-scheme` attribute to other tag to use a certain color scheme on it and its children.
+
+```html
+<div data-group>
+    <div data-card force-scheme="dark">I'm always dark</div>
+    <div data-card force-scheme="light">I'm always bright</div>
+</div>
+```
+
+<div data-group>
+    <div data-card force-scheme="dark">I'm always dark</div>
+    <div data-card force-scheme="light">I'm always bright</div>
+</div>
+
+### Animation preference override
+
+The same works for reduced animations. You can add the attribute `force-animation="true"` or `force-animation="false"` to the `<html>` tag or any other tag. Note that the `prefers-reduced-motion: reduced` query still has priority!
+
+```html
+<div data-group>
+    <div data-card data-sparkle force-animation="false">I'm always still</div>
+    <div data-card data-sparkle force-animation="true">I'm animated</div>
+</div>
+```
+
+<p>
+    <span data-sparkle force-animation="false">I'm always still</span><br>
+    <span data-sparkle force-animation="true">I'm animated</span>
+</p>
 
 ### Transitions
 

@@ -12,12 +12,9 @@
 [data-fade-in] {
 	view-timeline-name: --fade-in;
 	view-timeline-axis: block;
-
-	@media (prefers-reduced-motion: no-preference) {
-		animation: ease-in-out fade-in both;
-		animation-timeline: --fade-in;
-		animation-range: entry -10% cover 20%;
-	}
+	animation: ease-in-out fade-in both;
+	animation-timeline: --fade-in;
+	animation-range: entry calc(-10% * var(--enable-animation, 1)) cover calc(20% * var(--enable-animation, 1));
 }
 
 @keyframes sparkle {
@@ -99,11 +96,7 @@
 		position: absolute;
 		inset: 0;
 		text-shadow: 0 0 10px var(--sparkle-color);
-		animation: sparkle 3s ease-in-out infinite;
-
-		@media (prefers-reduced-motion) {
-			animation: none;
-		}
+		animation: sparkle calc(3s * var(--enable-animation, 1)) ease-in-out infinite;
 	}
 
 	&::after {
@@ -111,6 +104,14 @@
 	}
 
 	@media (prefers-reduced-motion) {
+		&:not([force-animation="false"])::before,
+		&:not([force-animation="false"])::after {
+			animation: none;
+			position: relative;
+		}
+	}
+
+	&[force-animation="false"] {
 		&::before,
 		&::after {
 			animation: none;

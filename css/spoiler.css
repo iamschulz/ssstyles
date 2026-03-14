@@ -6,9 +6,6 @@
 	&:focus-within {
 		background-color: transparent;
 		speak: auto;
-
-		@media (prefers-reduced-motion: no-preference) {
-			transition: background-color 1s ease-out;
-		}
+		transition: background-color calc(1s * var(--enable-animation, 1)) ease-out;
 	}
 }

@@ -10,6 +10,8 @@
 	--letter-spacing: 0.01875em;
 
 	--border-radius: 10px;
+
+	--enable-animtaion: 1;
 }
 
 :root, [force-scheme="light"] {
