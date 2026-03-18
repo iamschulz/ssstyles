@@ -8,7 +8,13 @@ main {
 			margin-inline-end: 0.5ch;
 			background-color: currentColor;
 			vertical-align: middle;
+
+			@media (prefers-contrast: more) {
+				content: "⬤";
+                line-height: 0.8;
+			}
 		}
+
 	}
 
 	:is(a[href^="mailto:"])::before {

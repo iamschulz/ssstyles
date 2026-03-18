@@ -8,4 +8,12 @@
 		speak: auto;
 		transition: background-color calc(1s * var(--enable-animation, 1)) ease-out;
 	}
+
+	@media (prefers-contrast: more) {
+		opacity: 0;
+
+		&:focus-within {
+			opacity: 1;
+		}
+	}
 }

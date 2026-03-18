@@ -39,4 +39,11 @@ input:is([type="checkbox"], [type="radio"])[data-toggle] {
 	&:is([disabled], [aria-disabled]) {
 		filter: contrast(0.5);
 	}
+
+	@media (prefers-contrast: more) {
+		&::before {
+			content: "⬤";
+			line-height: 0.8rem;
+		}
+	}
 }

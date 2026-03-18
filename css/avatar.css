@@ -5,6 +5,10 @@
 	vertical-align: middle;
 	background-color: var(--col-bg);
 	width: 1.5lh;
+
+	@media (prefers-contrast: more) {
+		border: 2px solid var(--col-fg);
+	}
 }
 
 [data-avatar]:not(img) {

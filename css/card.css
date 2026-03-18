@@ -10,6 +10,10 @@
 	--t-translate: 0.25s;
 	translate: 0 0;
 
+	@media (prefers-contrast: more) {
+		border: 2px solid var(--col-fg);
+	}
+
 	> * + * {
 		margin-block-start: 1rem;
 		margin-block-end: 0;

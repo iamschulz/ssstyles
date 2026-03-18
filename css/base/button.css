@@ -20,6 +20,10 @@ input[type="reset"] {
 		color-mix(in oklab, var(--col-button2), black 20%) calc(100% + var(--pos-gradient))
 	);
 
+	@media (prefers-contrast: more) {
+		border: 2px solid var(--col-fg);
+	}
+
 	&:hover:not(:is([disabled], [aria-disabled])) {
 		--col-button2: color-mix(in oklab, var(--col-button), white 10%);
 	}

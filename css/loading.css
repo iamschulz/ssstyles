@@ -20,6 +20,10 @@ button[aria-busy="true"] {
 		border-radius: 50%;
 		border: 0.2rem solid color-mix(in srgb, currentColor, transparent 66%);
 		border-top-color: currentColor;
+
+		@media (prefers-contrast: more) {
+			clip-path: polygon(50% 15%, 65% 115%, -5% 115%);
+		}
 	}
 
 	&:is(button)::before {
