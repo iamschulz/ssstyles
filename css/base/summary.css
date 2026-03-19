@@ -30,7 +30,7 @@ details {
 		font-weight: 500;
 		cursor: pointer;
 		
-		@media (forced-colors: inactive) {
+		@media not all and (forced-colors: active) {
 			padding-left: 1rem;
 			list-style-type: none;
 
