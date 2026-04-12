@@ -35,12 +35,36 @@ You can display a profile picture like this:
 Linking to a profile page gets you a hover style:
 
 ```html
-<a href="#thomas-bangaltar"
-	><img data-avatar src="https://randomuser.me/api/portraits/lego/1.jpg" alt="Thomas Bangaltar's profile picture"
-/></a>
+<a href="#thomas-bangaltar">
+	<img data-avatar src="https://randomuser.me/api/portraits/lego/1.jpg" alt="Thomas Bangaltar's profile picture" />
+</a>
 ```
 
-<a href="#thomas-bangaltar"><img data-avatar src="https://randomuser.me/api/portraits/lego/1.jpg" alt="Thomas Bangaltar's profile picture" ></a>
+<a href="#thomas-bangaltar"><img data-avatar src="https://randomuser.me/api/portraits/lego/1.jpg" alt="Thomas Bangaltar's profile picture"></a>
+
+## Avatar with a button
+
+Sometimes you want to use this as a button:
+
+```html
+<button data-avatar>
+	<img src="https://randomuser.me/api/portraits/lego/2.jpg" alt="Guy-Manuel de Homem-Christo's profile picture">
+</button>
+```
+
+<button data-avatar >
+	<img src="https://randomuser.me/api/portraits/lego/2.jpg" alt="Guy-Manuel de Homem-Christo's profile picture">
+</button>
+
+```
+<div href="#guy-manuel-de-homem-christo" data-avatar>
+	<button>G</button>
+</div>
+```
+
+<div href="#guy-manuel-de-homem-christo" data-avatar>
+	<button>G</button>
+</div>
 
 ## Text avatar
 

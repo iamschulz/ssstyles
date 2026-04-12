@@ -84,6 +84,28 @@ You can save this link to your bookmarks and press it on any site to make it use
 <details>
 <summary>Show full changelog</summary>
 
+### 1.3.6
+- add rounded corners to dialog
+- make height and max-height transitionable
+- make avatars and buttons play nice
+- fix vertical stretch of basegrid
+
+### 1.3.5
+-   support for nuxt and nextjs
+-   add theme override
+
+### 1.3.4
+-   experimental support for nuxt and nextjs
+
+### 1.3.3
+-   add nuxt/nextjs base ids to body selector
+
+### 1.3.2
+-   fix header content boundaries
+
+### 1.3.1
+-   Add missing default to autogrid
+
 ### 1.3.0
 
 -   add ocean theme
@@ -285,7 +307,7 @@ The base package also serves as the foundation to all other components.
 Here are some included elements:
 
 <article data-card data-shadow="2-hover">
-    <a data-card-link href="{{ '/base-styles' | url }}" aria-label="Base Styles"></a>
+    <a data-card-link href="{{ './base-styles' | url }}" aria-label="Base Styles"></a>
     <figure data-card-background>
         {% svg "base.svg" %}
         <figcaption>Base Styles</figcaption>
@@ -310,140 +332,140 @@ Here's a list of all available components:
 
 <ul data-autogrid="1/4" data-hint="nolist">
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="{{ '/layout' | url }}" aria-label="Layout"></a>
+        <a data-card-link href="{{ './layout' | url }}" aria-label="Layout"></a>
         <figure data-card-background>
             {% svg "layout.svg" %}
             <figcaption>Layout</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="{{ '/nav' | url }}" aria-label="Nav"></a>
+        <a data-card-link href="{{ './nav' | url }}" aria-label="Nav"></a>
         <figure data-card-background>
             {% svg "nav.svg" %}
             <figcaption>Nav</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="{{ '/skip-link' | url }}" aria-label="Skiplink"></a>
+        <a data-card-link href="{{ './skip-link' | url }}" aria-label="Skiplink"></a>
         <figure data-card-background>
             {% svg "skiplink.svg" %}
             <figcaption>Skiplink</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="{{ '/headline' | url }}" aria-label="Headline"></a>
+        <a data-card-link href="{{ './headline' | url }}" aria-label="Headline"></a>
         <figure data-card-background>
             {% svg "headline.svg" %}
             <figcaption>Headline</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="{{ '/columns' | url }}" aria-label="Columns"></a>
+        <a data-card-link href="{{ './columns' | url }}" aria-label="Columns"></a>
         <figure data-card-background>
             {% svg "columns.svg" %}
             <figcaption>Columns</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="{{ '/card' | url }}" aria-label="Card"></a>
+        <a data-card-link href="{{ './card' | url }}" aria-label="Card"></a>
         <figure data-card-background>
             {% svg "card.svg" %}
             <figcaption>Card</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="{{ '/breakout' | url }}" aria-label="Breakout"></a>
+        <a data-card-link href="{{ './breakout' | url }}" aria-label="Breakout"></a>
         <figure data-card-background>
             {% svg "breakout.svg" %}
             <figcaption>Breakout</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="{{ '/group' | url }}" aria-label="Group"></a>
+        <a data-card-link href="{{ './group' | url }}" aria-label="Group"></a>
         <figure data-card-background>
             {% svg "group.svg" %}
             <figcaption>Group</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="{{ '/callout' | url }}" aria-label="Callout"></a>
+        <a data-card-link href="{{ './callout' | url }}" aria-label="Callout"></a>
         <figure data-card-background>
             {% svg "callout.svg" %}
             <figcaption>Callout</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="{{ '/shadow' | url }}" aria-label="Shadow"></a>
+        <a data-card-link href="{{ './shadow' | url }}" aria-label="Shadow"></a>
         <figure data-card-background>
             {% svg "shadow.svg" %}
             <figcaption>Shadow</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="{{ '/toggle' | url }}" aria-label="Toggle"></a>
+        <a data-card-link href="{{ './toggle' | url }}" aria-label="Toggle"></a>
         <figure data-card-background>
             {% svg "toggle.svg" %}
             <figcaption>Toggle</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="{{ '/loading' | url }}" aria-label="Loading"></a>
+        <a data-card-link href="{{ './loading' | url }}" aria-label="Loading"></a>
         <figure data-card-background>
             {% svg "loading.svg" %}
             <figcaption>Loading</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="{{ '/carousel' | url }}" aria-label="Carousel"></a>
+        <a data-card-link href="{{ './carousel' | url }}" aria-label="Carousel"></a>
         <figure data-card-background>
             {% svg "carousel.svg" %}
             <figcaption>Carousel</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="{{ '/action-link' | url }}" aria-label="Action Link"></a>
+        <a data-card-link href="{{ './action-link' | url }}" aria-label="Action Link"></a>
         <figure data-card-background>
             {% svg "actionlink.svg" %}
             <figcaption>Action Link</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="{{ '/avatar' | url }}" aria-label="Avatar"></a>
+        <a data-card-link href="{{ './avatar' | url }}" aria-label="Avatar"></a>
         <figure data-card-background>
             {% svg "avatar.svg" %}
             <figcaption>Avatar</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="{{ '/comment' | url }}" aria-label="Comment"></a>
+        <a data-card-link href="{{ './comment' | url }}" aria-label="Comment"></a>
         <figure data-card-background>
             {% svg "comment.svg" %}
             <figcaption>Comment</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="{{ '/contact-links' | url }}" aria-label="Contact Links"></a>
+        <a data-card-link href="{{ './contact-links' | url }}" aria-label="Contact Links"></a>
         <figure data-card-background>
             {% svg "contactlinks.svg" %}
             <figcaption>Contact Links</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="{{ '/spoiler' | url }}" aria-label="Spoiler"></a>
+        <a data-card-link href="{{ './spoiler' | url }}" aria-label="Spoiler"></a>
         <figure data-card-background>
             {% svg "spoiler.svg" %}
             <figcaption>Spoiler</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="{{ '/animations' | url }}" aria-label="Animations"></a>
+        <a data-card-link href="{{ './animations' | url }}" aria-label="Animations"></a>
         <figure data-card-background>
             {% svg "animations.svg" %}
             <figcaption>Animations</figcaption>
         </figure>
     </li>
     <li data-card data-shadow="2-hover">
-        <a data-card-link href="{{ '/view-transitions' | url }}" aria-label="View Transitions"></a>
+        <a data-card-link href="{{ './view-transitions' | url }}" aria-label="View Transitions"></a>
         <figure data-card-background>
             {% svg "viewtransitions.svg" %}
             <figcaption>View Transitions</figcaption>
@@ -472,6 +494,40 @@ Don't like that the sparkle animation uses the ✨-emoji?
 <span data-sparkle>I have no idea.</span> But now you can.</p>
 
 I would advise that you put your own modifications into a layer as well, to keep the specificity down. That'll help you keep your code organised.
+
+### Color scheme override
+
+You can add the attribute `force-scheme="dark"` or `force-scheme="light"` to the `<html>` tag to force a color scheme. This can be useful when adding a JS-powered theme switch that overrides the system settings.
+
+You can also add the `force-scheme` attribute to other tag to use a certain color scheme on it and its children.
+
+```html
+<div data-group>
+    <div data-card force-scheme="dark">I'm always dark</div>
+    <div data-card force-scheme="light">I'm always bright</div>
+</div>
+```
+
+<div data-group>
+    <div data-card force-scheme="dark">I'm always dark</div>
+    <div data-card force-scheme="light">I'm always bright</div>
+</div>
+
+### Animation preference override
+
+The same works for reduced animations. You can add the attribute `force-animation="true"` or `force-animation="false"` to the `<html>` tag or any other tag. Note that the `prefers-reduced-motion: reduced` query still has priority!
+
+```html
+<div data-group>
+    <div data-card data-sparkle force-animation="false">I'm always still</div>
+    <div data-card data-sparkle force-animation="true">I'm animated</div>
+</div>
+```
+
+<p>
+    <span data-sparkle force-animation="false">I'm always still</span><br>
+    <span data-sparkle force-animation="true">I'm animated</span>
+</p>
 
 ### Transitions
 

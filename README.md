@@ -57,3 +57,4 @@ You can also simply download the CSS file and include it however you wish.
 ## More info
 
 Fore more information please visit the [project site](https://iamschulz.github.io/ssstyles).
+

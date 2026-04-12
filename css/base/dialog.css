@@ -17,15 +17,25 @@ dialog,
 [popover] {
 	padding: 1rem 2ch;
 	border: 0.125rem solid var(--col-bg3);
+	border-radius: 
+		var(--br-tl, var(--border-radius))
+		var(--br-tr, var(--border-radius))
+		var(--br-br, var(--border-radius))
+		var(--br-bl, var(--border-radius));
 	color: var(--col-fg);
 	background: var(--col-bg);
-	@media (prefers-reduced-motion: no-preference) {
-		animation: dialog-fade-in 0.1s ease-out;
-	}
+	animation: dialog-fade-in calc(0.1s * var(--enable-animation, 1)) ease-out;
+
+	&:has(> header) {
+        padding: 0;
+
+        & > * {
+            padding: 1rem;
+        }
+    }
 
 	> header {
 		background: var(--col-bg3);
-		margin: -1rem -2ch 1rem;
 		padding: 1rem 2ch;
 		font-weight: 700;
 	}
@@ -35,6 +45,6 @@ dialog {
 	&::backdrop {
 		background: rgba(0, 0, 0, 0.4);
 		backdrop-filter: blur(4px);
-		animation: fade-in 0.1s ease-out;
+		animation: fade-in calc(0.1s * var(--enable-animation, 1)) ease-out;
 	}
 }

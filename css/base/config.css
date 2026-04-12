@@ -66,3 +66,7 @@
 	syntax: "<length>";
 	inherits: true;
 }
+@property --enable-animation {
+	syntax: "<integer>";
+	inherits: true;
+}

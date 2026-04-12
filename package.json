@@ -1,13 +1,13 @@
 {
 	"name": "ssstyles",
-	"version": "1.3.2",
+	"version": "1.3.9",
 	"description": "Ssstyles is a very simple CSS style system",
 	"homepage": "https://iamschulz.github.io/ssstyles/",
 	"main": "dist/base.css",
 	"scripts": {
 		"build:css": "node ./esbuild.js --minify",
 		"build:page": "node ./esbuild.js --minify && eleventy",
-		"build:gh-page": "env NODE_ENV=production node ./esbuild.js --minify && eleventy --pathprefix 'ssstyles'",
+		"build:gh-page": "env NODE_ENV=production node ./esbuild.js --minify && eleventy --pathprefix=ssstyles",
 		"watch:css": "node ./esbuild.js --watch",
 		"watch:11ty": "eleventy --serve",
 		"watch:page": "npm-run-all --parallel watch:css watch:11ty",
@@ -30,10 +30,10 @@
 	},
 	"license": "MIT",
 	"devDependencies": {
-		"@11ty/eleventy": "^2.0.1",
+		"@11ty/eleventy": "^3.1.2",
 		"@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
 		"eleventy-plugin-toc": "^1.1.5",
-		"esbuild": "^0.19.8",
+		"esbuild": "^0.27.4",
 		"html-validate": "^8.8.0",
 		"markdown-it": "^14.0.0",
 		"markdown-it-anchor": "^8.6.7",

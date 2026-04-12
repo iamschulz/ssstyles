@@ -1,15 +1,6 @@
 :root {
 	--body-width: 45rem;
 
-	--col-bg: #e5ffd8;
-	--col-bg2: #e5ffd8;
-	--col-bg3: #e5ffd8;
-	--col-fg: #247300;
-	--col-fg2: #247300;
-	--col-accent: #247300;
-	--col-accent2: #247300;
-	--col-accent-contrast: #fff;
-
 	--font: Consolas, monaco, "Ubuntu Mono", "Liberation Mono", "Courier New", Courier, monospace;
 	--font-mono: Consolas, monaco, "Ubuntu Mono", "Liberation Mono", "Courier New", Courier, monospace;
 	--font-accent: var(--font);
@@ -21,8 +12,19 @@
 	--border-radius: 0px;
 }
 
+:root, [force-scheme="light"] {
+	--col-bg: #e5ffd8;
+	--col-bg2: #e5ffd8;
+	--col-bg3: #e5ffd8;
+	--col-fg: #247300;
+	--col-fg2: #247300;
+	--col-accent: #247300;
+	--col-accent2: #247300;
+	--col-accent-contrast: #fff;
+}
+
 @media (prefers-color-scheme: dark) {
-	:root {
+	:root:not([force-scheme="light"]) {
 		--col-bg: #051000;
 		--col-bg2: #0a3000;
 		--col-bg3: #061d00;
@@ -32,4 +34,15 @@
 		--col-accent2: #0f0;
 		--col-accent-contrast: #000;
 	}
+}
+
+[force-scheme="dark"] {
+	--col-bg: #051000;
+	--col-bg2: #0a3000;
+	--col-bg3: #061d00;
+	--col-fg: #0f0;
+	--col-fg2: #0f0;
+	--col-accent: #0f0;
+	--col-accent2: #0f0;
+	--col-accent-contrast: #000;
 }

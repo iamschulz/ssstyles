@@ -1,3 +1,17 @@
+:root, [force-animation="true"] {
+	--enable-animation: 1;
+}
+
+[force-animation="false"] {
+	--enable-animation: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	:root {
+		--enable-animation: 0;
+	}
+}
+
 * {
 	box-sizing: border-box;
 	scrollbar-color: var(--col-fg) transparent;
@@ -7,12 +21,15 @@
 	}
 }
 
-body {
+body:has(#__nuxt, #__next) {
+	padding: 0;
+}
+
+body:not(:has(#__nuxt, #__next)), #__nuxt, #__next {
 	min-width: 17.5rem;
 	margin: auto;
 	word-wrap: break-word;
 	padding: 0 1rem;
-	overflow-x: hidden;
 
 	> :is(header, footer) {
 		display: grid;

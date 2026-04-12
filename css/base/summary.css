@@ -13,7 +13,10 @@ details {
 			opacity: 0;
 			block-size: 0;
 			overflow-y: clip;
-			transition: content-visibility 0.2s allow-discrete ease-out, block-size 0.2s ease-out, opacity 0.2s ease-out;
+			transition: 
+				content-visibility calc(0.2s * var(--enable-animation, 1)) allow-discrete ease-out, 
+				block-size calc(0.2s * var(--enable-animation, 1)) ease-out, 
+				opacity calc(0.2s * var(--enable-animation, 1)) ease-out;
 		}
 	}
 
@@ -26,29 +29,32 @@ details {
 		position: relative;
 		font-weight: 500;
 		cursor: pointer;
-		padding-left: 1rem;
-		list-style-type: none;
+		
+		@media not all and (forced-colors: active) {
+			padding-left: 1rem;
+			list-style-type: none;
 
-		&::marker,
-		&::-webkit-details-marker {
-			display: none;
-		}
+			&::marker,
+			&::-webkit-details-marker {
+				display: none;
+			}
 
-		&::before {
-			content: "";
-			position: absolute;
-			left: -1ch;
-			width: 0;
-			height: 0;
-			border: 0.5rem solid transparent;
-			border-left: 0.5rem solid var(--col-accent);
-			transform: translate(0.625rem, 0.25lh) rotate(var(--dstr, 0deg));
-			transform-origin: 25% center;
-			transition: transform 0.1s ease-out;
-		}
+			&::before {
+				content: "";
+				position: absolute;
+				left: -1ch;
+				width: 0;
+				height: 0;
+				border: 0.5rem solid transparent;
+				border-left: 0.5rem solid var(--col-accent);
+				transform: translate(0.625rem, 0.25lh) rotate(var(--dstr, 0deg));
+				transform-origin: 25% center;
+				transition: transform calc(0.1s * var(--enable-animation, 1)) ease-out;
+			}
 
-		&:hover::before {
-			border-left-color: var(--col-accent2);
+			&:hover::before {
+				border-left-color: var(--col-accent2);
+			}
 		}
 	}
 
